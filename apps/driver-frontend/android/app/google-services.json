@@ -1,0 +1,67 @@
+{
+  "project_info": {
+    "project_number": "791496585110",
+    "project_id": "car-go-cz-1-st-prod",
+    "storage_bucket": "car-go-cz-1-st-prod.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791496585110:android:e05f74689ebfd40766f7b7",
+        "android_client_info": {
+          "package_name": "com.ridy.taxi.driver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkf1mIOSh9ZAigJWMDI9GbZB7PQ7VKhsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791496585110:android:94660deb855f720c66f7b7",
+        "android_client_info": {
+          "package_name": "com.ridy.taxi.rider"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkf1mIOSh9ZAigJWMDI9GbZB7PQ7VKhsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:791496585110:android:d62542536b24e88e66f7b7",
+        "android_client_info": {
+          "package_name": "cz.in.cargo.driver"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAkf1mIOSh9ZAigJWMDI9GbZB7PQ7VKhsU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
