@@ -23,7 +23,6 @@ dependencies:
   # Firebase
   firebase_analytics: ^11.3.6
   firebase_core: ^3.8.1
-  firebase_crashlytics: ^4.2.0
   firebase_messaging: ^15.1.6
   fl_chart: ^0.64.0
   flutter:
@@ -45,6 +44,7 @@ dependencies:
   gauge_indicator: ^0.4.3
   generic_map: 0.3.3
   geolocator: ^13.0.2
+  google_maps_flutter: ^2.12.1
 
   # Dependency injection
   get_it: ^8.0.2

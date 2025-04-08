@@ -17,12 +17,14 @@ class Constants {
         userId: "mapbox",
         tileSetId: "streets-v12",
       );
+
   static const PlaceEntity defaultLocation = PlaceEntity(
-    coordinates: LatLngEntity(lat: 37.3875, lng: -122.0575),
-    address: "1 Infinite Loop, Cupertino, CA 95014",
+    coordinates: LatLngEntity(lat: 50.0755, lng: 14.4378),
+    address: "Staroměstské náměstí, 110 00 Praha 1",
   );
+
   static const List<double> walletPresets = [10, 20, 50];
-  static const MapProviderEnum defaultMapProvider = MapProviderEnum.mapBox;
+  static const MapProviderEnum defaultMapProvider = MapProviderEnum.googleMaps;
   static const MeasurementSystem defaultMeasurementSystem =
       MeasurementSystem.metric;
 }

@@ -83,9 +83,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
-	<string>By granting this permission, we will be able to find your current location so you can find the trip's starting point easier.</string>
+	<string>By granting this permission, we will be able to find your current location so you can find the trip&apos;s starting point easier.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>By granting this permission, we will be able to find your current location so you can find the trip's starting point easier.</string>
+	<string>By granting this permission, we will be able to find your current location so you can find the trip&apos;s starting point easier.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Access to you media library is required to upload the selected image to our server for Profile Image</string>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
@@ -94,7 +94,6 @@
 	<array>
 		<string>fetch</string>
 		<string>remote-notification</string>
-		<string>processing</string>
 		<string>location</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
