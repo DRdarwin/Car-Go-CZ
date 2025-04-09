@@ -90,10 +90,15 @@ class PlaceConfirmSheet extends StatelessWidget {
                         loaded: (value) => false,
                       ),
                       onPressed: () {
-                        final location = state.maybeMap(orElse: () => throw Exception(), loaded: (value) => value.data);
-                        final newWaypoints =
-                            waypoints.mapIndexed((index, element) => index == this.index ? location : element).toList();
-                        locator<HomeCubit>().showWaypoints(waypoints: newWaypoints);
+                        final location = state.maybeMap(
+                            orElse: () => throw Exception(),
+                            loaded: (value) => value.data);
+                        final newWaypoints = waypoints
+                            .mapIndexed((index, element) =>
+                                index == this.index ? location : element)
+                            .toList();
+                        locator<HomeCubit>()
+                            .showWaypoints(waypoints: newWaypoints);
                       },
                       child: Text(title(context)),
                     ),
@@ -107,5 +112,7 @@ class PlaceConfirmSheet extends StatelessWidget {
     );
   }
 
-  String title(BuildContext context) => index == 0 ? context.translate.confirmPickup : context.translate.confirmDropoff;
+  String title(BuildContext context) => index == 0
+      ? context.translate.confirmPickup
+      : context.translate.confirmDropoff;
 }

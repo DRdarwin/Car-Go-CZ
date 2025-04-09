@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:driver_flutter/config/locator/locator.dart';
 import 'package:driver_flutter/core/entities/order_request.dart';
 import 'package:driver_flutter/features/home/presentation/components/order_request_item.dart';
-import 'package:flutter/material.dart';
 
 import '../../blocs/home.dart';
 
@@ -21,15 +22,20 @@ class OrderRequestsPageView extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 16),
         child: SizedBox(
           height: 420,
-          child: PageView.builder( // TODO: Replace with CarouselView
-            controller: PageController(viewportFraction: 0.9),
-            onPageChanged: (value) => locator<HomeBloc>().add(
-              HomeEvent.onOrderRequestPageChanged(
-                request: requests[value],
-              ),
+          child: CarouselSlider.builder(
+            options: CarouselOptions(
+              height: 420,
+              viewportFraction: 0.9,
+              onPageChanged: (index, reason) {
+                locator<HomeBloc>().add(
+                  HomeEvent.onOrderRequestPageChanged(
+                    request: requests[index],
+                  ),
+                );
+              },
             ),
             itemCount: requests.length,
-            itemBuilder: (context, index) => Padding(
+            itemBuilder: (context, index, realIndex) => Padding(
               padding: const EdgeInsets.symmetric(horizontal: 6),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'package:generic_map/flutter_map/widget.dart';
 import 'package:generic_map/generic_map.dart';
 import 'package:generic_map/google_map/widget.dart';
@@ -28,6 +27,7 @@ class GenericMap extends StatefulWidget {
   final bool isPolylineDrawEnabled;
   final PolyEditor? polyEditor;
   final Function(List<LatLng>)? onPolylineDrawn;
+  final bool goToCurrentLocation;
 
   GenericMap({
     super.key,
@@ -47,6 +47,7 @@ class GenericMap extends StatefulWidget {
     this.isPolylineDrawEnabled = false,
     this.polyEditor,
     this.onPolylineDrawn,
+    this.goToCurrentLocation = false,
   }) {
     assert(
       mode == MapViewMode.picker && centerMarkerBuilder != null ||
@@ -71,11 +72,20 @@ class GenericMap extends StatefulWidget {
 class _GenericMapState extends State<GenericMap> with TickerProviderStateMixin {
   String? currentAddress;
   final markerKey = GlobalKey();
+  late MapViewController? _controller;
 
   @override
   void initState() {
     currentAddress ??= widget.initialLocation.address;
     super.initState();
+  }
+
+  void _handleControllerReady(MapViewController controller) {
+    _controller = controller;
+    if (widget.goToCurrentLocation) {
+      _controller?.moveCamera(widget.initialLocation.latLng, null);
+    }
+    widget.onControllerReady?.call(controller);
   }
 
   @override
@@ -87,7 +97,7 @@ class _GenericMapState extends State<GenericMap> with TickerProviderStateMixin {
               ? FlutterMapView(
                   mode: widget.mode,
                   provider: widget.provider,
-                  onControllerReady: widget.onControllerReady,
+                  onControllerReady: _handleControllerReady,
                   initialLocation: widget.initialLocation,
                   padding: widget.padding,
                   polylines: widget.polylines,
@@ -107,14 +117,14 @@ class _GenericMapState extends State<GenericMap> with TickerProviderStateMixin {
                   markers: widget.markers,
                   polyEditor: widget.polyEditor,
                   isPolylineDrawEnabled: widget.isPolylineDrawEnabled,
-                  goToCurrentLocation: false, // TODO: implement
+                  goToCurrentLocation: widget.goToCurrentLocation,
                   onPolylineDrawn: widget.onPolylineDrawn,
                 )
               : GoogleMapView(
                   mode: widget.mode,
                   provider: widget.provider as GoogleMapProvider,
                   padding: widget.padding,
-                  onControllerReady: widget.onControllerReady,
+                  onControllerReady: _handleControllerReady,
                   initialLocation: widget.initialLocation,
                   markers: widget.markers,
                   circleMarkers: widget.circleMarkers,

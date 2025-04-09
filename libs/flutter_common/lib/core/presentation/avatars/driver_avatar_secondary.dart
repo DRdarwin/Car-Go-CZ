@@ -23,12 +23,15 @@ class DriverAvatarSecondary extends StatelessWidget {
         image: imageUrl == null
             ? null
             : DecorationImage(
-                image: CachedNetworkImageProvider(imageUrl!), fit: BoxFit.cover, filterQuality: FilterQuality.high),
+                image: CachedNetworkImageProvider(imageUrl!),
+                fit: BoxFit.cover,
+                filterQuality: FilterQuality.high,
+              ),
       ),
       child: imageUrl == null
           ? Icon(
               Ionicons.person_circle,
-              color: ColorPalette.primary30.withOpacity(0.4),
+              color: ColorPalette.primary30.withValues(alpha: 0.4),
             )
           : const SizedBox(
               width: 24,

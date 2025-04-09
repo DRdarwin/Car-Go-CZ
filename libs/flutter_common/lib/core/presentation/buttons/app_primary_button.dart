@@ -24,17 +24,19 @@ class AppPrimaryButton extends StatelessWidget {
         padding: WidgetStateProperty.all(
           const EdgeInsets.all(16),
         ),
-        backgroundColor:
-            color == PrimaryButtonColor.primary ? primaryButtonBackground(context) : errorButtonBackground(context),
+        backgroundColor: color == PrimaryButtonColor.primary
+            ? primaryButtonBackground(context)
+            : errorButtonBackground(context),
       ),
       child: child,
     );
   }
 
-  WidgetStateProperty<Color> primaryButtonBackground(BuildContext context) => WidgetStateProperty.resolveWith(
+  WidgetStateProperty<Color> primaryButtonBackground(BuildContext context) =>
+      WidgetStateProperty.resolveWith(
         (states) {
           if (states.contains(WidgetState.disabled)) {
-            return context.theme.colorScheme.onSurface.withOpacity(0.12);
+            return context.theme.colorScheme.onSurface.withValues(alpha: 0.12);
           } else if (states.contains(WidgetState.hovered)) {
             return context.colorScheme.primary;
           } else if (states.contains(WidgetState.pressed)) {
@@ -45,10 +47,11 @@ class AppPrimaryButton extends StatelessWidget {
         },
       );
 
-  WidgetStateProperty<Color> errorButtonBackground(BuildContext context) => WidgetStateProperty.resolveWith(
+  WidgetStateProperty<Color> errorButtonBackground(BuildContext context) =>
+      WidgetStateProperty.resolveWith(
         (states) {
           if (states.contains(WidgetState.disabled)) {
-            return context.theme.colorScheme.onSurface.withOpacity(0.12);
+            return context.theme.colorScheme.onSurface.withValues(alpha: 0.12);
           } else if (states.contains(WidgetState.hovered)) {
             return ColorPalette.error50;
           } else if (states.contains(WidgetState.pressed)) {
