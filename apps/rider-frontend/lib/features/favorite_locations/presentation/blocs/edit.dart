@@ -14,7 +14,8 @@ part 'edit.freezed.dart';
 class EditFavoriteLocationCubit extends Cubit<EditFavoriteLocationState> {
   final FavoriteLocationsRepository repository;
 
-  EditFavoriteLocationCubit(this.repository) : super(EditFavoriteLocationState.initial());
+  EditFavoriteLocationCubit(this.repository)
+      : super(EditFavoriteLocationState.initial());
 
   void init({
     required AddressType addressType,
@@ -55,7 +56,8 @@ class EditFavoriteLocationCubit extends Cubit<EditFavoriteLocationState> {
     emit(
       state.copyWith(formState: const AppFormState.busy()),
     );
-    final result = await repository.updateFavoriteLocation(id: id, input: input);
+    final result =
+        await repository.updateFavoriteLocation(id: id, input: input);
     emit(
       state.copyWith(
         formState: result.fold(

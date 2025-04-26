@@ -19,7 +19,8 @@ class NavigationScreenDesktop extends StatefulWidget {
   });
 
   @override
-  State<NavigationScreenDesktop> createState() => _NavigationScreenDesktopState();
+  State<NavigationScreenDesktop> createState() =>
+      _NavigationScreenDesktopState();
 }
 
 class _NavigationScreenDesktopState extends State<NavigationScreenDesktop> {

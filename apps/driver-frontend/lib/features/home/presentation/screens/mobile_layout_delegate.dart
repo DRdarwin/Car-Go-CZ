@@ -28,8 +28,10 @@ class MobileLayoutDelegate extends MultiChildLayoutDelegate {
       const BoxConstraints(),
     );
 
-    final myLocationButtonSize = layoutChild(myLocationButtonId, const BoxConstraints());
-    final navigationButtonSize = layoutChild(navigateButtonId, const BoxConstraints());
+    final myLocationButtonSize =
+        layoutChild(myLocationButtonId, const BoxConstraints());
+    final navigationButtonSize =
+        layoutChild(navigateButtonId, const BoxConstraints());
     positionChild(
       navigateButtonId,
       Offset(
@@ -62,7 +64,8 @@ class MobileLayoutDelegate extends MultiChildLayoutDelegate {
         ),
       );
       positionChild(mapLayoutId, Offset.zero);
-      final navBarSize = layoutChild(navbarId, BoxConstraints(maxWidth: size.width - 32));
+      final navBarSize =
+          layoutChild(navbarId, BoxConstraints(maxWidth: size.width - 32));
       positionChild(
         navbarId,
         const Offset(

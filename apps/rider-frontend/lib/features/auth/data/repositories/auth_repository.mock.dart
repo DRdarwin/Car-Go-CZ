@@ -12,12 +12,15 @@ import '../../domain/repositories/auth_repository.dart';
 @LazySingleton(as: AuthRepository)
 class AuthRepositoryMock implements AuthRepository {
   @override
-  Future<Either<Failure, VerifyNumberResponse>> resendOtp(String mobileNumber) async {
-    return const Right(VerifyNumberResponse(isExistingUser: true, hash: 'hash'));
+  Future<Either<Failure, VerifyNumberResponse>> resendOtp(
+      String mobileNumber) async {
+    return const Right(
+        VerifyNumberResponse(isExistingUser: true, hash: 'hash'));
   }
 
   @override
-  Future<Either<Failure, VerifyOtpResponse>> setPassword(String password) async {
+  Future<Either<Failure, VerifyOtpResponse>> setPassword(
+      String password) async {
     return Right(VerifyOtpResponse(
       hasName: false,
       profile: ProfileEntity.testProfile,
@@ -43,11 +46,13 @@ class AuthRepositoryMock implements AuthRepository {
     required String mobileNumber,
     required String countryCode,
   }) async {
-    return const Right(VerifyNumberResponse(isExistingUser: false, hash: 'hash'));
+    return const Right(
+        VerifyNumberResponse(isExistingUser: false, hash: 'hash'));
   }
 
   @override
-  Future<Either<Failure, VerifyOtpResponse>> verifyOtp(String hash, String otp) async {
+  Future<Either<Failure, VerifyOtpResponse>> verifyOtp(
+      String hash, String otp) async {
     return Right(
       VerifyOtpResponse(
         hasName: false,
@@ -59,7 +64,8 @@ class AuthRepositoryMock implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, VerifyOtpResponse>> verifyPassword(String mobileNumber, String password) async {
+  Future<Either<Failure, VerifyOtpResponse>> verifyPassword(
+      String mobileNumber, String password) async {
     return Right(
       VerifyOtpResponse(
         hasName: false,

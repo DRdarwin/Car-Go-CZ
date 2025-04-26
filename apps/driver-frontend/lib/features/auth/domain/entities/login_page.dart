@@ -25,7 +25,8 @@ sealed class LoginPage with _$LoginPage {
 
   const LoginPage._();
 
-  factory LoginPage.fromJson(Map<String, dynamic> json) => _$LoginPageFromJson(json);
+  factory LoginPage.fromJson(Map<String, dynamic> json) =>
+      _$LoginPageFromJson(json);
 
   int? get loginStep {
     switch (this) {

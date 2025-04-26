@@ -15,7 +15,9 @@ class HomeMyLocationButton extends StatelessWidget {
       return state.driverStatus.maybeMap(
         orElse: () => _buildButton(context),
         online: (online) {
-          return online.orderRequests.isNotEmpty ? const SizedBox() : _buildButton(context);
+          return online.orderRequests.isNotEmpty
+              ? const SizedBox()
+              : _buildButton(context);
         },
       );
     });

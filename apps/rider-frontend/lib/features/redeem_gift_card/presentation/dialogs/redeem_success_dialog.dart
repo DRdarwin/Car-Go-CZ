@@ -25,7 +25,8 @@ class RedeemSuccessDialog extends StatelessWidget {
       header: (
         Ionicons.gift,
         context.translate.redeemSuccessTitle,
-        context.translate.redeemSuccessDescription(amount.formatCurrency(currency)),
+        context.translate
+            .redeemSuccessDescription(amount.formatCurrency(currency)),
       ),
       primaryButton: AppPrimaryButton(
         child: Text(context.translate.ok),

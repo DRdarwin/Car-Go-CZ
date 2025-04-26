@@ -36,11 +36,14 @@ class AuthScreenDesktop extends StatelessWidget {
                       children: [
                         Expanded(
                           child: AnimatedSwitcher(
-                            duration: AnimationDuration.pageStateTransitionDesktop,
+                            duration:
+                                AnimationDuration.pageStateTransitionDesktop,
                             child: BlocBuilder<OnboardingCubit, int>(
                               builder: (context, state) {
                                 final currentStep = state < 2 ? state : 1;
-                                return OnboardingFormBuilder(onboardingItemIndex: currentStep).buildHeader(context);
+                                return OnboardingFormBuilder(
+                                        onboardingItemIndex: currentStep)
+                                    .buildHeader(context);
                               },
                             ),
                           ),
@@ -49,11 +52,14 @@ class AuthScreenDesktop extends StatelessWidget {
                           height: 24,
                         ),
                         AnimatedSwitcher(
-                          duration: AnimationDuration.pageStateTransitionDesktop,
+                          duration:
+                              AnimationDuration.pageStateTransitionDesktop,
                           child: BlocBuilder<OnboardingCubit, int>(
                             builder: (context, state) {
                               final currentStep = state < 2 ? state : 1;
-                              return OnboardingFormBuilder(onboardingItemIndex: currentStep).buildFooter(context);
+                              return OnboardingFormBuilder(
+                                      onboardingItemIndex: currentStep)
+                                  .buildFooter(context);
                             },
                           ),
                         ),
@@ -64,7 +70,11 @@ class AuthScreenDesktop extends StatelessWidget {
                               mainAxisSize: MainAxisSize.min,
                               children: [
                                 CupertinoButton(
-                                    onPressed: currentStep == 0 ? null : context.read<OnboardingCubit>().previousPage,
+                                    onPressed: currentStep == 0
+                                        ? null
+                                        : context
+                                            .read<OnboardingCubit>()
+                                            .previousPage,
                                     child: const Icon(Ionicons.arrow_back)),
                                 SizedBox(
                                   width: 95,
@@ -77,7 +87,9 @@ class AuthScreenDesktop extends StatelessWidget {
                                   onPressed: currentStep == 1
                                       ? null
                                       : () {
-                                          context.read<OnboardingCubit>().nextPage();
+                                          context
+                                              .read<OnboardingCubit>()
+                                              .nextPage();
                                         },
                                   child: const Icon(
                                     Ionicons.arrow_forward,
@@ -105,7 +117,8 @@ class AuthScreenDesktop extends StatelessWidget {
                 child: AnimatedSwitcher(
                   duration: const Duration(milliseconds: 300),
                   child: BlocBuilder<LoginBloc, LoginState>(
-                    buildWhen: (currentState, nextState) => currentState.loginPage != nextState.loginPage,
+                    buildWhen: (currentState, nextState) =>
+                        currentState.loginPage != nextState.loginPage,
                     builder: (context, state) => Padding(
                       padding: const EdgeInsets.all(64),
                       child: Column(
@@ -121,22 +134,28 @@ class AuthScreenDesktop extends StatelessWidget {
                           if (state.loginPage.wizardStep != null) ...[
                             SizedBox(
                               width: 300,
-                              child: WizardSteps(count: 5, selectedStep: state.loginPage.wizardStep!),
+                              child: WizardSteps(
+                                  count: 5,
+                                  selectedStep: state.loginPage.wizardStep!),
                             ),
                           ],
-                          if (state.loginPage.wizardStep == null || state.loginPage.wizardStep == 1) ...[
+                          if (state.loginPage.wizardStep == null ||
+                              state.loginPage.wizardStep == 1) ...[
                             Container(
                               height: state.desktopHeight,
                               constraints: const BoxConstraints(maxWidth: 600),
                               child: LoginFormBuilder(loginState: state).footer,
                             )
                           ],
-                          if (state.loginPage.wizardStep != null && state.loginPage.wizardStep! > 1) ...[
+                          if (state.loginPage.wizardStep != null &&
+                              state.loginPage.wizardStep! > 1) ...[
                             Expanded(
                               child: Container(
                                 height: state.desktopHeight,
-                                constraints: const BoxConstraints(maxWidth: 600),
-                                child: LoginFormBuilder(loginState: state).footer,
+                                constraints:
+                                    const BoxConstraints(maxWidth: 600),
+                                child:
+                                    LoginFormBuilder(loginState: state).footer,
                               ),
                             ),
                           ]

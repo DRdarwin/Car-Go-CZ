@@ -56,8 +56,11 @@ class AuthScreen extends StatelessWidget {
             );
           },
           child: context.responsive(
-            BlocBuilder<OnboardingCubit, int>(builder: (context, stateOnboarding) {
-              return onboardingCubit.isDone ? const AuthScreenMobile() : const OnboardingScreen();
+            BlocBuilder<OnboardingCubit, int>(
+                builder: (context, stateOnboarding) {
+              return onboardingCubit.isDone
+                  ? const AuthScreenMobile()
+                  : const OnboardingScreen();
             }),
             xl: const AuthScreenDesktop(),
           ),

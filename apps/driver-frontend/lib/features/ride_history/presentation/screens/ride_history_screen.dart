@@ -51,12 +51,14 @@ class _RideHistoryScreenState extends State<RideHistoryScreen> {
               ),
               const SizedBox(height: 24),
               Expanded(
-                child: BlocBuilder<RideHistoryBloc, RideHistoryState>(builder: (context, state) {
+                child: BlocBuilder<RideHistoryBloc, RideHistoryState>(
+                    builder: (context, state) {
                   return AnimatedSwitcher(
                     duration: AnimationDuration.pageStateTransitionDesktop,
                     child: state.map(
                       initial: (_) => const SizedBox.shrink(),
-                      loading: (_) => Assets.lottie.loading.lottie(width: double.infinity, height: double.infinity),
+                      loading: (_) => Assets.lottie.loading.lottie(
+                          width: double.infinity, height: double.infinity),
                       loaded: (loaded) {
                         return ListView.separated(
                           padding: EdgeInsets.zero,
@@ -64,7 +66,8 @@ class _RideHistoryScreenState extends State<RideHistoryScreen> {
                             return RideHistoryItem(
                               entity: loaded.data[index],
                               onPressed: () => context.router.push(
-                                RideHistoryDetailsRoute(entity: loaded.data[index]),
+                                RideHistoryDetailsRoute(
+                                    entity: loaded.data[index]),
                               ),
                             );
                           },
@@ -74,7 +77,8 @@ class _RideHistoryScreenState extends State<RideHistoryScreen> {
                           itemCount: loaded.data.length,
                         );
                       },
-                      empty: (_) => const Center(child: RideHistoryEmptyState()),
+                      empty: (_) =>
+                          const Center(child: RideHistoryEmptyState()),
                       error: (error) => Center(
                         child: Text(error.message),
                       ),

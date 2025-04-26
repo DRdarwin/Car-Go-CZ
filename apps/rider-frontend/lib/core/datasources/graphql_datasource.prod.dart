@@ -17,8 +17,10 @@ class GraphqlDatasourceImpl implements GraphqlDatasource {
   });
 
   @override
-  Future<Either<Failure, TParsed>> mutate<TParsed>(MutationOptions<TParsed> options) async {
-    if ((await connectivity.checkConnectivity()).contains(ConnectivityResult.none)) {
+  Future<Either<Failure, TParsed>> mutate<TParsed>(
+      MutationOptions<TParsed> options) async {
+    if ((await connectivity.checkConnectivity())
+        .contains(ConnectivityResult.none)) {
       return const Left(Failure.connection());
     }
     final result = await client.mutate(options);
@@ -29,8 +31,10 @@ class GraphqlDatasourceImpl implements GraphqlDatasource {
   }
 
   @override
-  Future<Either<Failure, TParsed>> query<TParsed>(QueryOptions<TParsed> options) async {
-    if ((await connectivity.checkConnectivity()).contains(ConnectivityResult.none)) {
+  Future<Either<Failure, TParsed>> query<TParsed>(
+      QueryOptions<TParsed> options) async {
+    if ((await connectivity.checkConnectivity())
+        .contains(ConnectivityResult.none)) {
       return const Left(Failure.connection());
     }
     final result = await client.query(options);
@@ -42,7 +46,8 @@ class GraphqlDatasourceImpl implements GraphqlDatasource {
   }
 
   @override
-  ObservableQuery<TParsed> watchQuery<TParsed>(WatchQueryOptions<TParsed> options) {
+  ObservableQuery<TParsed> watchQuery<TParsed>(
+      WatchQueryOptions<TParsed> options) {
     final result = client.watchQuery(options);
     if (result.lifecycle == QueryLifecycle.unexecuted) {
       result.fetchResults();

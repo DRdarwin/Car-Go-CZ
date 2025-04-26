@@ -34,7 +34,8 @@ class _ReportIssueFormDialogState extends State<ReportIssueFormDialog> {
           xl: DialogType.dialog,
         ),
         primaryButton: Padding(
-          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom + 16),
+          padding: EdgeInsets.only(
+              bottom: MediaQuery.of(context).viewInsets.bottom + 16),
           child: AppPrimaryButton(
             onPressed: () {
               if (!formKey.currentState!.validate()) {
@@ -84,7 +85,9 @@ class _ReportIssueFormDialogState extends State<ReportIssueFormDialog> {
                   height: 16,
                 ),
                 TextFormField(
-                  validator: (value) => value?.isEmpty == true ? context.translate.fieldIsRequired : null,
+                  validator: (value) => value?.isEmpty == true
+                      ? context.translate.fieldIsRequired
+                      : null,
                   initialValue: subject,
                   onChanged: (value) {
                     setState(() {
@@ -102,7 +105,9 @@ class _ReportIssueFormDialogState extends State<ReportIssueFormDialog> {
                 TextFormField(
                   minLines: 3,
                   maxLines: 6,
-                  validator: (value) => value?.isEmpty == true ? context.translate.fieldIsRequired : null,
+                  validator: (value) => value?.isEmpty == true
+                      ? context.translate.fieldIsRequired
+                      : null,
                   initialValue: issueContent,
                   onChanged: (value) {
                     setState(() {

@@ -7,7 +7,9 @@
       "node"
     ],
     "emitDecoratorMetadata": true,
-    "target": "es2021"
+    "target": "es2021",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true
   },
   "exclude": [
     "**/*.spec.ts",

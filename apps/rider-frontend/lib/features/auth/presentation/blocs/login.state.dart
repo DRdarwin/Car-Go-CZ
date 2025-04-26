@@ -51,7 +51,8 @@ sealed class PageState with _$PageState {
 }
 
 extension SetPasswordX on SetPassword {
-  bool get codeLengthIsSafe => newPassword.length >= 9 && newPassword.length <= 64;
+  bool get codeLengthIsSafe =>
+      newPassword.length >= 9 && newPassword.length <= 64;
 
   bool get hasUppercase => newPassword.contains(RegExp(r'[A-Z]'));
 

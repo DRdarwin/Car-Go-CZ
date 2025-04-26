@@ -57,9 +57,12 @@ extension AppColor<T> on BuildContext {
 }
 
 extension BottomNavigation<T> on BuildContext {
-  IconThemeData? get unselectedIconTheme => Theme.of(this).bottomNavigationBarTheme.unselectedIconTheme;
-  IconThemeData? get selectedIconTheme => Theme.of(this).bottomNavigationBarTheme.selectedIconTheme;
-  BottomNavigationBarThemeData get bottomNavigationBarTheme => Theme.of(this).bottomNavigationBarTheme;
+  IconThemeData? get unselectedIconTheme =>
+      Theme.of(this).bottomNavigationBarTheme.unselectedIconTheme;
+  IconThemeData? get selectedIconTheme =>
+      Theme.of(this).bottomNavigationBarTheme.selectedIconTheme;
+  BottomNavigationBarThemeData get bottomNavigationBarTheme =>
+      Theme.of(this).bottomNavigationBarTheme;
 }
 
 extension Responsive on BuildContext {
@@ -84,15 +87,18 @@ extension Responsive on BuildContext {
 }
 
 extension DoubleX on double {
-  String formatCurrency(String currency) => NumberFormat.simpleCurrency(name: currency).format(this);
+  String formatCurrency(String currency) =>
+      NumberFormat.simpleCurrency(name: currency).format(this);
 }
 
 extension StringX on String {
-  String get formatPhoneNumberLegacy =>
-      replaceAllMapped(RegExp(r'(\d{3})(\d{3})(\d{4})'), (match) => '+(${match[1]}) ${match[2]}-${match[3]}');
+  String get formatPhoneNumberLegacy => replaceAllMapped(
+      RegExp(r'(\d{3})(\d{3})(\d{4})'),
+      (match) => '+(${match[1]}) ${match[2]}-${match[3]}');
 
   String formatPhoneNumber(String countryCode) => replaceAllMapped(
-      RegExp(r'(\d{3})(\d{3})(\d{4})'), (match) => '+${countryCode} (${match[1]}) ${match[2]}-${match[3]}');
+      RegExp(r'(\d{3})(\d{3})(\d{4})'),
+      (match) => '+${countryCode} (${match[1]}) ${match[2]}-${match[3]}');
 }
 
 extension Translator on BuildContext {

@@ -48,8 +48,10 @@ class DriverSearchRadiusButtonNew extends StatelessWidget {
                             onPressed: (radius ?? 0) > 99000
                                 ? null
                                 : () {
-                                    const measurementSystem = Constants.defaultMeasurementSystem;
-                                    if (measurementSystem == MeasurementSystem.metric) {
+                                    const measurementSystem =
+                                        Constants.defaultMeasurementSystem;
+                                    if (measurementSystem ==
+                                        MeasurementSystem.metric) {
                                       onRadiusChanged((radius ?? 0) + 1000);
                                     } else {
                                       onRadiusChanged((radius ?? 0) + 1609);
@@ -65,7 +67,9 @@ class DriverSearchRadiusButtonNew extends StatelessWidget {
                             height: 8,
                           ),
                           Text(
-                            radius == null ? '∞' : (radius).toFormattedDistance(context),
+                            radius == null
+                                ? '∞'
+                                : (radius).toFormattedDistance(context),
                             style: context.labelMedium,
                           ),
                           const SizedBox(
@@ -77,8 +81,10 @@ class DriverSearchRadiusButtonNew extends StatelessWidget {
                             onPressed: (radius ?? 0) < 1000
                                 ? null
                                 : () {
-                                    const measurementSystem = Constants.defaultMeasurementSystem;
-                                    if (measurementSystem == MeasurementSystem.metric) {
+                                    const measurementSystem =
+                                        Constants.defaultMeasurementSystem;
+                                    if (measurementSystem ==
+                                        MeasurementSystem.metric) {
                                       if ((radius ?? 0) - 1000 < 1000) {
                                         onRadiusChanged(null);
                                       } else {

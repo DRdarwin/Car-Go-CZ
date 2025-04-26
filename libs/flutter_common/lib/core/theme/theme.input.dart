@@ -1,6 +1,7 @@
 part of 'theme.dart';
 
-InputDecorationTheme inputTheme(String fontPrimary, String fontSecondary) => InputDecorationTheme(
+InputDecorationTheme inputTheme(String fontPrimary, String fontSecondary) =>
+    InputDecorationTheme(
       filled: true,
       fillColor: ColorPalette.primary99,
       iconColor: ColorPalette.neutral70,

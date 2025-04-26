@@ -33,7 +33,8 @@ class AuthScreen extends StatelessWidget {
         child: BlocListener<LoginBloc, LoginState>(
           listener: (context, state) {
             if (state.jwtToken != null) {
-              locator<AuthBloc>().onLoggedIn(jwtToken: state.jwtToken!, profile: state.profile!);
+              locator<AuthBloc>().onLoggedIn(
+                  jwtToken: state.jwtToken!, profile: state.profile!);
             }
             state.loginPage.mapOrNull(
               success: (value) {
@@ -48,8 +49,11 @@ class AuthScreen extends StatelessWidget {
             );
           },
           child: context.responsive(
-            BlocBuilder<OnboardingCubit, int>(builder: (context, stateOnboarding) {
-              return onboardingCubit.isDone ? const AuthScreenMobile() : const OnboardingScreen();
+            BlocBuilder<OnboardingCubit, int>(
+                builder: (context, stateOnboarding) {
+              return onboardingCubit.isDone
+                  ? const AuthScreenMobile()
+                  : const OnboardingScreen();
             }),
             xl: const AuthScreenDesktop(),
           ),

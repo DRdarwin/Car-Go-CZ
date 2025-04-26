@@ -30,5 +30,6 @@ class OrderCompactEntity with _$OrderCompactEntity {
     required DriverEntity? driver,
   }) = _OrderHistoryEntity;
 
-  factory OrderCompactEntity.fromJson(Map<String, dynamic> json) => _$OrderCompactEntityFromJson(json);
+  factory OrderCompactEntity.fromJson(Map<String, dynamic> json) =>
+      _$OrderCompactEntityFromJson(json);
 }

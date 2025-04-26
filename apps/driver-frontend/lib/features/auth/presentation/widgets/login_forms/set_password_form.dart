@@ -37,10 +37,12 @@ class _SetPasswordFormState extends State<SetPasswordForm> {
                       decoration: InputDecoration(
                         hintText: context.translate.password,
                         suffixIcon: CupertinoButton(
-                          onPressed: () => setState(() => showPassword = !showPassword),
+                          onPressed: () =>
+                              setState(() => showPassword = !showPassword),
                           child: Icon(
                             Ionicons.eye,
-                            color: context.theme.inputDecorationTheme.suffixIconColor,
+                            color: context
+                                .theme.inputDecorationTheme.suffixIconColor,
                           ),
                         ),
                       ),
@@ -99,7 +101,8 @@ class _SetPasswordFormState extends State<SetPasswordForm> {
                             Text(
                               context.translate.passwordRuleDescription,
                               style: context.bodyMedium?.copyWith(
-                                color: context.theme.colorScheme.onSurfaceVariant,
+                                color:
+                                    context.theme.colorScheme.onSurfaceVariant,
                               ),
                             ),
                           ],
@@ -117,7 +120,9 @@ class _SetPasswordFormState extends State<SetPasswordForm> {
               ),
             ),
             AppPrimaryButton(
-              onPressed: (!state.hasAtLeastTwoChecks) ? null : loginBloc.onNewPasswordSubmitted,
+              onPressed: (!state.hasAtLeastTwoChecks)
+                  ? null
+                  : loginBloc.onNewPasswordSubmitted,
               child: Text(context.translate.actionContinue),
             )
           ],

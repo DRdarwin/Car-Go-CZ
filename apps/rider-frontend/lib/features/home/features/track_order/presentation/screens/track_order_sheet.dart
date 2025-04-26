@@ -83,7 +83,8 @@ class _TrackOrderSheetState extends State<TrackOrderSheet> {
             duration: AnimationDuration.pageStateTransitionMobile,
             child: state.map(
               initial: (initial) => const Text("Initial"),
-              orderInProgres: (inProgress) => switch (inProgress.order.status.viewMode) {
+              orderInProgres: (inProgress) =>
+                  switch (inProgress.order.status.viewMode) {
                 OrderStatusViewMode.looking => const LookingForDriverSheet(),
                 OrderStatusViewMode.inProgress => AnimatedSwitcher(
                     duration: AnimationDuration.pageStateTransitionMobile,

@@ -40,12 +40,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 duration: AnimationDuration.pageStateTransitionMobile,
                 child: state.map(
                   initial: (initial) => const SizedBox(),
-                  loading: (loading) => Assets.lottie.loading.lottie(width: double.infinity, height: double.infinity),
+                  loading: (loading) => Assets.lottie.loading
+                      .lottie(width: double.infinity, height: double.infinity),
                   loaded: (loaded) {
                     return Container(
                       padding: context.responsive(
                         null,
-                        xl: const EdgeInsets.only(top: 104, left: 24, right: 24, bottom: 24),
+                        xl: const EdgeInsets.only(
+                            top: 104, left: 24, right: 24, bottom: 24),
                       ),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -87,7 +89,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   icon: Ionicons.person,
                                   title: context.translate.profileInfo,
                                   onPressed: () {
-                                    context.router.push(const ProfileInfoRoute());
+                                    context.router
+                                        .push(const ProfileInfoRoute());
                                   },
                                 ),
                                 const SizedBox(
@@ -122,7 +125,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                   icon: Ionicons.settings,
                                   title: context.translate.appSettings,
                                   onPressed: () {
-                                    context.router.navigate(const SettingsParentRoute());
+                                    context.router
+                                        .navigate(const SettingsParentRoute());
                                   },
                                 ),
                               ],

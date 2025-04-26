@@ -16,5 +16,6 @@ class PayoutMethodEntity with _$PayoutMethodEntity {
 
   const PayoutMethodEntity._();
 
-  factory PayoutMethodEntity.fromJson(Map<String, dynamic> json) => _$PayoutMethodEntityFromJson(json);
+  factory PayoutMethodEntity.fromJson(Map<String, dynamic> json) =>
+      _$PayoutMethodEntityFromJson(json);
 }

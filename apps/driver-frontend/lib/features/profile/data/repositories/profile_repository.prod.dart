@@ -20,7 +20,8 @@ class ProfileRepositoryProd implements ProfileRepository {
   ProfileRepositoryProd(this.graphqlDatasource);
 
   @override
-  Future<Either<Failure, ProfileAggregationsInfo>> getProfileAggregationsInfo() async {
+  Future<Either<Failure, ProfileAggregationsInfo>>
+      getProfileAggregationsInfo() async {
     final result = await graphqlDatasource.query(
       Options$Query$ProfileAggregations(),
     );
@@ -31,7 +32,8 @@ class ProfileRepositoryProd implements ProfileRepository {
   Future<Either<Failure, ProfileEntity>> uploadProfileImage({
     required MediaEntity image,
   }) async {
-    final profile = await graphqlDatasource.mutate(Options$Mutation$UpdateProfileImage(
+    final profile =
+        await graphqlDatasource.mutate(Options$Mutation$UpdateProfileImage(
       variables: Variables$Mutation$UpdateProfileImage(
         mediaId: image.id,
       ),
@@ -41,7 +43,8 @@ class ProfileRepositoryProd implements ProfileRepository {
 
   @override
   Future<Either<Failure, FeedbacksSummary>> getFeedbacksSummary() async {
-    final summary = await graphqlDatasource.query(Options$Query$FeedbacksSummary());
+    final summary =
+        await graphqlDatasource.query(Options$Query$FeedbacksSummary());
     return summary.map((r) => r.toEntity);
   }
 }

@@ -50,7 +50,8 @@ class OrderEntity with _$OrderEntity {
     required List<ChatMessageEntity> chatMessages,
   }) = _OrderEntity;
 
-  factory OrderEntity.fromJson(Map<String, dynamic> json) => _$OrderEntityFromJson(json);
+  factory OrderEntity.fromJson(Map<String, dynamic> json) =>
+      _$OrderEntityFromJson(json);
 
   static OrderEntity get testOrder => OrderEntity(
         id: '1',
@@ -70,7 +71,8 @@ class OrderEntity with _$OrderEntity {
         chatMessages: [
           ChatMessageEntity(
             id: '1',
-            message: 'I am close, took a wrong turn, expect a few minutes delay',
+            message:
+                'I am close, took a wrong turn, expect a few minutes delay',
             createdAt: DateTime.now().subtract(const Duration(minutes: 2)),
             isSender: true,
           ),
@@ -138,7 +140,10 @@ class OrderEntity with _$OrderEntity {
 
   String get riderFullName => '$riderFirstName $riderLastName';
 
-  double get total => switch (paymentMode) { PaymentMode.cash => costAfterCoupon, _ => (costBest - providerShare) };
+  double get total => switch (paymentMode) {
+        PaymentMode.cash => costAfterCoupon,
+        _ => (costBest - providerShare)
+      };
 
   DateTime? get expectedDesintationArrival => startAt?.add(
         Duration(
@@ -146,5 +151,6 @@ class OrderEntity with _$OrderEntity {
         ),
       );
 
-  String? expectedArrival(BuildContext context) => expectedDesintationArrival?.minutesFromNow(context);
+  String? expectedArrival(BuildContext context) =>
+      expectedDesintationArrival?.minutesFromNow(context);
 }

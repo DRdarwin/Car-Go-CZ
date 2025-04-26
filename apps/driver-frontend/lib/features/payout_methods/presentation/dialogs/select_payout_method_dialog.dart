@@ -23,7 +23,8 @@ class SelectPayoutMethodDialog extends StatefulWidget {
   const SelectPayoutMethodDialog({super.key});
 
   @override
-  State<SelectPayoutMethodDialog> createState() => _SelectPayoutMethodDialogState();
+  State<SelectPayoutMethodDialog> createState() =>
+      _SelectPayoutMethodDialogState();
 }
 
 class _SelectPayoutMethodDialogState extends State<SelectPayoutMethodDialog> {
@@ -56,11 +57,12 @@ class _SelectPayoutMethodDialogState extends State<SelectPayoutMethodDialog> {
           onPressed: () async {
             if (selectedPayoutMethod!.linkMethod == GatewayLinkMethod.manual) {
               Navigator.pop(context);
-              context.router.push(AddPayoutAccountRoute(payoutMethod: selectedPayoutMethod!));
+              context.router.push(
+                  AddPayoutAccountRoute(payoutMethod: selectedPayoutMethod!));
               return;
             } else {
-              final payoutMethod =
-                  await locator<PayoutMethodsRepository>().getLinkUrlForPayoutMethod(selectedPayoutMethod!);
+              final payoutMethod = await locator<PayoutMethodsRepository>()
+                  .getLinkUrlForPayoutMethod(selectedPayoutMethod!);
               payoutMethod.fold(
                 (l) => context.showSnackBar(
                   message: l.errorMessage,
@@ -93,7 +95,8 @@ class _SelectPayoutMethodDialogState extends State<SelectPayoutMethodDialog> {
                         style: context.titleSmall,
                       ),
                     ),
-                  LoadingState() => Assets.lottie.loading.lottie(width: 300, height: 200),
+                  LoadingState() =>
+                    Assets.lottie.loading.lottie(width: 300, height: 200),
                   LoadedState(:final payoutMethods) => Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
@@ -112,7 +115,8 @@ class _SelectPayoutMethodDialogState extends State<SelectPayoutMethodDialog> {
                                     });
                                   },
                                   minSize: 0,
-                                  padding: const EdgeInsets.symmetric(vertical: 0),
+                                  padding:
+                                      const EdgeInsets.symmetric(vertical: 0),
                                   child: Row(
                                     children: [
                                       item.media?.address != null
@@ -125,9 +129,11 @@ class _SelectPayoutMethodDialogState extends State<SelectPayoutMethodDialog> {
                                               Ionicons.business,
                                             ),
                                       const SizedBox(width: 12),
-                                      Text(item.name, style: context.labelLarge),
+                                      Text(item.name,
+                                          style: context.labelLarge),
                                       const Spacer(),
-                                      RoundedCheckbox(isSelected: state.value == item)
+                                      RoundedCheckbox(
+                                          isSelected: state.value == item)
                                     ],
                                   ),
                                 );

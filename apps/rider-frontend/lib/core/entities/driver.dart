@@ -20,7 +20,8 @@ class DriverEntity with _$DriverEntity {
     required int ratingCount,
   }) = _DriverEntity;
 
-  factory DriverEntity.fromJson(Map<String, dynamic> json) => _$DriverEntityFromJson(json);
+  factory DriverEntity.fromJson(Map<String, dynamic> json) =>
+      _$DriverEntityFromJson(json);
 
   const DriverEntity._();
 

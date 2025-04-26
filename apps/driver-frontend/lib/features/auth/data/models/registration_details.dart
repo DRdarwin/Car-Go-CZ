@@ -21,5 +21,6 @@ class RegistrationDetails with _$RegistrationDetails {
     String? bankRoutingNumber,
   }) = _RegistrationDetails;
 
-  factory RegistrationDetails.fromJson(Map<String, dynamic> json) => _$RegistrationDetailsFromJson(json);
+  factory RegistrationDetails.fromJson(Map<String, dynamic> json) =>
+      _$RegistrationDetailsFromJson(json);
 }

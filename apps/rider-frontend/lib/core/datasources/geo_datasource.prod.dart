@@ -41,7 +41,8 @@ class GeoDatasourceImpl implements GeoDatasource {
     return result.map((r) {
       final address = r.reverseGeocode;
       return PlaceEntity(
-        coordinates: LatLngEntity(lat: address.point.lat, lng: address.point.lng),
+        coordinates:
+            LatLngEntity(lat: address.point.lat, lng: address.point.lng),
         address: address.address,
       );
     });

@@ -24,7 +24,8 @@ class HomeRepositoryImpl implements HomeRepository {
   );
 
   @override
-  Future<Either<Failure, (OrderEntity, DriverLocation?)?>> getCurrentOrder() async {
+  Future<Either<Failure, (OrderEntity, DriverLocation?)?>>
+      getCurrentOrder() async {
     final result = await graphQLDatasource.query(
       Options$Query$CurrentOrder(
         fetchPolicy: FetchPolicy.noCache,
@@ -41,7 +42,8 @@ class HomeRepositoryImpl implements HomeRepository {
   }
 
   @override
-  Future<Either<Failure, List<DriverLocation>>> getDriversAround(LatLng origin) async {
+  Future<Either<Failure, List<DriverLocation>>> getDriversAround(
+      LatLng origin) async {
     final result = await graphQLDatasource.query(
       Options$Query$DriversAround(
         fetchPolicy: FetchPolicy.noCache,
@@ -50,6 +52,7 @@ class HomeRepositoryImpl implements HomeRepository {
         ),
       ),
     );
-    return result.map((r) => r.getDriversLocation.map((e) => e.toDriverLocation).toList());
+    return result.map(
+        (r) => r.getDriversLocation.map((e) => e.toDriverLocation).toList());
   }
 }

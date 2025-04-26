@@ -97,8 +97,10 @@ class ActionButtons extends StatelessWidget {
                     useSafeArea: false,
                     builder: (context) => AddCreditDialog(
                       currency: loaded.data.currency,
-                      paymentMethods:
-                          (loaded.data.paymentGateways, loaded.data.savedPaymentMethods).toPaymentMethodUnion,
+                      paymentMethods: (
+                        loaded.data.paymentGateways,
+                        loaded.data.savedPaymentMethods
+                      ).toPaymentMethodUnion,
                     ),
                   );
                 });

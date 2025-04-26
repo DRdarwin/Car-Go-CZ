@@ -25,7 +25,8 @@ class OrderRequestEntity with _$OrderRequestEntity {
     required List<RideOptionEntity> rideOptions,
   }) = _OrderRequestEntity;
 
-  factory OrderRequestEntity.fromJson(Map<String, dynamic> json) => _$OrderRequestEntityFromJson(json);
+  factory OrderRequestEntity.fromJson(Map<String, dynamic> json) =>
+      _$OrderRequestEntityFromJson(json);
 
   const OrderRequestEntity._();
 }

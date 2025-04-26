@@ -9,7 +9,8 @@ class EditFavoriteLocationState with _$EditFavoriteLocationState {
     required AppFormState<void> formState,
   }) = _EditFavoriteLocationState;
 
-  factory EditFavoriteLocationState.initial() => const EditFavoriteLocationState(
+  factory EditFavoriteLocationState.initial() =>
+      const EditFavoriteLocationState(
         addressType: null,
         addressName: null,
         selectedLocation: null,

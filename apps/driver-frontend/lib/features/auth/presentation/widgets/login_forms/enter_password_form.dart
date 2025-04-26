@@ -37,10 +37,12 @@ class _EnterPasswordFormState extends State<EnterPasswordForm> {
                         errorText: state.errorMessage,
                         hintText: context.translate.enterPassword,
                         suffixIcon: CupertinoButton(
-                          onPressed: () => setState(() => showPassword = !showPassword),
+                          onPressed: () =>
+                              setState(() => showPassword = !showPassword),
                           child: Icon(
                             Ionicons.eye,
-                            color: context.theme.inputDecorationTheme.suffixIconColor,
+                            color: context
+                                .theme.inputDecorationTheme.suffixIconColor,
                           ),
                         ),
                       ),
@@ -57,7 +59,8 @@ class _EnterPasswordFormState extends State<EnterPasswordForm> {
         BlocBuilder<LoginBloc, LoginState>(
           builder: (context, state) {
             return AppPrimaryButton(
-              isDisabled: state.currentPassword?.isNotEmpty != true || state.isLoading,
+              isDisabled:
+                  state.currentPassword?.isNotEmpty != true || state.isLoading,
               onPressed: locator<LoginBloc>().onConfirmPasswordPressed,
               child: Text(context.translate.actionContinue),
             );

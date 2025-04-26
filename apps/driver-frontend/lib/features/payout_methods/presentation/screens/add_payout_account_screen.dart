@@ -49,7 +49,8 @@ class _AddPayoutAccountScreenState extends State<AddPayoutAccountScreen> {
           xl: const EdgeInsets.all(16).copyWith(top: 96, bottom: 0),
         ),
         child: SafeArea(
-          child: BlocConsumer<AddBankTransferPayoutMethodFormCubit, AddBankTransferPayoutMethodFormState>(
+          child: BlocConsumer<AddBankTransferPayoutMethodFormCubit,
+              AddBankTransferPayoutMethodFormState>(
             listener: (context, state) {
               state.pageState.mapOrNull(
                 success: (value) {
@@ -80,7 +81,9 @@ class _AddPayoutAccountScreenState extends State<AddPayoutAccountScreen> {
                             AppFormField(
                               label: context.translate.accountHolderName,
                               hintText: context.translate.nameHint,
-                              validator: (value) => value?.isEmpty == true ? context.translate.fieldIsRequired : null,
+                              validator: (value) => value?.isEmpty == true
+                                  ? context.translate.fieldIsRequired
+                                  : null,
                               initialValue: state.accountHolderName,
                               onChanged: cubit.onAccountHolderNameChanged,
                             ),
@@ -98,7 +101,9 @@ class _AddPayoutAccountScreenState extends State<AddPayoutAccountScreen> {
                             ),
                             AppFormField(
                               label: context.translate.accountNumber,
-                              validator: (value) => value?.isEmpty == true ? context.translate.fieldIsRequired : null,
+                              validator: (value) => value?.isEmpty == true
+                                  ? context.translate.fieldIsRequired
+                                  : null,
                               hintText: context.translate.accountNumberHint,
                               initialValue: state.accountNumber,
                               onChanged: cubit.onAccountNumberChanged,
@@ -108,7 +113,9 @@ class _AddPayoutAccountScreenState extends State<AddPayoutAccountScreen> {
                             ),
                             AppFormField(
                               label: context.translate.bankName,
-                              validator: (value) => value?.isEmpty == true ? context.translate.fieldIsRequired : null,
+                              validator: (value) => value?.isEmpty == true
+                                  ? context.translate.fieldIsRequired
+                                  : null,
                               hintText: context.translate.bankNameHint,
                               initialValue: state.bankName,
                               onChanged: cubit.onBankNameChanged,
@@ -138,12 +145,18 @@ class _AddPayoutAccountScreenState extends State<AddPayoutAccountScreen> {
                                   child: AppFormField(
                                     hintText: context.translate.dayHint,
                                     validator: (value) {
-                                      if (value?.isEmpty == true) return context.translate.fieldIsRequired;
-                                      if (int.tryParse(value ?? "0") == null) return "invalid value";
-                                      if (int.tryParse(value ?? "0")! > 31) return "invalid value";
+                                      if (value?.isEmpty == true)
+                                        return context
+                                            .translate.fieldIsRequired;
+                                      if (int.tryParse(value ?? "0") == null)
+                                        return "invalid value";
+                                      if (int.tryParse(value ?? "0")! > 31)
+                                        return "invalid value";
                                       return null;
                                     },
-                                    initialValue: state.accountHolderDateOfBirth?.day.toString(),
+                                    initialValue: state
+                                        .accountHolderDateOfBirth?.day
+                                        .toString(),
                                     keyboardType: TextInputType.number,
                                     inputFormatters: [
                                       FilteringTextInputFormatter.digitsOnly,
@@ -152,8 +165,12 @@ class _AddPayoutAccountScreenState extends State<AddPayoutAccountScreen> {
                                       cubit.onAccountHolderDateOfBirthChanged(
                                         DateTime(
                                           int.tryParse(value ?? "0") ?? 0,
-                                          state.accountHolderDateOfBirth?.month ?? 0,
-                                          state.accountHolderDateOfBirth?.year ?? 0,
+                                          state.accountHolderDateOfBirth
+                                                  ?.month ??
+                                              0,
+                                          state.accountHolderDateOfBirth
+                                                  ?.year ??
+                                              0,
                                         ),
                                       );
                                     },
@@ -166,22 +183,31 @@ class _AddPayoutAccountScreenState extends State<AddPayoutAccountScreen> {
                                   child: AppFormField(
                                     hintText: context.translate.monthHint,
                                     validator: (value) {
-                                      if (value?.isEmpty == true) return context.translate.fieldIsRequired;
-                                      if (int.tryParse(value ?? "0") == null) return "invalid value";
-                                      if (int.tryParse(value ?? "0")! > 12) return "invalid value";
+                                      if (value?.isEmpty == true)
+                                        return context
+                                            .translate.fieldIsRequired;
+                                      if (int.tryParse(value ?? "0") == null)
+                                        return "invalid value";
+                                      if (int.tryParse(value ?? "0")! > 12)
+                                        return "invalid value";
                                       return null;
                                     },
                                     keyboardType: TextInputType.number,
                                     inputFormatters: [
                                       FilteringTextInputFormatter.digitsOnly,
                                     ],
-                                    initialValue: state.accountHolderDateOfBirth?.month.toString(),
+                                    initialValue: state
+                                        .accountHolderDateOfBirth?.month
+                                        .toString(),
                                     onChanged: (value) {
                                       cubit.onAccountHolderDateOfBirthChanged(
                                         DateTime(
-                                          state.accountHolderDateOfBirth?.day ?? 0,
+                                          state.accountHolderDateOfBirth?.day ??
+                                              0,
                                           int.tryParse(value ?? "0") ?? 0,
-                                          state.accountHolderDateOfBirth?.year ?? 0,
+                                          state.accountHolderDateOfBirth
+                                                  ?.year ??
+                                              0,
                                         ),
                                       );
                                     },
@@ -194,21 +220,31 @@ class _AddPayoutAccountScreenState extends State<AddPayoutAccountScreen> {
                                   child: AppFormField(
                                     hintText: context.translate.yearHint,
                                     validator: (value) {
-                                      if (value?.isEmpty == true) return context.translate.fieldIsRequired;
-                                      if (int.tryParse(value ?? "0") == null) return "invalid value";
-                                      if (int.tryParse(value ?? "0")! > 4000) return "invalid value";
+                                      if (value?.isEmpty == true)
+                                        return context
+                                            .translate.fieldIsRequired;
+                                      if (int.tryParse(value ?? "0") == null)
+                                        return "invalid value";
+                                      if (int.tryParse(value ?? "0")! > 4000)
+                                        return "invalid value";
                                       return null;
                                     },
-                                    initialValue: state.accountHolderDateOfBirth?.year.toString(),
+                                    initialValue: state
+                                        .accountHolderDateOfBirth?.year
+                                        .toString(),
                                     keyboardType: TextInputType.number,
                                     inputFormatters: [
-                                      FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                                      FilteringTextInputFormatter.allow(
+                                          RegExp(r'[0-9]')),
                                     ],
                                     onChanged: (value) {
                                       cubit.onAccountHolderDateOfBirthChanged(
                                         DateTime(
-                                          state.accountHolderDateOfBirth?.day ?? 0,
-                                          state.accountHolderDateOfBirth?.month ?? 0,
+                                          state.accountHolderDateOfBirth?.day ??
+                                              0,
+                                          state.accountHolderDateOfBirth
+                                                  ?.month ??
+                                              0,
                                           int.tryParse(value ?? "0") ?? 0,
                                         ),
                                       );

@@ -14,7 +14,8 @@ class SelectProfileImageDialog extends StatefulWidget {
   const SelectProfileImageDialog({super.key});
 
   @override
-  State<SelectProfileImageDialog> createState() => _SelectProfileImageDialogState();
+  State<SelectProfileImageDialog> createState() =>
+      _SelectProfileImageDialogState();
 }
 
 class _SelectProfileImageDialogState extends State<SelectProfileImageDialog> {
@@ -25,7 +26,8 @@ class _SelectProfileImageDialogState extends State<SelectProfileImageDialog> {
   @override
   void initState() {
     avatar = locator<AuthBloc>().state.map(
-          authenticated: (authenticated) => authenticated.profile.profilePicture,
+          authenticated: (authenticated) =>
+              authenticated.profile.profilePicture,
           unauthenticated: (unauthenticated) => null,
         );
     super.initState();

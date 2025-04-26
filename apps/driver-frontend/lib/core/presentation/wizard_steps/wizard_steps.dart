@@ -27,19 +27,25 @@ class WizardSteps extends StatelessWidget {
                   padding: const EdgeInsets.all(6),
                   margin: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: i <= selectedStep ? ColorPalette.primary50 : ColorPalette.primary99,
+                    color: i <= selectedStep
+                        ? ColorPalette.primary50
+                        : ColorPalette.primary99,
                     shape: BoxShape.circle,
                   ),
                   child: Text(
                     i.toString(),
                     style: context.labelMedium?.copyWith(
-                      color: i <= selectedStep ? ColorPalette.neutral99 : ColorPalette.neutralVariant50,
+                      color: i <= selectedStep
+                          ? ColorPalette.neutral99
+                          : ColorPalette.neutralVariant50,
                     ),
                   ),
                 ),
                 if (i < count)
                   Expanded(
-                    child: i < selectedStep ? gradientHorizontalLine : dottedHorizontalLine,
+                    child: i < selectedStep
+                        ? gradientHorizontalLine
+                        : dottedHorizontalLine,
                   )
               ],
             ),
@@ -49,13 +55,17 @@ class WizardSteps extends StatelessWidget {
           padding: const EdgeInsets.all(6),
           margin: const EdgeInsets.all(8),
           decoration: BoxDecoration(
-            color: count <= selectedStep ? ColorPalette.primary50 : ColorPalette.primary99,
+            color: count <= selectedStep
+                ? ColorPalette.primary50
+                : ColorPalette.primary99,
             shape: BoxShape.circle,
           ),
           child: Text(
             count.toString(),
             style: context.labelMedium?.copyWith(
-              color: count <= selectedStep ? ColorPalette.neutral99 : ColorPalette.neutralVariant50,
+              color: count <= selectedStep
+                  ? ColorPalette.neutral99
+                  : ColorPalette.neutralVariant50,
             ),
           ),
         )

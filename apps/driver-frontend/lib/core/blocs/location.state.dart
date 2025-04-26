@@ -12,7 +12,8 @@ class LocationState with _$LocationState {
     required DriverLocation location,
   }) = _Determined;
 
-  factory LocationState.fromJson(Map<String, dynamic> json) => _$LocationStateFromJson(json);
+  factory LocationState.fromJson(Map<String, dynamic> json) =>
+      _$LocationStateFromJson(json);
 
   const LocationState._();
 }

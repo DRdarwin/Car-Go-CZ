@@ -20,7 +20,8 @@ class NoticeBar extends StatelessWidget {
             switch (value.order.status) {
               case OrderStatus.driverAccepted:
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: Row(
                     children: [
                       const Icon(
@@ -31,11 +32,14 @@ class NoticeBar extends StatelessWidget {
                       Expanded(
                         child: StreamBuilder(
                           stream: Stream.periodic(const Duration(seconds: 1)),
-                          builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
+                          builder: (BuildContext context,
+                              AsyncSnapshot<dynamic> snapshot) {
                             return Text(
-                              value.order.etaPickup?.isAfter(DateTime.now()) ?? false
+                              value.order.etaPickup?.isAfter(DateTime.now()) ??
+                                      false
                                   ? context.translate.driverShouldAriveInNotice
-                                  : context.translate.driverShouldHaveArrivedNotice,
+                                  : context
+                                      .translate.driverShouldHaveArrivedNotice,
                               style: context.labelMedium?.copyWith(
                                 color: ColorPalette.neutral99,
                               ),
@@ -45,10 +49,13 @@ class NoticeBar extends StatelessWidget {
                       ),
                       StreamBuilder(
                         stream: Stream.periodic(const Duration(seconds: 1)),
-                        builder: (BuildContext context, AsyncSnapshot<dynamic> snapshot) {
-                          if (value.order.etaPickup?.isBefore(DateTime.now()) ?? true) return const SizedBox();
+                        builder: (BuildContext context,
+                            AsyncSnapshot<dynamic> snapshot) {
+                          if (value.order.etaPickup?.isBefore(DateTime.now()) ??
+                              true) return const SizedBox();
                           return Container(
-                            padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 4),
                             decoration: BoxDecoration(
                               color: ColorPalette.neutralVariant99,
                               borderRadius: BorderRadius.circular(
@@ -71,7 +78,8 @@ class NoticeBar extends StatelessWidget {
 
               case OrderStatus.arrived:
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: Row(
                     children: [
                       const Icon(
@@ -93,7 +101,8 @@ class NoticeBar extends StatelessWidget {
 
               case OrderStatus.started:
                 return Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
                   child: Row(
                     children: [
                       const Icon(
@@ -118,9 +127,11 @@ class NoticeBar extends StatelessWidget {
                                 minutes: value.order.duration ~/ 60,
                               ),
                             );
-                            if (arrivalTime.isBefore(DateTime.now())) return const SizedBox();
+                            if (arrivalTime.isBefore(DateTime.now()))
+                              return const SizedBox();
                             return Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8, vertical: 4),
                               decoration: BoxDecoration(
                                 color: ColorPalette.neutralVariant99,
                                 borderRadius: BorderRadius.circular(

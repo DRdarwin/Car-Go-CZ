@@ -27,7 +27,8 @@ class LocationPermissionRequestDialog extends StatelessWidget {
       ),
       primaryButton: AppPrimaryButton(
         onPressed: () async {
-          final permission = await locator<LocationDatasource>().requestLocationPermission();
+          final permission =
+              await locator<LocationDatasource>().requestLocationPermission();
           switch (permission) {
             case LocationPermission.always:
             case LocationPermission.whileInUse:

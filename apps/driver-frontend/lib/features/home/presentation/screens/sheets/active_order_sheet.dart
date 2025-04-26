@@ -44,11 +44,13 @@ class ActiveOrderSheet extends StatelessWidget {
           context.responsive(
             AnimatedSwitcher(
               duration: AnimationDuration.pageStateTransitionMobile,
-              child: (state.order.status == OrderStatus.driverAccepted && state.order.etaPickupAt != null)
+              child: (state.order.status == OrderStatus.driverAccepted &&
+                      state.order.etaPickupAt != null)
                   ? NoticeBarContent(
                       icon: Ionicons.time,
                       text: context.translate.noticePickingUpRiderIn,
-                      trailingText: state.order.etaPickupAt?.minutesFromNow(context),
+                      trailingText:
+                          state.order.etaPickupAt?.minutesFromNow(context),
                     )
                   : state.order.status == OrderStatus.arrived
                       ? NoticeBarContent(
@@ -59,7 +61,8 @@ class ActiveOrderSheet extends StatelessWidget {
                           ? NoticeBarContent(
                               icon: Ionicons.time,
                               text: context.translate.headingToDestination,
-                              trailingText: state.order.expectedArrival(context),
+                              trailingText:
+                                  state.order.expectedArrival(context),
                             )
                           : const SizedBox.shrink(),
             ),
@@ -117,13 +120,15 @@ class ActiveOrderSheet extends StatelessWidget {
                           width: 12,
                         ),
                         Badge(
-                          isLabelVisible:
-                              state.order.chatMessages.lastOrNull?.createdAt.isAfter(state.order.lastSeenMessagesAt) ??
-                                  false,
+                          isLabelVisible: state
+                                  .order.chatMessages.lastOrNull?.createdAt
+                                  .isAfter(state.order.lastSeenMessagesAt) ??
+                              false,
                           child: AppIconButton(
                             icon: Ionicons.chatbubble,
                             onPressed: () {
-                              locator<HomeBloc>().add(const HomeEvent.onShowChat());
+                              locator<HomeBloc>()
+                                  .add(const HomeEvent.onShowChat());
                             },
                           ),
                         ),
@@ -131,7 +136,8 @@ class ActiveOrderSheet extends StatelessWidget {
                         AppIconButton(
                           icon: Ionicons.call,
                           onPressed: () {
-                            launchUrlString("tel://+${state.order.riderPhoneNumber}");
+                            launchUrlString(
+                                "tel://+${state.order.riderPhoneNumber}");
                           },
                         ),
                       ],
@@ -244,12 +250,16 @@ class ActiveOrderSheet extends StatelessWidget {
                                 )
                               : state.order.status == OrderStatus.started
                                   ? SliderButton(
-                                      text: context.translate.slideToConfirmDropoff,
+                                      text: context
+                                          .translate.slideToConfirmDropoff,
                                       onSlided: () {
                                         locator<HomeBloc>().add(
                                           HomeEvent.onArrivedToDestination(
                                             order: state.order,
-                                            destinationArrivedTo: (state.order.destinationArrivedTo ?? -1) + 1,
+                                            destinationArrivedTo: (state.order
+                                                        .destinationArrivedTo ??
+                                                    -1) +
+                                                1,
                                           ),
                                         );
                                       },

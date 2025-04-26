@@ -32,8 +32,9 @@ class EarningsBloc extends Cubit<EarningsState> {
         ),
       )),
       (dataset) => emit(state.copyWith(
-        pageState:
-            dataset.datapoints.isEmpty ? const EarningsPageState.empty() : EarningsPageState.loaded(dataset: dataset),
+        pageState: dataset.datapoints.isEmpty
+            ? const EarningsPageState.empty()
+            : EarningsPageState.loaded(dataset: dataset),
       )),
     );
   }

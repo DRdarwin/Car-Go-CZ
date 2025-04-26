@@ -12,14 +12,19 @@ part 'favorite_locations.freezed.dart';
 class FavoriteLocationsCubit extends Cubit<FavoriteLocationsState> {
   final FavoriteLocationsRepository repository;
 
-  FavoriteLocationsCubit(this.repository) : super(const FavoriteLocationsState.initial());
+  FavoriteLocationsCubit(this.repository)
+      : super(const FavoriteLocationsState.initial());
 
   void onStarted() async {
     emit(const FavoriteLocationsState.loading());
     final result = await repository.getFavoriteLocations();
-    result.fold((failure) => emit(FavoriteLocationsState.error(failure.errorMessage)), (locations) {
-      final hasHome = locations.any((element) => element.type == AddressType.home);
-      final hasWork = locations.any((element) => element.type == AddressType.work);
+    result.fold(
+        (failure) => emit(FavoriteLocationsState.error(failure.errorMessage)),
+        (locations) {
+      final hasHome =
+          locations.any((element) => element.type == AddressType.home);
+      final hasWork =
+          locations.any((element) => element.type == AddressType.work);
       final result = <(AddressType, FavoriteLocationEntity?)>[];
       if (!hasHome) {
         result.add((AddressType.home, null));

@@ -30,7 +30,8 @@ class FiltersBox extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       SegmentedButton<EarningsTimeFrame?>(
-                        onSelectionChanged: (value) => locator<EarningsBloc>().setTimeFrame(value.first!),
+                        onSelectionChanged: (value) =>
+                            locator<EarningsBloc>().setTimeFrame(value.first!),
                         segments: [
                           ButtonSegment(
                             value: EarningsTimeFrame.monthly,
@@ -50,7 +51,10 @@ class FiltersBox extends StatelessWidget {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           CupertinoButton(
-                            onPressed: state.canGoBack ? () => locator<EarningsBloc>().previousTimeframe() : null,
+                            onPressed: state.canGoBack
+                                ? () =>
+                                    locator<EarningsBloc>().previousTimeframe()
+                                : null,
                             child: const Icon(Ionicons.chevron_back),
                           ),
                           Column(
@@ -65,14 +69,17 @@ class FiltersBox extends StatelessWidget {
                               state.pageState.maybeMap(
                                 orElse: () => const SizedBox(),
                                 loaded: (value) => Text(
-                                  value.dataset.totalEarnings.formatCurrency(value.dataset.currency),
+                                  value.dataset.totalEarnings
+                                      .formatCurrency(value.dataset.currency),
                                   style: context.headlineMedium,
                                 ),
                               ),
                             ],
                           ),
                           CupertinoButton(
-                            onPressed: state.canGoForward ? () => locator<EarningsBloc>().nextTimeframe() : null,
+                            onPressed: state.canGoForward
+                                ? () => locator<EarningsBloc>().nextTimeframe()
+                                : null,
                             child: const Icon(Ionicons.chevron_forward),
                           ),
                         ],

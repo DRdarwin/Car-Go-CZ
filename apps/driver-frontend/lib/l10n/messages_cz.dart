@@ -1071,14 +1071,16 @@ class SCs extends S {
 
   @override
   String get expiryDateHint => 'MM/RR';
-    @override
+  @override
   String get noFavoriteDrivers => 'Žádní oblíbení řidiči';
 
   @override
-  String get noFavoriteDriversDescription => 'Můžete označit své oblíbené řidiče jako favority, když je ohodnotíte po jízdě.';
+  String get noFavoriteDriversDescription =>
+      'Můžete označit své oblíbené řidiče jako favority, když je ohodnotíte po jízdě.';
 
   @override
-  String get pickupLocationNotFound => 'Nepodařilo se zjistit vaši aktuální polohu pomocí GPS jako místo vyzvednutí. Zadejte místo vyzvednutí ručně.';
+  String get pickupLocationNotFound =>
+      'Nepodařilo se zjistit vaši aktuální polohu pomocí GPS jako místo vyzvednutí. Zadejte místo vyzvednutí ručně.';
 
   @override
   String get dragToSelect => 'Táhněte pro výběr';
@@ -1093,7 +1095,8 @@ class SCs extends S {
   String get locationPermission => 'Povolení polohy';
 
   @override
-  String get locationPermissionDeniedForeverMessage => 'Povolení polohy je požadavkem pro přijímání objednávek ve vašem okolí a také pro sledování vaší polohy cestujícím. Bez tohoto povolení nemůžete přijímat objednávky a my nemůžeme sledovat vaši aktuální polohu. Toto povolení můžete změnit v nastavení vašeho telefonu.';
+  String get locationPermissionDeniedForeverMessage =>
+      'Povolení polohy je požadavkem pro přijímání objednávek ve vašem okolí a také pro sledování vaší polohy cestujícím. Bez tohoto povolení nemůžete přijímat objednávky a my nemůžeme sledovat vaši aktuální polohu. Toto povolení můžete změnit v nastavení vašeho telefonu.';
 
   @override
   String get allow => 'Povolit';
@@ -1102,13 +1105,15 @@ class SCs extends S {
   String get driverOnlineTitle => 'Hledání jízdy';
 
   @override
-  String get driverOfflineTitle => 'Připojte se online, abyste začali přijímat žádosti';
+  String get driverOfflineTitle =>
+      'Připojte se online, abyste začali přijímat žádosti';
 
   @override
   String get payInCash => 'Platba hotově';
 
   @override
-  String get payInCashDescription => 'Pokračujte v platbě hotově řidiči. Řidič potvrdí platbu, jakmile ji obdrží.';
+  String get payInCashDescription =>
+      'Pokračujte v platbě hotově řidiči. Řidič potvrdí platbu, jakmile ji obdrží.';
 
   @override
   String get addToFavoriteDrivers => 'Přidat mezi oblíbené řidiče';
@@ -1126,19 +1131,22 @@ class SCs extends S {
   String get noticePickingUpRiderIn => 'Vyzvednutí cestujícího za:';
 
   @override
-  String get noticeRiderNotified => 'Cestující byl informován, vyzvedněte cestujícího a začněte jízdu';
+  String get noticeRiderNotified =>
+      'Cestující byl informován, vyzvedněte cestujícího a začněte jízdu';
 
   @override
   String get adminPanelOnboardingOneTitle => 'Vítejte v lepším systému';
 
   @override
-  String get adminPanelOnboardingOneSubtitle => 'Uvolněte sílu vašeho Q-commerce';
+  String get adminPanelOnboardingOneSubtitle =>
+      'Uvolněte sílu vašeho Q-commerce';
 
   @override
   String get adminPanelOnboardingTwoTitle => 'Zjednodušte své operace';
 
   @override
-  String get adminPanelOnboardingTwoSubtitle => 'Převezměte kontrolu s naším centralizovaným super panelem';
+  String get adminPanelOnboardingTwoSubtitle =>
+      'Převezměte kontrolu s naším centralizovaným super panelem';
 
   @override
   String get rider => 'Cestující';

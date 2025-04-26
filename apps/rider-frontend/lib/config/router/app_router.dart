@@ -98,10 +98,14 @@ class AppRouter extends RootStackRouter {
               page: FavoriteLocationsRoute.page,
               path: 'favorite-locations',
               children: [
-                AutoRoute(page: FavoriteLocationsListRoute.page, path: '', initial: true),
+                AutoRoute(
+                    page: FavoriteLocationsListRoute.page,
+                    path: '',
+                    initial: true),
                 AutoRoute(page: AddFavoriteLocationRoute.page, path: 'add'),
                 AutoRoute(page: EditFavoriteLocationRoute.page, path: 'edit'),
-                AutoRoute(page: LocateFavoriteLocationRoute.page, path: 'locate'),
+                AutoRoute(
+                    page: LocateFavoriteLocationRoute.page, path: 'locate'),
               ],
             ),
             AutoRoute(
@@ -120,21 +124,24 @@ class AppRouter extends RootStackRouter {
               page: RideHistoryDetailsRoute.page,
               path: 'ride-history/details',
             ),
-            AutoRoute(page: SettingsParentRoute.page, path: 'settings', children: [
-              AutoRoute(
-                page: SettingsRoute.page,
-                path: '',
-                initial: true,
-              ),
-              AutoRoute(
-                page: MapSettingsRoute.page,
-                path: 'map',
-              ),
-              AutoRoute(
-                page: LanguageSettingsRoute.page,
-                path: 'language',
-              ),
-            ])
+            AutoRoute(
+                page: SettingsParentRoute.page,
+                path: 'settings',
+                children: [
+                  AutoRoute(
+                    page: SettingsRoute.page,
+                    path: '',
+                    initial: true,
+                  ),
+                  AutoRoute(
+                    page: MapSettingsRoute.page,
+                    path: 'map',
+                  ),
+                  AutoRoute(
+                    page: LanguageSettingsRoute.page,
+                    path: 'language',
+                  ),
+                ])
           ],
         ),
       ];

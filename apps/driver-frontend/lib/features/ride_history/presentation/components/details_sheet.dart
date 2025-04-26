@@ -93,11 +93,14 @@ class RideHistoryDetailsSheet extends StatelessWidget {
               icon: const Icon(Ionicons.map, color: ColorPalette.neutral70),
             ),
             SmallChip(
-              text: context.translate.durationInMinutes(entity.durationBest ~/ 60),
+              text: context.translate
+                  .durationInMinutes(entity.durationBest ~/ 60),
               icon: const Icon(Ionicons.time, color: ColorPalette.neutral70),
             ),
             SmallChip(
-              text: entity.paymentMode == PaymentMode.cash ? context.translate.cash : context.translate.online,
+              text: entity.paymentMode == PaymentMode.cash
+                  ? context.translate.cash
+                  : context.translate.online,
               icon: entity.paymentMode == PaymentMode.cash
                   ? const Icon(Ionicons.cash, color: ColorPalette.neutral70)
                   : const Icon(Ionicons.card, color: ColorPalette.neutral70),
@@ -131,7 +134,8 @@ class RideHistoryDetailsSheet extends StatelessWidget {
                     (e) => SquareIconChip(icon: e.icon.icon),
                   )
                       .followedBy([
-                    if (entity.waitMinutes > 0) const SquareIconChip(icon: Ionicons.time),
+                    if (entity.waitMinutes > 0)
+                      const SquareIconChip(icon: Ionicons.time),
                   ]).toList(),
                 ),
               )

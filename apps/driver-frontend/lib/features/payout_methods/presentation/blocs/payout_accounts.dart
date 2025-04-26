@@ -13,7 +13,8 @@ part 'payout_accounts.freezed.dart';
 class PayoutAccountsBloc extends Cubit<PayoutAccountsState> {
   final PayoutMethodsRepository _repository;
 
-  PayoutAccountsBloc(this._repository) : super(const PayoutAccountsState.initial());
+  PayoutAccountsBloc(this._repository)
+      : super(const PayoutAccountsState.initial());
 
   void load() async {
     emit(const PayoutAccountsState.loading());

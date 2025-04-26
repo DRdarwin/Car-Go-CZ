@@ -10,5 +10,6 @@ class VehicleColorEntity with _$VehicleColorEntity {
     required String name,
   }) = _VehicleColorEntity;
 
-  factory VehicleColorEntity.fromJson(Map<String, dynamic> json) => _$VehicleColorEntityFromJson(json);
+  factory VehicleColorEntity.fromJson(Map<String, dynamic> json) =>
+      _$VehicleColorEntityFromJson(json);
 }

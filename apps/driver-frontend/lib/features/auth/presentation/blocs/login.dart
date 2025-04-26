@@ -81,15 +81,18 @@ class LoginBloc extends HydratedCubit<LoginState> {
         ),
       );
 
-  void onCurrentPasswordChanged(String password) => emit(state.copyWith(currentPassword: password));
+  void onCurrentPasswordChanged(String password) =>
+      emit(state.copyWith(currentPassword: password));
 
-  void onNewPasswordChanged(String password) => emit(state.copyWith(newPassword: password));
+  void onNewPasswordChanged(String password) =>
+      emit(state.copyWith(newPassword: password));
 
   void onNewPasswordSubmitted() async {
     emit(state.copyWith(isLoading: true));
     final result = await repository.setPassword(state.newPassword!);
     result.fold(
-      (l) => emit(state.copyWith(errorMessage: l.errorMessage, isLoading: false)),
+      (l) =>
+          emit(state.copyWith(errorMessage: l.errorMessage, isLoading: false)),
       (r) async => _processVerifiedUser(
         VerifyOtpResponse(
           jwtToken: state.jwtToken!,
@@ -106,7 +109,8 @@ class LoginBloc extends HydratedCubit<LoginState> {
       state.countryCode!.e164CC + state.mobileNumber!,
     );
     result.fold(
-      (l) => emit(state.copyWith(errorMessage: l.errorMessage, isLoading: false)),
+      (l) =>
+          emit(state.copyWith(errorMessage: l.errorMessage, isLoading: false)),
       (r) {
         emit(
           state.copyWith(
@@ -188,8 +192,9 @@ class LoginBloc extends HydratedCubit<LoginState> {
 
   void onConfirmPasswordPressed() async {
     emit(state.copyWith(isLoading: true));
-    final result =
-        await repository.verifyPassword(state.countryCode!.e164CC + state.mobileNumber!, state.currentPassword!);
+    final result = await repository.verifyPassword(
+        state.countryCode!.e164CC + state.mobileNumber!,
+        state.currentPassword!);
     result.fold(
       (l) => emit(
         state.copyWith(
@@ -241,7 +246,8 @@ class LoginBloc extends HydratedCubit<LoginState> {
           );
         },
       );
-    } else if (profile.status == const DriverStatus.blocked() || profile.status == const DriverStatus.hardReject()) {
+    } else if (profile.status == const DriverStatus.blocked() ||
+        profile.status == const DriverStatus.hardReject()) {
       emit(
         state.copyWith(
           loginPage: const LoginPage.accessDenied(),
@@ -264,27 +270,34 @@ class LoginBloc extends HydratedCubit<LoginState> {
 
   // START: Contact Details
 
-  void onGenderChanged(Gender? gender) => emit(state.copyWith.profileFullEntity!.call(gender: gender));
+  void onGenderChanged(Gender? gender) =>
+      emit(state.copyWith.profileFullEntity!.call(gender: gender));
 
-  void onFirstNameChanged(String? firstName) => emit(state.copyWith.profileFullEntity!.call(firstName: firstName));
+  void onFirstNameChanged(String? firstName) =>
+      emit(state.copyWith.profileFullEntity!.call(firstName: firstName));
 
-  void onLastNameChanged(String? lastName) => emit(state.copyWith.profileFullEntity!.call(lastName: lastName));
+  void onLastNameChanged(String? lastName) =>
+      emit(state.copyWith.profileFullEntity!.call(lastName: lastName));
 
-  void onAddressChanged(String? address) => emit(state.copyWith.profileFullEntity!.call(address: address));
+  void onAddressChanged(String? address) =>
+      emit(state.copyWith.profileFullEntity!.call(address: address));
 
-  void onEmailChanged(String? email) => emit(state.copyWith.profileFullEntity!.call(email: email));
+  void onEmailChanged(String? email) =>
+      emit(state.copyWith.profileFullEntity!.call(email: email));
 
   void onCertificateNumberChanged(String? certificateNumber) =>
-      emit(state.copyWith.profileFullEntity!.call(certificateNumber: certificateNumber));
+      emit(state.copyWith.profileFullEntity!
+          .call(certificateNumber: certificateNumber));
 
-  void onConfirmContactDetailsPressed() => emit(state.copyWith(loginPage: const LoginPage.vehicleDetails()));
+  void onConfirmContactDetailsPressed() =>
+      emit(state.copyWith(loginPage: const LoginPage.vehicleDetails()));
 
   // END: Contact Details
 
   // START: Vehicle Details
 
-  void onPlateNumberChanged(String? newValue) =>
-      emit(state.copyWith.profileFullEntity!.call(vehiclePlateNumber: newValue));
+  void onPlateNumberChanged(String? newValue) => emit(
+      state.copyWith.profileFullEntity!.call(vehiclePlateNumber: newValue));
 
   void onVehicleModelIdChanged(String? newValue) =>
       emit(state.copyWith.profileFullEntity!.call(vehicleModelId: newValue));
@@ -292,16 +305,18 @@ class LoginBloc extends HydratedCubit<LoginState> {
   void onVehicleColorIdChanged(String? newValue) =>
       emit(state.copyWith.profileFullEntity!.call(vehicleColorId: newValue));
 
-  void onVehicleProductionYearChanged(int? newValue) =>
-      emit(state.copyWith.profileFullEntity!.call(vehicleProductionYear: newValue));
+  void onVehicleProductionYearChanged(int? newValue) => emit(
+      state.copyWith.profileFullEntity!.call(vehicleProductionYear: newValue));
 
-  void onConfirmVehicleDetailsPressed() => emit(state.copyWith(loginPage: const LoginPage.payoutInformation()));
+  void onConfirmVehicleDetailsPressed() =>
+      emit(state.copyWith(loginPage: const LoginPage.payoutInformation()));
 
   // END: Vehicle Details
 
   // START: Payout Information
 
-  void onBankNameChanged(String? newValue) => emit(state.copyWith.profileFullEntity!.call(bankName: newValue));
+  void onBankNameChanged(String? newValue) =>
+      emit(state.copyWith.profileFullEntity!.call(bankName: newValue));
 
   void onBankAccountNumberChanged(String? newValue) =>
       emit(state.copyWith.profileFullEntity!.call(bankAccountNumber: newValue));
@@ -309,9 +324,11 @@ class LoginBloc extends HydratedCubit<LoginState> {
   void onBankRoutingNumberChanged(String? newValue) =>
       emit(state.copyWith.profileFullEntity!.call(bankRoutingNumber: newValue));
 
-  void onBankSwiftCodeChanged(String? newValue) => emit(state.copyWith.profileFullEntity!.call(bankSwiftCode: newValue));
+  void onBankSwiftCodeChanged(String? newValue) =>
+      emit(state.copyWith.profileFullEntity!.call(bankSwiftCode: newValue));
 
-  void onConfirmPayoutInformationPressed() => emit(state.copyWith(loginPage: const LoginPage.documents()));
+  void onConfirmPayoutInformationPressed() =>
+      emit(state.copyWith(loginPage: const LoginPage.documents()));
 
   // END: Payout Information
 

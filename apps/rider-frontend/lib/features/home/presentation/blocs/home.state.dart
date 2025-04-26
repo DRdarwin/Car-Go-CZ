@@ -37,7 +37,8 @@ sealed class HomeState with _$HomeState {
     required String error,
   }) = _Error;
 
-  factory HomeState.fromJson(Map<String, dynamic> json) => _$HomeStateFromJson(json);
+  factory HomeState.fromJson(Map<String, dynamic> json) =>
+      _$HomeStateFromJson(json);
 
   const HomeState._();
 

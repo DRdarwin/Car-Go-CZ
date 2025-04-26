@@ -73,13 +73,15 @@ class _CancelRideReasonDialogState extends State<CancelRideReasonDialog> {
               duration: AnimationDuration.pageStateTransitionMobile,
               child: state.map(
                 initial: (_) => const SizedBox.shrink(),
-                loading: (_) => Assets.lottie.loading.lottie(width: double.infinity, height: 300),
+                loading: (_) => Assets.lottie.loading
+                    .lottie(width: double.infinity, height: 300),
                 error: (error) => Text(error.message),
                 loaded: (loaded) => Column(
                   children: loaded.data
                       .map(
                         (e) => CupertinoButton(
-                          padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                          padding: const EdgeInsets.symmetric(
+                              vertical: 8, horizontal: 16),
                           child: Row(
                             children: [
                               Expanded(

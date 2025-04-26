@@ -41,7 +41,9 @@ class UploadImageField extends StatelessWidget {
               padding: const EdgeInsets.all(8),
               decoration: BoxDecoration(
                 shape: shape,
-                borderRadius: borderRadius != null ? BorderRadius.circular(borderRadius!) : null,
+                borderRadius: borderRadius != null
+                    ? BorderRadius.circular(borderRadius!)
+                    : null,
                 border: Border.all(
                   color: const Color(0xffe2e8f0),
                   width: 8,
@@ -52,7 +54,9 @@ class UploadImageField extends StatelessWidget {
                       clipBehavior: Clip.antiAlias,
                       decoration: BoxDecoration(
                         shape: shape,
-                        borderRadius: borderRadius != null ? BorderRadius.circular(borderRadius! * 0.5) : null,
+                        borderRadius: borderRadius != null
+                            ? BorderRadius.circular(borderRadius! * 0.5)
+                            : null,
                       ),
                       child: CachedNetworkImage(
                         imageUrl: state.value!.address,
@@ -65,7 +69,9 @@ class UploadImageField extends StatelessWidget {
                       padding: const EdgeInsets.all(20),
                       decoration: BoxDecoration(
                           shape: shape,
-                          borderRadius: borderRadius != null ? BorderRadius.circular(borderRadius! * 0.5) : null,
+                          borderRadius: borderRadius != null
+                              ? BorderRadius.circular(borderRadius! * 0.5)
+                              : null,
                           color: const Color(0xfff4f5fe)),
                       child: const Icon(
                         Ionicons.cloud_upload,
@@ -80,7 +86,8 @@ class UploadImageField extends StatelessWidget {
               minSize: 0,
               padding: const EdgeInsets.all(0),
               onPressed: () async {
-                final result = await ImagePicker().pickImage(source: ImageSource.gallery);
+                final result =
+                    await ImagePicker().pickImage(source: ImageSource.gallery);
                 if (result != null) {
                   final media = await fileUploader(result.path);
                   state.didChange(media);
@@ -96,7 +103,8 @@ class UploadImageField extends StatelessWidget {
                 ),
                 child: Text(
                   uploadButtonText,
-                  style: context.labelMedium?.copyWith(color: context.theme.colorScheme.onSurfaceVariant),
+                  style: context.labelMedium?.copyWith(
+                      color: context.theme.colorScheme.onSurfaceVariant),
                 ),
               ),
             ),

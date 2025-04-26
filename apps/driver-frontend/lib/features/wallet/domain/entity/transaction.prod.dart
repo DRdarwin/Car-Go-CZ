@@ -4,7 +4,8 @@ import '../../domain/enums/recharge_transaction_type.prod.dart';
 
 import 'transaction.dart';
 
-extension WalletTransactionEntityProdX on Query$Wallet$driver$transactions$nodes {
+extension WalletTransactionEntityProdX
+    on Query$Wallet$driver$transactions$nodes {
   WalletTransactionEntity get toEntity => WalletTransactionEntity(
         id: id,
         amount: amount,

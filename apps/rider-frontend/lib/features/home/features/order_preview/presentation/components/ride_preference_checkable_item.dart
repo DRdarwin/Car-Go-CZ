@@ -73,7 +73,9 @@ class RidePreferenceCheckableItem extends StatelessWidget {
     );
   }
 
-  Color get borderColor => isSelected ? ColorPalette.primary40 : ColorPalette.neutral90;
+  Color get borderColor =>
+      isSelected ? ColorPalette.primary40 : ColorPalette.neutral90;
 
-  Color get backgroundColor => isSelected ? ColorPalette.primary95 : ColorPalette.neutralVariant95;
+  Color get backgroundColor =>
+      isSelected ? ColorPalette.primary95 : ColorPalette.neutralVariant95;
 }

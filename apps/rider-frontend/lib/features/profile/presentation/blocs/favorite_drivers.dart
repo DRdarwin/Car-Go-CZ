@@ -11,7 +11,8 @@ part 'favorite_drivers.freezed.dart';
 class FavoriteDriversCubit extends Cubit<FavoriteDriversState> {
   final ProfileRepository _repository;
 
-  FavoriteDriversCubit(this._repository) : super(const FavoriteDriversState.initial());
+  FavoriteDriversCubit(this._repository)
+      : super(const FavoriteDriversState.initial());
 
   void load() async {
     emit(const FavoriteDriversState.loading());

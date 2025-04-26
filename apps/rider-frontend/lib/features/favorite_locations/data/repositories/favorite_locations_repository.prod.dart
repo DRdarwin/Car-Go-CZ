@@ -22,8 +22,10 @@ class FavoriteLocationsRepositoryImpl implements FavoriteLocationsRepository {
   );
 
   @override
-  Future<Either<Failure, List<FavoriteLocationEntity>>> getFavoriteLocations() async {
-    final result = await graphQLDatasource.query(Options$Query$FavoriteLocations(
+  Future<Either<Failure, List<FavoriteLocationEntity>>>
+      getFavoriteLocations() async {
+    final result =
+        await graphQLDatasource.query(Options$Query$FavoriteLocations(
       fetchPolicy: FetchPolicy.noCache,
     ));
     return result.map((r) => r.riderAddresses.toEntity);

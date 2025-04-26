@@ -12,7 +12,8 @@ class WalletScreenDesktop extends StatelessWidget {
     return SafeArea(
       bottom: false,
       child: Container(
-        padding: const EdgeInsets.only(top: 104, left: 24, right: 24, bottom: 24),
+        padding:
+            const EdgeInsets.only(top: 104, left: 24, right: 24, bottom: 24),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

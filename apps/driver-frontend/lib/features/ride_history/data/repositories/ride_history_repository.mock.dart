@@ -20,7 +20,9 @@ class RideHistoryRepositoryMock implements RideHistoryRepository {
 
   @override
   Future<Either<Failure, bool>> reportIssue(
-      {required String orderId, required String subject, required String issue}) async {
+      {required String orderId,
+      required String subject,
+      required String issue}) async {
     return const Right(true);
   }
 }

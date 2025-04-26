@@ -104,7 +104,9 @@ class _HomeScreenState extends State<HomeScreen> {
             },
           ),
           BlocListener<LocationCubit, LocationState>(
-            listenWhen: (previous, current) => previous is LocationStateLoading && current is LocationStateDetermined,
+            listenWhen: (previous, current) =>
+                previous is LocationStateLoading &&
+                current is LocationStateDetermined,
             listener: (context, state) {
               homeCubit.state.maybeMap(
                 rideInProgress: (_) {},

@@ -17,7 +17,9 @@ abstract class PayoutMethodsRepository {
 
   Future<Either<Failure, void>> deletePayoutMethod(String id);
 
-  Future<Either<Failure, PayoutAccountEntity>> addPayoutMethod(PayoutAccountInput input);
+  Future<Either<Failure, PayoutAccountEntity>> addPayoutMethod(
+      PayoutAccountInput input);
 
-  Future<Either<Failure, String>> getLinkUrlForPayoutMethod(PayoutMethodEntity method);
+  Future<Either<Failure, String>> getLinkUrlForPayoutMethod(
+      PayoutMethodEntity method);
 }

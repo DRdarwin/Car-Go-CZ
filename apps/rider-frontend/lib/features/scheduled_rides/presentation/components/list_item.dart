@@ -130,7 +130,9 @@ class ScheduledRidesListItem extends StatelessWidget {
                     startedAt: entity.startedAt,
                     finishedAt: entity.endedAt,
                   ),
-                  if (entity.rideOptions.isNotEmpty || entity.waitTime > 0 || entity.isTwoWayTrip) ...[
+                  if (entity.rideOptions.isNotEmpty ||
+                      entity.waitTime > 0 ||
+                      entity.isTwoWayTrip) ...[
                     const SizedBox(
                       height: 16,
                     ),
@@ -149,8 +151,10 @@ class ScheduledRidesListItem extends StatelessWidget {
                               (e) => SquareIconChip(icon: e.icon.icon),
                             )
                                 .followedBy([
-                              if (entity.waitTime > 0) const SquareIconChip(icon: Ionicons.time),
-                              if (entity.isTwoWayTrip) const SquareIconChip(icon: Ionicons.repeat),
+                              if (entity.waitTime > 0)
+                                const SquareIconChip(icon: Ionicons.time),
+                              if (entity.isTwoWayTrip)
+                                const SquareIconChip(icon: Ionicons.repeat),
                             ]).toList(),
                           ),
                         )

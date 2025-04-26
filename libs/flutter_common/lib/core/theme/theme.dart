@@ -21,7 +21,8 @@ class AppTheme {
       fontFamily: fontPrimary,
       scaffoldBackgroundColor: ColorPalette.neutralVariant99,
       inputDecorationTheme: inputTheme(fontPrimary, fontSecondary),
-      dividerTheme: const DividerThemeData(color: ColorPalette.neutral95, thickness: 1.5),
+      dividerTheme:
+          const DividerThemeData(color: ColorPalette.neutral95, thickness: 1.5),
       dividerColor: ColorPalette.neutral95,
       bottomSheetTheme: BottomSheetThemeData(
         shape: RoundedRectangleBorder(
@@ -52,7 +53,8 @@ class AppTheme {
               }
             },
           ),
-          padding: const WidgetStatePropertyAll(EdgeInsets.symmetric(horizontal: 24, vertical: 20)),
+          padding: const WidgetStatePropertyAll(
+              EdgeInsets.symmetric(horizontal: 24, vertical: 20)),
           foregroundColor: WidgetStateProperty.resolveWith((states) {
             if (states.contains(WidgetState.disabled)) {
               return lightColorScheme.onSurface.withOpacity(0.12);
@@ -85,7 +87,8 @@ class AppTheme {
       segmentedButtonTheme: SegmentedButtonThemeData(
         selectedIcon: const SizedBox.shrink(),
         style: ButtonStyle(
-          side: const WidgetStatePropertyAll(BorderSide(color: ColorPalette.primary95)),
+          side: const WidgetStatePropertyAll(
+              BorderSide(color: ColorPalette.primary95)),
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(12),
@@ -135,7 +138,8 @@ class AppTheme {
     );
   }
 
-  static ThemeData dark(String fontPrimary, String fontSecondary) => light(fontPrimary, fontSecondary).copyWith(
+  static ThemeData dark(String fontPrimary, String fontSecondary) =>
+      light(fontPrimary, fontSecondary).copyWith(
         colorScheme: darkColorScheme,
         inputDecorationTheme: inputThemeDark(fontPrimary, fontSecondary),
         textTheme: textThemeDark(fontPrimary, fontSecondary),

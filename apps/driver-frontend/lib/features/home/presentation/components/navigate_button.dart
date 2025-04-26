@@ -18,7 +18,8 @@ class NavigateButton extends StatelessWidget {
           orElse: () => const SizedBox(),
           onTrip: (value) => AppPrimaryButton(
             onPressed: () {
-              final place = value.order.waypoints[(value.order.destinationArrivedTo ?? -1) + 1];
+              final place = value.order
+                  .waypoints[(value.order.destinationArrivedTo ?? -1) + 1];
               showDialog(
                 context: context,
                 useSafeArea: false,

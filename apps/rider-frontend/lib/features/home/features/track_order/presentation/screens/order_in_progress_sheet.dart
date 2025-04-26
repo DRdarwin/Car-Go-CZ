@@ -51,7 +51,8 @@ class OrderInProgressSheet extends StatelessWidget {
               children: [
                 const CardHandle(),
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+                  padding:
+                      const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -75,8 +76,10 @@ class OrderInProgressSheet extends StatelessWidget {
                             ),
                           ),
                           Badge(
-                            isLabelVisible:
-                                order.chatMessages.lastOrNull?.createdAt.isAfter(order.lastSeenMessagesAt) ?? false,
+                            isLabelVisible: order
+                                    .chatMessages.lastOrNull?.createdAt
+                                    .isAfter(order.lastSeenMessagesAt) ??
+                                false,
                             child: AppIconButton(
                               icon: Ionicons.chatbubble,
                               onPressed: () {
@@ -88,7 +91,8 @@ class OrderInProgressSheet extends StatelessWidget {
                           AppIconButton(
                             icon: Ionicons.call,
                             onPressed: () {
-                              launchUrlString("tel://+${order.driver?.mobileNumber}");
+                              launchUrlString(
+                                  "tel://+${order.driver?.mobileNumber}");
                             },
                           ),
                         ],
@@ -102,7 +106,9 @@ class OrderInProgressSheet extends StatelessWidget {
                         vehicleColor: order.driver?.vehicleColor,
                         vehiclePlateNumber: order.driver?.vehiclePlateNumber,
                         sizeMode: context.responsive(
-                          order.status == OrderStatus.arrived ? VehicleInfoSizeMode.large : VehicleInfoSizeMode.compact,
+                          order.status == OrderStatus.arrived
+                              ? VehicleInfoSizeMode.large
+                              : VehicleInfoSizeMode.compact,
                           xl: VehicleInfoSizeMode.extraLarge,
                         ),
                       ),
@@ -138,7 +144,8 @@ class OrderInProgressSheet extends StatelessWidget {
                 SafeArea(
                   top: false,
                   child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
                     child: Column(
                       children: [
                         PaymentMethodSelectField(

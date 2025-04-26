@@ -38,7 +38,8 @@ class LocateLocationLayoutDelegate extends MultiChildLayoutDelegate {
           16,
         ),
       );
-      final myLocationSize = layoutChild(myLocationButtonId, const BoxConstraints());
+      final myLocationSize =
+          layoutChild(myLocationButtonId, const BoxConstraints());
       positionChild(
         myLocationButtonId,
         Offset(

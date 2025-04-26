@@ -16,5 +16,6 @@ class RateOrderState with _$RateOrderState {
 }
 
 extension ParametersLoadedX on ParametersLoaded {
-  bool parameterSelected(ReviewParameterEntity parameter) => selectedParameters.contains(parameter);
+  bool parameterSelected(ReviewParameterEntity parameter) =>
+      selectedParameters.contains(parameter);
 }

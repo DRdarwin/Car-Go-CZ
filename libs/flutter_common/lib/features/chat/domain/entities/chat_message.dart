@@ -12,5 +12,6 @@ class ChatMessageEntity with _$ChatMessageEntity {
     required DateTime createdAt,
   }) = _ChatMessageEntity;
 
-  factory ChatMessageEntity.fromJson(Map<String, dynamic> json) => _$ChatMessageEntityFromJson(json);
+  factory ChatMessageEntity.fromJson(Map<String, dynamic> json) =>
+      _$ChatMessageEntityFromJson(json);
 }

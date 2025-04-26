@@ -15,6 +15,8 @@ extension SavedPaymentMethodProdX on Fragment$SavedPaymentMethodFragment {
       );
 }
 
-extension SavedPaymentMethodsProdX on List<Fragment$SavedPaymentMethodFragment> {
-  List<SavedPaymentMethodEntity> get toEntity => map((e) => e.toEntity).toList();
+extension SavedPaymentMethodsProdX
+    on List<Fragment$SavedPaymentMethodFragment> {
+  List<SavedPaymentMethodEntity> get toEntity =>
+      map((e) => e.toEntity).toList();
 }

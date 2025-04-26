@@ -56,7 +56,8 @@ class ProfileFullEntity with _$ProfileFullEntity {
         documents: null,
       );
 
-  factory ProfileFullEntity.fromJson(Map<String, dynamic> json) => _$ProfileFullEntityFromJson(json);
+  factory ProfileFullEntity.fromJson(Map<String, dynamic> json) =>
+      _$ProfileFullEntityFromJson(json);
 
   const ProfileFullEntity._();
 

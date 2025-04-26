@@ -12,7 +12,8 @@ part 'payment_methods.freezed.dart';
 class PaymentMethodsBloc extends Cubit<PaymentMethodsState> {
   final PaymentMethodsRepository _repository;
 
-  PaymentMethodsBloc(this._repository) : super(const PaymentMethodsState.initial());
+  PaymentMethodsBloc(this._repository)
+      : super(const PaymentMethodsState.initial());
 
   void load() async {
     emit(const PaymentMethodsState.loading());

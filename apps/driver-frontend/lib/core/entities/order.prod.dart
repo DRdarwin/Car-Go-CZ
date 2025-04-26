@@ -24,7 +24,8 @@ extension OrderGqlX on Fragment$CurrentOrder {
         costAfterCoupon: costAfterCoupon,
         providerShare: providerShare,
         currency: currency,
-        cashPaymentAllowed: service?.paymentMethod != Enum$ServicePaymentMethod.OnlyCredit,
+        cashPaymentAllowed:
+            service?.paymentMethod != Enum$ServicePaymentMethod.OnlyCredit,
         waypoints: points
             .mapIndexed(
               (index, element) => PlaceEntity(

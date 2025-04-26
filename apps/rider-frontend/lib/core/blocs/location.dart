@@ -34,7 +34,8 @@ class LocationCubit extends HydratedCubit<LocationState> {
     }
     bool permissionGranted = false;
     try {
-      permissionGranted = await locationDatasource.isLocationPermissionGranted();
+      permissionGranted =
+          await locationDatasource.isLocationPermissionGranted();
     } catch (error) {
       permissionGranted = false;
     }

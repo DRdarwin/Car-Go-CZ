@@ -30,5 +30,6 @@ abstract class TrackOrderRepository {
 
   Future<Either<Failure, List<PaymentMethodUnion>>> getPaymentMethods();
 
-  Future<Either<Failure, void>> updateLastSeenMessages({required String orderId});
+  Future<Either<Failure, void>> updateLastSeenMessages(
+      {required String orderId});
 }

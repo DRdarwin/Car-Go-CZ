@@ -11,7 +11,8 @@ part 'payout_methods.freezed.dart';
 class PayoutMethodsBloc extends Cubit<PayoutMethodsState> {
   final PayoutMethodsRepository _repository;
 
-  PayoutMethodsBloc(this._repository) : super(const PayoutMethodsState.initial()) {
+  PayoutMethodsBloc(this._repository)
+      : super(const PayoutMethodsState.initial()) {
     load();
   }
 

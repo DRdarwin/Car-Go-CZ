@@ -22,11 +22,13 @@ class NavigationScreenDesktop extends StatefulWidget {
   });
 
   @override
-  State<NavigationScreenDesktop> createState() => _NavigationScreenDesktopState();
+  State<NavigationScreenDesktop> createState() =>
+      _NavigationScreenDesktopState();
 }
 
 class _NavigationScreenDesktopState extends State<NavigationScreenDesktop> {
-  final OverlayPortalController _overlayPortalController = OverlayPortalController();
+  final OverlayPortalController _overlayPortalController =
+      OverlayPortalController();
   final LayerLink _link = LayerLink();
 
   @override
@@ -87,7 +89,8 @@ class _NavigationScreenDesktopState extends State<NavigationScreenDesktop> {
                                 child: Align(
                                   alignment: AlignmentDirectional.topCenter,
                                   child: Container(
-                                    margin: const EdgeInsets.only(top: 8, right: 50),
+                                    margin: const EdgeInsets.only(
+                                        top: 8, right: 50),
                                     width: 400,
                                     height: context.height * 0.7,
                                     clipBehavior: Clip.hardEdge,

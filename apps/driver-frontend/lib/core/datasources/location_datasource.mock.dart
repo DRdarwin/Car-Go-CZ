@@ -10,10 +10,12 @@ import 'location_datasource.dart';
 @dev
 @LazySingleton(as: LocationDatasource)
 class LocationDatasourceImpl implements LocationDatasource {
-  final StreamController<DriverLocation> _locationStreamController = BehaviorSubject();
+  final StreamController<DriverLocation> _locationStreamController =
+      BehaviorSubject();
 
   @override
-  Stream<DriverLocation> get driverLocation => _locationStreamController.stream.asBroadcastStream();
+  Stream<DriverLocation> get driverLocation =>
+      _locationStreamController.stream.asBroadcastStream();
 
   @override
   void getCurrentLocation() async {
@@ -33,7 +35,8 @@ class LocationDatasourceImpl implements LocationDatasource {
 
   @override
   Future<void> startGettingLocationUpdates() async {
-    return _locationStreamController.add(const DriverLocation(lat: 37.384135, lng: -122.067976, rotation: 90));
+    return _locationStreamController.add(
+        const DriverLocation(lat: 37.384135, lng: -122.067976, rotation: 90));
   }
 
   @override

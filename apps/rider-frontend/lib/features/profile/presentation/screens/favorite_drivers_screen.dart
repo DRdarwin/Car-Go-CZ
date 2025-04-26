@@ -58,7 +58,8 @@ class _FavoriteDriversScreenState extends State<FavoriteDriversScreen> {
             ),
             const SizedBox(height: 16),
             Expanded(
-              child: BlocBuilder<FavoriteDriversCubit, FavoriteDriversState>(builder: (context, state) {
+              child: BlocBuilder<FavoriteDriversCubit, FavoriteDriversState>(
+                  builder: (context, state) {
                 return AnimatedSwitcher(
                   duration: AnimationDuration.pageStateTransitionMobile,
                   child: state.map(
@@ -70,7 +71,8 @@ class _FavoriteDriversScreenState extends State<FavoriteDriversScreen> {
                       empty: (_) => EmptyListState(
                             imagePath: Assets.images.rideHistoryEmptyState.path,
                             title: context.translate.noFavoriteDrivers,
-                            subTitle: context.translate.noFavoriteDriversDescription,
+                            subTitle:
+                                context.translate.noFavoriteDriversDescription,
                           ),
                       loaded: (loaded) {
                         return ListView.separated(
@@ -81,11 +83,13 @@ class _FavoriteDriversScreenState extends State<FavoriteDriversScreen> {
                               entity: loaded.drivers[index],
                               editMode: editMode,
                               onDeletePressed: () {
-                                locator<FavoriteDriversCubit>().delete(loaded.drivers[index]);
+                                locator<FavoriteDriversCubit>()
+                                    .delete(loaded.drivers[index]);
                               },
                             );
                           },
-                          separatorBuilder: (context, index) => const SizedBox(height: 16),
+                          separatorBuilder: (context, index) =>
+                              const SizedBox(height: 16),
                         );
                       },
                       error: (error) => Text(error.message)),

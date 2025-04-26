@@ -110,8 +110,9 @@ class HomeRepositoryImpl implements HomeRepository {
     return _updateOrderStatus(
       Variables$Mutation$UpdateOrderStatus(
         orderId: order.id,
-        status:
-            order.waypoints.length >= destinationArrivedTo + 1 ? Enum$OrderStatus.Finished : Enum$OrderStatus.Started,
+        status: order.waypoints.length >= destinationArrivedTo + 1
+            ? Enum$OrderStatus.Finished
+            : Enum$OrderStatus.Started,
         destinationArrivedTo: destinationArrivedTo,
       ),
     );
@@ -154,7 +155,8 @@ class HomeRepositoryImpl implements HomeRepository {
     );
   }
 
-  Future<Either<Failure, OrderEntity>> _updateOrderStatus(Variables$Mutation$UpdateOrderStatus varialbes) async {
+  Future<Either<Failure, OrderEntity>> _updateOrderStatus(
+      Variables$Mutation$UpdateOrderStatus varialbes) async {
     final result = await graphQLDatasource.mutate(
       Options$Mutation$UpdateOrderStatus(
         fetchPolicy: FetchPolicy.noCache,
@@ -168,7 +170,8 @@ class HomeRepositoryImpl implements HomeRepository {
 
   @override
   Future<Either<Failure, List<CancelReasonEntity>>> getCancelReasons() async {
-    final reasons = await graphQLDatasource.query(Options$Query$CancelReasons());
+    final reasons =
+        await graphQLDatasource.query(Options$Query$CancelReasons());
     return reasons.map((r) => r.toEntity);
   }
 
@@ -297,18 +300,21 @@ class HomeRepositoryImpl implements HomeRepository {
           (event) => event.orderCreated.toEntity,
         )
         .scan((accumulated, value, index) => [...accumulated, value], []);
-    final Stream<List<OrderRequestEntity>> orderRequestsRemoved = graphQLDatasource
-        .subscribe(Options$Subscription$OrderRemoved())
-        .map(
-          (event) => event.orderRemoved.toEntity,
-        )
-        .scan((accumulated, value, index) => [...accumulated, value], []);
+    final Stream<List<OrderRequestEntity>> orderRequestsRemoved =
+        graphQLDatasource
+            .subscribe(Options$Subscription$OrderRemoved())
+            .map(
+              (event) => event.orderRemoved.toEntity,
+            )
+            .scan((accumulated, value, index) => [...accumulated, value], []);
     this.orderRequests = Rx.combineLatest2(
       orderRequests,
       orderRequestsRemoved.startWith([]),
       (newRequests, removedRequests) {
-        final list =
-            newRequests.where((element) => !removedRequests.any((element2) => element.id == element2.id)).toList();
+        final list = newRequests
+            .where((element) =>
+                !removedRequests.any((element2) => element.id == element2.id))
+            .toList();
         return list.toSet().toList();
       },
     );
@@ -321,7 +327,8 @@ class HomeRepositoryImpl implements HomeRepository {
   }
 
   @override
-  Future<Either<Failure, void>> updateLastSeenMessagesAt({required String orderId}) {
+  Future<Either<Failure, void>> updateLastSeenMessagesAt(
+      {required String orderId}) {
     return graphQLDatasource.mutate(
       Options$Mutation$updateLastSeenMessagesAt(
         fetchPolicy: FetchPolicy.noCache,

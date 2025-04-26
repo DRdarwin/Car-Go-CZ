@@ -1,3 +1,4 @@
+// admin-api/src/app/feedback/feedback.module.ts
 import {
   NestjsQueryGraphQLModule,
   PagingStrategies,
@@ -10,6 +11,7 @@ import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 import { FeedbackParameterDTO } from './dto/feedback-parameter.dto';
 import { FeedbackDTO } from './dto/feedback.dto';
 import { FeedbackParameterInput } from './dto/feedback-parameter.input';
+import { FeedbackParameterAuthorizer } from './dto/feedback-parameter.authorizer'; // Імпортуємо авторизатор
 
 @Module({
   imports: [
@@ -20,13 +22,16 @@ import { FeedbackParameterInput } from './dto/feedback-parameter.input';
           FeedbackParameterEntity,
         ]),
       ],
+      // Додаємо авторизатор як сервіс
+      services: [FeedbackParameterAuthorizer],
       resolvers: [
         {
           EntityClass: FeedbackEntity,
           DTOClass: FeedbackDTO,
-          create: { disabled: true },
-          update: { many: { disabled: true } },
+          create: { disabled: true }, // Відгуки створюються клієнтами/водіями
+          update: { disabled: true },
           delete: { disabled: true },
+          read: { one: { name: 'feedback' }, many: { name: 'feedbacks' } },
           pagingStrategy: PagingStrategies.OFFSET,
           enableTotalCount: true,
           guards: [JwtAuthGuard],
@@ -36,9 +41,11 @@ import { FeedbackParameterInput } from './dto/feedback-parameter.input';
           DTOClass: FeedbackParameterDTO,
           CreateDTOClass: FeedbackParameterInput,
           UpdateDTOClass: FeedbackParameterInput,
-          create: { many: { disabled: true } },
-          update: { many: { disabled: true } },
-          delete: { many: { disabled: true } },
+          // Застосовуємо авторизатор до CRUD операцій для параметрів
+          read: { one: { name: 'feedbackParameter' }, many: { name: 'feedbackParameters' }, authorizer: FeedbackParameterAuthorizer },
+          create: { authorizer: FeedbackParameterAuthorizer, many: { disabled: true } },
+          update: { authorizer: FeedbackParameterAuthorizer, many: { disabled: true } },
+          delete: { authorizer: FeedbackParameterAuthorizer, many: { disabled: true } },
           pagingStrategy: PagingStrategies.NONE,
           guards: [JwtAuthGuard],
         },
@@ -46,4 +53,4 @@ import { FeedbackParameterInput } from './dto/feedback-parameter.input';
     }),
   ],
 })
-export class FeedbackModule {}
+export class FeedbackModule { }

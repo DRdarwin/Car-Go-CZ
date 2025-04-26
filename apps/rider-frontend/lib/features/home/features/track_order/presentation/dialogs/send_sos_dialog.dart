@@ -34,11 +34,13 @@ class SendSOSDialog extends StatelessWidget {
       secondaryButton: AppPrimaryButton(
         color: PrimaryButtonColor.error,
         onPressed: () async {
-          final result = await locator<TrackOrderRepository>().sendSOSSignal(orderId: orderId);
+          final result = await locator<TrackOrderRepository>()
+              .sendSOSSignal(orderId: orderId);
           result.fold(
             (l) => context.showSnackBar(message: l.errorMessage),
             (r) {
-              context.showSnackBar(message: context.translate.sosSentSuccessfully);
+              context.showSnackBar(
+                  message: context.translate.sosSentSuccessfully);
               Navigator.of(context).pop();
             },
           );

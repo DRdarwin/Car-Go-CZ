@@ -1,7 +1,8 @@
 part of 'add_bank_transfer_payout_method_form_cubit.dart';
 
 @freezed
-class AddBankTransferPayoutMethodFormState with _$AddBankTransferPayoutMethodFormState {
+class AddBankTransferPayoutMethodFormState
+    with _$AddBankTransferPayoutMethodFormState {
   const factory AddBankTransferPayoutMethodFormState({
     String? name,
     String? payoutMethodId,
@@ -18,7 +19,8 @@ class AddBankTransferPayoutMethodFormState with _$AddBankTransferPayoutMethodFor
     String? accountHolderCountry,
     String? accountHolderPhone,
     DateTime? accountHolderDateOfBirth,
-    @Default(FormSubmissionState.initial()) FormSubmissionState<PayoutAccountEntity> pageState,
+    @Default(FormSubmissionState.initial())
+    FormSubmissionState<PayoutAccountEntity> pageState,
   }) = _AddBankTransferPayoutMethodFormState;
 
   const AddBankTransferPayoutMethodFormState._();

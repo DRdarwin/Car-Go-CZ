@@ -19,10 +19,13 @@ class DesktopLayoutDelegate extends MultiChildLayoutDelegate {
         maxWidth: size.width,
       ),
     );
-    positionChild(bottomSheetLayoutId, Offset(0, size.height - bottomSheetSize.height));
-    final searchRadiusButtonSize = layoutChild(searchRadiusButtonId, const BoxConstraints());
+    positionChild(
+        bottomSheetLayoutId, Offset(0, size.height - bottomSheetSize.height));
+    final searchRadiusButtonSize =
+        layoutChild(searchRadiusButtonId, const BoxConstraints());
 
-    final sidebarSize = layoutChild(sidebarLayoutId, BoxConstraints(maxWidth: 400, maxHeight: size.height));
+    final sidebarSize = layoutChild(
+        sidebarLayoutId, BoxConstraints(maxWidth: 400, maxHeight: size.height));
     positionChild(sidebarLayoutId, Offset(size.width - 400, 0));
     positionChild(
       searchRadiusButtonId,
@@ -67,7 +70,8 @@ class DesktopLayoutDelegate extends MultiChildLayoutDelegate {
         navbarId,
         const Offset(0, 80),
       );
-      final myLocationSize = layoutChild(myLocationButtonId, const BoxConstraints());
+      final myLocationSize =
+          layoutChild(myLocationButtonId, const BoxConstraints());
       positionChild(
         myLocationButtonId,
         Offset(

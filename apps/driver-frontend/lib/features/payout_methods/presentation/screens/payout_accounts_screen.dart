@@ -84,10 +84,13 @@ class _PayoutAccountsScreenState extends State<PayoutAccountsScreen> {
                           children: [
                             Container(
                               constraints: const BoxConstraints(maxWidth: 400),
-                              child: linkedMethods.defaultPayoutAccount?.toSavedCard(
+                              child: linkedMethods.defaultPayoutAccount
+                                  ?.toSavedCard(
                                 onDefaultChanged: (value) {
-                                  locator<PayoutAccountsBloc>().updatePayoutMethodDefaultStatus(
-                                    payoutMethodId: linkedMethods.defaultPayoutAccount!.id,
+                                  locator<PayoutAccountsBloc>()
+                                      .updatePayoutMethodDefaultStatus(
+                                    payoutMethodId:
+                                        linkedMethods.defaultPayoutAccount!.id,
                                     isDefault: value,
                                   );
                                 },
@@ -113,9 +116,11 @@ class _PayoutAccountsScreenState extends State<PayoutAccountsScreen> {
                                       style: context.labelSmall,
                                       children: [
                                         TextSpan(
-                                          text: context.translate.payoutNoticeTitle,
+                                          text: context
+                                              .translate.payoutNoticeTitle,
                                           style: context.bodySmall?.copyWith(
-                                            color: ColorPalette.neutralVariant50,
+                                            color:
+                                                ColorPalette.neutralVariant50,
                                           ),
                                         )
                                       ],
@@ -132,16 +137,24 @@ class _PayoutAccountsScreenState extends State<PayoutAccountsScreen> {
                                 children: [
                                   ListView.separated(
                                     padding: EdgeInsets.zero,
-                                    itemCount: linkedMethods.nonDefaultPayoutAccounts.length,
+                                    itemCount: linkedMethods
+                                        .nonDefaultPayoutAccounts.length,
                                     shrinkWrap: true,
-                                    separatorBuilder: (context, index) => const Divider(
+                                    separatorBuilder: (context, index) =>
+                                        const Divider(
                                       indent: 32,
                                       height: 12,
                                     ),
-                                    itemBuilder: (context, index) => AppMenuItem(
+                                    itemBuilder: (context, index) =>
+                                        AppMenuItem(
                                       icon: Ionicons.business,
-                                      title: linkedMethods.nonDefaultPayoutAccounts[index].bankName ?? "",
-                                      subtitle: linkedMethods.nonDefaultPayoutAccounts[index].accountNumber,
+                                      title: linkedMethods
+                                              .nonDefaultPayoutAccounts[index]
+                                              .bankName ??
+                                          "",
+                                      subtitle: linkedMethods
+                                          .nonDefaultPayoutAccounts[index]
+                                          .accountNumber,
                                       onPressed: () async {
                                         await context.router.push(
                                           const PayoutAccountListRoute(),
@@ -161,7 +174,8 @@ class _PayoutAccountsScreenState extends State<PayoutAccountsScreen> {
                                       await showDialog(
                                         context: context,
                                         useSafeArea: false,
-                                        builder: (context) => const SelectPayoutMethodDialog(),
+                                        builder: (context) =>
+                                            const SelectPayoutMethodDialog(),
                                       );
                                       locator<PayoutAccountsBloc>().load();
                                     },

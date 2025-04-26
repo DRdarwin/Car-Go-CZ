@@ -12,14 +12,17 @@ part 'destination_suggestions.freezed.dart';
 class DestinationSuggestionsCubit extends Cubit<DestinationSuggestionsState> {
   final NewOrderRepository repository;
 
-  DestinationSuggestionsCubit(this.repository) : super(const DestinationSuggestionsState.initial());
+  DestinationSuggestionsCubit(this.repository)
+      : super(const DestinationSuggestionsState.initial());
 
   void onStarted() async {
     emit(const DestinationSuggestionsState.loading());
     final result = await repository.getDestinationSuggestions();
     result.fold(
-      (failure) => emit(DestinationSuggestionsState.error(failure.errorMessage)),
-      (response) => emit(DestinationSuggestionsState.loaded(favorites: response.$1, recents: response.$2)),
+      (failure) =>
+          emit(DestinationSuggestionsState.error(failure.errorMessage)),
+      (response) => emit(DestinationSuggestionsState.loaded(
+          favorites: response.$1, recents: response.$2)),
     );
   }
 }

@@ -100,7 +100,8 @@ class ServiceItem extends StatelessWidget {
                   ),
                   const SizedBox(width: 4),
                   Text(
-                    (entity.priceAfterCouponApplied ?? 0).formatCurrency(currency),
+                    (entity.priceAfterCouponApplied ?? 0)
+                        .formatCurrency(currency),
                     style: context.titleSmall?.copyWith(
                       color: ColorPalette.primary40,
                     ),
@@ -113,7 +114,9 @@ class ServiceItem extends StatelessWidget {
     );
   }
 
-  Color get borderColor => isSelected ? ColorPalette.primary40 : ColorPalette.primary99;
+  Color get borderColor =>
+      isSelected ? ColorPalette.primary40 : ColorPalette.primary99;
 
-  Color get backgroundColor => isSelected ? ColorPalette.primary99 : ColorPalette.neutralVariant99;
+  Color get backgroundColor =>
+      isSelected ? ColorPalette.primary99 : ColorPalette.neutralVariant99;
 }

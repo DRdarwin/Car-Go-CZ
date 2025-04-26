@@ -36,7 +36,8 @@ class PayoutMethodsRepositoryMock implements PayoutMethodsRepository {
   }
 
   @override
-  Future<Either<Failure, List<PayoutMethodEntity>>> getAvailablePayoutMethods() async {
+  Future<Either<Failure, List<PayoutMethodEntity>>>
+      getAvailablePayoutMethods() async {
     await Future.delayed(const Duration(seconds: 1));
     return const Right(
       [
@@ -60,14 +61,16 @@ class PayoutMethodsRepositoryMock implements PayoutMethodsRepository {
   }
 
   @override
-  Future<Either<Failure, PayoutAccountEntity>> addPayoutMethod(PayoutAccountInput input) async {
+  Future<Either<Failure, PayoutAccountEntity>> addPayoutMethod(
+      PayoutAccountInput input) async {
     return Right(
       PayoutAccountEntity.testData.first,
     );
   }
 
   @override
-  Future<Either<Failure, String>> getLinkUrlForPayoutMethod(PayoutMethodEntity method) async {
+  Future<Either<Failure, String>> getLinkUrlForPayoutMethod(
+      PayoutMethodEntity method) async {
     return const Right('https://stripe.com');
   }
 }

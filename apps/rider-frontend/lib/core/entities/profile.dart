@@ -22,7 +22,8 @@ class ProfileEntity with _$ProfileEntity {
     required String number,
   }) = _ProfileEntity;
 
-  factory ProfileEntity.fromJson(Map<String, dynamic> json) => _$ProfileEntityFromJson(json);
+  factory ProfileEntity.fromJson(Map<String, dynamic> json) =>
+      _$ProfileEntityFromJson(json);
 
   static ProfileEntity get testProfile => const ProfileEntity(
         firstName: 'John',
@@ -41,7 +42,9 @@ class ProfileEntity with _$ProfileEntity {
     if (countryCode?.isEmpty == false) {
       final country = CountryCode.parseByIso(countryCode!);
       final dialCode = country.e164CC;
-      final mobileNumber = (number.startsWith(dialCode)) ? number.substring(dialCode.length) : number;
+      final mobileNumber = (number.startsWith(dialCode))
+          ? number.substring(dialCode.length)
+          : number;
       return '+$dialCode $mobileNumber';
     } else {
       return number.formatPhoneNumber('');

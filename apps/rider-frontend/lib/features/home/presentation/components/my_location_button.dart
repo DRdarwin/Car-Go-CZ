@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_common/core/presentation/my_location_button.dart' as button;
+import 'package:flutter_common/core/presentation/my_location_button.dart'
+    as button;
 import 'package:rider_flutter/config/locator/locator.dart';
 import 'package:rider_flutter/core/blocs/location.dart';
 import 'package:rider_flutter/core/blocs/settings.dart';
@@ -20,7 +21,8 @@ class AppMyLocationButton extends StatelessWidget {
           welcome: (_) => button.MyLocationButton(
             onPressed: () async {
               final settingsState = locator<SettingsCubit>().state;
-              final location = await locator<GeoDatasource>().getCurrentLocation(
+              final location =
+                  await locator<GeoDatasource>().getCurrentLocation(
                 language: settingsState.locale,
                 mapProvider: settingsState.mapProviderEnum,
               );

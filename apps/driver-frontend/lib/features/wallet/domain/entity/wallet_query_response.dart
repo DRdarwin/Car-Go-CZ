@@ -24,7 +24,8 @@ class WalletQueryResponse with _$WalletQueryResponse {
 
 extension WalletQueryDTOX on WalletQueryResponse {
   String get fullName => '$firstName $lastName';
-  String get formattedBalance => NumberFormat.simpleCurrency(name: currency).format(balance);
+  String get formattedBalance =>
+      NumberFormat.simpleCurrency(name: currency).format(balance);
 
   String? defaultPaymentMethod(BuildContext context) =>
       savedPaymentMethods.firstWhereOrNull((e) => e.isDefault)?.cardType.name;

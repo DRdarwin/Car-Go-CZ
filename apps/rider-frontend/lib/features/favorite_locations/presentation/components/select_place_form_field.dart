@@ -34,7 +34,8 @@ class _SelectPlaceFormFieldState extends State<SelectPlaceFormField> {
   @override
   Widget build(BuildContext context) {
     return FormField<PlaceEntity>(
-      validator: (value) => value == null ? context.translate.fieldIsRequired : null,
+      validator: (value) =>
+          value == null ? context.translate.fieldIsRequired : null,
       onSaved: (newValue) {
         if (newValue != null) {
           widget.onSaved(newValue);
@@ -46,7 +47,8 @@ class _SelectPlaceFormFieldState extends State<SelectPlaceFormField> {
           minSize: 0,
           padding: EdgeInsets.zero,
           onPressed: () async {
-            final result = await context.router.push(const LocateFavoriteLocationRoute()) as PlaceEntity?;
+            final result = await context.router
+                .push(const LocateFavoriteLocationRoute()) as PlaceEntity?;
             if (result != null) {
               fieldState.didChange(result);
               widget.onChanged(result);
@@ -69,8 +71,10 @@ class _SelectPlaceFormFieldState extends State<SelectPlaceFormField> {
               ),
               child: AppGenericMap(
                 mode: MapViewMode.static,
-                initialLocation: fieldState.value?.toGenericMapPlace ?? Constants.defaultLocation.toGenericMapPlace,
-                onControllerReady: (controller) => mapViewController = controller,
+                initialLocation: fieldState.value?.toGenericMapPlace ??
+                    Constants.defaultLocation.toGenericMapPlace,
+                onControllerReady: (controller) =>
+                    mapViewController = controller,
                 markers: [
                   if (fieldState.value != null)
                     AppMarkerAddresss(

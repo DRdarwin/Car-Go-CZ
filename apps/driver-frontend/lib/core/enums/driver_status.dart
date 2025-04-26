@@ -14,5 +14,6 @@ sealed class DriverStatus with _$DriverStatus {
   const factory DriverStatus.softReject() = SoftRejectState;
   const factory DriverStatus.hardReject() = HardRejectState;
 
-  factory DriverStatus.fromJson(Map<String, dynamic> json) => _$DriverStatusFromJson(json);
+  factory DriverStatus.fromJson(Map<String, dynamic> json) =>
+      _$DriverStatusFromJson(json);
 }

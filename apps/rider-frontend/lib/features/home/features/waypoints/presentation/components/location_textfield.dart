@@ -100,10 +100,12 @@ class _LocationTextfieldState extends State<LocationTextfield> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           if ((value?.isNotEmpty ?? false) ||
-                              (widget.index != 0 && widget.index != (widget.totalCount - 1)))
+                              (widget.index != 0 &&
+                                  widget.index != (widget.totalCount - 1)))
                             CupertinoButton(
                               minSize: 0,
-                              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 8, vertical: 4),
                               onPressed: () {
                                 if (_controller.text.isEmpty &&
                                     widget.index != 0 &&
@@ -158,12 +160,15 @@ class _LocationTextfieldState extends State<LocationTextfield> {
     );
   }
 
-  Color labelColor(BuildContext context) =>
-      isFocused ? context.theme.colorScheme.primary : context.theme.colorScheme.onSurfaceVariant;
+  Color labelColor(BuildContext context) => isFocused
+      ? context.theme.colorScheme.primary
+      : context.theme.colorScheme.onSurfaceVariant;
 
   String labelText(BuildContext context) => widget.index == 0
       ? context.translate.pickupPoint
-      : ((widget.index < (widget.totalCount - 1)) ? context.translate.stopPoint : context.translate.dropoffPoint);
+      : ((widget.index < (widget.totalCount - 1))
+          ? context.translate.stopPoint
+          : context.translate.dropoffPoint);
 
   String hintText(BuildContext context) => widget.index == 0
       ? context.translate.enterPickupPoint

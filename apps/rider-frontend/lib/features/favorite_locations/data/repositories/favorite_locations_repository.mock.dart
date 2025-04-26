@@ -14,7 +14,8 @@ import 'package:injectable/injectable.dart';
 @LazySingleton(as: FavoriteLocationsRepository)
 class FavoriteLocationsRepositoryMock implements FavoriteLocationsRepository {
   @override
-  Future<Either<Failure, List<FavoriteLocationEntity>>> getFavoriteLocations() async {
+  Future<Either<Failure, List<FavoriteLocationEntity>>>
+      getFavoriteLocations() async {
     await Future.delayed(const Duration(seconds: 1));
     return const Right([
       FavoriteLocationEntity(

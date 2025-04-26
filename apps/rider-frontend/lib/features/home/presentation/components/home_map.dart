@@ -61,12 +61,14 @@ class _HomeMapState extends State<HomeMap> {
       },
       builder: (context, state) {
         return BlocBuilder<SettingsCubit, SettingsState>(
-          buildWhen: (previous, current) => previous.mapProvider != current.mapProvider,
+          buildWhen: (previous, current) =>
+              previous.mapProvider != current.mapProvider,
           builder: (context, settingsState) {
             return AppGenericMap(
               padding: settingsState.mapProvider == MapProviderEnum.googleMaps
                   ? const EdgeInsets.only(bottom: 32)
-                  : const EdgeInsets.symmetric(horizontal: 148, vertical: 148).copyWith(bottom: 80),
+                  : const EdgeInsets.symmetric(horizontal: 148, vertical: 148)
+                      .copyWith(bottom: 80),
               mode: state.mapViewMode,
               interactive: state.isInteractive,
               polylines: state.polylines,
@@ -88,15 +90,17 @@ class _HomeMapState extends State<HomeMap> {
                     }
                   };
                 },
-                welcome: (value) => (context, key, address) => CurrentLocationMarker(
-                      key: key,
-                    ).marker,
+                welcome: (value) =>
+                    (context, key, address) => CurrentLocationMarker(
+                          key: key,
+                        ).marker,
               ),
               addressResolver: state.mapViewMode == MapViewMode.static
                   ? null
                   : (provider, location) async {
                       final settingsState = locator<SettingsCubit>().state;
-                      final result = await locator<GeoDatasource>().getAddressForLocation(
+                      final result =
+                          await locator<GeoDatasource>().getAddressForLocation(
                         latLng: location,
                         language: settingsState.locale,
                         mapProvider: settingsState.mapProviderEnum,
@@ -122,7 +126,8 @@ class _HomeMapState extends State<HomeMap> {
                     }
                   },
                   welcome: (welcome) {
-                    if (place != null && state.mapViewMode == MapViewMode.picker) {
+                    if (place != null &&
+                        state.mapViewMode == MapViewMode.picker) {
                       locator<HomeCubit>().onMapMoved(
                         selectedLocation: place.toPlaceEntity,
                       );
@@ -131,8 +136,8 @@ class _HomeMapState extends State<HomeMap> {
                 );
               },
               markers: state.markers,
-              initialLocation:
-                  state.waypoints.firstOrNull?.toGenericMapPlace ?? Constants.defaultLocation.toGenericMapPlace,
+              initialLocation: state.waypoints.firstOrNull?.toGenericMapPlace ??
+                  Constants.defaultLocation.toGenericMapPlace,
             );
           },
         );

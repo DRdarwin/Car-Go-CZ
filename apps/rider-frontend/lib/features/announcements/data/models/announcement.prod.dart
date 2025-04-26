@@ -7,7 +7,8 @@ extension AnnouncementProdX on Query$Announcements {
   }
 }
 
-extension AnnouncementNodeProdX on Query$Announcements$announcements$edges$node {
+extension AnnouncementNodeProdX
+    on Query$Announcements$announcements$edges$node {
   AnnouncementEntity get toEntity {
     return AnnouncementEntity(
       id: id,

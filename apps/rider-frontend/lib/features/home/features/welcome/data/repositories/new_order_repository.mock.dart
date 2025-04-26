@@ -11,7 +11,8 @@ import 'package:injectable/injectable.dart';
 @LazySingleton(as: NewOrderRepository)
 class NewOrderRepositoryMock implements NewOrderRepository {
   @override
-  Future<Either<Failure, (List<FavoriteLocationEntity>, List<PlaceEntity>)>> getDestinationSuggestions() async {
+  Future<Either<Failure, (List<FavoriteLocationEntity>, List<PlaceEntity>)>>
+      getDestinationSuggestions() async {
     return const Right(
       (
         [

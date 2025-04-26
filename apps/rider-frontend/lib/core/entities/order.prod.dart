@@ -21,15 +21,21 @@ extension OrderEntityProdX on Fragment$CurrentOrder {
       id: id,
       status: status.toEntity,
       currency: currency,
-      cashPaymentAllowed: service?.paymentMethod != Enum$ServicePaymentMethod.OnlyCredit,
-      walletCredit: rider?.wallets.firstWhereOrNull((element) => element.currency == currency)?.balance ?? 0,
+      cashPaymentAllowed:
+          service?.paymentMethod != Enum$ServicePaymentMethod.OnlyCredit,
+      walletCredit: rider?.wallets
+              .firstWhereOrNull((element) => element.currency == currency)
+              ?.balance ??
+          0,
       driver: driver == null
           ? null
           : DriverEntity(
               firstName: driver!.firstName,
               lastName: driver!.lastName,
               mobileNumber: driver!.mobileNumber,
-              imageUrl: driver!.media == null ? null : (Env.serverUrl + driver!.media!.address),
+              imageUrl: driver!.media == null
+                  ? null
+                  : (Env.serverUrl + driver!.media!.address),
               vehiclePlateNumber: driver!.carPlate,
               vehicleModel: driver!.car?.name,
               vehicleColor: driver?.carColor?.name,
@@ -60,7 +66,11 @@ extension OrderEntityProdX on Fragment$CurrentOrder {
       expectedAt: expectedTimestamp,
       startedAt: startTimestamp,
       lastSeenMessagesAt: riderLastSeenMessagesAt,
-      paymentMethod: (paymentMode?.toEntity, paymentGateway?.toEntity, savedPaymentMethod?.toEntity).toUnion,
+      paymentMethod: (
+        paymentMode?.toEntity,
+        paymentGateway?.toEntity,
+        savedPaymentMethod?.toEntity
+      ).toUnion,
       chatMessages: conversations
           .map(
             (e) => e.toEntity,
@@ -78,7 +88,9 @@ extension OrderEntityProdX on Fragment$CurrentOrder {
               firstName: driver!.firstName,
               lastName: driver!.lastName,
               mobileNumber: driver!.mobileNumber,
-              imageUrl: driver!.media == null ? null : (Env.serverUrl + driver!.media!.address),
+              imageUrl: driver!.media == null
+                  ? null
+                  : (Env.serverUrl + driver!.media!.address),
               vehiclePlateNumber: driver!.carPlate,
               vehicleModel: driver!.car?.name,
               vehicleColor: driver?.carColor?.name,
@@ -96,7 +108,8 @@ extension OrderEntityProdX on Fragment$CurrentOrder {
           )
           .toList(),
       serviceName: service?.name ?? "-",
-      serviceImageUrl: service == null ? null : (Env.serverUrl + service!.media.address),
+      serviceImageUrl:
+          service == null ? null : (Env.serverUrl + service!.media.address),
       waitTime: waitMinutes,
       expectedAt: expectedTimestamp,
       startedAt: startTimestamp,

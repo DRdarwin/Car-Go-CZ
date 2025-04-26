@@ -56,5 +56,6 @@ sealed class Failure with _$Failure {
     return const Failure.server();
   }
 
-  factory Failure.fromJson(Map<String, dynamic> json) => _$FailureFromJson(json);
+  factory Failure.fromJson(Map<String, dynamic> json) =>
+      _$FailureFromJson(json);
 }

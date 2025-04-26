@@ -40,7 +40,8 @@ class LanguageSettingsScreen extends StatelessWidget {
               builder: (context, state) {
                 return LanguageList(
                   selectedLanguageCode: state.locale,
-                  onPressed: (language) => locator<SettingsCubit>().changeLanguage(language.code),
+                  onPressed: (language) =>
+                      locator<SettingsCubit>().changeLanguage(language.code),
                 );
               },
             ))

@@ -69,15 +69,18 @@ class PayoutAccountListScreen extends StatelessWidget {
                             itemBuilder: (context, index) {
                               return loaded.linkedMethods[index].toSavedCard(
                                 onDefaultChanged: (value) {
-                                  locator<PayoutAccountsBloc>().updatePayoutMethodDefaultStatus(
-                                    payoutMethodId: loaded.linkedMethods[index].id,
+                                  locator<PayoutAccountsBloc>()
+                                      .updatePayoutMethodDefaultStatus(
+                                    payoutMethodId:
+                                        loaded.linkedMethods[index].id,
                                     isDefault: value,
                                   );
                                 },
                                 onDeletePressed: null,
                               );
                             },
-                            separatorBuilder: (context, index) => const SizedBox(
+                            separatorBuilder: (context, index) =>
+                                const SizedBox(
                               height: 16,
                             ),
                             itemCount: loaded.linkedMethods.length,

@@ -17,7 +17,9 @@ class RideHistoryBloc extends Cubit<RideHistoryState> {
     final result = await _repository.getRideHistory();
     result.fold(
       (failure) => emit(RideHistoryState.error(failure.errorMessage)),
-      (orders) => orders.isEmpty ? emit(const RideHistoryState.empty()) : emit(RideHistoryState.loaded(orders)),
+      (orders) => orders.isEmpty
+          ? emit(const RideHistoryState.empty())
+          : emit(RideHistoryState.loaded(orders)),
     );
   }
 }

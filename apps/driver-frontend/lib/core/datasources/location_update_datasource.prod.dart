@@ -15,7 +15,8 @@ class LocationUpdateDatasourceImpl implements LocationUpdateDatasource {
   LocationUpdateDatasourceImpl(this._graphqlDatasource);
 
   @override
-  Future<Either<Failure, bool>> updateDriverLocation({required DriverLocation location}) async {
+  Future<Either<Failure, bool>> updateDriverLocation(
+      {required DriverLocation location}) async {
     final result = await _graphqlDatasource.mutate(
       Options$Mutation$UpdateDriverLocation(
         variables: Variables$Mutation$UpdateDriverLocation(

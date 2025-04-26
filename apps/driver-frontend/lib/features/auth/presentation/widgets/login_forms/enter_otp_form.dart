@@ -71,7 +71,8 @@ class EnterOtpForm extends StatelessWidget {
         AppPrimaryButton(
           isDisabled: state.loginPage.maybeMap(
             orElse: () => false,
-            enterOtp: (enterOtp) => enterOtp.otp?.length != 6 || state.isLoading,
+            enterOtp: (enterOtp) =>
+                enterOtp.otp?.length != 6 || state.isLoading,
           ),
           onPressed: loginBloc.onConfirmOtpPressed,
           child: Text(context.translate.confirm),

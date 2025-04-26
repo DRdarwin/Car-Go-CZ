@@ -28,7 +28,8 @@ class ProfileHeader extends StatelessWidget {
           width: double.infinity,
           margin: const EdgeInsets.only(bottom: 54),
           decoration: BoxDecoration(
-            borderRadius: context.responsive(BorderRadius.zero, xl: BorderRadius.circular(20)),
+            borderRadius: context.responsive(BorderRadius.zero,
+                xl: BorderRadius.circular(20)),
             image: DecorationImage(
               image: Assets.images.walletHeaderBackground.provider(),
               fit: BoxFit.cover,

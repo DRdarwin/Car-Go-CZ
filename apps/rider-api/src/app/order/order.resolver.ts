@@ -1,3 +1,4 @@
+// apps/rider-api/src/app/order/order.resolver.ts
 import { Inject, Logger, UseGuards } from '@nestjs/common';
 import { Args, CONTEXT, ID, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CommonCouponService } from '@ridy/coupon';
@@ -9,8 +10,8 @@ import { UserContextOptional } from '../auth/authenticated-user';
 import { GqlAuthGuard } from '../auth/jwt-gql-auth.guard';
 import { GqlOptionalAuthGuard } from '../auth/jwt-optional-gql-auth.guard';
 import { CalculateFareDTO } from './dto/calculate-fare.dto';
-import { CalculateFareInput } from './dto/calculate-fare.input';
-import { CreateOrderInput } from './dto/create-order.input';
+import { CalculateFareInput } from './dto/calculate-fare.input'; // Updated DTO
+import { CreateOrderInput } from './dto/create-order.input'; // Updated DTO
 import { CurrentOrder } from './dto/current-order.dto';
 import { OrderDTO } from './dto/order.dto';
 import { SubmitFeedbackInput } from './dto/submit-feedback.input';
@@ -24,7 +25,7 @@ export class OrderResolver {
     private riderOrderService: RiderOrderService,
     private driverRedisService: DriverRedisService,
     private commonCouponService: CommonCouponService,
-  ) {}
+  ) { }
 
   @Query(() => OrderDTO, {
     nullable: true,
@@ -36,6 +37,8 @@ export class OrderResolver {
       'driver.carColor',
       'driver.car',
       'conversation',
+      // NEW: Optionally include vehicleType and loadersCount if needed in currentOrder DTO
+      // 'vehicleType' // Make sure OrderDTO includes this if needed
     ]);
   }
 
@@ -45,28 +48,35 @@ export class OrderResolver {
     const order = await this.riderOrderService.getCurrentOrder(
       this.context.req.user.id,
       ['driver', 'driver.carColor', 'driver.car'],
+      // NEW: Optionally include vehicleType and loadersCount if needed
     );
     let driverLocation;
     if (order?.driver != null) {
-      driverLocation = this.driverRedisService.getDriverCoordinate(
+      driverLocation = await this.driverRedisService.getDriverCoordinate( // Added await
         order.driver.id,
       );
     }
     return { order, driverLocation };
   }
 
+  // Deprecated? Uses GqlAuthGuard but named like getFare. Keeping logic similar to getFare.
   @Mutation(() => CalculateFareDTO)
   @UseGuards(GqlAuthGuard)
   async calculateFare(
     @Args('input', { type: () => CalculateFareInput })
-    input: CalculateFareInput,
+    input: CalculateFareInput, // Uses updated DTO
   ): Promise<CalculateFareDTO> {
-    const coupon = await this.commonCouponService.checkCoupon(
-      input.couponCode,
-      this.context.req.user?.id,
-    );
+    const coupon = input.couponCode
+      ? await this.commonCouponService.checkCoupon(
+        input.couponCode,
+        this.context.req.user?.id,
+      )
+      : undefined;
+    // NEW: Pass vehicleType and loadersCount from input
     return this.orderService.calculateFare({
       points: input.points,
+      vehicleType: input.vehicleType,
+      loadersCount: input.loadersCount,
       coupon: coupon,
       riderId: this.context.req.user?.id,
       twoWay: input.twoWay,
@@ -75,13 +85,14 @@ export class OrderResolver {
     });
   }
 
+  // Deprecated? Seems identical to getFare
   @Query(() => CalculateFareDTO)
   @UseGuards(GqlAuthGuard)
   async getFares(
     @Args('input', { type: () => CalculateFareInput })
-    input: CalculateFareInput,
+    input: CalculateFareInput, // Uses updated DTO
   ): Promise<CalculateFareDTO> {
-    Logger.log(`Creating order for userId:${this.context.req.user?.id}`);
+    Logger.log(`Getting fares for userId:${this.context.req.user?.id}`);
     let coupon;
     if (
       input.couponCode != null &&
@@ -90,8 +101,11 @@ export class OrderResolver {
     ) {
       coupon = await this.commonCouponService.checkCoupon(input.couponCode);
     }
+    // NEW: Pass vehicleType and loadersCount from input
     return this.orderService.calculateFare({
       points: input.points,
+      vehicleType: input.vehicleType,
+      loadersCount: input.loadersCount,
       coupon: coupon,
       riderId: this.context.req.user?.id,
       twoWay: input.twoWay,
@@ -104,9 +118,9 @@ export class OrderResolver {
   @UseGuards(GqlOptionalAuthGuard)
   async getFare(
     @Args('input', { type: () => CalculateFareInput })
-    input: CalculateFareInput,
+    input: CalculateFareInput, // Uses updated DTO
   ): Promise<CalculateFareDTO> {
-    Logger.log(`Creating order for userId:${this.context.req.user?.id}`);
+    Logger.log(`Getting fare for userId:${this.context.req.user?.id}`);
     let coupon;
     if (
       input.couponCode != null &&
@@ -115,8 +129,10 @@ export class OrderResolver {
     ) {
       coupon = await this.commonCouponService.checkCoupon(input.couponCode);
     }
+    // NEW: Pass vehicleType and loadersCount using spread operator
+    // Assuming calculateFare input object matches CalculateFareInput structure now
     return this.orderService.calculateFare({
-      ...input,
+      ...input, // Includes vehicleType and loadersCount from updated DTO
       coupon,
       riderId: this.context.req.user?.id,
     });
@@ -125,13 +141,15 @@ export class OrderResolver {
   @Mutation(() => OrderDTO)
   @UseGuards(GqlAuthGuard)
   async createOrder(
-    @Args('input', { type: () => CreateOrderInput }) input: CreateOrderInput,
+    @Args('input', { type: () => CreateOrderInput }) input: CreateOrderInput, // Uses updated DTO
   ): Promise<OrderDTO> {
+    // NEW: Pass vehicleType and loadersCount using spread operator
+    // Assuming createOrder input object matches CreateOrderInput structure now
     return this.orderService.createOrder({
-      ...input,
+      ...input, // Includes vehicleType and loadersCount from updated DTO
       riderId: this.context.req.user.id,
       optionIds: input.optionIds,
-      waitMinutes: input.waitTime,
+      waitMinutes: input.waitTime, // Map waitTime from input to waitMinutes for service
       twoWay: input.twoWay,
     });
   }
@@ -180,13 +198,13 @@ export class OrderResolver {
     nullable: true,
   })
   @UseGuards(GqlAuthGuard)
-  async getCurrentOrderDriverLocation(): Promise<Point> {
+  async getCurrentOrderDriverLocation(): Promise<Point | null> { // Return type should be Point | null
     const order = await this.riderOrderService.getCurrentOrder(
       this.context.req.user.id,
     );
     if (order?.driverId != null) {
       Logger.log(`driver id: ${order.driverId}`);
-      const coordinate = await this.driverRedisService.getDriverCoordinate(
+      const coordinate = await this.driverRedisService.getDriverCoordinate( // Added await
         order.driverId,
       );
       Logger.log(JSON.stringify(coordinate));

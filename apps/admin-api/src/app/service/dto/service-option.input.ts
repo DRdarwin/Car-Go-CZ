@@ -1,11 +1,18 @@
-import { InputType } from '@nestjs/graphql';
-import { ServiceOptionIcon } from '@ridy/database/enums/service-option-icon.enum';
-import { ServiceOptionType } from '@ridy/database/enums/service-option-type.enum';
+// admin-api/src/app/service/dto/service-option.input.ts
+import { Field, Float, InputType } from '@nestjs/graphql'; // Додано Float
+import { CargoServiceOptionIcon, CargoServiceOptionType } from './service-option.dto'; // Імпортуємо нові Enum
 
 @InputType()
 export class ServiceOptionInput {
+  @Field()
   name: string;
-  type: ServiceOptionType;
+
+  @Field(() => CargoServiceOptionType)
+  type: CargoServiceOptionType;
+
+  @Field(() => Float, { nullable: true })
   additionalFee?: number;
-  icon: ServiceOptionIcon;
+
+  @Field(() => CargoServiceOptionIcon)
+  icon: CargoServiceOptionIcon;
 }

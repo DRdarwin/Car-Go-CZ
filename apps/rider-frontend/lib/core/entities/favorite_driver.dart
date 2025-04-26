@@ -21,5 +21,7 @@ class FavoriteDriverEntity with _$FavoriteDriverEntity {
 
   String get fullName => "$firstName $lastName";
 
-  String get ratingText => rating != null ? "${(rating! / 100).toStringAsFixed(1)} ($ratingsCount)" : "";
+  String get ratingText => rating != null
+      ? "${(rating! / 100).toStringAsFixed(1)} ($ratingsCount)"
+      : "";
 }

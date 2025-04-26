@@ -37,7 +37,8 @@ class SelectPaymentMethodSheet extends StatefulWidget {
   });
 
   @override
-  State<SelectPaymentMethodSheet> createState() => _SelectPaymentMethodSheetState();
+  State<SelectPaymentMethodSheet> createState() =>
+      _SelectPaymentMethodSheetState();
 }
 
 class _SelectPaymentMethodSheetState extends State<SelectPaymentMethodSheet> {
@@ -100,7 +101,8 @@ class _SelectPaymentMethodSheetState extends State<SelectPaymentMethodSheet> {
                                 borderRadius: BorderRadius.circular(12),
                                 color: ColorPalette.primary99,
                               ),
-                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 16, vertical: 12),
                               child: Column(
                                 children: [
                                   invoiceItem(
@@ -142,7 +144,8 @@ class _SelectPaymentMethodSheetState extends State<SelectPaymentMethodSheet> {
                           left: 64,
                           right: 64,
                           child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                              padding: const EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 16),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(12),
                                 image: DecorationImage(
@@ -177,7 +180,8 @@ class _SelectPaymentMethodSheetState extends State<SelectPaymentMethodSheet> {
             Container(
               padding: const EdgeInsets.all(16),
               decoration: BoxDecoration(
-                borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+                borderRadius:
+                    const BorderRadius.vertical(top: Radius.circular(24)),
                 color: ColorPalette.neutralVariant99,
                 boxShadow: [
                   BoxShadow(
@@ -194,9 +198,12 @@ class _SelectPaymentMethodSheetState extends State<SelectPaymentMethodSheet> {
                   const SizedBox(height: 8),
                   PaymentMethodListView(
                     paymentMethods: widget.paymentMethods
-                        .whereNot((element) => element.paymentMode == PaymentMode.wallet && total > widget.walletCredit)
-                        .whereNot(
-                            (element) => element.paymentMode == PaymentMode.cash && widget.isCashPaymentEnabled == false)
+                        .whereNot((element) =>
+                            element.paymentMode == PaymentMode.wallet &&
+                            total > widget.walletCredit)
+                        .whereNot((element) =>
+                            element.paymentMode == PaymentMode.cash &&
+                            widget.isCashPaymentEnabled == false)
                         .toList(),
                     selectedPaymentMethod: paymentMethod,
                     onSelected: (paymentMethod) {
@@ -208,7 +215,8 @@ class _SelectPaymentMethodSheetState extends State<SelectPaymentMethodSheet> {
                     child: AppPrimaryButton(
                       isDisabled: paymentMethod == null,
                       onPressed: () {
-                        locator<OrderPreviewOptionsCubit>().onPaymentMethodSelected(paymentMethod!);
+                        locator<OrderPreviewOptionsCubit>()
+                            .onPaymentMethodSelected(paymentMethod!);
                         locator<OrderPreviewCubit>().goToServicesPage();
                       },
                       child: Text(
@@ -235,5 +243,6 @@ class _SelectPaymentMethodSheetState extends State<SelectPaymentMethodSheet> {
     );
   }
 
-  double get total => (widget.serviceFee + widget.serviceOptionFee + widget.couponDiscount);
+  double get total =>
+      (widget.serviceFee + widget.serviceOptionFee + widget.couponDiscount);
 }

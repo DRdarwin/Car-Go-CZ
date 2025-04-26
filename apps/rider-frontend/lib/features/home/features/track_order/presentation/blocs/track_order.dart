@@ -34,7 +34,8 @@ class TrackOrderBloc extends Bloc<TrackOrderEvent, TrackOrderState> {
           );
           emit(initialState);
           if (orderUpdates == null) {
-            orderUpdates = repository.listenToOrderUpdates(orderEntity: onStarted.order);
+            orderUpdates =
+                repository.listenToOrderUpdates(orderEntity: onStarted.order);
             await emit.forEach(
               orderUpdates!,
               onData: (order) {
@@ -121,7 +122,10 @@ class TrackOrderBloc extends Bloc<TrackOrderEvent, TrackOrderState> {
               orderInProgres: (inProgress) {
                 return inProgress.copyWith(
                   order: inProgress.order.copyWith(
-                    chatMessages: [...inProgress.order.chatMessages, value.message],
+                    chatMessages: [
+                      ...inProgress.order.chatMessages,
+                      value.message
+                    ],
                   ),
                 );
               },
@@ -149,7 +153,8 @@ class TrackOrderBloc extends Bloc<TrackOrderEvent, TrackOrderState> {
     required String? cancelReasonNote,
   }) =>
       add(
-        TrackOrderEvent.cancelRide(cancelReasonId: cancelReasonId, cancelReasonNote: cancelReasonNote),
+        TrackOrderEvent.cancelRide(
+            cancelReasonId: cancelReasonId, cancelReasonNote: cancelReasonNote),
       );
 
   void showChat() => add(

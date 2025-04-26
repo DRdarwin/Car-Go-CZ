@@ -5,8 +5,10 @@ import 'package:flutter_common/core/presentation/markers/app_marker_drop_off.dar
 import 'package:flutter_common/core/presentation/markers/app_marker_pickup.dart';
 
 extension PlaceExtensionX on PlaceEntity {
-  CustomMarker markerPickup() => AppMarkerPickup(address: address).genericMarker(latLng2);
-  CustomMarker markerDropoff() => AppMarkerDropoff(address: address).genericMarker(latLng2);
+  CustomMarker markerPickup() =>
+      AppMarkerPickup(address: address).genericMarker(latLng2);
+  CustomMarker markerDropoff() =>
+      AppMarkerDropoff(address: address).genericMarker(latLng2);
 }
 
 extension LatLngEntityProdX on LatLngEntity {

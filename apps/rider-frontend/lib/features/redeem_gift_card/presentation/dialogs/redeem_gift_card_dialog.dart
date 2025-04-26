@@ -31,7 +31,8 @@ class _RedeemGiftCardDialogState extends State<RedeemGiftCardDialog> {
   Widget build(BuildContext context) {
     final bloc = locator<RedeemGiftCardBloc>();
     return Container(
-      padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+      padding:
+          EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
       child: BlocProvider.value(
         value: locator<RedeemGiftCardBloc>(),
         child: AppResponsiveDialog(
@@ -80,7 +81,9 @@ class _RedeemGiftCardDialogState extends State<RedeemGiftCardDialog> {
               child: TextFormField(
                 onChanged: bloc.onCodeChanged,
                 initialValue: state.code,
-                validator: (value) => value?.isEmpty == true ? context.translate.pleaseEnterGiftCardCode : null,
+                validator: (value) => value?.isEmpty == true
+                    ? context.translate.pleaseEnterGiftCardCode
+                    : null,
                 decoration: InputDecoration(
                   errorText: state.formState.maybeMap(
                     error: (error) => error.message,

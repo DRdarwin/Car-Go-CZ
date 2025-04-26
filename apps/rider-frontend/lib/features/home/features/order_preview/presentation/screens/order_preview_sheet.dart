@@ -27,7 +27,8 @@ class OrderPreviewSheet extends StatefulWidget {
   State<OrderPreviewSheet> createState() => _OrderPreviewSheetState();
 }
 
-class _OrderPreviewSheetState extends State<OrderPreviewSheet> with TickerProviderStateMixin {
+class _OrderPreviewSheetState extends State<OrderPreviewSheet>
+    with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
@@ -59,10 +60,13 @@ class _OrderPreviewSheetState extends State<OrderPreviewSheet> with TickerProvid
             listener: (context, state) {
               state.mapOrNull(
                 loaded: (loaded) {
-                  optionsCubit.onServiceCategorySelected(loaded.serviceCategories.first);
-                  optionsCubit.onServiceSelected(loaded.serviceCategories.first.services.first);
+                  optionsCubit.onServiceCategorySelected(
+                      loaded.serviceCategories.first);
+                  optionsCubit.onServiceSelected(
+                      loaded.serviceCategories.first.services.first);
                   if (optionsCubit.state.paymentMethod == null) {
-                    final savedPaymentMethod = loaded.defaultPaymentMethod(optionsCubit.state.selectedService);
+                    final savedPaymentMethod = loaded.defaultPaymentMethod(
+                        optionsCubit.state.selectedService);
                     if (savedPaymentMethod != null) {
                       optionsCubit.onPaymentMethodSelected(savedPaymentMethod);
                     }
@@ -78,7 +82,8 @@ class _OrderPreviewSheetState extends State<OrderPreviewSheet> with TickerProvid
                       useSafeArea: false,
                       builder: (context) => const ReserveSuccessDialog(),
                     );
-                    locator<HomeCubit>().initializeWelcome(pickupPoint: locator<LocationCubit>().state.place);
+                    locator<HomeCubit>().initializeWelcome(
+                        pickupPoint: locator<LocationCubit>().state.place);
                   } else {
                     locator<HomeCubit>().showInProgress(
                       order: value.order,
@@ -126,18 +131,29 @@ class _OrderPreviewSheetState extends State<OrderPreviewSheet> with TickerProvid
                       serviceCategories: loaded.serviceCategories,
                       currency: loaded.currency,
                     ),
-                    paymentMethods: () => BlocBuilder<OrderPreviewOptionsCubit, OrderPreviewOptionsState>(
+                    paymentMethods: () => BlocBuilder<OrderPreviewOptionsCubit,
+                        OrderPreviewOptionsState>(
                       builder: (context, statePreview) {
                         return SelectPaymentMethodSheet(
-                          isCashPaymentEnabled: statePreview.selectedService?.isCashAllowed ?? false,
-                          selectedPaymentMethod: locator<OrderPreviewOptionsCubit>().state.paymentMethod ??
-                              loaded.defaultPaymentMethod(statePreview.selectedService),
+                          isCashPaymentEnabled:
+                              statePreview.selectedService?.isCashAllowed ??
+                                  false,
+                          selectedPaymentMethod:
+                              locator<OrderPreviewOptionsCubit>()
+                                      .state
+                                      .paymentMethod ??
+                                  loaded.defaultPaymentMethod(
+                                      statePreview.selectedService),
                           paymentMethods: loaded.paymentMethods,
                           walletCredit: loaded.walletCredit,
                           serviceFee: statePreview.selectedService?.price ?? 0,
-                          couponDiscount: statePreview.selectedService?.priceAfterCouponApplied == null
+                          couponDiscount: statePreview.selectedService
+                                      ?.priceAfterCouponApplied ==
+                                  null
                               ? 0
-                              : (statePreview.selectedService?.priceAfterCouponApplied ?? 0) -
+                              : (statePreview.selectedService
+                                          ?.priceAfterCouponApplied ??
+                                      0) -
                                   (statePreview.selectedService?.price ?? 0),
                           currency: loaded.currency,
                           serviceOptionFee: 0,

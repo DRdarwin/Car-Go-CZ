@@ -21,14 +21,18 @@ class ProfileRepositoryProd implements ProfileRepository {
   ProfileRepositoryProd(this.graphqlDatasource);
 
   @override
-  Future<Either<Failure, ProfileAggregationsInfo>> getProfileAggregationsInfo() async {
-    final result = await graphqlDatasource.query(Options$Query$ProfileAggregations());
+  Future<Either<Failure, ProfileAggregationsInfo>>
+      getProfileAggregationsInfo() async {
+    final result =
+        await graphqlDatasource.query(Options$Query$ProfileAggregations());
     return result.map((r) => r.toEntity);
   }
 
   @override
-  Future<Either<Failure, ProfileEntity>> uploadProfileImage({required Either<int, MediaEntity> image}) async {
-    final profile = await graphqlDatasource.mutate(Options$Mutation$UpdateProfileImage(
+  Future<Either<Failure, ProfileEntity>> uploadProfileImage(
+      {required Either<int, MediaEntity> image}) async {
+    final profile =
+        await graphqlDatasource.mutate(Options$Mutation$UpdateProfileImage(
       fetchPolicy: FetchPolicy.noCache,
       variables: Variables$Mutation$UpdateProfileImage(
         mediaId: image.fold(
@@ -45,16 +49,20 @@ class ProfileRepositoryProd implements ProfileRepository {
   }
 
   @override
-  Future<Either<Failure, List<FavoriteDriverEntity>>> getFavoriteDrivers() async {
-    final drivers = await graphqlDatasource.query(Options$Query$FavoriteDrivers());
-    return drivers.map((r) => r.rider.favoriteDrivers.map((e) => e.toEntity).toList());
+  Future<Either<Failure, List<FavoriteDriverEntity>>>
+      getFavoriteDrivers() async {
+    final drivers =
+        await graphqlDatasource.query(Options$Query$FavoriteDrivers());
+    return drivers
+        .map((r) => r.rider.favoriteDrivers.map((e) => e.toEntity).toList());
   }
 
   @override
   Future<Either<Failure, void>> deleteFavoriteDriver({
     required FavoriteDriverEntity entity,
   }) async {
-    final result = await graphqlDatasource.mutate(Options$Mutation$DeleteFavoriteDriver(
+    final result =
+        await graphqlDatasource.mutate(Options$Mutation$DeleteFavoriteDriver(
       variables: Variables$Mutation$DeleteFavoriteDriver(
         driverId: entity.id,
       ),
@@ -64,7 +72,8 @@ class ProfileRepositoryProd implements ProfileRepository {
 
   @override
   Future<Either<Failure, void>> deleteAccount() async {
-    final result = await graphqlDatasource.mutate(Options$Mutation$DeleteAccount());
+    final result =
+        await graphqlDatasource.mutate(Options$Mutation$DeleteAccount());
     return result;
   }
 }

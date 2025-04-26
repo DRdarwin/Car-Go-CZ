@@ -89,7 +89,8 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
                         duration: AnimationDuration.pageStateTransitionMobile,
                         child: state.map(
                           initial: (_) => const SizedBox(),
-                          loading: (_) => Assets.lottie.loading.lottie(width: double.infinity, height: double.infinity),
+                          loading: (_) => Assets.lottie.loading.lottie(
+                              width: double.infinity, height: double.infinity),
                           error: (error) => Center(child: Text(error.message)),
                           loaded: (loaded) => Container(
                             constraints: context.responsive(
@@ -106,28 +107,36 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
                                       final result = await showDialog(
                                         context: context,
                                         useSafeArea: false,
-                                        builder: (context) => AddPaymentMethodDialog(
+                                        builder: (context) =>
+                                            AddPaymentMethodDialog(
                                           paymentGateways: loaded.data.$2,
                                         ),
                                       ) as PaymentGatewayEntity?;
                                       if (result != null) {
-                                        if (result.linkMethod == GatewayLinkMethod.redirect) {
-                                          final url = await locator<PaymentMethodsRepository>().getExternalUrl(
+                                        if (result.linkMethod ==
+                                            GatewayLinkMethod.redirect) {
+                                          final url = await locator<
+                                                  PaymentMethodsRepository>()
+                                              .getExternalUrl(
                                             paymentGatewayId: result.id,
                                           );
                                           url.fold(
                                             (l) {
-                                              context.showSnackBar(message: l.errorMessage);
+                                              context.showSnackBar(
+                                                  message: l.errorMessage);
                                             },
                                             (r) {
-                                              launchUrlString(r, mode: LaunchMode.externalApplication);
+                                              launchUrlString(r,
+                                                  mode: LaunchMode
+                                                      .externalApplication);
                                             },
                                           );
                                         } else {
                                           showDialog(
                                             context: context,
                                             useSafeArea: false,
-                                            builder: (context) => const AddCardDetailsDialog(),
+                                            builder: (context) =>
+                                                const AddCardDetailsDialog(),
                                           );
                                         }
                                       }
@@ -145,17 +154,23 @@ class _PaymentMethodsScreenState extends State<PaymentMethodsScreen> {
                                     children: loaded.data.$1
                                         .map(
                                           (e) => Padding(
-                                            padding: const EdgeInsets.only(bottom: 16, left: 8, right: 8),
+                                            padding: const EdgeInsets.only(
+                                                bottom: 16, left: 8, right: 8),
                                             child: SavedCard(
-                                              accountHolderName: e.cardHolderName ?? '-',
-                                              accountNumber: '**** **** **** ${e.last4Digits}',
+                                              accountHolderName:
+                                                  e.cardHolderName ?? '-',
+                                              accountNumber:
+                                                  '**** **** **** ${e.last4Digits}',
                                               cardImage: e.cardImage.provider(),
-                                              bankName: e.cardType.title(context),
-                                              icon: e.cardType.icon.image(width: 24, height: 24),
+                                              bankName:
+                                                  e.cardType.title(context),
+                                              icon: e.cardType.icon
+                                                  .image(width: 24, height: 24),
                                               isDefault: e.isDefault,
                                               deletePressed: null,
                                               markAsDefaultPressed: (value) {
-                                                locator<PaymentMethodsBloc>().markAsDefault(
+                                                locator<PaymentMethodsBloc>()
+                                                    .markAsDefault(
                                                   paymentMethod: e,
                                                   isDefault: value,
                                                 );

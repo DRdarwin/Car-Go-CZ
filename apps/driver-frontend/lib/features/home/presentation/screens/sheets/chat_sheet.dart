@@ -53,7 +53,8 @@ class _ChatSheetState extends State<ChatSheet> {
               Row(
                 children: [
                   AppBackButton(
-                    onPressed: () => locator<HomeBloc>().add(const HomeEvent.onHideChat()),
+                    onPressed: () =>
+                        locator<HomeBloc>().add(const HomeEvent.onHideChat()),
                   ),
                   const SizedBox(width: 16),
                   Expanded(
@@ -65,7 +66,8 @@ class _ChatSheetState extends State<ChatSheet> {
                   AppIconButton(
                     icon: Ionicons.call,
                     onPressed: () {
-                      launchUrlString("tel://+${widget.order.riderPhoneNumber}");
+                      launchUrlString(
+                          "tel://+${widget.order.riderPhoneNumber}");
                     },
                   ),
                 ],
@@ -110,14 +112,17 @@ class _ChatSheetState extends State<ChatSheet> {
                     onPressed: message == null
                         ? null
                         : () async {
-                            final messageResult = await locator<HomeRepository>().sendMessage(
+                            final messageResult =
+                                await locator<HomeRepository>().sendMessage(
                               orderId: widget.order.id,
                               message: message!,
                             );
                             messageResult.fold(
-                              (l) => context.showSnackBar(message: l.errorMessage),
+                              (l) =>
+                                  context.showSnackBar(message: l.errorMessage),
                               (r) {
-                                locator<HomeBloc>().add(HomeEvent.messageSent(message: r));
+                                locator<HomeBloc>()
+                                    .add(HomeEvent.messageSent(message: r));
                                 textEditingController.clear();
                                 setState(() => message = null);
                               },

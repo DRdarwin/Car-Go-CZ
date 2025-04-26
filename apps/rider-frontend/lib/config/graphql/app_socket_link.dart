@@ -37,7 +37,9 @@ class AppSocketLink extends Link {
           autoReconnect: true,
           initialPayload: {"authToken": token},
           inactivityTimeout: const Duration(minutes: 30),
-          headers: kIsWeb || token == null ? null : {"Authorization": " Bearer $token"},
+          headers: kIsWeb || token == null
+              ? null
+              : {"Authorization": " Bearer $token"},
         ),
       ),
       token: token,

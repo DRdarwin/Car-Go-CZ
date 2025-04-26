@@ -21,5 +21,6 @@ sealed class TrackOrderPage with _$TrackOrderPage {
   const factory TrackOrderPage.chat() = _Chat;
   const factory TrackOrderPage.payment() = _Payment;
 
-  factory TrackOrderPage.fromJson(Map<String, dynamic> json) => _$TrackOrderPageFromJson(json);
+  factory TrackOrderPage.fromJson(Map<String, dynamic> json) =>
+      _$TrackOrderPageFromJson(json);
 }

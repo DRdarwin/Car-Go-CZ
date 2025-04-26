@@ -6,7 +6,8 @@ import 'package:flutter_common/core/entities/driver_location.dart';
 abstract class LocationDatasource {
   final _controller = StreamController<DriverLocation>();
 
-  Stream<DriverLocation> get driverLocation => _controller.stream.asBroadcastStream();
+  Stream<DriverLocation> get driverLocation =>
+      _controller.stream.asBroadcastStream();
 
   Future<LocationPermission> getLocationPermissionStatus();
   Future<bool> isLocationServiceEnabled();

@@ -36,7 +36,9 @@ class AppTextButton extends StatelessWidget {
           children: [
             if (iconData != null) ...[
               Badge(
-                label: (badge == null || badge == 0) ? null : Text(badge!.toString()),
+                label: (badge == null || badge == 0)
+                    ? null
+                    : Text(badge!.toString()),
                 isLabelVisible: badge != null && badge != 0,
                 child: Icon(
                   iconData,
@@ -57,7 +59,8 @@ class AppTextButton extends StatelessWidget {
         ));
   }
 
-  Color textColor(BuildContext context) => isDisabled ? ColorPalette.neutralVariant50 : colorForType(context);
+  Color textColor(BuildContext context) =>
+      isDisabled ? ColorPalette.neutralVariant50 : colorForType(context);
 
   Color colorForType(BuildContext context) {
     switch (type) {

@@ -20,10 +20,12 @@ class FavoriteLocationsScreenDesktop extends StatefulWidget {
   });
 
   @override
-  State<FavoriteLocationsScreenDesktop> createState() => _FavoriteLocationsScreenDesktopState();
+  State<FavoriteLocationsScreenDesktop> createState() =>
+      _FavoriteLocationsScreenDesktopState();
 }
 
-class _FavoriteLocationsScreenDesktopState extends State<FavoriteLocationsScreenDesktop> {
+class _FavoriteLocationsScreenDesktopState
+    extends State<FavoriteLocationsScreenDesktop> {
   MapViewController? mapController;
   @override
   Widget build(BuildContext context) {
@@ -32,7 +34,8 @@ class _FavoriteLocationsScreenDesktopState extends State<FavoriteLocationsScreen
       child: Row(
         children: [
           Expanded(
-            child: BlocConsumer<FavoriteLocationsDesktopMapCubit, FavoriteLocationsDesktopMapState>(
+            child: BlocConsumer<FavoriteLocationsDesktopMapCubit,
+                FavoriteLocationsDesktopMapState>(
               listener: (context, state) {
                 state.mapOrNull(
                   list: (list) {
@@ -70,13 +73,16 @@ class _FavoriteLocationsScreenDesktopState extends State<FavoriteLocationsScreen
                   },
                   addressResolver: (provider, latlng) async {
                     final settingsState = locator<SettingsCubit>().state;
-                    final result = await locator<GeoDatasource>().getAddressForLocation(
+                    final result =
+                        await locator<GeoDatasource>().getAddressForLocation(
                       latLng: latlng,
                       language: settingsState.locale,
                       mapProvider: settingsState.mapProviderEnum,
                     );
                     return result.fold(
-                      (l) => PlaceEntity(coordinates: latlng.toLatLngEntity, address: "").toGenericMapPlace,
+                      (l) => PlaceEntity(
+                              coordinates: latlng.toLatLngEntity, address: "")
+                          .toGenericMapPlace,
                       (r) => r.toGenericMapPlace,
                     );
                   },
@@ -86,7 +92,8 @@ class _FavoriteLocationsScreenDesktopState extends State<FavoriteLocationsScreen
                       title: context.translate.dragToSelect,
                       address: state.maybeMap(
                         orElse: () => "",
-                        locate: (locate) => locate.centerLocation?.address ?? "",
+                        locate: (locate) =>
+                            locate.centerLocation?.address ?? "",
                       ),
                     ).centerMarker;
                   },

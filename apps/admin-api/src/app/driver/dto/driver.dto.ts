@@ -1,3 +1,4 @@
+// admin-api/src/app/driver/dto/driver.dto.ts
 import {
   FilterableField,
   IDField,
@@ -5,7 +6,7 @@ import {
   Relation,
   UnPagedRelation,
 } from '@ptc-org/nestjs-query-graphql';
-import { Field, ID, Int, ObjectType } from '@nestjs/graphql';
+import { Field, Float, ID, Int, ObjectType } from '@nestjs/graphql';
 import { DriverStatus } from '@ridy/database/enums/driver-status.enum';
 import { Gender } from '@ridy/database/enums/gender.enum';
 import { FeedbackDTO } from '../../feedback/dto/feedback.dto';
@@ -16,6 +17,9 @@ import { MediaDTO } from '../../upload/media.dto';
 import { DriverTransactionDTO } from './driver-transaction.dto';
 import { DriverWalletDTO } from './driver-wallet.dto';
 import { PayoutAccountDTO } from '../../payout/dto/payout-account.dto';
+// Імпортуємо оновлені DTO для транспорту
+import { VehicleModelDTO } from '../../vehicle/dto/vehicle-model.dto';
+import { VehicleColorDTO } from '../../vehicle/dto/vehicle-color.dto';
 
 @ObjectType('Driver')
 @OffsetConnection('feedbacks', () => FeedbackDTO, { enableAggregate: true })
@@ -28,27 +32,40 @@ import { PayoutAccountDTO } from '../../payout/dto/payout-account.dto';
 @OffsetConnection('orders', () => OrderDTO)
 @Relation('media', () => MediaDTO, { nullable: true })
 @OffsetConnection('payoutAccounts', () => PayoutAccountDTO)
+// Додаємо зв'язки з новою моделлю та кольором
+@Relation('vehicleModel', () => VehicleModelDTO, { nullable: true, description: "Модель ТЗ водія" })
+@Relation('vehicleColor', () => VehicleColorDTO, { nullable: true, description: "Колір ТЗ водія" })
 export class DriverDTO {
   @IDField(() => ID)
   id!: number;
-  @FilterableField(() => ID)
+
+  @FilterableField(() => ID, { nullable: true })
   fleetId?: number;
+
   firstName?: string;
+
   @FilterableField(() => String)
   lastName?: string;
+
   @FilterableField(() => String, { middleware: [numberMasker] })
   mobileNumber: string;
+
   certificateNumber?: string;
   email?: string;
-  @Field(() => Int)
-  carProductionYear?: number;
-  @Field(() => ID)
-  carId?: number;
-  @Field(() => ID)
-  carColorId?: number;
-  carPlate?: string;
+
+  // Поля, що стосуються транспорту
+  @Field(() => ID, { nullable: true })
+  vehicleModelId?: number; // Замінено carId на vehicleModelId
+
+  @Field(() => ID, { nullable: true })
+  vehicleColorId?: number; // Замінено carColorId на vehicleColorId
+
+  @Field({ nullable: true })
+  vehiclePlate?: string; // Перейменовано carPlate на vehiclePlate
+
   @FilterableField(() => DriverStatus)
   status!: DriverStatus;
+
   gender?: Gender;
   rating?: number;
   reviewCount: number;
@@ -60,6 +77,7 @@ export class DriverDTO {
   bankSwift?: string;
   address?: string;
   softRejectionNote?: string;
-  @Field(() => ID)
-  mediaId?: number;
+
+  @Field(() => ID, { nullable: true })
+  mediaId?: number; // ID фото водія
 }

@@ -10,10 +10,19 @@ extension WalletQueryResponseProdX on Query$Wallet {
   WalletQueryResponse get toEntity => WalletQueryResponse(
         firstName: rider.firstName,
         lastName: rider.lastName,
-        currency: rider.wallets.sorted((a, b) => a.balance.compareTo(b.balance)).firstOrNull?.currency ?? "USD",
-        balance: rider.wallets.sorted((a, b) => a.balance.compareTo(b.balance)).firstOrNull?.balance ?? 0,
+        currency: rider.wallets
+                .sorted((a, b) => a.balance.compareTo(b.balance))
+                .firstOrNull
+                ?.currency ??
+            "USD",
+        balance: rider.wallets
+                .sorted((a, b) => a.balance.compareTo(b.balance))
+                .firstOrNull
+                ?.balance ??
+            0,
         transactions: rider.transactions.nodes.map((e) => e.toEntity).toList(),
         paymentGateways: paymentGateways.map((e) => e.toEntity).toList(),
-        savedPaymentMethods: savedPaymentMethods.map((e) => e.toEntity).toList(),
+        savedPaymentMethods:
+            savedPaymentMethods.map((e) => e.toEntity).toList(),
       );
 }

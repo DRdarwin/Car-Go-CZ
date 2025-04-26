@@ -97,7 +97,8 @@ class FavoriteDriverItem extends StatelessWidget {
               children: entity.services
                   .map(
                     (e) => Container(
-                      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 6),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 4, horizontal: 6),
                       decoration: BoxDecoration(
                         color: ColorPalette.neutralVariant99,
                         border: Border.all(color: ColorPalette.primary95),

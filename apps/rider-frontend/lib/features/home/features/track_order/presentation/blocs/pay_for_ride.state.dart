@@ -9,7 +9,8 @@ sealed class PayForRideState with _$PayForRideState {
   const factory PayForRideState.loaded({
     required PaymentMethodUnion selectedPaymentMethod,
     required List<PaymentMethodUnion> paymentMethods,
-    @Default(PayForRidePaymentStatus.initial()) PayForRidePaymentStatus paymentStatus,
+    @Default(PayForRidePaymentStatus.initial())
+    PayForRidePaymentStatus paymentStatus,
   }) = PayForRideLoaded;
 
   const factory PayForRideState.error({
@@ -19,9 +20,11 @@ sealed class PayForRideState with _$PayForRideState {
 
 @freezed
 sealed class PayForRidePaymentStatus with _$PayForRidePaymentStatus {
-  const factory PayForRidePaymentStatus.initial() = PayForRidePaymentStatusInitial;
+  const factory PayForRidePaymentStatus.initial() =
+      PayForRidePaymentStatusInitial;
 
-  const factory PayForRidePaymentStatus.loading() = PayForRidePaymentStatusLoading;
+  const factory PayForRidePaymentStatus.loading() =
+      PayForRidePaymentStatusLoading;
 
   const factory PayForRidePaymentStatus.error({
     required Failure failure,
@@ -31,5 +34,6 @@ sealed class PayForRidePaymentStatus with _$PayForRidePaymentStatus {
     required String url,
   }) = PayForRidePaymentStatusRedirect;
 
-  const factory PayForRidePaymentStatus.success() = PayForRidePaymentStatusSuccess;
+  const factory PayForRidePaymentStatus.success() =
+      PayForRidePaymentStatusSuccess;
 }

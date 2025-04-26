@@ -13,7 +13,8 @@ part 'payment_methods.freezed.dart';
 class PaymentMethodsBloc extends Cubit<PaymentMethodsState> {
   final PaymentMethodsRepository _repository;
 
-  PaymentMethodsBloc(this._repository) : super(const PaymentMethodsState.initial());
+  PaymentMethodsBloc(this._repository)
+      : super(const PaymentMethodsState.initial());
 
   void load() async {
     emit(const PaymentMethodsState.loading());
@@ -30,9 +31,11 @@ class PaymentMethodsBloc extends Cubit<PaymentMethodsState> {
   }) async {
     final gateways = state.maybeWhen(
       loaded: (data) => data.$2,
-      orElse: () => throw Exception("PaymentMethodsBloc.markAsDefault: Payment methods are not loaded yet"),
+      orElse: () => throw Exception(
+          "PaymentMethodsBloc.markAsDefault: Payment methods are not loaded yet"),
     );
-    final result = await _repository.markAsDefault(paymentMethod: paymentMethod, isDefault: isDefault);
+    final result = await _repository.markAsDefault(
+        paymentMethod: paymentMethod, isDefault: isDefault);
     result.fold(
       (failure) => emit(PaymentMethodsState.error(failure.errorMessage)),
       (data) => emit(PaymentMethodsState.loaded((data, gateways))),

@@ -57,7 +57,8 @@ extension OrderPreviewLoadedStateX on OrderPreviewLoadedState {
     final defaultSavedPaymentMethod = paymentMethods.firstWhereOrNull(
       (element) => element.maybeMap(
         orElse: () => false,
-        savedPaymentMethod: (savedPaymentMethod) => savedPaymentMethod.savedPaymentMethod.isDefault,
+        savedPaymentMethod: (savedPaymentMethod) =>
+            savedPaymentMethod.savedPaymentMethod.isDefault,
       ),
     );
     return defaultSavedPaymentMethod;

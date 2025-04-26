@@ -48,7 +48,9 @@ class ReviewItem extends StatelessWidget {
                           for (var i = 0; i < 5; i++)
                             Icon(
                               Ionicons.star,
-                              color: i < review.rating ? ColorPalette.secondary70 : ColorPalette.neutralVariant50,
+                              color: i < review.rating
+                                  ? ColorPalette.secondary70
+                                  : ColorPalette.neutralVariant50,
                               size: 16,
                             ),
                         ],
@@ -71,7 +73,8 @@ class ReviewItem extends StatelessWidget {
               children: review.goodPoints
                   .map(
                     (e) => Container(
-                      padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 6),
+                      padding: const EdgeInsets.symmetric(
+                          vertical: 4, horizontal: 6),
                       decoration: BoxDecoration(
                         color: ColorPalette.neutralVariant99,
                         border: Border.all(color: ColorPalette.primary95),

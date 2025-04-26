@@ -43,7 +43,8 @@ class HomeRepositoryMock implements HomeRepository {
   }
 
   @override
-  Future<Either<Failure, Unit>> rejectOrderRequest({required String requestId}) async {
+  Future<Either<Failure, Unit>> rejectOrderRequest(
+      {required String requestId}) async {
     return const Right(unit);
   }
 
@@ -205,7 +206,8 @@ class HomeRepositoryMock implements HomeRepository {
       orderStream,
       messageStream,
       (order, message) {
-        order = order.copyWith.call(chatMessages: [...order.chatMessages, ...message]);
+        order = order.copyWith
+            .call(chatMessages: [...order.chatMessages, ...message]);
         return order;
       },
     );
@@ -250,7 +252,8 @@ class HomeRepositoryMock implements HomeRepository {
         waypoints: [
           PlaceEntity(
             coordinates: LatLngEntity(lat: 37.3875, lng: -122.0575),
-            address: "1234 Long Street,\nVery Long Address,\nExtremely Long City,\nState, Country",
+            address:
+                "1234 Long Street,\nVery Long Address,\nExtremely Long City,\nState, Country",
           ),
           PlaceEntity(
             coordinates: LatLngEntity(lat: 37.4220, lng: -122.0841),
@@ -295,7 +298,8 @@ class HomeRepositoryMock implements HomeRepository {
         waypoints: [
           PlaceEntity(
             coordinates: LatLngEntity(lat: 37.3875, lng: -122.0575),
-            address: "1234 Long Street,\nVery Long Address,\nExtremely Long City,\nState, Country",
+            address:
+                "1234 Long Street,\nVery Long Address,\nExtremely Long City,\nState, Country",
           ),
           PlaceEntity(
             coordinates: LatLngEntity(lat: 37.4220, lng: -122.0841),
@@ -322,7 +326,8 @@ class HomeRepositoryMock implements HomeRepository {
   void stopGettingOrderRequestUpdates() {}
 
   @override
-  Future<Either<Failure, void>> updateLastSeenMessagesAt({required String orderId}) async {
+  Future<Either<Failure, void>> updateLastSeenMessagesAt(
+      {required String orderId}) async {
     return const Right(null);
   }
 }

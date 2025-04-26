@@ -17,7 +17,9 @@ class RoundedCheckbox extends StatelessWidget {
       decoration: BoxDecoration(
         shape: BoxShape.circle,
         color: isSelected ? context.colorScheme.primary : Colors.transparent,
-        border: isSelected ? null : Border.all(color: context.colorScheme.outlineVariant),
+        border: isSelected
+            ? null
+            : Border.all(color: context.colorScheme.outlineVariant),
       ),
       width: 20,
       height: 20,

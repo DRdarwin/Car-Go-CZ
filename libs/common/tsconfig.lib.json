@@ -1,0 +1,31 @@
+// libs/common/tsconfig.lib.json
+{
+    "extends": "../../tsconfig.base.json", // Успадковуємо базову конфігурацію
+    "compilerOptions": {
+        "outDir": "../../dist/out-tsc",
+        "declaration": true,
+        "types": [
+            "node"
+        ],
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
+        // Переконайтесь, що baseUrl та paths успадковуються з tsconfig.base.json
+        // Зазвичай їх не потрібно тут повторювати, якщо extends працює коректно.
+        // Якщо ви все ще маєте проблеми після створення цього файлу,
+        // можна спробувати явно додати сюди baseUrl та paths з tsconfig.base.json.
+        // "baseUrl": ".", // Якщо потрібно
+        // "paths": { // Якщо потрібно
+        //   "@ridy/database": ["../../libs/database/src/index.ts"],
+        //   "@ridy/database/*": ["../../libs/database/src/lib/*"]
+        //   // ... інші шляхи ...
+        // }
+    },
+    "exclude": [
+        "src/**/*.spec.ts",
+        "jest.config.ts",
+        "**/*.test.ts"
+    ],
+    "include": [
+        "src/**/*.ts"
+    ]
+}

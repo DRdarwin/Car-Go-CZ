@@ -47,12 +47,13 @@ class _FeedbacksSummaryScreenState extends State<FeedbacksSummaryScreen> {
                 height: 16,
               ),
               Expanded(
-                child: BlocBuilder<FeedbacksSummaryCubit, FeedbacksSummaryState>(
+                child:
+                    BlocBuilder<FeedbacksSummaryCubit, FeedbacksSummaryState>(
                   builder: (context, state) {
                     return state.map(
                       initial: (initial) => const SizedBox(),
-                      loading: (loading) =>
-                          Assets.lottie.loading.lottie(width: double.infinity, height: double.infinity),
+                      loading: (loading) => Assets.lottie.loading.lottie(
+                          width: double.infinity, height: double.infinity),
                       error: (value) => Text(value.errorMessage),
                       empty: (value) => const FeedbacksSummaryEmptyState(),
                       loaded: (loaded) {
@@ -60,14 +61,19 @@ class _FeedbacksSummaryScreenState extends State<FeedbacksSummaryScreen> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              RatingGauge(rating: (loaded.summary.averageRating ?? 0) / 20),
+                              RatingGauge(
+                                  rating:
+                                      (loaded.summary.averageRating ?? 0) / 20),
                               const SizedBox(
                                 height: 16,
                               ),
                               if (loaded.summary.averageRating != null) ...[
                                 Center(
                                   child: Text(
-                                    ratingTitle(context, (loaded.summary.averageRating ?? 0) / 20),
+                                    ratingTitle(
+                                        context,
+                                        (loaded.summary.averageRating ?? 0) /
+                                            20),
                                     style: context.titleLarge,
                                   ),
                                 ),
@@ -76,7 +82,10 @@ class _FeedbacksSummaryScreenState extends State<FeedbacksSummaryScreen> {
                                 ),
                                 Center(
                                   child: Text(
-                                    ratingSubtitle(context, (loaded.summary.averageRating ?? 0) / 20),
+                                    ratingSubtitle(
+                                        context,
+                                        (loaded.summary.averageRating ?? 0) /
+                                            20),
                                     style: context.bodyMedium,
                                   ),
                                 ),
@@ -138,7 +147,8 @@ class _FeedbacksSummaryScreenState extends State<FeedbacksSummaryScreen> {
                                 height: 12,
                               ),
                               ...loaded.summary.goodReviews.map((e) => Padding(
-                                    padding: const EdgeInsets.symmetric(vertical: 8),
+                                    padding:
+                                        const EdgeInsets.symmetric(vertical: 8),
                                     child: ReviewItem(review: e),
                                   )),
                             ],
@@ -211,11 +221,15 @@ class FeedbackParameter extends StatelessWidget {
     );
   }
 
-  IconData get icon => isGood ? Ionicons.heart_circle : Ionicons.heart_dislike_circle;
+  IconData get icon =>
+      isGood ? Ionicons.heart_circle : Ionicons.heart_dislike_circle;
 
-  Color get iconColor => isGood ? ColorPalette.semanticgreen70 : ColorPalette.error50;
+  Color get iconColor =>
+      isGood ? ColorPalette.semanticgreen70 : ColorPalette.error50;
 
-  Color get textColor => isGood ? ColorPalette.semanticgreen30 : ColorPalette.error30;
+  Color get textColor =>
+      isGood ? ColorPalette.semanticgreen30 : ColorPalette.error30;
 
-  Color get backgroundColor => isGood ? ColorPalette.semanticgreen99 : ColorPalette.error95;
+  Color get backgroundColor =>
+      isGood ? ColorPalette.semanticgreen99 : ColorPalette.error95;
 }

@@ -13,5 +13,6 @@ class ServiceCategoryEntity with _$ServiceCategoryEntity {
     required List<ServiceEntity> services,
   }) = _ServiceCategoryEntity;
 
-  factory ServiceCategoryEntity.fromJson(Map<String, dynamic> json) => _$ServiceCategoryEntityFromJson(json);
+  factory ServiceCategoryEntity.fromJson(Map<String, dynamic> json) =>
+      _$ServiceCategoryEntityFromJson(json);
 }

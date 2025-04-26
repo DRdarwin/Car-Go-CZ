@@ -20,9 +20,12 @@ extension DateTimeX on DateTime {
 
   String get _formatDateTime24Hours => DateFormat('dd MMM HH:mm').format(this);
 
-  String get formatTime => Constants.showTimeIn24HourFormat ? _formatTime24Hours : _formatTimeAmPm;
+  String get formatTime =>
+      Constants.showTimeIn24HourFormat ? _formatTime24Hours : _formatTimeAmPm;
 
-  String get formatDateTime => Constants.showTimeIn24HourFormat ? _formatDateTime24Hours : _formatDateTimeAmPm;
+  String get formatDateTime => Constants.showTimeIn24HourFormat
+      ? _formatDateTime24Hours
+      : _formatDateTimeAmPm;
 
   String formatDate(BuildContext context) {
     if (isToday) {
@@ -36,6 +39,7 @@ extension DateTimeX on DateTime {
 }
 
 extension LatLngX on LatLng {
-  int distanceWith(LatLng latLng) =>
-      Geolocator.distanceBetween(latitude, longitude, latLng.latitude, latLng.longitude).toInt();
+  int distanceWith(LatLng latLng) => Geolocator.distanceBetween(
+          latitude, longitude, latLng.latitude, latLng.longitude)
+      .toInt();
 }

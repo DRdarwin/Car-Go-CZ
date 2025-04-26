@@ -22,7 +22,9 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await dotenv.load();
   HydratedBloc.storage = await HydratedStorage.build(
-    storageDirectory: kIsWeb ? HydratedStorage.webStorageDirectory : await getTemporaryDirectory(),
+    storageDirectory: kIsWeb
+        ? HydratedStorage.webStorageDirectory
+        : await getTemporaryDirectory(),
   );
 
   // await HydratedBloc.storage.clear();

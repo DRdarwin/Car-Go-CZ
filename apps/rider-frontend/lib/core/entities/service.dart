@@ -19,5 +19,6 @@ class ServiceEntity with _$ServiceEntity {
     required bool isOnlinePaymentAllowed,
   }) = _ServiceEntity;
 
-  factory ServiceEntity.fromJson(Map<String, dynamic> json) => _$ServiceEntityFromJson(json);
+  factory ServiceEntity.fromJson(Map<String, dynamic> json) =>
+      _$ServiceEntityFromJson(json);
 }

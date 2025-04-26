@@ -26,7 +26,8 @@ class IconDestination extends StatelessWidget {
     );
   }
 
-  Color get backgroundColor => isPickupPoint ? ColorPalette.primary50 : ColorPalette.tertiary60;
+  Color get backgroundColor =>
+      isPickupPoint ? ColorPalette.primary50 : ColorPalette.tertiary60;
 
   IconData get icon => isPickupPoint ? Ionicons.locate : Ionicons.location;
 }

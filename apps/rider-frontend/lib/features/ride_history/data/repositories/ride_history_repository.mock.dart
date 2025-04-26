@@ -22,7 +22,8 @@ class RideHistoryRepositoryMock implements RideHistoryRepository {
         id: '1',
         createdAt: DateTime.now().subtract(const Duration(hours: 23)),
         expectedAt: DateTime.now().subtract(const Duration(hours: 23)),
-        startedAt: DateTime.now().subtract(const Duration(hours: 22, minutes: 30)),
+        startedAt:
+            DateTime.now().subtract(const Duration(hours: 22, minutes: 30)),
         endedAt: DateTime.now().subtract(
           const Duration(hours: 22, minutes: 0),
         ),
@@ -73,7 +74,8 @@ class RideHistoryRepositoryMock implements RideHistoryRepository {
         id: '2',
         createdAt: DateTime.now().subtract(const Duration(hours: 23)),
         expectedAt: DateTime.now().subtract(const Duration(hours: 23)),
-        startedAt: DateTime.now().subtract(const Duration(hours: 22, minutes: 30)),
+        startedAt:
+            DateTime.now().subtract(const Duration(hours: 22, minutes: 30)),
         endedAt: DateTime.now().subtract(
           const Duration(hours: 22, minutes: 0),
         ),
@@ -126,7 +128,9 @@ class RideHistoryRepositoryMock implements RideHistoryRepository {
 
   @override
   Future<Either<Failure, bool>> reportIssue(
-      {required String orderId, required String subject, required String issue}) async {
+      {required String orderId,
+      required String subject,
+      required String issue}) async {
     return const Right(true);
   }
 }

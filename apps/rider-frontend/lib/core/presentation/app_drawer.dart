@@ -69,7 +69,8 @@ class AppDrawer extends StatelessWidget {
                               scale: 1.3,
                               child: AppAvatar(
                                 avatar: state.map(
-                                  authenticated: (authenticated) => authenticated.avatar,
+                                  authenticated: (authenticated) =>
+                                      authenticated.avatar,
                                   unauthenticated: (unauthenticated) => none(),
                                 ),
                                 defaultAvatarPath: Assets.avatars.a1.path,
@@ -80,14 +81,16 @@ class AppDrawer extends StatelessWidget {
                                 unauthenticated: (_) => const SizedBox(),
                                 authenticated: (authenticated) {
                                   return Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
                                     children: [
                                       Text(
                                         authenticated.profile.fullName,
                                         style: context.labelMedium,
                                       ),
                                       Text(
-                                        authenticated.profile.mobileNumberFormatted,
+                                        authenticated
+                                            .profile.mobileNumberFormatted,
                                         style: context.bodySmall,
                                       )
                                     ],
@@ -112,14 +115,16 @@ class AppDrawer extends StatelessWidget {
                                   icon: NavItem.home.icon,
                                   title: NavItem.home.name(context),
                                   isSelected: stateRoute == NavItem.home,
-                                  onPressed: () => NavItem.home.onPressed(context),
+                                  onPressed: () =>
+                                      NavItem.home.onPressed(context),
                                 ),
                               ),
                               ...(state.isAuthenticated
                                       ? signedInNavItems.where(
                                           (element) => context.responsive(
                                             true,
-                                            xl: element != NavItem.announcements,
+                                            xl: element !=
+                                                NavItem.announcements,
                                           ),
                                         )
                                       : signedOutNavItems)

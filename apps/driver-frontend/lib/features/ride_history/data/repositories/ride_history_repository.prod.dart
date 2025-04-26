@@ -21,17 +21,21 @@ class RideHistoryRepositoryImpl implements RideHistoryRepository {
   @override
   Future<Either<Failure, List<OrderEntity>>> getRideHistory() async {
     final result = await graphQLDatasource.query(Options$Query$RideHistory());
-    return result.map((r) => r.orders.edges.map((e) => e.node.toEntity).toList());
+    return result
+        .map((r) => r.orders.edges.map((e) => e.node.toEntity).toList());
   }
 
   @override
   Future<Either<Failure, bool>> reportIssue(
-      {required String orderId, required String subject, required String issue}) async {
+      {required String orderId,
+      required String subject,
+      required String issue}) async {
     final result = await graphQLDatasource.mutate(
       Options$Mutation$SubmitIssue(
         variables: Variables$Mutation$SubmitIssue(
           input: Input$CreateOneComplaintInput(
-            complaint: Input$ComplaintInput(requestId: orderId, subject: subject, content: issue),
+            complaint: Input$ComplaintInput(
+                requestId: orderId, subject: subject, content: issue),
           ),
         ),
       ),

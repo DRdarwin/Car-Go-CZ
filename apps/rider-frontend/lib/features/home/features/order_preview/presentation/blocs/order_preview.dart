@@ -24,7 +24,8 @@ class OrderPreviewCubit extends Cubit<OrderPreviewState> {
   final OrderPreviewRepository orderPreviewRepository;
   final FirebaseRepository firebaseRepository;
 
-  OrderPreviewCubit(this.orderRepository, this.orderPreviewRepository, this.firebaseRepository)
+  OrderPreviewCubit(this.orderRepository, this.orderPreviewRepository,
+      this.firebaseRepository)
       : super(const OrderPreviewState.initial());
 
   void onStarted(List<PlaceEntity> waypoints) {
@@ -47,7 +48,10 @@ class OrderPreviewCubit extends Cubit<OrderPreviewState> {
     result.fold(
       (l) => emit(OrderPreviewState.error(l.errorMessage)),
       (r) {
-        final walletCredit = r.wallets.firstWhereOrNull((element) => element.$1 == r.currency)?.$2 ?? 0;
+        final walletCredit = r.wallets
+                .firstWhereOrNull((element) => element.$1 == r.currency)
+                ?.$2 ??
+            0;
         final paymentMethods = [
           if (walletCredit > 0) const PaymentMethodUnion.wallet(),
           ...(r.paymentGateways, r.savedPaymentMethods).toPaymentMethodUnion,

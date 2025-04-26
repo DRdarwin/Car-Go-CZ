@@ -2,8 +2,7 @@
   <nz-empty [nzNotFoundContent]="contentTpl" [nzNotFoundFooter]="footerTpl">
     <ng-template #contentTpl>
       <span>
-        {{'riders.notFoundMessage' | translate}}
-      </span>
+        {{'riders.notFoundMessage' | translate}} </span>
     </ng-template>
     <ng-template #footerTpl>
       <button nz-button nzType="primary" routerLink="/riders">{{'profile.goToList' | translate}}</button>
@@ -25,8 +24,7 @@
         <i nz-icon nzType="delete"></i>
       </button>
       <button nz-button nz-dropdown [nzDropdownMenu]="menu4">
-        {{ 'driver.profile.changeStatus' | translate }}
-        <i nz-icon nzType="down"></i>
+        {{ 'driver.profile.changeStatus' | translate }} <i nz-icon nzType="down"></i>
       </button>
       <nz-dropdown-menu #menu4="nzDropdownMenu">
         <ul nz-menu>
@@ -57,8 +55,7 @@
           <a *nzTabLink nz-tab-link routerLink="financials">{{ 'riders.tab.creditrecords' | translate }}</a>
         </nz-tab>
         <nz-tab>
-          <a *nzTabLink nz-tab-link routerLink="orders">{{ 'riders.tab.orders' | translate }}</a>
-        </nz-tab>
+          <a *nzTabLink nz-tab-link routerLink="orders">{{ 'riders.tab.orders' | translate }}</a> </nz-tab>
         <nz-tab>
           <a *nzTabLink nz-tab-link routerLink="addresses">{{ 'riders.tab.addresses' | translate }}</a>
         </nz-tab>

@@ -13,7 +13,8 @@ import '../domain/repositories/home_repository.dart';
 @LazySingleton(as: HomeRepository)
 class HomeRepositoryMock implements HomeRepository {
   @override
-  Future<Either<Failure, (OrderEntity, DriverLocation?)?>> getCurrentOrder() async {
+  Future<Either<Failure, (OrderEntity, DriverLocation?)?>>
+      getCurrentOrder() async {
     await Future.delayed(const Duration(seconds: 1));
     return Right(
       (
@@ -24,7 +25,8 @@ class HomeRepositoryMock implements HomeRepository {
   }
 
   @override
-  Future<Either<Failure, List<DriverLocation>>> getDriversAround(LatLng origin) async {
+  Future<Either<Failure, List<DriverLocation>>> getDriversAround(
+      LatLng origin) async {
     await Future.delayed(const Duration(seconds: 1));
     return Right([
       DriverLocation(

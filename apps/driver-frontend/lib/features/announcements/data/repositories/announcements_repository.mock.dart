@@ -17,7 +17,8 @@ class AnnouncementsRepositoryMock implements AnnouncementsRepository {
       AnnouncementEntity(
         id: "1",
         title: "Get discounts with gifts!",
-        description: "Lorem ipsum dolor sit amet, consetetur sadipscing voluptua. At vero eos et",
+        description:
+            "Lorem ipsum dolor sit amet, consetetur sadipscing voluptua. At vero eos et",
         url: null,
       ),
       AnnouncementEntity(

@@ -71,7 +71,8 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
   Widget get backButton => FloatingActionButton.small(
         onPressed: () {
           locator<HomeCubit>().state.maybeMap(
-                orElse: () => throw Exception('This action can only be called from ride preview state'),
+                orElse: () => throw Exception(
+                    'This action can only be called from ride preview state'),
                 ridePreview: (value) {
                   locator<HomeCubit>().initializeWelcome(
                     pickupPoint: locator<LocationCubit>().state.place,

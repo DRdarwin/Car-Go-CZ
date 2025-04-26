@@ -58,7 +58,8 @@ class WalletHeader extends StatelessWidget {
                     return Text(
                       state.maybeMap(
                         orElse: () => "",
-                        loaded: (state) => state.data.balance.formatCurrency(state.data.currency),
+                        loaded: (state) => state.data.balance
+                            .formatCurrency(state.data.currency),
                       ),
                       style: context.headlineLarge?.copyWith(
                         color: ColorPalette.primary30,

@@ -34,11 +34,13 @@ class CancelScheduledRideDialog extends StatelessWidget {
       ),
       secondaryButton: AppBorderedButton(
         onPressed: () async {
-          final result = await locator<ScheduledRidesRepository>().cancelRide(orderId);
+          final result =
+              await locator<ScheduledRidesRepository>().cancelRide(orderId);
           result.fold(
             (l) => context.showSnackBar(message: l.errorMessage),
             (r) {
-              context.showSnackBar(message: context.translate.cancelRideSuccess);
+              context.showSnackBar(
+                  message: context.translate.cancelRideSuccess);
               context.router.maybePop(true);
             },
           );

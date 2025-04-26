@@ -29,7 +29,8 @@ class RideHistoryDetailsScreenDesktop extends StatelessWidget {
       children: [
         Expanded(
           child: BlocBuilder<SettingsCubit, SettingsState>(
-            buildWhen: (previous, current) => previous.mapProvider != current.mapProvider,
+            buildWhen: (previous, current) =>
+                previous.mapProvider != current.mapProvider,
             builder: (context, settingsState) {
               return AppGenericMap(
                 mode: MapViewMode.static,
@@ -84,7 +85,8 @@ class RideHistoryDetailsScreenDesktop extends StatelessWidget {
                     showDialog(
                       context: context,
                       useSafeArea: false,
-                      builder: (context) => ReportIssueFormDialog(orderId: entity.id),
+                      builder: (context) =>
+                          ReportIssueFormDialog(orderId: entity.id),
                     );
                   },
                   title: "Report an issue",

@@ -63,9 +63,11 @@ class HomeScreenDesktop extends StatelessWidget {
                         },
                         offline: (offline) => const SizedBox(),
                         onTrip: (onTrip) => onTrip.page.map(
-                          overview: (overview) => ActiveOrderSheet(state: onTrip),
+                          overview: (overview) =>
+                              ActiveOrderSheet(state: onTrip),
                           chat: (chat) => ChatSheet(order: onTrip.order),
-                          payment: (payment) => OrderSummary(order: onTrip.order),
+                          payment: (payment) =>
+                              OrderSummary(order: onTrip.order),
                           rate: (rate) => RateRiderSheet(order: onTrip.order),
                         ),
                       ),

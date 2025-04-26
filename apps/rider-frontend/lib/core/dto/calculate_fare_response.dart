@@ -20,5 +20,6 @@ class CalculateFareResponse with _$CalculateFareResponse {
     required List<LatLngEntity> directions,
   }) = _CalculateFareResponse;
 
-  factory CalculateFareResponse.fromJson(Map<String, dynamic> json) => _$CalculateFareResponseFromJson(json);
+  factory CalculateFareResponse.fromJson(Map<String, dynamic> json) =>
+      _$CalculateFareResponseFromJson(json);
 }

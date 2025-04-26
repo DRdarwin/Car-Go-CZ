@@ -10,7 +10,8 @@ part 'scheduled_rides.freezed.dart';
 @lazySingleton
 class ScheduledRidesBloc extends Cubit<ScheduledRidesState> {
   final ScheduledRidesRepository _repository;
-  ScheduledRidesBloc(this._repository) : super(const ScheduledRidesState.initial());
+  ScheduledRidesBloc(this._repository)
+      : super(const ScheduledRidesState.initial());
 
   Future<void> load() async {
     emit(const ScheduledRidesState.loading());

@@ -21,10 +21,13 @@ class WalletTransactionEntity with _$WalletTransactionEntity {
 }
 
 extension WalletTransactionEntityX on WalletTransactionEntity {
-  String get formattedPrice => NumberFormat.simpleCurrency(name: currency).format(amount);
+  String get formattedPrice =>
+      NumberFormat.simpleCurrency(name: currency).format(amount);
   String get formattedDatetime => dateTime.formatDateTime;
   String get formattedTime => dateTime.formatTime;
-  IconData get icon => deductTransactionType?.icon ?? rechargeTransactionType!.icon;
+  IconData get icon =>
+      deductTransactionType?.icon ?? rechargeTransactionType!.icon;
   String title(BuildContext context) =>
-      deductTransactionType?.getTitle(context) ?? rechargeTransactionType!.getTitle(context);
+      deductTransactionType?.getTitle(context) ??
+      rechargeTransactionType!.getTitle(context);
 }

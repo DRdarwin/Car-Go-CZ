@@ -76,5 +76,6 @@ class PlaceResultItem extends StatelessWidget {
 
   IconData get icon => isRecent ? Ionicons.time : Ionicons.location;
 
-  Color get iconColor => isRecent ? ColorPalette.neutral70 : ColorPalette.tertiary60;
+  Color get iconColor =>
+      isRecent ? ColorPalette.neutral70 : ColorPalette.tertiary60;
 }

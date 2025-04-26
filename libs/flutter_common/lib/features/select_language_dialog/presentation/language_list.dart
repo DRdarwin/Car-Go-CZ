@@ -28,7 +28,8 @@ class _LanguageListState extends State<LanguageList> {
   @override
   void initState() {
     languageList = languages;
-    selectedLanguge = languages.firstWhere((element) => element.code == widget.selectedLanguageCode);
+    selectedLanguge = languages
+        .firstWhere((element) => element.code == widget.selectedLanguageCode);
     super.initState();
   }
 

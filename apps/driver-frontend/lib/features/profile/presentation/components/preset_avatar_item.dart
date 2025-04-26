@@ -25,7 +25,9 @@ class PresetAvatarItem extends StatelessWidget {
           height: 65,
           decoration: BoxDecoration(
             border: Border.all(
-              color: selectedIndex == index ? ColorPalette.primary60 : ColorPalette.neutral99,
+              color: selectedIndex == index
+                  ? ColorPalette.primary60
+                  : ColorPalette.neutral99,
               width: 6.5,
             ),
             shape: BoxShape.circle,

@@ -68,7 +68,8 @@ class WaypointsInputSheet extends StatelessWidget {
                     AppCloseButton(
                       onPressed: () {
                         homeBloc.closeWaypointsInput(waypoints: waypoints);
-                        locator<SelectedLocationFieldCubit>().onLocationFieldSelected(null);
+                        locator<SelectedLocationFieldCubit>()
+                            .onLocationFieldSelected(null);
                       },
                     ),
                     Center(
@@ -94,33 +95,43 @@ class WaypointsInputSheet extends StatelessWidget {
                                     padding: const EdgeInsets.only(bottom: 16),
                                     child: LocationTextfield(
                                       key: UniqueKey(),
-                                      isFocused: selectedLocationFieldState == index,
-                                      onRemoveStop: () => homeBloc.onRemoveStop(index),
+                                      isFocused:
+                                          selectedLocationFieldState == index,
+                                      onRemoveStop: () =>
+                                          homeBloc.onRemoveStop(index),
                                       index: index,
                                       totalCount: waypoints.length,
                                       initialValue: e,
                                       onFocused: () {
                                         placeLookupBloc.onStarted();
-                                        selectedFieldCubit.onLocationFieldSelected(index);
+                                        selectedFieldCubit
+                                            .onLocationFieldSelected(index);
                                       },
                                       onChanged: (value) {
-                                        final settingsState = locator<SettingsCubit>().state;
-                                        final locationState = locator<LocationCubit>().state;
+                                        final settingsState =
+                                            locator<SettingsCubit>().state;
+                                        final locationState =
+                                            locator<LocationCubit>().state;
                                         locator<PlaceLookupBloc>().add(
                                           PlaceLookupEvent.onQueryChanged(
                                             query: value,
-                                            latLng: locationState.place?.latLng2,
+                                            latLng:
+                                                locationState.place?.latLng2,
                                             radius: Env.placeSearchSearchRadius,
                                             language: settingsState.locale,
-                                            mapProvider: settingsState.mapProviderEnum,
+                                            mapProvider:
+                                                settingsState.mapProviderEnum,
                                           ),
                                         );
                                       },
                                       onMapPressed: (value) {
-                                        selectedFieldCubit.onLocationFieldSelected(index);
+                                        selectedFieldCubit
+                                            .onLocationFieldSelected(index);
                                         showConfirmLocation(
                                           waypoints[index] ??
-                                              locator<LocationCubit>().state.place ??
+                                              locator<LocationCubit>()
+                                                  .state
+                                                  .place ??
                                               Constants.defaultLocation,
                                         );
                                       },
@@ -151,7 +162,8 @@ class WaypointsInputSheet extends StatelessWidget {
                               const SizedBox(
                                 height: 6,
                               ),
-                              if (index != waypoints.length - 1) const LineConnectDestinations(),
+                              if (index != waypoints.length - 1)
+                                const LineConnectDestinations(),
                             ],
                           );
                         }),
@@ -179,13 +191,16 @@ class WaypointsInputSheet extends StatelessWidget {
                       return BlocBuilder<PlaceLookupBloc, PlaceLookupState>(
                         builder: (context, state) => PlaceLookupStateView(
                           state: state,
-                          initialStateView: BlocBuilder<DestinationSuggestionsCubit, DestinationSuggestionsState>(
+                          initialStateView: BlocBuilder<
+                              DestinationSuggestionsCubit,
+                              DestinationSuggestionsState>(
                             builder: (context, state) => state.maybeMap(
                               orElse: () => const SizedBox(),
                               loaded: (loaded) => ListView.separated(
                                 padding: EdgeInsets.zero,
                                 itemCount: loaded.recents.length,
-                                separatorBuilder: (context, index) => const Divider(
+                                separatorBuilder: (context, index) =>
+                                    const Divider(
                                   thickness: 0.3,
                                   indent: 48,
                                   height: 16,
@@ -195,7 +210,9 @@ class WaypointsInputSheet extends StatelessWidget {
                                   return PlaceResultItem(
                                     onPressed: () => showConfirmLocation(place),
                                     title: place.title,
-                                    trailing: locator<LocationCubit>().state.distanceTo(
+                                    trailing: locator<LocationCubit>()
+                                        .state
+                                        .distanceTo(
                                           place.coordinates.latLng,
                                           context,
                                         ),
@@ -216,7 +233,8 @@ class WaypointsInputSheet extends StatelessWidget {
                 AppPrimaryButton(
                   isDisabled: waypoints.nonNulls.length != waypoints.length,
                   onPressed: () {
-                    final isAuthenticated = locator<AuthBloc>().state.isAuthenticated;
+                    final isAuthenticated =
+                        locator<AuthBloc>().state.isAuthenticated;
                     if (isAuthenticated) {
                       homeBloc.showPreview(
                         waypoints: waypoints.nonNulls.toList(),

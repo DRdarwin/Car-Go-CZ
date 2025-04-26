@@ -36,7 +36,8 @@ class LookingForDriverSheet extends StatelessWidget {
               width: double.infinity,
               child: CupertinoButton(
                 onPressed: () {
-                  locator<TrackOrderBloc>().cancelRide(cancelReasonId: null, cancelReasonNote: null);
+                  locator<TrackOrderBloc>()
+                      .cancelRide(cancelReasonId: null, cancelReasonNote: null);
                 },
                 child: Text(context.translate.cancelRide),
               ),

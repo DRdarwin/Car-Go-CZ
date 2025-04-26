@@ -21,7 +21,10 @@ class PaymentMethodsRepositoryImpl implements PaymentMethodsRepository {
   );
 
   @override
-  Future<Either<Failure, (List<SavedPaymentMethodEntity>, List<PaymentGatewayEntity>)>> getSavedPaymentMethods() async {
+  Future<
+          Either<Failure,
+              (List<SavedPaymentMethodEntity>, List<PaymentGatewayEntity>)>>
+      getSavedPaymentMethods() async {
     final result = await graphQLDatasource.query(
       Options$Query$SavedPaymentMethods(fetchPolicy: FetchPolicy.noCache),
     );
@@ -34,7 +37,8 @@ class PaymentMethodsRepositoryImpl implements PaymentMethodsRepository {
   }
 
   @override
-  Future<Either<Failure, String>> getExternalUrl({required String paymentGatewayId}) async {
+  Future<Either<Failure, String>> getExternalUrl(
+      {required String paymentGatewayId}) async {
     final result = await graphQLDatasource.mutate(
       Options$Mutation$GetSetupPaymentMethodLink(
         variables: Variables$Mutation$GetSetupPaymentMethodLink(

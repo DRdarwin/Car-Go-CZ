@@ -28,10 +28,12 @@ class EditFavoriteLocationScreen extends StatefulWidget {
   });
 
   @override
-  State<EditFavoriteLocationScreen> createState() => _EditFavoriteLocationScreenState();
+  State<EditFavoriteLocationScreen> createState() =>
+      _EditFavoriteLocationScreenState();
 }
 
-class _EditFavoriteLocationScreenState extends State<EditFavoriteLocationScreen> {
+class _EditFavoriteLocationScreenState
+    extends State<EditFavoriteLocationScreen> {
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
@@ -71,7 +73,8 @@ class _EditFavoriteLocationScreenState extends State<EditFavoriteLocationScreen>
                   minSize: 0,
                   padding: EdgeInsets.zero,
                   onPressed: () {
-                    locator<EditFavoriteLocationCubit>().delete(widget.entity.id);
+                    locator<EditFavoriteLocationCubit>()
+                        .delete(widget.entity.id);
                   },
                   child: const Icon(
                     Ionicons.trash,
@@ -83,7 +86,8 @@ class _EditFavoriteLocationScreenState extends State<EditFavoriteLocationScreen>
                 height: 24,
               ),
               Expanded(
-                child: BlocConsumer<EditFavoriteLocationCubit, EditFavoriteLocationState>(
+                child: BlocConsumer<EditFavoriteLocationCubit,
+                    EditFavoriteLocationState>(
                   listener: (context, state) {
                     state.formState.mapOrNull(error: (error) {
                       ScaffoldMessenger.of(context).showSnackBar(
@@ -134,7 +138,9 @@ class _EditFavoriteLocationScreenState extends State<EditFavoriteLocationScreen>
                           TextFormField(
                             initialValue: state.addressName,
                             onSaved: editBloc.updateAddressName,
-                            validator: (value) => (value?.isEmpty ?? true) ? context.translate.fieldIsRequired : null,
+                            validator: (value) => (value?.isEmpty ?? true)
+                                ? context.translate.fieldIsRequired
+                                : null,
                             decoration: InputDecoration(
                               labelText: context.translate.addressTitleLabel,
                               isDense: true,

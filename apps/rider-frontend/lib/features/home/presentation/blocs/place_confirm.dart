@@ -11,7 +11,8 @@ part 'place_confirm.freezed.dart';
 class PlaceConfirmCubit extends Cubit<PlaceConfirmState> {
   final GeoDatasource geoDatasource;
 
-  PlaceConfirmCubit(this.geoDatasource) : super(const PlaceConfirmState.loading());
+  PlaceConfirmCubit(this.geoDatasource)
+      : super(const PlaceConfirmState.loading());
 
   void onLoaded({
     required PlaceEntity place,

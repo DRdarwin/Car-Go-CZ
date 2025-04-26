@@ -16,7 +16,8 @@ class RedeemGiftCardRepositoryImpl implements RedeemGiftCardRepository {
   );
 
   @override
-  Future<Either<Failure, (double, String)>> redeemGiftCard({required String code}) async {
+  Future<Either<Failure, (double, String)>> redeemGiftCard(
+      {required String code}) async {
     final result = await graphQLDatasource.mutate(
       Options$Mutation$RedeemGiftCard(
         variables: Variables$Mutation$RedeemGiftCard(
@@ -24,6 +25,7 @@ class RedeemGiftCardRepositoryImpl implements RedeemGiftCardRepository {
         ),
       ),
     );
-    return result.map((r) => (r.redeemGiftCard.amount, r.redeemGiftCard.currency));
+    return result
+        .map((r) => (r.redeemGiftCard.amount, r.redeemGiftCard.currency));
   }
 }

@@ -14,7 +14,8 @@ part 'add.freezed.dart';
 class AddFavoriteLocationCubit extends Cubit<AddFavoriteLocationState> {
   final FavoriteLocationsRepository repository;
 
-  AddFavoriteLocationCubit(this.repository) : super(AddFavoriteLocationState.initial());
+  AddFavoriteLocationCubit(this.repository)
+      : super(AddFavoriteLocationState.initial());
 
   void init({
     required AddressType? addressType,

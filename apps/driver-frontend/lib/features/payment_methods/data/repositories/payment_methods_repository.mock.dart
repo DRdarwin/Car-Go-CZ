@@ -15,7 +15,10 @@ import 'package:injectable/injectable.dart';
 @LazySingleton(as: PaymentMethodsRepository)
 class PaymentMethodsRepositoryMock implements PaymentMethodsRepository {
   @override
-  Future<Either<Failure, (List<SavedPaymentMethodEntity>, List<PaymentGatewayEntity>)>> getSavedPaymentMethods() async {
+  Future<
+          Either<Failure,
+              (List<SavedPaymentMethodEntity>, List<PaymentGatewayEntity>)>>
+      getSavedPaymentMethods() async {
     return Right((
       [
         SavedPaymentMethodEntity(
@@ -73,7 +76,8 @@ class PaymentMethodsRepositoryMock implements PaymentMethodsRepository {
   }
 
   @override
-  Future<Either<Failure, String>> getExternalUrl({required String paymentGatewayId}) async {
+  Future<Either<Failure, String>> getExternalUrl(
+      {required String paymentGatewayId}) async {
     return const Right("https://www.paypal.com");
   }
 }

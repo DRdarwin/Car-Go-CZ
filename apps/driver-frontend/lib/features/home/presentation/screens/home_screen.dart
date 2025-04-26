@@ -83,8 +83,10 @@ class _HomeScreenState extends State<HomeScreen> {
             BlocListener<LocationBloc, LocationState>(
               listener: (context, state) {
                 state.mapOrNull(
-                  error: (error) => context.showSnackBar(message: error.error.name),
-                  determined: (determined) => homeBloc.onLocationUpdated(location: determined.location),
+                  error: (error) =>
+                      context.showSnackBar(message: error.error.name),
+                  determined: (determined) =>
+                      homeBloc.onLocationUpdated(location: determined.location),
                 );
               },
             ),

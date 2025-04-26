@@ -74,14 +74,17 @@ class _SelectPaymentMethodSheetState extends State<PayForRideSheet> {
                     children: [
                       Stack(
                         children: [
-                          if (widget.order.status != OrderStatus.waitingForPostPay)
+                          if (widget.order.status !=
+                              OrderStatus.waitingForPostPay)
                             AppCloseButton(
                               onPressed: () {
-                                if (widget.order.status == OrderStatus.waitingForPrePay) {
+                                if (widget.order.status ==
+                                    OrderStatus.waitingForPrePay) {
                                   showDialog(
                                     context: context,
                                     useSafeArea: false,
-                                    builder: (context) => const CancelRideReasonDialog(),
+                                    builder: (context) =>
+                                        const CancelRideReasonDialog(),
                                   );
                                 } else {
                                   locator<TrackOrderBloc>().showOverview();
@@ -112,7 +115,8 @@ class _SelectPaymentMethodSheetState extends State<PayForRideSheet> {
                                   borderRadius: BorderRadius.circular(12),
                                   color: ColorPalette.primary99,
                                 ),
-                                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 16, vertical: 12),
                                 child: Column(
                                   children: [
                                     invoiceItem(
@@ -144,23 +148,32 @@ class _SelectPaymentMethodSheetState extends State<PayForRideSheet> {
                                       widget.order.currency,
                                     ),
                                     const SizedBox(height: 8),
-                                    BlocBuilder<PayForRideCubit, PayForRideState>(
+                                    BlocBuilder<PayForRideCubit,
+                                        PayForRideState>(
                                       builder: (context, state) {
                                         final isCashOrWallet = state.maybeMap(
                                           orElse: () => false,
                                           loaded: (loaded) =>
-                                              loaded.selectedPaymentMethod.paymentMode == PaymentMode.cash ||
-                                              loaded.selectedPaymentMethod.paymentMode == PaymentMode.wallet,
+                                              loaded.selectedPaymentMethod
+                                                      .paymentMode ==
+                                                  PaymentMode.cash ||
+                                              loaded.selectedPaymentMethod
+                                                      .paymentMode ==
+                                                  PaymentMode.wallet,
                                         );
-                                        if (isCashOrWallet) return const SizedBox.shrink();
+                                        if (isCashOrWallet)
+                                          return const SizedBox.shrink();
                                         return Row(
                                           children: [
                                             Container(
                                               padding: const EdgeInsets.all(12),
                                               decoration: BoxDecoration(
                                                 color: ColorPalette.neutral99,
-                                                borderRadius: BorderRadius.circular(12),
-                                                border: Border.all(color: ColorPalette.neutral90),
+                                                borderRadius:
+                                                    BorderRadius.circular(12),
+                                                border: Border.all(
+                                                    color:
+                                                        ColorPalette.neutral90),
                                               ),
                                               child: const Icon(
                                                 Ionicons.wallet,
@@ -171,14 +184,17 @@ class _SelectPaymentMethodSheetState extends State<PayForRideSheet> {
                                               width: 12,
                                             ),
                                             Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
                                               children: [
                                                 Text(
-                                                  context.translate.walletBalance,
+                                                  context
+                                                      .translate.walletBalance,
                                                   style: context.labelSmall,
                                                 ),
                                                 Text(
-                                                  context.translate.addCustomCredit,
+                                                  context.translate
+                                                      .addCustomCredit,
                                                   style: context.labelMedium,
                                                 ),
                                               ],
@@ -188,20 +204,27 @@ class _SelectPaymentMethodSheetState extends State<PayForRideSheet> {
                                               width: 80,
                                               child: TextField(
                                                 inputFormatters: [
-                                                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                                                  FilteringTextInputFormatter
+                                                      .allow(RegExp(r'[0-9]')),
                                                 ],
                                                 onChanged: (value) => setState(
-                                                  () => customCredit = double.tryParse(value) ?? 0,
+                                                  () => customCredit =
+                                                      double.tryParse(value) ??
+                                                          0,
                                                 ),
                                                 decoration: InputDecoration(
-                                                  contentPadding: const EdgeInsets.all(8),
-                                                  fillColor: ColorPalette.neutral99,
-                                                  hintText: context.translate.custom,
+                                                  contentPadding:
+                                                      const EdgeInsets.all(8),
+                                                  fillColor:
+                                                      ColorPalette.neutral99,
+                                                  hintText:
+                                                      context.translate.custom,
                                                   border: InputBorder.none,
                                                   isCollapsed: true,
                                                 ),
                                                 style: context.bodyMedium,
-                                                keyboardType: TextInputType.number,
+                                                keyboardType:
+                                                    TextInputType.number,
                                               ),
                                             ),
                                           ],
@@ -219,11 +242,13 @@ class _SelectPaymentMethodSheetState extends State<PayForRideSheet> {
                             left: 64,
                             right: 64,
                             child: Container(
-                                padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: 20, vertical: 16),
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(12),
                                   image: DecorationImage(
-                                    image: Assets.images.gradientTotal.provider(),
+                                    image:
+                                        Assets.images.gradientTotal.provider(),
                                     fit: BoxFit.cover,
                                   ),
                                 ),
@@ -231,13 +256,18 @@ class _SelectPaymentMethodSheetState extends State<PayForRideSheet> {
                                   children: [
                                     Text(
                                       context.translate.totalPrice,
-                                      style: context.labelMedium?.copyWith(color: ColorPalette.neutral99),
+                                      style: context.labelMedium?.copyWith(
+                                          color: ColorPalette.neutral99),
                                     ),
                                     const Spacer(),
                                     Text(
-                                      (widget.order.total >= 0 ? widget.order.total : 0.0)
-                                          .formatCurrency(widget.order.currency),
-                                      style: context.headlineMedium?.copyWith(color: ColorPalette.neutral99),
+                                      (widget.order.total >= 0
+                                              ? widget.order.total
+                                              : 0.0)
+                                          .formatCurrency(
+                                              widget.order.currency),
+                                      style: context.headlineMedium?.copyWith(
+                                          color: ColorPalette.neutral99),
                                     )
                                   ],
                                 )),
@@ -251,7 +281,8 @@ class _SelectPaymentMethodSheetState extends State<PayForRideSheet> {
               Container(
                 padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+                  borderRadius:
+                      const BorderRadius.vertical(top: Radius.circular(24)),
                   color: ColorPalette.neutralVariant99,
                   boxShadow: [
                     BoxShadow(
@@ -280,14 +311,16 @@ class _SelectPaymentMethodSheetState extends State<PayForRideSheet> {
                           loaded: (value) => PaymentMethodListView(
                             paymentMethods: value.paymentMethods
                                 .whereNot((element) =>
-                                    element.paymentMode == PaymentMode.cash && widget.order.cashPaymentAllowed == false)
+                                    element.paymentMode == PaymentMode.cash &&
+                                    widget.order.cashPaymentAllowed == false)
                                 .toList(),
                             selectedPaymentMethod: value.selectedPaymentMethod,
                             onSelected: (method) {
                               locator<PayForRideCubit>().changePaymentMethod(
                                 selectedPaymentMethod: method!,
                               );
-                              if (method.paymentMode == PaymentMode.cash || method.paymentMode == PaymentMode.wallet) {
+                              if (method.paymentMode == PaymentMode.cash ||
+                                  method.paymentMode == PaymentMode.wallet) {
                                 setState(() {
                                   customCredit = 0;
                                 });
@@ -305,8 +338,12 @@ class _SelectPaymentMethodSheetState extends State<PayForRideSheet> {
                             loaded: (loaded) {
                               loaded.paymentStatus.mapOrNull(
                                 success: (success) {
-                                  if (loaded.selectedPaymentMethod.paymentMode == PaymentMode.cash ||
-                                      loaded.selectedPaymentMethod.paymentMode == PaymentMode.wallet) {
+                                  if (loaded.selectedPaymentMethod
+                                              .paymentMode ==
+                                          PaymentMode.cash ||
+                                      loaded.selectedPaymentMethod
+                                              .paymentMode ==
+                                          PaymentMode.wallet) {
                                     locator<TrackOrderBloc>().showOverview();
                                     return;
                                   }
@@ -339,11 +376,14 @@ class _SelectPaymentMethodSheetState extends State<PayForRideSheet> {
                             onPressed: () {
                               state.mapOrNull(
                                 loaded: (loaded) {
-                                  if (loaded.selectedPaymentMethod.paymentMode == PaymentMode.cash) {
+                                  if (loaded
+                                          .selectedPaymentMethod.paymentMode ==
+                                      PaymentMode.cash) {
                                     showDialog(
                                       context: context,
                                       useSafeArea: false,
-                                      builder: (context) => const PayInCashDialog(),
+                                      builder: (context) =>
+                                          const PayInCashDialog(),
                                     );
                                     return;
                                   }

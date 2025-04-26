@@ -10,5 +10,6 @@ class MediaEntity with _$MediaEntity {
     required String address,
   }) = _MediaEntity;
 
-  factory MediaEntity.fromJson(Map<String, dynamic> json) => _$MediaEntityFromJson(json);
+  factory MediaEntity.fromJson(Map<String, dynamic> json) =>
+      _$MediaEntityFromJson(json);
 }

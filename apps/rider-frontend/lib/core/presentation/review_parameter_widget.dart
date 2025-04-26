@@ -50,7 +50,9 @@ class ReviewParameterWidget extends StatelessWidget {
       return ColorPalette.primary95;
     } else {
       // isSelected == null, an static non-interactive state for demonstration purposes
-      return isGood ? ColorPalette.primary30.withValues(alpha: 0.17) : ColorPalette.error80;
+      return isGood
+          ? ColorPalette.primary30.withValues(alpha: 0.17)
+          : ColorPalette.error80;
     }
   }
 

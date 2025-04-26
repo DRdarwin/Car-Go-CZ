@@ -23,10 +23,12 @@ class LocateFavoriteLocationScreenDesktop extends StatefulWidget {
   });
 
   @override
-  State<LocateFavoriteLocationScreenDesktop> createState() => _LocateFavoriteLocationScreenDesktopState();
+  State<LocateFavoriteLocationScreenDesktop> createState() =>
+      _LocateFavoriteLocationScreenDesktopState();
 }
 
-class _LocateFavoriteLocationScreenDesktopState extends State<LocateFavoriteLocationScreenDesktop> {
+class _LocateFavoriteLocationScreenDesktopState
+    extends State<LocateFavoriteLocationScreenDesktop> {
   @override
   void initState() {
     locator<FavoriteLocationsDesktopMapCubit>().locate(
@@ -86,7 +88,8 @@ class _LocateFavoriteLocationScreenDesktopState extends State<LocateFavoriteLoca
               },
             ),
           ),
-          BlocBuilder<FavoriteLocationsDesktopMapCubit, FavoriteLocationsDesktopMapState>(
+          BlocBuilder<FavoriteLocationsDesktopMapCubit,
+              FavoriteLocationsDesktopMapState>(
             builder: (context, state) {
               return AppPrimaryButton(
                 isDisabled: state.maybeMap(

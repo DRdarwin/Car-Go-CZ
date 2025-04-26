@@ -49,10 +49,12 @@ class _SetPasswordFormState extends State<SetPasswordForm> {
                           decoration: InputDecoration(
                             hintText: context.translate.password,
                             suffixIcon: CupertinoButton(
-                                onPressed: () => setState(() => showPassword = !showPassword),
+                                onPressed: () => setState(
+                                    () => showPassword = !showPassword),
                                 child: Icon(
                                   Ionicons.eye,
-                                  color: context.theme.inputDecorationTheme.suffixIconColor,
+                                  color: context.theme.inputDecorationTheme
+                                      .suffixIconColor,
                                 )),
                           ),
                         ),
@@ -79,7 +81,8 @@ class _SetPasswordFormState extends State<SetPasswordForm> {
                             Text(
                               context.translate.passwordRuleLength,
                               style: context.bodyMedium?.copyWith(
-                                color: context.theme.colorScheme.onSurfaceVariant,
+                                color:
+                                    context.theme.colorScheme.onSurfaceVariant,
                               ),
                             ),
                           ],
@@ -107,7 +110,8 @@ class _SetPasswordFormState extends State<SetPasswordForm> {
                             Text(
                               context.translate.passwordRuleDescription,
                               style: context.bodyMedium?.copyWith(
-                                color: context.theme.colorScheme.onSurfaceVariant,
+                                color:
+                                    context.theme.colorScheme.onSurfaceVariant,
                               ),
                             ),
                           ],
@@ -123,7 +127,8 @@ class _SetPasswordFormState extends State<SetPasswordForm> {
                   ),
                 ),
                 AppPrimaryButton(
-                  isDisabled: !setPassword.hasAtLeastTwoChecks || setPassword.state.isLoading,
+                  isDisabled: !setPassword.hasAtLeastTwoChecks ||
+                      setPassword.state.isLoading,
                   onPressed: loginBloc.onNewPasswordSubmitted,
                   child: Text(context.translate.actionContinue),
                 )

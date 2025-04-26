@@ -158,7 +158,8 @@ class RideHistoryItem extends StatelessWidget {
                           ),
                           const SizedBox(height: 4),
                           if (entity.driver?.vehiclePlateNumber != null)
-                            VehiclePlateView(carPlate: entity.driver!.vehiclePlateNumber!)
+                            VehiclePlateView(
+                                carPlate: entity.driver!.vehiclePlateNumber!)
                         ],
                       )
                     ],

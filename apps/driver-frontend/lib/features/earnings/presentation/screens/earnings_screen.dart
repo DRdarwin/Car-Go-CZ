@@ -86,7 +86,8 @@ class _EarningsScreenState extends State<EarningsScreen> {
                                     Center(
                                       child: Container(
                                         height: 300,
-                                        constraints: const BoxConstraints(maxWidth: 500),
+                                        constraints:
+                                            const BoxConstraints(maxWidth: 500),
                                         child: BarChart(
                                           loaded.dataset.barChartData,
                                         ),

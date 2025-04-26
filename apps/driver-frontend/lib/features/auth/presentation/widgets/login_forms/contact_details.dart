@@ -81,7 +81,9 @@ class ContactDetails extends StatelessWidget {
                   ),
                   TextFormField(
                     initialValue: state.profileFullEntity?.firstName,
-                    validator: (value) => value?.isEmpty == true ? context.translate.fieldIsRequired : null,
+                    validator: (value) => value?.isEmpty == true
+                        ? context.translate.fieldIsRequired
+                        : null,
                     onSaved: loginBloc.onFirstNameChanged,
                     decoration: InputDecoration(
                       hintText: context.translate.firstName,
@@ -92,7 +94,9 @@ class ContactDetails extends StatelessWidget {
                   ),
                   TextFormField(
                     initialValue: state.profileFullEntity?.lastName,
-                    validator: (value) => value?.isEmpty == true ? context.translate.fieldIsRequired : null,
+                    validator: (value) => value?.isEmpty == true
+                        ? context.translate.fieldIsRequired
+                        : null,
                     onSaved: loginBloc.onLastNameChanged,
                     decoration: InputDecoration(
                       hintText: context.translate.lastName,

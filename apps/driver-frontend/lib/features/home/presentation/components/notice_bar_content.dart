@@ -30,7 +30,8 @@ class NoticeBarContent extends StatelessWidget {
           Expanded(
             child: Text(
               text,
-              style: context.labelMedium?.copyWith(color: ColorPalette.neutral99),
+              style:
+                  context.labelMedium?.copyWith(color: ColorPalette.neutral99),
             ),
           ),
           if (trailingText != null)

@@ -21,13 +21,17 @@ class PaymentMethodsRepositoryImpl implements PaymentMethodsRepository {
   );
 
   @override
-  Future<Either<Failure, (List<SavedPaymentMethodEntity>, List<PaymentGatewayEntity>)>> getSavedPaymentMethods() async {
+  Future<
+          Either<Failure,
+              (List<SavedPaymentMethodEntity>, List<PaymentGatewayEntity>)>>
+      getSavedPaymentMethods() async {
     final result = await graphQLDatasource.query(
       Options$Query$SavedPaymentMethods(
         fetchPolicy: FetchPolicy.noCache,
       ),
     );
-    return result.map((r) => (r.savedPaymentMethods.toEntity, r.paymentGateways.toEntity));
+    return result.map(
+        (r) => (r.savedPaymentMethods.toEntity, r.paymentGateways.toEntity));
   }
 
   @override
@@ -52,7 +56,8 @@ class PaymentMethodsRepositoryImpl implements PaymentMethodsRepository {
   }) async {
     final paymentmethods = await graphQLDatasource.mutate(
       Options$Mutation$MarkAsDefault(
-        variables: Variables$Mutation$MarkAsDefault(id: paymentMethod.id, isDefault: isDefault),
+        variables: Variables$Mutation$MarkAsDefault(
+            id: paymentMethod.id, isDefault: isDefault),
       ),
     );
     return paymentmethods.map((r) => r.updatePaymentMethodDefault.toEntity);

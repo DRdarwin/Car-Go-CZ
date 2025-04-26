@@ -19,5 +19,6 @@ class NewOrderArgs with _$NewOrderArgs {
     required String? serviceId,
   }) = _NewOrderArgs;
 
-  factory NewOrderArgs.fromJson(Map<String, dynamic> json) => _$NewOrderArgsFromJson(json);
+  factory NewOrderArgs.fromJson(Map<String, dynamic> json) =>
+      _$NewOrderArgsFromJson(json);
 }

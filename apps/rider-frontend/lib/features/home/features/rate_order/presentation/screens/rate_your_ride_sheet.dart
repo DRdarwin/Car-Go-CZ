@@ -81,7 +81,8 @@ class _RateYourRideSheetState extends State<RateYourRideSheet> {
                 ),
                 if (rating == null) ...[
                   const SizedBox(height: 8),
-                  Text(widget.order.driver?.fullName ?? '', style: context.titleMedium),
+                  Text(widget.order.driver?.fullName ?? '',
+                      style: context.titleMedium),
                   const SizedBox(height: 4),
                   Text(
                     widget.order.driver?.vehicleInfo ?? '',
@@ -122,7 +123,8 @@ class _RateYourRideSheetState extends State<RateYourRideSheet> {
                 },
                 itemCount: 5,
                 initialRating: rating?.toDouble() ?? 0,
-                onRatingUpdate: (value) => setState(() => rating = value.toInt())),
+                onRatingUpdate: (value) =>
+                    setState(() => rating = value.toInt())),
           ),
           Expanded(
             child: Padding(
@@ -131,7 +133,8 @@ class _RateYourRideSheetState extends State<RateYourRideSheet> {
                 listener: (context, state) {
                   state.maybeMap(
                     orElse: () {},
-                    reviewSubmitted: (value) => locator<HomeCubit>().initializeWelcome(
+                    reviewSubmitted: (value) =>
+                        locator<HomeCubit>().initializeWelcome(
                       pickupPoint: locator<LocationCubit>().state.place,
                     ),
                   );
@@ -139,8 +142,10 @@ class _RateYourRideSheetState extends State<RateYourRideSheet> {
                 builder: (context, state) {
                   return state.maybeMap(
                     orElse: () => const SizedBox(),
-                    loading: (value) => Assets.lottie.loading.lottie(width: 100, height: 300),
-                    reviewSubmitted: (value) => Assets.lottie.loading.lottie(width: 100, height: 300),
+                    loading: (value) =>
+                        Assets.lottie.loading.lottie(width: 100, height: 300),
+                    reviewSubmitted: (value) =>
+                        Assets.lottie.loading.lottie(width: 100, height: 300),
                     parametersLoaded: (value) {
                       if (rating != null) {
                         return Column(
@@ -153,7 +158,8 @@ class _RateYourRideSheetState extends State<RateYourRideSheet> {
                                   TabBar(
                                     indicatorColor: ColorPalette.primary40,
                                     labelColor: ColorPalette.primary50,
-                                    unselectedLabelColor: context.theme.colorScheme.onSurfaceVariant,
+                                    unselectedLabelColor: context
+                                        .theme.colorScheme.onSurfaceVariant,
                                     tabs: [
                                       Tab(
                                         height: 50,
@@ -161,7 +167,8 @@ class _RateYourRideSheetState extends State<RateYourRideSheet> {
                                           children: [
                                             const Icon(
                                               Ionicons.heart_circle,
-                                              color: ColorPalette.semanticgreen70,
+                                              color:
+                                                  ColorPalette.semanticgreen70,
                                             ),
                                             Text(context.translate.nicePoints),
                                           ],
@@ -175,14 +182,16 @@ class _RateYourRideSheetState extends State<RateYourRideSheet> {
                                                 Ionicons.heart_dislike_circle,
                                                 color: ColorPalette.error50,
                                               ),
-                                              Text(context.translate.negativePoints),
+                                              Text(context
+                                                  .translate.negativePoints),
                                             ],
                                           )),
                                     ],
                                   ),
                                   const SizedBox(height: 16),
                                   Container(
-                                    constraints: const BoxConstraints(maxHeight: 100),
+                                    constraints:
+                                        const BoxConstraints(maxHeight: 100),
                                     child: TabBarView(
                                       children: [
                                         Wrap(
@@ -191,14 +200,22 @@ class _RateYourRideSheetState extends State<RateYourRideSheet> {
                                           runSpacing: 8,
                                           children: value.strengthParameters
                                               .map((e) => Padding(
-                                                    padding: const EdgeInsets.only(bottom: 8),
-                                                    child: ReviewParameterWidget(
-                                                      onPressed: () => bloc.onParameterTapped(e),
+                                                    padding:
+                                                        const EdgeInsets.only(
+                                                            bottom: 8),
+                                                    child:
+                                                        ReviewParameterWidget(
+                                                      onPressed: () => bloc
+                                                          .onParameterTapped(e),
                                                       title: e.name,
                                                       isGood: e.isGood,
-                                                      isSelected: state.maybeMap(
+                                                      isSelected:
+                                                          state.maybeMap(
                                                         orElse: () => null,
-                                                        parametersLoaded: (value) => value.parameterSelected(e),
+                                                        parametersLoaded:
+                                                            (value) => value
+                                                                .parameterSelected(
+                                                                    e),
                                                       ),
                                                     ),
                                                   ))
@@ -211,14 +228,20 @@ class _RateYourRideSheetState extends State<RateYourRideSheet> {
                                           children: value.weaknessParameters
                                               .map(
                                                 (e) => Padding(
-                                                  padding: const EdgeInsets.only(bottom: 8),
+                                                  padding:
+                                                      const EdgeInsets.only(
+                                                          bottom: 8),
                                                   child: ReviewParameterWidget(
                                                     title: e.name,
-                                                    onPressed: () => bloc.onParameterTapped(e),
+                                                    onPressed: () => bloc
+                                                        .onParameterTapped(e),
                                                     isGood: e.isGood,
                                                     isSelected: state.maybeMap(
                                                       orElse: () => null,
-                                                      parametersLoaded: (value) => value.parameterSelected(e),
+                                                      parametersLoaded:
+                                                          (value) => value
+                                                              .parameterSelected(
+                                                                  e),
                                                     ),
                                                   ),
                                                 ),
@@ -230,7 +253,8 @@ class _RateYourRideSheetState extends State<RateYourRideSheet> {
                                   ),
                                   TextField(
                                     decoration: InputDecoration(
-                                      hintText: context.translate.reviewCommentBoxHint,
+                                      hintText: context
+                                          .translate.reviewCommentBoxHint,
                                     ),
                                     minLines: 2,
                                     maxLines: 4,
@@ -247,7 +271,8 @@ class _RateYourRideSheetState extends State<RateYourRideSheet> {
                                           ),
                                         ),
                                         const SizedBox(width: 4),
-                                        Text(context.translate.addToFavoriteDrivers),
+                                        Text(context
+                                            .translate.addToFavoriteDrivers),
                                       ],
                                     )
                                   ],

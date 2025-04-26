@@ -130,7 +130,8 @@ class TrackOrderRepositoryImpl implements TrackOrderRepository {
         ),
       ),
     );
-    final messageParsed = messageEntity.map((r) => r.createOneOrderMessage.toEntity);
+    final messageParsed =
+        messageEntity.map((r) => r.createOneOrderMessage.toEntity);
     messageParsed.fold((l) => null, (r) => messagesSent.add(r));
     return messageParsed;
   }
@@ -162,7 +163,8 @@ class TrackOrderRepositoryImpl implements TrackOrderRepository {
   }
 
   @override
-  Future<Either<Failure, void>> updateLastSeenMessages({required String orderId}) async {
+  Future<Either<Failure, void>> updateLastSeenMessages(
+      {required String orderId}) async {
     final result = await graphQLDatasource.mutate(
       Options$Mutation$UpdateLastSeenMessages(
         variables: Variables$Mutation$UpdateLastSeenMessages(

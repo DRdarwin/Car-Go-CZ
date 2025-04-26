@@ -8,7 +8,8 @@ import 'package:injectable/injectable.dart';
 @LazySingleton(as: LocationUpdateDatasource)
 class LocationUpdateDatasourceMock implements LocationUpdateDatasource {
   @override
-  Future<Either<Failure, bool>> updateDriverLocation({required DriverLocation location}) async {
+  Future<Either<Failure, bool>> updateDriverLocation(
+      {required DriverLocation location}) async {
     return const Right(true);
   }
 }

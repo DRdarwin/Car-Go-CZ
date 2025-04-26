@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { ApolloQueryResult } from '@apollo/client/core';
 import { TranslateService } from '@ngx-translate/core';
 import {
@@ -24,12 +24,26 @@ export class RequestsListComponent implements OnInit {
   dateRanges: Date[] = [];
   orderStatus = OrderStatus;
 
+  // Placeholder filters for Vehicle Type and Loaders Count
+  vehicleTypes: NzTableFilterList = [
+    { text: 'Pickup', value: 'pickup' },
+    { text: 'Van', value: 'van' },
+    { text: 'Truck', value: 'truck' },
+    { text: 'Covered Truck', value: 'covered-truck' }
+  ];
+  loaderCounts: NzTableFilterList = [
+    { text: '0', value: 0 },
+    { text: '1', value: 1 },
+    { text: '2', value: 2 }
+  ];
+
+
   constructor(
     public tagColor: TagColorService,
     private route: ActivatedRoute,
     public tableService: TableService,
     private translate: TranslateService,
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.query = this.route.data.pipe(map((data) => data.orders));

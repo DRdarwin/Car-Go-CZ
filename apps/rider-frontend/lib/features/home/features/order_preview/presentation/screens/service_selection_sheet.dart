@@ -41,7 +41,8 @@ class ServicesSelectionSheet extends StatefulWidget {
   State<ServicesSelectionSheet> createState() => _ServicesSelectionSheetState();
 }
 
-class _ServicesSelectionSheetState extends State<ServicesSelectionSheet> with TickerProviderStateMixin {
+class _ServicesSelectionSheetState extends State<ServicesSelectionSheet>
+    with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     final optionsCubit = locator<OrderPreviewOptionsCubit>();
@@ -57,7 +58,8 @@ class _ServicesSelectionSheetState extends State<ServicesSelectionSheet> with Ti
               length: widget.serviceCategories.length,
               initialIndex: stateOptions.selectedServiceCategory == null
                   ? 0
-                  : widget.serviceCategories.indexOf(stateOptions.selectedServiceCategory!),
+                  : widget.serviceCategories
+                      .indexOf(stateOptions.selectedServiceCategory!),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
@@ -68,7 +70,8 @@ class _ServicesSelectionSheetState extends State<ServicesSelectionSheet> with Ti
                       xl: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: AppBackButton(
-                          onPressed: () => locator<HomeCubit>().initializeWelcome(
+                          onPressed: () =>
+                              locator<HomeCubit>().initializeWelcome(
                             pickupPoint: locator<LocationCubit>().state.place,
                           ),
                         ),
@@ -79,7 +82,8 @@ class _ServicesSelectionSheetState extends State<ServicesSelectionSheet> with Ti
                     visible: widget.serviceCategories.length > 1,
                     child: SegmentedButton<ServiceCategoryEntity?>(
                       multiSelectionEnabled: false,
-                      onSelectionChanged: (value) => optionsCubit.onServiceCategorySelected(value.first!),
+                      onSelectionChanged: (value) =>
+                          optionsCubit.onServiceCategorySelected(value.first!),
                       segments: widget.serviceCategories
                           .map(
                             (e) => ButtonSegment(
@@ -99,9 +103,11 @@ class _ServicesSelectionSheetState extends State<ServicesSelectionSheet> with Ti
                       physics: const NeverScrollableScrollPhysics(),
                       controller: TabController(
                         length: widget.serviceCategories.length,
-                        initialIndex: stateOptions.selectedServiceCategory == null
+                        initialIndex: stateOptions.selectedServiceCategory ==
+                                null
                             ? 0
-                            : widget.serviceCategories.indexOf(stateOptions.selectedServiceCategory!),
+                            : widget.serviceCategories
+                                .indexOf(stateOptions.selectedServiceCategory!),
                         vsync: this,
                       ),
                       children: widget.serviceCategories.mapIndexed(
@@ -109,14 +115,17 @@ class _ServicesSelectionSheetState extends State<ServicesSelectionSheet> with Ti
                           return ListView.separated(
                             padding: EdgeInsets.zero,
                             itemCount: e.services.length,
-                            separatorBuilder: (context, index) => const SizedBox(height: 16),
+                            separatorBuilder: (context, index) =>
+                                const SizedBox(height: 16),
                             itemBuilder: (context, index) {
                               return ServiceItem(
                                 currency: widget.currency,
                                 entity: e.services[index],
-                                isSelected: stateOptions.selectedService?.id == e.services[index].id,
+                                isSelected: stateOptions.selectedService?.id ==
+                                    e.services[index].id,
                                 onPressed: () {
-                                  optionsCubit.onServiceSelected(e.services[index]);
+                                  optionsCubit
+                                      .onServiceSelected(e.services[index]);
                                 },
                               );
                             },
@@ -153,7 +162,8 @@ class _ServicesSelectionSheetState extends State<ServicesSelectionSheet> with Ti
                         ),
                         Row(
                           children: [
-                            BlocBuilder<OrderPreviewArgsCubit, OrderPreviewArgsState>(
+                            BlocBuilder<OrderPreviewArgsCubit,
+                                OrderPreviewArgsState>(
                               builder: (context, state) {
                                 return AppTextButton(
                                     isDense: true,
@@ -163,15 +173,24 @@ class _ServicesSelectionSheetState extends State<ServicesSelectionSheet> with Ti
                                     text: context.translate.ridePreferences,
                                     iconData: Ionicons.options,
                                     onPressed: () async {
-                                      final dialogResult = await showDialog<(bool, int?, List<RideOptionEntity>)>(
+                                      final dialogResult = await showDialog<
+                                          (bool, int?, List<RideOptionEntity>)>(
                                         context: context,
                                         useSafeArea: false,
-                                        builder: (context) => RidePreferencesDialog(
+                                        builder: (context) =>
+                                            RidePreferencesDialog(
                                           currency: widget.currency,
-                                          selectedRideOptions: argsCubit.state.rideOptions,
-                                          rideOptions: optionsCubit.state.selectedService?.rideOptions ?? [],
-                                          isTwoWayTrip: argsCubit.state.isTwoWay,
-                                          defaultWaitTime: argsCubit.state.waitTime,
+                                          selectedRideOptions:
+                                              argsCubit.state.rideOptions,
+                                          rideOptions: optionsCubit
+                                                  .state
+                                                  .selectedService
+                                                  ?.rideOptions ??
+                                              [],
+                                          isTwoWayTrip:
+                                              argsCubit.state.isTwoWay,
+                                          defaultWaitTime:
+                                              argsCubit.state.waitTime,
                                         ),
                                       );
                                       if (dialogResult != null) {
@@ -194,7 +213,8 @@ class _ServicesSelectionSheetState extends State<ServicesSelectionSheet> with Ti
                                   context: context,
                                   useSafeArea: false,
                                   builder: (context) => EnterCouponDialog(
-                                    calculateFareArgs: argsCubit.state.calculateFareArgs,
+                                    calculateFareArgs:
+                                        argsCubit.state.calculateFareArgs,
                                   ),
                                 );
                                 if (dialogResult != null) {
@@ -212,19 +232,24 @@ class _ServicesSelectionSheetState extends State<ServicesSelectionSheet> with Ti
                             return Row(
                               children: [
                                 AppPrimaryButton(
-                                  isDisabled: stateOptions.canConfirm == false || state.isLoading,
+                                  isDisabled:
+                                      stateOptions.canConfirm == false ||
+                                          state.isLoading,
                                   onPressed: () async {
                                     final result = await showDialog<DateTime>(
                                       context: context,
                                       useSafeArea: false,
-                                      builder: (context) => const ReserveTimeDialog(),
+                                      builder: (context) =>
+                                          const ReserveTimeDialog(),
                                     );
                                     if (result != null) {
                                       remoteDataCubit.confirmRide(
                                         pickupTime: result,
                                         args: argsCubit.state.calculateFareArgs,
-                                        selectedPaymentMethod: stateOptions.paymentMethod!,
-                                        selectedService: stateOptions.selectedService!,
+                                        selectedPaymentMethod:
+                                            stateOptions.paymentMethod!,
+                                        selectedService:
+                                            stateOptions.selectedService!,
                                       );
                                     }
                                   },
@@ -233,13 +258,17 @@ class _ServicesSelectionSheetState extends State<ServicesSelectionSheet> with Ti
                                 const SizedBox(width: 16),
                                 Expanded(
                                   child: AppPrimaryButton(
-                                    isDisabled: stateOptions.canConfirm == false || state.isLoading,
+                                    isDisabled:
+                                        stateOptions.canConfirm == false ||
+                                            state.isLoading,
                                     onPressed: () {
                                       remoteDataCubit.confirmRide(
                                         pickupTime: DateTime.now(),
                                         args: argsCubit.state.calculateFareArgs,
-                                        selectedPaymentMethod: stateOptions.paymentMethod!,
-                                        selectedService: stateOptions.selectedService!,
+                                        selectedPaymentMethod:
+                                            stateOptions.paymentMethod!,
+                                        selectedService:
+                                            stateOptions.selectedService!,
                                       );
                                     },
                                     child: Text(

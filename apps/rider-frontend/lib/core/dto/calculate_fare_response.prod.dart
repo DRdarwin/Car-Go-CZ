@@ -23,7 +23,8 @@ extension CalculateFareProdX on Query$CalculateFare {
       );
 }
 
-extension ServiceCategoriesListProdX on List<Query$CalculateFare$getFares$services> {
+extension ServiceCategoriesListProdX
+    on List<Query$CalculateFare$getFares$services> {
   List<ServiceCategoryEntity> get toEntity => map((e) => e.toEntity).toList();
 }
 
@@ -45,9 +46,10 @@ extension ServiceEntityProdX on Query$CalculateFare$getFares$services$services {
         capacity: personCapacity,
         imageUrl: Env.serverUrl + media.address,
         rideOptions: options.map((e) => e.toEntity).toList(),
-        isCashAllowed:
-            paymentMethod == Enum$ServicePaymentMethod.OnlyCash || paymentMethod == Enum$ServicePaymentMethod.CashCredit,
-        isOnlinePaymentAllowed: paymentMethod == Enum$ServicePaymentMethod.OnlyCredit ||
+        isCashAllowed: paymentMethod == Enum$ServicePaymentMethod.OnlyCash ||
             paymentMethod == Enum$ServicePaymentMethod.CashCredit,
+        isOnlinePaymentAllowed:
+            paymentMethod == Enum$ServicePaymentMethod.OnlyCredit ||
+                paymentMethod == Enum$ServicePaymentMethod.CashCredit,
       );
 }

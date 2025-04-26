@@ -77,7 +77,8 @@ class OnboardingFormBuilder {
             builder: (context, state) {
               return LanguageList(
                 selectedLanguageCode: state.locale,
-                onPressed: (Language language) => locator<SettingsCubit>().changeLanguage(language.code),
+                onPressed: (Language language) =>
+                    locator<SettingsCubit>().changeLanguage(language.code),
               );
             },
           ),
@@ -86,5 +87,6 @@ class OnboardingFormBuilder {
     );
   }
 
-  OnBoardingItem onBoardingItem(BuildContext context) => onboardingItems(context)[onboardingItemIndex];
+  OnBoardingItem onBoardingItem(BuildContext context) =>
+      onboardingItems(context)[onboardingItemIndex];
 }

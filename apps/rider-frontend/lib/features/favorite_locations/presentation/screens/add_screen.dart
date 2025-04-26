@@ -26,7 +26,8 @@ class AddFavoriteLocationScreen extends StatefulWidget {
   });
 
   @override
-  State<AddFavoriteLocationScreen> createState() => _AddFavoriteLocationScreenState();
+  State<AddFavoriteLocationScreen> createState() =>
+      _AddFavoriteLocationScreenState();
 }
 
 class _AddFavoriteLocationScreenState extends State<AddFavoriteLocationScreen> {
@@ -113,7 +114,9 @@ class _AddFavoriteLocationScreenState extends State<AddFavoriteLocationScreen> {
                             height: 16,
                           ),
                           TextFormField(
-                            validator: (value) => (value?.isEmpty ?? true) ? context.translate.fieldIsRequired : null,
+                            validator: (value) => (value?.isEmpty ?? true)
+                                ? context.translate.fieldIsRequired
+                                : null,
                             decoration: InputDecoration(
                               labelText: context.translate.addressTitleLabel,
                               isDense: true,

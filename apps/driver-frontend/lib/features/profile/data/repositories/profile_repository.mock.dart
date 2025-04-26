@@ -15,7 +15,8 @@ import '../../domain/entities/review.dart';
 @LazySingleton(as: ProfileRepository)
 class ProfileRepositoryMock implements ProfileRepository {
   @override
-  Future<Either<Failure, ProfileAggregationsInfo>> getProfileAggregationsInfo() async {
+  Future<Either<Failure, ProfileAggregationsInfo>>
+      getProfileAggregationsInfo() async {
     return const Right(
       ProfileAggregationsInfo(
         totalRides: 432,
@@ -26,7 +27,8 @@ class ProfileRepositoryMock implements ProfileRepository {
   }
 
   @override
-  Future<Either<Failure, ProfileEntity>> uploadProfileImage({required MediaEntity image}) async {
+  Future<Either<Failure, ProfileEntity>> uploadProfileImage(
+      {required MediaEntity image}) async {
     await Future.delayed(const Duration(seconds: 1));
     return const Right(
       ProfileEntity(
@@ -61,7 +63,8 @@ class ProfileRepositoryMock implements ProfileRepository {
               "Polite",
             ],
             serviceName: 'Economy',
-            description: 'Excellence driving and a very good car condition one of the best rides I have ever had',
+            description:
+                'Excellence driving and a very good car condition one of the best rides I have ever had',
           ),
           ReviewEntity(
             rating: 5,
@@ -71,7 +74,8 @@ class ProfileRepositoryMock implements ProfileRepository {
               "Polite",
             ],
             serviceName: 'Economy',
-            description: 'Excellence driving and a very good car condition one of the best rides I have ever had',
+            description:
+                'Excellence driving and a very good car condition one of the best rides I have ever had',
           ),
         ],
       ),

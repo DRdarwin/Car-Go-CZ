@@ -15,7 +15,8 @@ part 'place_lookup.freezed.dart';
 class PlaceLookupBloc extends Bloc<PlaceLookupEvent, PlaceLookupState> {
   final GeoDatasource geoDatasource;
 
-  PlaceLookupBloc(this.geoDatasource) : super(const PlaceLookupState.initial()) {
+  PlaceLookupBloc(this.geoDatasource)
+      : super(const PlaceLookupState.initial()) {
     on<PlaceLookupEvent>(
       (event, emit) async {
         await event.map(
@@ -51,11 +52,13 @@ class PlaceLookupBloc extends Bloc<PlaceLookupEvent, PlaceLookupState> {
       },
       transformer: (events, mapper) {
         final debouncedEvents = events
-            .where((event) => ((event is _OnQueryChanged && ((event).query?.length ?? 0) > 2)))
+            .where((event) => ((event is _OnQueryChanged &&
+                ((event).query?.length ?? 0) > 2)))
             .debounceTime(const Duration(milliseconds: 500));
-        final notDebouncedEvents =
-            events.where((event) => !(event is _OnQueryChanged && ((event).query?.length ?? 0) > 2));
-        return MergeStream([debouncedEvents, notDebouncedEvents]).flatMap(mapper);
+        final notDebouncedEvents = events.where((event) =>
+            !(event is _OnQueryChanged && ((event).query?.length ?? 0) > 2));
+        return MergeStream([debouncedEvents, notDebouncedEvents])
+            .flatMap(mapper);
       },
     );
   }

@@ -3,7 +3,12 @@ import 'package:ionicons/ionicons.dart';
 import 'package:rider_flutter/core/extensions/extensions.dart';
 // import 'package:phosphor_flutter/phosphor_flutter.dart';
 
-enum WalletRechargeTransactionType { bankTransfer, gift, correction, inAppPayment }
+enum WalletRechargeTransactionType {
+  bankTransfer,
+  gift,
+  correction,
+  inAppPayment
+}
 
 extension WalletRechargeTransactionTypeX on WalletRechargeTransactionType {
   IconData get icon {

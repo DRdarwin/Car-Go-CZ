@@ -67,7 +67,8 @@ class _RidePreferencesDialogState extends State<RidePreferencesDialog> {
       ),
       child: Column(
         children: [
-          if (widget.rideOptions.any((element) => element.icon == RideOptionIcon.twoWay))
+          if (widget.rideOptions
+              .any((element) => element.icon == RideOptionIcon.twoWay))
             RidePreferenceCheckableItem(
               title: context.translate.twoWayTrip,
               icon: Ionicons.repeat,
@@ -97,30 +98,32 @@ class _RidePreferencesDialogState extends State<RidePreferencesDialog> {
               context.translate.minutesRange("25-30"): 30,
             },
           ),
-          ...widget.rideOptions.where((element) => element.icon != RideOptionIcon.twoWay).map((e) => Column(
-                children: [
-                  const Divider(
-                    height: 24,
-                    indent: 54,
-                  ),
-                  RidePreferenceCheckableItem(
-                    title: e.name,
-                    icon: e.icon.icon,
-                    fee: e.price,
-                    currency: widget.currency,
-                    isSelected: selectedRideOptions.contains(e),
-                    onChanged: (p0) {
-                      setState(() {
-                        if (p0) {
-                          selectedRideOptions.add(e);
-                        } else {
-                          selectedRideOptions.remove(e);
-                        }
-                      });
-                    },
-                  ),
-                ],
-              ))
+          ...widget.rideOptions
+              .where((element) => element.icon != RideOptionIcon.twoWay)
+              .map((e) => Column(
+                    children: [
+                      const Divider(
+                        height: 24,
+                        indent: 54,
+                      ),
+                      RidePreferenceCheckableItem(
+                        title: e.name,
+                        icon: e.icon.icon,
+                        fee: e.price,
+                        currency: widget.currency,
+                        isSelected: selectedRideOptions.contains(e),
+                        onChanged: (p0) {
+                          setState(() {
+                            if (p0) {
+                              selectedRideOptions.add(e);
+                            } else {
+                              selectedRideOptions.remove(e);
+                            }
+                          });
+                        },
+                      ),
+                    ],
+                  ))
         ],
       ),
     );

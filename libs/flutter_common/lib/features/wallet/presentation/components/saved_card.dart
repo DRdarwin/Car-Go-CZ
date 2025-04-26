@@ -113,7 +113,10 @@ class _SavedPaymentMethodCardState extends State<SavedCard> {
                     style: context.titleSmall,
                   ),
                 ),
-                CupertinoSwitch(value: widget.isDefault, onChanged: (value) => widget.markAsDefaultPressed?.call(value))
+                CupertinoSwitch(
+                    value: widget.isDefault,
+                    onChanged: (value) =>
+                        widget.markAsDefaultPressed?.call(value))
               ],
             ),
           ),

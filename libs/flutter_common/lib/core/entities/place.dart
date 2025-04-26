@@ -19,7 +19,8 @@ class PlaceEntity with _$PlaceEntity {
     String? title,
   }) = _PlaceEntity;
 
-  factory PlaceEntity.fromJson(Map<String, dynamic> json) => _$PlaceEntityFromJson(json);
+  factory PlaceEntity.fromJson(Map<String, dynamic> json) =>
+      _$PlaceEntityFromJson(json);
 }
 
 @Freezed(fromJson: true)
@@ -29,7 +30,8 @@ class LatLngEntity with _$LatLngEntity {
     required double lng,
   }) = _LatLngEntity;
 
-  factory LatLngEntity.fromJson(Map<String, dynamic> json) => _$LatLngEntityFromJson(json);
+  factory LatLngEntity.fromJson(Map<String, dynamic> json) =>
+      _$LatLngEntityFromJson(json);
 }
 
 extension LatLngEntityX on LatLngEntity {
@@ -89,7 +91,8 @@ extension PlaceEntityX on PlaceEntity {
 }
 
 extension PlaceEntityListX on List<PlaceEntity> {
-  List<Place> get toGenericMapPlaces => map((e) => e.toGenericMapPlace).toList();
+  List<Place> get toGenericMapPlaces =>
+      map((e) => e.toGenericMapPlace).toList();
 
   List<LatLng> get latLngs => map((e) => e.latLng2).toList();
 
@@ -100,7 +103,8 @@ extension PlaceEntityListX on List<PlaceEntity> {
     //   list.removeLast();
     // }
     final result = list.mapIndexed((index, element) {
-      if (index == 0 || (first.latLng2 == last.latLng2 && index == list.length - 1)) {
+      if (index == 0 ||
+          (first.latLng2 == last.latLng2 && index == list.length - 1)) {
         return AppMarkerPickup(
           address: element.address,
         ).genericMarker(element.latLng2);

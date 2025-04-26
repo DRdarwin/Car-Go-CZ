@@ -23,7 +23,8 @@ class PayoutAccountEntity with _$PayoutAccountEntity {
 
   const PayoutAccountEntity._();
 
-  factory PayoutAccountEntity.fromJson(Map<String, dynamic> json) => _$PayoutAccountEntityFromJson(json);
+  factory PayoutAccountEntity.fromJson(Map<String, dynamic> json) =>
+      _$PayoutAccountEntityFromJson(json);
 
   static List<PayoutAccountEntity> get testData => [
         PayoutAccountEntity(

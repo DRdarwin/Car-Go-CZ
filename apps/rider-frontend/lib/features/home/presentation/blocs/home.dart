@@ -96,7 +96,9 @@ class HomeCubit extends Cubit<HomeState> {
     state.mapOrNull(
       welcome: (welcome) async {
         _showDriversAround(
-          waypoints: welcome.waypoints.mapIndexed((index, e) => index == 0 ? selectedLocation : e).toList(),
+          waypoints: welcome.waypoints
+              .mapIndexed((index, e) => index == 0 ? selectedLocation : e)
+              .toList(),
         );
       },
       confirmLocation: (confirmLocation) async {

@@ -91,7 +91,8 @@ class ScheduledRidesDetailsSheet extends StatelessWidget {
                   Container(
                     padding: const EdgeInsets.all(12),
                     decoration: BoxDecoration(
-                        border: Border.all(color: ColorPalette.primary99), borderRadius: BorderRadius.circular(12)),
+                        border: Border.all(color: ColorPalette.primary99),
+                        borderRadius: BorderRadius.circular(12)),
                     child: Row(
                       children: [
                         if (entity.serviceImageUrl != null) ...[
@@ -112,14 +113,17 @@ class ScheduledRidesDetailsSheet extends StatelessWidget {
                               ),
                               Text(
                                 entity.serviceDescription ?? "",
-                                style: context.labelMedium?.copyWith(color: context.theme.colorScheme.onSurfaceVariant),
+                                style: context.labelMedium?.copyWith(
+                                    color: context
+                                        .theme.colorScheme.onSurfaceVariant),
                               ),
                             ],
                           ),
                         ),
                         Text(
                           entity.fee.formatCurrency(entity.currency),
-                          style: context.titleSmall?.copyWith(color: ColorPalette.primary40),
+                          style: context.titleSmall
+                              ?.copyWith(color: ColorPalette.primary40),
                         )
                       ],
                     ),
@@ -132,7 +136,8 @@ class ScheduledRidesDetailsSheet extends StatelessWidget {
                           borderRadius: BorderRadius.circular(12),
                           child: AppGenericMap(
                             mode: MapViewMode.static,
-                            initialLocation: entity.waypoints.first.toGenericMapPlace,
+                            initialLocation:
+                                entity.waypoints.first.toGenericMapPlace,
                             padding: const EdgeInsets.symmetric(
                               vertical: 50,
                               horizontal: 100,
@@ -147,7 +152,8 @@ class ScheduledRidesDetailsSheet extends StatelessWidget {
                         ),
                       ),
                       xl: const SizedBox()),
-                  context.responsive(const SizedBox(height: 16), xl: const SizedBox()),
+                  context.responsive(const SizedBox(height: 16),
+                      xl: const SizedBox()),
                   WayPointsView(
                     waypoints: entity.waypoints,
                     startedAt: entity.startedAt,
@@ -156,7 +162,9 @@ class ScheduledRidesDetailsSheet extends StatelessWidget {
                   const Divider(
                     height: 24,
                   ),
-                  if (entity.rideOptions.isNotEmpty || entity.waitTime > 0 || entity.isTwoWayTrip) ...[
+                  if (entity.rideOptions.isNotEmpty ||
+                      entity.waitTime > 0 ||
+                      entity.isTwoWayTrip) ...[
                     Container(
                       decoration: BoxDecoration(
                         color: ColorPalette.neutral99,
@@ -209,8 +217,11 @@ class ScheduledRidesDetailsSheet extends StatelessWidget {
                                 )
                                     .followedBy(
                                   [
-                                    if (entity.waitTime > 0) const SquareIconChip(icon: Ionicons.time),
-                                    if (entity.isTwoWayTrip) const SquareIconChip(icon: Ionicons.repeat),
+                                    if (entity.waitTime > 0)
+                                      const SquareIconChip(icon: Ionicons.time),
+                                    if (entity.isTwoWayTrip)
+                                      const SquareIconChip(
+                                          icon: Ionicons.repeat),
                                   ],
                                 ).toList()),
                           )

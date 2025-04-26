@@ -17,9 +17,11 @@ import '../../domain/repositories/auth_repository.dart';
 @LazySingleton(as: AuthRepository)
 class AuthRepositoryMock implements AuthRepository {
   @override
-  Future<Either<Failure, VerifyNumberResponse>> resendOtp(String mobileNumber) async {
+  Future<Either<Failure, VerifyNumberResponse>> resendOtp(
+      String mobileNumber) async {
     await Future.delayed(const Duration(seconds: 1));
-    return const Right(VerifyNumberResponse(isExistingUser: true, hash: 'hash'));
+    return const Right(
+        VerifyNumberResponse(isExistingUser: true, hash: 'hash'));
   }
 
   @override
@@ -30,7 +32,9 @@ class AuthRepositoryMock implements AuthRepository {
 
   @override
   Future<Either<Failure, ProfileEntity>> updateProfile(
-      {required String firstName, required String lastName, required Gender gender}) async {
+      {required String firstName,
+      required String lastName,
+      required Gender gender}) async {
     await Future.delayed(const Duration(seconds: 1));
     return Right(
       ProfileEntity.testProfile,
@@ -43,11 +47,13 @@ class AuthRepositoryMock implements AuthRepository {
     required String countryIsoCode,
   }) async {
     await Future.delayed(const Duration(seconds: 1));
-    return const Right(VerifyNumberResponse(isExistingUser: false, hash: 'hash'));
+    return const Right(
+        VerifyNumberResponse(isExistingUser: false, hash: 'hash'));
   }
 
   @override
-  Future<Either<Failure, VerifyOtpResponse>> verifyOtp(String hash, String otp) async {
+  Future<Either<Failure, VerifyOtpResponse>> verifyOtp(
+      String hash, String otp) async {
     await Future.delayed(const Duration(seconds: 1));
     return Right(
       VerifyOtpResponse(
@@ -61,7 +67,8 @@ class AuthRepositoryMock implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, VerifyOtpResponse>> verifyPassword(String mobileNumber, String password) async {
+  Future<Either<Failure, VerifyOtpResponse>> verifyPassword(
+      String mobileNumber, String password) async {
     await Future.delayed(const Duration(seconds: 1));
     return Right(VerifyOtpResponse(
       driverFullProfile: ProfileFullEntity.testData.copyWith(

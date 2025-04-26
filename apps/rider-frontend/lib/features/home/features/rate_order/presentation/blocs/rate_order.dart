@@ -23,8 +23,10 @@ class RateOrderBloc extends Bloc<RateOrderEvent, RateOrderState> {
             (l) async => emit(RateOrderState.error(message: l.errorMessage)),
             (r) async {
               emit(RateOrderState.parametersLoaded(
-                strengthParameters: r.where((element) => element.isGood).toList(),
-                weaknessParameters: r.where((element) => !element.isGood).toList(),
+                strengthParameters:
+                    r.where((element) => element.isGood).toList(),
+                weaknessParameters:
+                    r.where((element) => !element.isGood).toList(),
               ));
             },
           );
@@ -34,9 +36,12 @@ class RateOrderBloc extends Bloc<RateOrderEvent, RateOrderState> {
           if (state is ParametersLoaded) {
             List<ReviewParameterEntity> selectedParameters;
             if (state.selectedParameters.contains(value.parameter)) {
-              selectedParameters = state.selectedParameters.where((e) => e.id != value.parameter.id).toList();
+              selectedParameters = state.selectedParameters
+                  .where((e) => e.id != value.parameter.id)
+                  .toList();
             } else {
-              selectedParameters = state.selectedParameters.followedBy([value.parameter]).toList();
+              selectedParameters = state.selectedParameters
+                  .followedBy([value.parameter]).toList();
             }
             emit(state.copyWith(selectedParameters: selectedParameters));
           }
@@ -47,7 +52,8 @@ class RateOrderBloc extends Bloc<RateOrderEvent, RateOrderState> {
             orderId: value.orderId,
             rating: value.rating,
             comment: value.comment,
-            reviewParameters: value.parameters.map((e) => int.parse(e.id)).toList(),
+            reviewParameters:
+                value.parameters.map((e) => int.parse(e.id)).toList(),
             isFavorite: value.isFavorite,
           );
           result.fold(
@@ -71,7 +77,8 @@ class RateOrderBloc extends Bloc<RateOrderEvent, RateOrderState> {
 
   void onStarted() => add(const RateOrderEvent.onStarted());
 
-  void onParameterTapped(ReviewParameterEntity parameter) => add(RateOrderEvent.onParameterTapped(parameter: parameter));
+  void onParameterTapped(ReviewParameterEntity parameter) =>
+      add(RateOrderEvent.onParameterTapped(parameter: parameter));
 
   void onReviewSubmitted({
     required String orderId,
@@ -90,5 +97,6 @@ class RateOrderBloc extends Bloc<RateOrderEvent, RateOrderState> {
         ),
       );
 
-  void skipReview({required String orderId}) => add(RateOrderEvent.skipReview(orderId: orderId));
+  void skipReview({required String orderId}) =>
+      add(RateOrderEvent.skipReview(orderId: orderId));
 }

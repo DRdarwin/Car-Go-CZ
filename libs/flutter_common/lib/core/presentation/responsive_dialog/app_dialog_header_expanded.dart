@@ -43,7 +43,8 @@ class AppDialogHeaderExpanded extends StatelessWidget {
                 ),
               ),
               const Spacer(),
-              if (onBackPressed != null) AppCloseButton(onPressed: onBackPressed!),
+              if (onBackPressed != null)
+                AppCloseButton(onPressed: onBackPressed!),
             ],
           ),
           const SizedBox(

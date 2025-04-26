@@ -11,6 +11,7 @@ environment:
 dependencies:
   auto_route: ^9.2.2
   cached_network_image: ^3.4.1
+  carousel_slider: ^5.0.0
   collection: ^1.17.2
   connectivity_plus: ^6.1.0
 
@@ -44,10 +45,10 @@ dependencies:
   gauge_indicator: ^0.4.3
   generic_map: 0.3.3
   geolocator: ^13.0.2
-  google_maps_flutter: ^2.12.1
 
   # Dependency injection
   get_it: ^8.0.2
+  google_maps_flutter: ^2.12.1
 
   # Network
   graphql: ^5.2.0-beta.9
@@ -75,7 +76,6 @@ dependencies:
   share_plus: ^10.1.2
   url_launcher: ^6.3.1
   wakelock_plus: ^1.2.8
-  carousel_slider: ^5.0.0
 
 dev_dependencies:
   auto_route_generator: ^9.0.0

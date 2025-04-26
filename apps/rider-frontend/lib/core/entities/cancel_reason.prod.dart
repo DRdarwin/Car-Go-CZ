@@ -9,5 +9,6 @@ extension CancelReasonFragmentX on Query$CancelReasons$orderCancelReasons {
 }
 
 extension CancelReasonQueryX on Query$CancelReasons {
-  List<CancelReasonEntity> get toEntity => orderCancelReasons.map((e) => e.toEntity).toList();
+  List<CancelReasonEntity> get toEntity =>
+      orderCancelReasons.map((e) => e.toEntity).toList();
 }

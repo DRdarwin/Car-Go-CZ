@@ -59,7 +59,8 @@ class _AddPaymentMethodDialogState extends State<AddPaymentMethodDialog> {
           children: [
             PaymentMethodListView(
               paymentMethods: widget.paymentGateways
-                  .where((element) => element.linkMethod != GatewayLinkMethod.none)
+                  .where(
+                      (element) => element.linkMethod != GatewayLinkMethod.none)
                   .toList()
                   .toPaymentMethodUnion,
               selectedPaymentMethod: null,

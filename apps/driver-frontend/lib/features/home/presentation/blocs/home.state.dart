@@ -6,10 +6,12 @@ sealed class HomeState with _$HomeState {
     DriverLocation? driverLocation,
     DateTime? lastLocationUpdate,
     Failure? error,
-    @Default(HomeStateDriverStatus.initial()) HomeStateDriverStatus driverStatus,
+    @Default(HomeStateDriverStatus.initial())
+    HomeStateDriverStatus driverStatus,
   }) = _HomeState;
 
-  factory HomeState.fromJson(Map<String, dynamic> json) => _$HomeStateFromJson(json);
+  factory HomeState.fromJson(Map<String, dynamic> json) =>
+      _$HomeStateFromJson(json);
 
   const HomeState._();
 
@@ -81,9 +83,11 @@ sealed class HomeState with _$HomeState {
     return driverStatus.maybeMap(
       orElse: () => [],
       online: (online) {
-        final activeOrder = (online.currentOrderRequest ?? online.orderRequests.firstOrNull);
+        final activeOrder =
+            (online.currentOrderRequest ?? online.orderRequests.firstOrNull);
         final waypointsMarkers = activeOrder?.waypoints.markers;
-        final directionsCapMarkers = activeOrder?.route.directionsCapMarkers ?? [];
+        final directionsCapMarkers =
+            activeOrder?.route.directionsCapMarkers ?? [];
         return [
           if (waypointsMarkers != null) ...waypointsMarkers,
           if (driverMarker != null) driverMarker,
@@ -91,12 +95,16 @@ sealed class HomeState with _$HomeState {
         ];
       },
       onTrip: (onTrip) {
-        final List<CustomMarker> waypointsMarkers = switch (onTrip.order.status) {
+        final List<CustomMarker> waypointsMarkers =
+            switch (onTrip.order.status) {
           OrderStatus.driverAccepted => [onTrip.order.waypoints.markers.first],
           OrderStatus.arrived => [onTrip.order.waypoints.markers.first],
           OrderStatus.waitingForPrePay => onTrip.order.waypoints.markers,
           OrderStatus.waitingForPostPay => onTrip.order.waypoints.markers,
-          OrderStatus.started => [onTrip.order.waypoints.markers[(onTrip.order.destinationArrivedTo ?? -1) + 1]],
+          OrderStatus.started => [
+              onTrip.order.waypoints
+                  .markers[(onTrip.order.destinationArrivedTo ?? -1) + 1]
+            ],
           _ => onTrip.order.waypoints.markers,
         };
         final directionsCapMarkers = _directions.directionsCapMarkers;
@@ -118,7 +126,9 @@ sealed class HomeState with _$HomeState {
         orElse: () => [],
         online: (online) {
           PolyLineLayer? waypointsMarkers =
-              (online.currentOrderRequest ?? online.orderRequests.firstOrNull)?.route.toPolyLineLayer;
+              (online.currentOrderRequest ?? online.orderRequests.firstOrNull)
+                  ?.route
+                  .toPolyLineLayer;
           return [
             if (waypointsMarkers != null) waypointsMarkers,
           ];
@@ -157,7 +167,8 @@ sealed class OnTripPage with _$OnTripPage {
 
   const factory OnTripPage.rate() = _Rate;
 
-  factory OnTripPage.fromJson(Map<String, dynamic> json) => _$OnTripPageFromJson(json);
+  factory OnTripPage.fromJson(Map<String, dynamic> json) =>
+      _$OnTripPageFromJson(json);
 }
 
 @freezed
@@ -182,5 +193,6 @@ sealed class HomeStateDriverStatus with _$HomeStateDriverStatus {
 
   const factory HomeStateDriverStatus.accessDenied() = AccessDeniedDriverStatus;
 
-  factory HomeStateDriverStatus.fromJson(Map<String, dynamic> json) => _$HomeStateDriverStatusFromJson(json);
+  factory HomeStateDriverStatus.fromJson(Map<String, dynamic> json) =>
+      _$HomeStateDriverStatusFromJson(json);
 }

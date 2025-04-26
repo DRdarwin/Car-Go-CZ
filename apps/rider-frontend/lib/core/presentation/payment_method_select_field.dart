@@ -66,14 +66,19 @@ class PaymentMethodSelectField extends StatelessWidget {
     );
   }
 
-  Color get borderColor => paymentMethod != null ? ColorPalette.primary95 : ColorPalette.secondary90;
-  Color get backgroundColor => paymentMethod != null ? Colors.transparent : ColorPalette.secondary99;
+  Color get borderColor =>
+      paymentMethod != null ? ColorPalette.primary95 : ColorPalette.secondary90;
+  Color get backgroundColor =>
+      paymentMethod != null ? Colors.transparent : ColorPalette.secondary99;
 
-  Color get textColor => paymentMethod != null ? ColorPalette.neutral10 : ColorPalette.secondary20;
+  Color get textColor =>
+      paymentMethod != null ? ColorPalette.neutral10 : ColorPalette.secondary20;
 
-  Color get chevronColor => paymentMethod != null ? ColorPalette.neutral70 : ColorPalette.secondary40;
+  Color get chevronColor =>
+      paymentMethod != null ? ColorPalette.neutral70 : ColorPalette.secondary40;
 
-  Color get iconColor => paymentMethod != null ? ColorPalette.primary30 : ColorPalette.secondary40;
+  Color get iconColor =>
+      paymentMethod != null ? ColorPalette.primary30 : ColorPalette.secondary40;
 
   Widget icon(BuildContext context) => paymentMethod != null
       ? paymentMethod!.icon()

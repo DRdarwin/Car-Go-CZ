@@ -53,7 +53,8 @@ class AuthScreenMobile extends StatelessWidget {
                     child: AnimatedSwitcher(
                       duration: const Duration(milliseconds: 300),
                       child: BlocBuilder<LoginBloc, LoginState>(
-                        buildWhen: (currentState, nextState) => currentState.loginPage != nextState.loginPage,
+                        buildWhen: (currentState, nextState) =>
+                            currentState.loginPage != nextState.loginPage,
                         builder: (context, state) => LoginFormBuilder(
                           loginState: state,
                         ).header,
@@ -65,7 +66,8 @@ class AuthScreenMobile extends StatelessWidget {
             ),
           ),
           BlocBuilder<LoginBloc, LoginState>(
-            buildWhen: (currentState, nextState) => currentState.loginPage != nextState.loginPage,
+            buildWhen: (currentState, nextState) =>
+                currentState.loginPage != nextState.loginPage,
             builder: (context, state) {
               return Column(
                 children: [
@@ -102,11 +104,13 @@ class AuthScreenMobile extends StatelessWidget {
             child: SafeArea(
               top: false,
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 16, vertical: 24),
                 child: AnimatedSwitcher(
                   duration: const Duration(milliseconds: 300),
                   child: BlocBuilder<LoginBloc, LoginState>(
-                    builder: (context, state) => LoginFormBuilder(loginState: state).footer,
+                    builder: (context, state) =>
+                        LoginFormBuilder(loginState: state).footer,
                   ),
                 ),
               ),

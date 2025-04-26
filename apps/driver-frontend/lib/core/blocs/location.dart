@@ -28,7 +28,8 @@ class LocationBloc extends HydratedBloc<LocationEvent, LocationState> {
           startGettingLocationUpdates: (_) async {
             locationDatasource.getCurrentLocation();
             locationDatasource.startGettingLocationUpdates();
-            await emit.forEach(locationDatasource.driverLocation, onData: (onData) {
+            await emit.forEach(locationDatasource.driverLocation,
+                onData: (onData) {
               return LocationState.determined(location: onData);
             });
           },
@@ -36,7 +37,8 @@ class LocationBloc extends HydratedBloc<LocationEvent, LocationState> {
             locationDatasource.stopGettingLocationUpdates();
           },
           uploadDriverLocation: (_UpdateDriverLocation value) {
-            locationUpdateDatasource.updateDriverLocation(location: value.location);
+            locationUpdateDatasource.updateDriverLocation(
+                location: value.location);
           },
         );
       },
@@ -44,14 +46,18 @@ class LocationBloc extends HydratedBloc<LocationEvent, LocationState> {
   }
 
   @override
-  LocationState? fromJson(Map<String, dynamic> json) => LocationState.fromJson(json);
+  LocationState? fromJson(Map<String, dynamic> json) =>
+      LocationState.fromJson(json);
 
   @override
   Map<String, dynamic>? toJson(LocationState state) => state.toJson();
 
-  void fetchCurrentLocation() => add(const LocationEvent.fetchCurrentLocation());
+  void fetchCurrentLocation() =>
+      add(const LocationEvent.fetchCurrentLocation());
 
-  void startGettingLocationUpdates() => add(const LocationEvent.startGettingLocationUpdates());
+  void startGettingLocationUpdates() =>
+      add(const LocationEvent.startGettingLocationUpdates());
 
-  void stopGettingLocationUpdates() => add(const LocationEvent.stopGettingLocationUpdates());
+  void stopGettingLocationUpdates() =>
+      add(const LocationEvent.stopGettingLocationUpdates());
 }

@@ -32,7 +32,8 @@ class LanguageButton extends StatelessWidget {
             builder: (context, state) {
               return SelectLanguageDialog(
                 selectedLanguageCode: state.locale,
-                onPressed: (Language language) => locator<SettingsCubit>().changeLanguage(language.code),
+                onPressed: (Language language) =>
+                    locator<SettingsCubit>().changeLanguage(language.code),
               );
             },
           ),

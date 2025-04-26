@@ -21,14 +21,16 @@ class NewOrderRepositoryImpl implements NewOrderRepository {
   );
 
   @override
-  Future<Either<Failure, (List<FavoriteLocationEntity>, List<PlaceEntity>)>> getDestinationSuggestions() async {
+  Future<Either<Failure, (List<FavoriteLocationEntity>, List<PlaceEntity>)>>
+      getDestinationSuggestions() async {
     final result = await graphQLDatasource.query(
       Options$Query$DestinationSuggesions(
         fetchPolicy: FetchPolicy.noCache,
       ),
     );
     return result.map((r) {
-      final favoriteLocations = r.riderAddresses.map((e) => e.toEntity).toList();
+      final favoriteLocations =
+          r.riderAddresses.map((e) => e.toEntity).toList();
       final places = r.orders.edges.map((e) {
         final point = e.node.points.last.toLatLngEntity;
         final address = e.node.addresses.last;

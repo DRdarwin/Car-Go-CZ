@@ -11,7 +11,8 @@ part 'cancel_reason.freezed.dart';
 class CancelReasonCubit extends Cubit<CancelReasonState> {
   final HomeRepository _repository;
 
-  CancelReasonCubit(this._repository) : super(const CancelReasonState.initial());
+  CancelReasonCubit(this._repository)
+      : super(const CancelReasonState.initial());
 
   void onStarted() {
     emit(const CancelReasonState.loading());

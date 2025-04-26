@@ -77,7 +77,9 @@ class _RedeemGiftCardDialogState extends State<RedeemGiftCardDialog> {
             key: _formKey,
             child: TextFormField(
               onChanged: bloc.onCodeChanged,
-              validator: (value) => value?.isEmpty == true ? context.translate.pleaseEnterGiftCardCode : null,
+              validator: (value) => value?.isEmpty == true
+                  ? context.translate.pleaseEnterGiftCardCode
+                  : null,
               decoration: InputDecoration(
                 hintText: context.translate.enterGiftCardCode,
                 errorText: state.formState.mapOrNull(

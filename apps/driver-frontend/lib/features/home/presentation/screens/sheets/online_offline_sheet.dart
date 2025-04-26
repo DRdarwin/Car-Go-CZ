@@ -77,7 +77,9 @@ class OnlineOfflineSheet extends StatelessWidget {
                           return state.map(
                             authenticated: (value) => Text(
                               (value.profile.mainWallet?.balance ?? 0)
-                                  .formatCurrency(value.profile.mainWallet?.currency ?? "USD"),
+                                  .formatCurrency(
+                                      value.profile.mainWallet?.currency ??
+                                          "USD"),
                               style: context.labelLarge,
                             ),
                             unauthenticated: (value) => const SizedBox(),

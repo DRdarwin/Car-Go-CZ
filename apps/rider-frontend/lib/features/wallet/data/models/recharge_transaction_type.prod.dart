@@ -2,7 +2,8 @@ import 'package:rider_flutter/config/graphql/schema.gql.dart';
 
 import '../../domain/enums/recharge_transaction_type.dart';
 
-extension WalletRechargeTransactionTypeProdX on Enum$RiderRechargeTransactionType {
+extension WalletRechargeTransactionTypeProdX
+    on Enum$RiderRechargeTransactionType {
   WalletRechargeTransactionType get toEntity {
     switch (this) {
       case Enum$RiderRechargeTransactionType.BankTransfer:

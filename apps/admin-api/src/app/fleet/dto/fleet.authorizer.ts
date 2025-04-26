@@ -1,3 +1,4 @@
+// admin-api/src/app/fleet/dto/fleet.authorizer.ts
 import { Filter } from '@ptc-org/nestjs-query-core';
 import {
   CustomAuthorizer,
@@ -11,7 +12,7 @@ import { UserContext } from '../../auth/authenticated-admin';
 
 @Injectable()
 export class FleetAuthorizer implements CustomAuthorizer<any> {
-  constructor(private datasource: DataSource) {}
+  constructor(private datasource: DataSource) { }
 
   async authorize(
     context: UserContext,
@@ -20,15 +21,19 @@ export class FleetAuthorizer implements CustomAuthorizer<any> {
     const operator = await this.datasource
       .getRepository(OperatorEntity)
       .findOne({ where: { id: context.req.user.id }, relations: ['role'] });
+
+    const viewPermission = OperatorPermission.Fleets_View; // TODO: Перевірити/оновити права
+    const editPermission = OperatorPermission.Fleets_Edit; // TODO: Перевірити/оновити права
+
     if (
       authorizerContext.readonly &&
-      !operator.role.permissions.includes(OperatorPermission.Fleets_View)
+      !operator.role.permissions.includes(viewPermission)
     ) {
       throw new UnauthorizedException();
     }
     if (
       !authorizerContext.readonly &&
-      !operator.role.permissions.includes(OperatorPermission.Fleets_Edit)
+      !operator.role.permissions.includes(editPermission)
     ) {
       throw new UnauthorizedException();
     }

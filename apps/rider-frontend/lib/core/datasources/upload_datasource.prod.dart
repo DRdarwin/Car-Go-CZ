@@ -26,7 +26,8 @@ class UploadDatasourceImpl implements UploadDatasource {
     return _uploadFile(serverUrl, token, filePath);
   }
 
-  Future<MediaEntity> _uploadFile(String serverUrl, String authorizationToken, String filePath) async {
+  Future<MediaEntity> _uploadFile(
+      String serverUrl, String authorizationToken, String filePath) async {
     var postUri = Uri.parse(serverUrl);
     var request = MultipartRequest("POST", postUri);
     request.headers['Authorization'] = 'Bearer $authorizationToken';

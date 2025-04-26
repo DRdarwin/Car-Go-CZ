@@ -19,15 +19,22 @@ class LoginState with _$LoginState {
 
   const LoginState._();
 
-  factory LoginState.fromJson(Map<String, dynamic> json) => _$LoginStateFromJson(json);
+  factory LoginState.fromJson(Map<String, dynamic> json) =>
+      _$LoginStateFromJson(json);
 
-  bool get codeLengthIsSafe => newPassword != null && newPassword!.length >= 9 && newPassword!.length <= 64;
+  bool get codeLengthIsSafe =>
+      newPassword != null &&
+      newPassword!.length >= 9 &&
+      newPassword!.length <= 64;
 
-  bool get hasUppercase => newPassword != null && newPassword!.contains(RegExp(r'[A-Z]'));
+  bool get hasUppercase =>
+      newPassword != null && newPassword!.contains(RegExp(r'[A-Z]'));
 
-  bool get hasDigits => newPassword != null && newPassword!.contains(RegExp(r'[0-9]'));
+  bool get hasDigits =>
+      newPassword != null && newPassword!.contains(RegExp(r'[0-9]'));
 
-  bool get hasLowercase => newPassword != null && newPassword!.contains(RegExp(r'[a-z]'));
+  bool get hasLowercase =>
+      newPassword != null && newPassword!.contains(RegExp(r'[a-z]'));
 
   double get desktopHeight => loginPage.map(
         enterNumber: (_) => 200,

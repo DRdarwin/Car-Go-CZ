@@ -21,7 +21,8 @@ class WalletHeader extends StatelessWidget {
           width: double.infinity,
           margin: const EdgeInsets.only(bottom: 32),
           decoration: BoxDecoration(
-            borderRadius: context.responsive(BorderRadius.zero, xl: BorderRadius.circular(20)),
+            borderRadius: context.responsive(BorderRadius.zero,
+                xl: BorderRadius.circular(20)),
             image: DecorationImage(
               image: Assets.images.walletHeaderBackground.provider(),
               fit: BoxFit.cover,
@@ -55,7 +56,8 @@ class WalletHeader extends StatelessWidget {
                     return Text(
                       state.maybeMap(
                         orElse: () => "",
-                        loaded: (state) => state.data.balance.formatCurrency(state.data.currency),
+                        loaded: (state) => state.data.balance
+                            .formatCurrency(state.data.currency),
                       ),
                       style: context.headlineLarge?.copyWith(
                         color: ColorPalette.primary30,

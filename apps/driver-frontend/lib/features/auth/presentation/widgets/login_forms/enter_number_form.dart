@@ -49,8 +49,13 @@ class EnterNumberForm extends StatelessWidget {
                         height: 16,
                       ),
                       AppPhoneNumberTextField(
-                        initalValue: (state.countryCode ?? Constants.defaultCountry, state.mobileNumber),
-                        validator: (value) => value?.$2 != null ? null : context.translate.fieldIsRequired,
+                        initalValue: (
+                          state.countryCode ?? Constants.defaultCountry,
+                          state.mobileNumber
+                        ),
+                        validator: (value) => value?.$2 != null
+                            ? null
+                            : context.translate.fieldIsRequired,
                         onSaved: (value) {
                           if (value != null && value.$2 != null) {
                             loginBloc.onNumberChanged(value.$1, value.$2!);

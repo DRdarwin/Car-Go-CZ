@@ -9,7 +9,13 @@ class EmptyListState extends StatelessWidget {
   final String? buttonText;
   final Function? onPressed;
 
-  const EmptyListState({Key? key, this.imagePath, required this.title, this.subTitle, this.buttonText, this.onPressed})
+  const EmptyListState(
+      {Key? key,
+      this.imagePath,
+      required this.title,
+      this.subTitle,
+      this.buttonText,
+      this.onPressed})
       : super(key: key);
 
   @override

@@ -1,3 +1,4 @@
+// admin-api/src/app/fleet/dto/fleet-wallet.dto.ts
 import {
   FilterableField,
   IDField,
@@ -11,10 +12,13 @@ import { FleetDTO } from './fleet.dto';
 export class FleetWalletDTO {
   @IDField(() => ID)
   id: number;
+
   @FilterableField(() => Float)
   balance: number;
+
   @FilterableField(() => String)
   currency: string;
+
   @FilterableField(() => ID)
   fleetId: number;
 }

@@ -10,7 +10,8 @@ part 'desktop_map.state.dart';
 part 'desktop_map.freezed.dart';
 
 @lazySingleton
-class FavoriteLocationsDesktopMapCubit extends Cubit<FavoriteLocationsDesktopMapState> {
+class FavoriteLocationsDesktopMapCubit
+    extends Cubit<FavoriteLocationsDesktopMapState> {
   FavoriteLocationsDesktopMapCubit()
       : super(
           const FavoriteLocationsDesktopMapState.initial(),

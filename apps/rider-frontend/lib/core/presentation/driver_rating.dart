@@ -24,8 +24,11 @@ class DriverRating extends StatelessWidget {
         ),
         const SizedBox(width: 4),
         Text(
-          rating == null ? "-" : "${(rating! / 20).toStringAsFixed(1)} ${textSuffix ?? ''}",
-          style: context.bodySmall?.copyWith(color: context.theme.colorScheme.onSurfaceVariant),
+          rating == null
+              ? "-"
+              : "${(rating! / 20).toStringAsFixed(1)} ${textSuffix ?? ''}",
+          style: context.bodySmall
+              ?.copyWith(color: context.theme.colorScheme.onSurfaceVariant),
         ),
       ],
     );

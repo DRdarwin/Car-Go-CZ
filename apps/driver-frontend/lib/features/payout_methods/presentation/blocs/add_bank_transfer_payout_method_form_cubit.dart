@@ -10,7 +10,8 @@ part 'add_bank_transfer_payout_method_form_cubit.state.dart';
 part 'add_bank_transfer_payout_method_form_cubit.freezed.dart';
 
 @LazySingleton()
-class AddBankTransferPayoutMethodFormCubit extends Cubit<AddBankTransferPayoutMethodFormState> {
+class AddBankTransferPayoutMethodFormCubit
+    extends Cubit<AddBankTransferPayoutMethodFormState> {
   final PayoutMethodsRepository _repository;
 
   AddBankTransferPayoutMethodFormCubit(this._repository)
@@ -54,28 +55,38 @@ class AddBankTransferPayoutMethodFormCubit extends Cubit<AddBankTransferPayoutMe
 
   void onNameChanged(String? name) => emit(state.copyWith(name: name));
 
-  void onAccountNumberChanged(String? accountNumber) => emit(state.copyWith(accountNumber: accountNumber));
+  void onAccountNumberChanged(String? accountNumber) =>
+      emit(state.copyWith(accountNumber: accountNumber));
 
-  void onRoutingNumberChanged(String? routingNumber) => emit(state.copyWith(routingNumber: routingNumber));
+  void onRoutingNumberChanged(String? routingNumber) =>
+      emit(state.copyWith(routingNumber: routingNumber));
 
-  void onBankNameChanged(String? bankName) => emit(state.copyWith(bankName: bankName));
+  void onBankNameChanged(String? bankName) =>
+      emit(state.copyWith(bankName: bankName));
 
-  void onBranchNameChanged(String? branchName) => emit(state.copyWith(branchName: branchName));
+  void onBranchNameChanged(String? branchName) =>
+      emit(state.copyWith(branchName: branchName));
 
-  void onAccountHolderCountryChanged(String? country) => emit(state.copyWith(accountHolderCountry: country));
+  void onAccountHolderCountryChanged(String? country) =>
+      emit(state.copyWith(accountHolderCountry: country));
 
-  void onAccountHolderNameChanged(String? name) => emit(state.copyWith(accountHolderName: name));
+  void onAccountHolderNameChanged(String? name) =>
+      emit(state.copyWith(accountHolderName: name));
 
-  void onAccountHolderAddressChanged(String? address) => emit(state.copyWith(accountHolderAddress: address));
+  void onAccountHolderAddressChanged(String? address) =>
+      emit(state.copyWith(accountHolderAddress: address));
 
-  void onAccountHolderCityChanged(String? city) => emit(state.copyWith(accountHolderCity: city));
+  void onAccountHolderCityChanged(String? city) =>
+      emit(state.copyWith(accountHolderCity: city));
 
-  void onAccountHolderZipCodeChanged(String? zipCode) => emit(state.copyWith(accountHolderZip: zipCode));
+  void onAccountHolderZipCodeChanged(String? zipCode) =>
+      emit(state.copyWith(accountHolderZip: zipCode));
 
   void onAccountHolderStateChanged(String? accountHolderState) =>
       emit(state.copyWith(accountHolderState: accountHolderState));
 
-  void onAccountHolderPhoneChanged(String? phone) => emit(state.copyWith(accountHolderPhone: phone));
+  void onAccountHolderPhoneChanged(String? phone) =>
+      emit(state.copyWith(accountHolderPhone: phone));
 
   void onAccountHolderDateOfBirthChanged(DateTime dateOfBirth) => emit(
         state.copyWith(

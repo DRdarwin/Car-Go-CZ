@@ -15,5 +15,6 @@ class CalculateFareArgs with _$CalculateFareArgs {
     required List<RideOptionEntity> rideOptions,
   }) = _CalculateFareArgs;
 
-  factory CalculateFareArgs.fromJson(Map<String, dynamic> json) => _$CalculateFareArgsFromJson(json);
+  factory CalculateFareArgs.fromJson(Map<String, dynamic> json) =>
+      _$CalculateFareArgsFromJson(json);
 }

@@ -36,15 +36,21 @@ class AuthScreenDesktop extends StatelessWidget {
                           children: [
                             Expanded(
                               child: AnimatedSwitcher(
-                                  duration: AnimationDuration.pageStateTransitionDesktop,
-                                  child: OnboardingFormBuilder(onboardingItemIndex: currentStep).buildHeader(context)),
+                                  duration: AnimationDuration
+                                      .pageStateTransitionDesktop,
+                                  child: OnboardingFormBuilder(
+                                          onboardingItemIndex: currentStep)
+                                      .buildHeader(context)),
                             ),
                             const SizedBox(
                               height: 24,
                             ),
                             AnimatedSwitcher(
-                              duration: AnimationDuration.pageStateTransitionDesktop,
-                              child: OnboardingFormBuilder(onboardingItemIndex: currentStep).buildFooter(context),
+                              duration:
+                                  AnimationDuration.pageStateTransitionDesktop,
+                              child: OnboardingFormBuilder(
+                                      onboardingItemIndex: currentStep)
+                                  .buildFooter(context),
                             ),
                             Row(
                               mainAxisSize: MainAxisSize.min,
@@ -53,7 +59,9 @@ class AuthScreenDesktop extends StatelessWidget {
                                     onPressed: currentStep == 0
                                         ? null
                                         : () {
-                                            context.read<OnboardingCubit>().previousPage();
+                                            context
+                                                .read<OnboardingCubit>()
+                                                .previousPage();
                                           },
                                     child: const Icon(Ionicons.arrow_back)),
                                 SizedBox(
@@ -67,7 +75,9 @@ class AuthScreenDesktop extends StatelessWidget {
                                     onPressed: currentStep == 1
                                         ? null
                                         : () {
-                                            context.read<OnboardingCubit>().nextPage();
+                                            context
+                                                .read<OnboardingCubit>()
+                                                .nextPage();
                                           },
                                     child: const Icon(Ionicons.arrow_forward)),
                               ],
@@ -97,7 +107,8 @@ class AuthScreenDesktop extends StatelessWidget {
                         height: 450,
                         constraints: const BoxConstraints(maxWidth: 600),
                         padding: const EdgeInsets.all(64),
-                        child: LoginFormBuilder(loginPage: state.loginPage).footer,
+                        child:
+                            LoginFormBuilder(loginPage: state.loginPage).footer,
                       );
                     },
                   ),

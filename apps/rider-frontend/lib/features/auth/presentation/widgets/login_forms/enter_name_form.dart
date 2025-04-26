@@ -45,7 +45,9 @@ class _EnterNameFormState extends State<EnterNameForm> {
                       ),
                       TextFormField(
                         initialValue: firstName,
-                        validator: (value) => value?.isEmpty == true ? context.translate.fieldIsRequired : null,
+                        validator: (value) => value?.isEmpty == true
+                            ? context.translate.fieldIsRequired
+                            : null,
                         onSaved: (newValue) => firstName = newValue ?? '',
                         decoration: InputDecoration(
                           hintText: context.translate.firstName,
@@ -56,7 +58,9 @@ class _EnterNameFormState extends State<EnterNameForm> {
                       ),
                       TextFormField(
                         initialValue: lastName,
-                        validator: (value) => value?.isEmpty == true ? context.translate.fieldIsRequired : null,
+                        validator: (value) => value?.isEmpty == true
+                            ? context.translate.fieldIsRequired
+                            : null,
                         onSaved: (newValue) => lastName = newValue ?? '',
                         decoration: InputDecoration(
                           hintText: context.translate.lastName,

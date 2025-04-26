@@ -3,7 +3,8 @@ import 'package:flutter_common/core/enums/intent_result.dart';
 import 'package:flutter_common/core/enums/payment_mode.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:rider_flutter/core/repositories/wallet_repository.dart' as core_wallet;
+import 'package:rider_flutter/core/repositories/wallet_repository.dart'
+    as core_wallet;
 
 part 'top_up_wallet.freezed.dart';
 part 'top_up_wallet.state.dart';

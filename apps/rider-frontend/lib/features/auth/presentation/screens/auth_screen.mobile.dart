@@ -49,7 +49,8 @@ class AuthScreenMobile extends StatelessWidget {
                     duration: const Duration(milliseconds: 300),
                     child: BlocBuilder<LoginBloc, LoginState>(
                       builder: (context, state) {
-                        return LoginFormBuilder(loginPage: state.loginPage).header;
+                        return LoginFormBuilder(loginPage: state.loginPage)
+                            .header;
                       },
                     ),
                   ),

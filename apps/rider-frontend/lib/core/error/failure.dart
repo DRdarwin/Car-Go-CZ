@@ -8,7 +8,8 @@ class Failure with _$Failure {
   const Failure._();
 
   const factory Failure({required String message}) = _Failure;
-  const factory Failure.operation({OperationException? exception}) = _OperationFailure;
+  const factory Failure.operation({OperationException? exception}) =
+      _OperationFailure;
   const factory Failure.connection({String? message}) = _ConnectionFailure;
   const factory Failure.server({String? message}) = _ServerFailure;
 

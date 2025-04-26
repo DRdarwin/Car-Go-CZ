@@ -29,8 +29,12 @@ class ScheduledRidesRepositoryMock implements ScheduledRidesRepository {
         distanceBest: 4000,
         durationBest: 1000,
         waypoints: const [
-          PlaceEntity(coordinates: LatLngEntity(lat: 37.4419983, lng: -122.384), address: "35, western Street, UK"),
-          PlaceEntity(coordinates: LatLngEntity(lat: 37.4119983, lng: -122.084), address: "72, Eastern Street, UK")
+          PlaceEntity(
+              coordinates: LatLngEntity(lat: 37.4419983, lng: -122.384),
+              address: "35, western Street, UK"),
+          PlaceEntity(
+              coordinates: LatLngEntity(lat: 37.4119983, lng: -122.084),
+              address: "72, Eastern Street, UK")
         ],
         rideOptions: [
           const RideOptionEntity(

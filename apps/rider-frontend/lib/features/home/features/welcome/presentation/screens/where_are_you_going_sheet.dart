@@ -41,7 +41,8 @@ class _WhereAreYouGoingSheetState extends State<WhereAreYouGoingSheet> {
         child: BlocListener<AuthBloc, AuthState>(
           listener: (context, state) {
             state.mapOrNull(
-              authenticated: (authenticated) => locator<DestinationSuggestionsCubit>().onStarted(),
+              authenticated: (authenticated) =>
+                  locator<DestinationSuggestionsCubit>().onStarted(),
             );
           },
           child: Padding(
@@ -68,20 +69,26 @@ class _WhereAreYouGoingSheetState extends State<WhereAreYouGoingSheet> {
                 const SizedBox(height: 16),
                 WhereAreYouGoingButton(
                   onPressed: () {
-                    locator<HomeCubit>().showWaypoints(waypoints: widget.waypoints);
+                    locator<HomeCubit>()
+                        .showWaypoints(waypoints: widget.waypoints);
                   },
                 ),
                 const SizedBox(height: 16),
                 AnimatedCrossFade(
                   duration: AnimationDuration.pageStateTransitionMobile,
-                  crossFadeState: isExpanded ? CrossFadeState.showFirst : CrossFadeState.showSecond,
+                  crossFadeState: isExpanded
+                      ? CrossFadeState.showFirst
+                      : CrossFadeState.showSecond,
                   secondChild: const SizedBox.shrink(),
-                  firstChild: BlocBuilder<DestinationSuggestionsCubit, DestinationSuggestionsState>(
+                  firstChild: BlocBuilder<DestinationSuggestionsCubit,
+                      DestinationSuggestionsState>(
                     builder: (context, state) => AnimatedSwitcher(
                       duration: AnimationDuration.pageStateTransitionMobile,
                       child: state.maybeMap(
                         orElse: () => const SizedBox.shrink(),
-                        loading: (value) => Center(child: Assets.lottie.loading.lottie(width: 100, height: 100)),
+                        loading: (value) => Center(
+                            child: Assets.lottie.loading
+                                .lottie(width: 100, height: 100)),
                         error: (value) => Text(value.message),
                         loaded: (value) => Column(
                           mainAxisSize: MainAxisSize.min,
@@ -100,10 +107,14 @@ class _WhereAreYouGoingSheetState extends State<WhereAreYouGoingSheet> {
                                       isRecent: true,
                                       onPressed: () {
                                         final pickupLocation =
-                                            widget.waypoints.firstOrNull ?? locator<LocationCubit>().state.place;
+                                            widget.waypoints.firstOrNull ??
+                                                locator<LocationCubit>()
+                                                    .state
+                                                    .place;
                                         if (pickupLocation == null) {
                                           context.showSnackBar(
-                                            message: context.translate.pickupLocationNotFound,
+                                            message: context.translate
+                                                .pickupLocationNotFound,
                                           );
                                           return;
                                         }
@@ -116,7 +127,8 @@ class _WhereAreYouGoingSheetState extends State<WhereAreYouGoingSheet> {
                                         );
                                       });
                                 },
-                                separatorBuilder: (context, index) => const Divider(indent: 42),
+                                separatorBuilder: (context, index) =>
+                                    const Divider(indent: 42),
                                 itemCount: value.recents.length,
                               ),
                             ),
@@ -140,10 +152,14 @@ class _WhereAreYouGoingSheetState extends State<WhereAreYouGoingSheet> {
                                       address: item,
                                       onPressed: () {
                                         final pickupLocation =
-                                            widget.waypoints.firstOrNull ?? locator<LocationCubit>().state.place;
+                                            widget.waypoints.firstOrNull ??
+                                                locator<LocationCubit>()
+                                                    .state
+                                                    .place;
                                         if (pickupLocation == null) {
                                           context.showSnackBar(
-                                            message: context.translate.pickupLocationNotFound,
+                                            message: context.translate
+                                                .pickupLocationNotFound,
                                           );
                                           return;
                                         }
@@ -157,7 +173,8 @@ class _WhereAreYouGoingSheetState extends State<WhereAreYouGoingSheet> {
                                       },
                                     );
                                   },
-                                  separatorBuilder: (context, index) => const Divider(indent: 42),
+                                  separatorBuilder: (context, index) =>
+                                      const Divider(indent: 42),
                                   itemCount: value.favorites.length,
                                 ),
                               ),

@@ -68,10 +68,26 @@ class OrderRepositoryMock implements OrderRepository {
                 isCashAllowed: true,
                 isOnlinePaymentAllowed: true,
                 rideOptions: [
-                  RideOptionEntity(id: "1", name: "Small pet", icon: RideOptionIcon.pet, price: 2),
-                  RideOptionEntity(id: "2", name: "Large pet", icon: RideOptionIcon.pet, price: 4),
-                  RideOptionEntity(id: "3", name: "Bags or luggage", icon: RideOptionIcon.luggage, price: 5),
-                  RideOptionEntity(id: "4", name: "A quiet ride", icon: RideOptionIcon.custom1, price: null),
+                  RideOptionEntity(
+                      id: "1",
+                      name: "Small pet",
+                      icon: RideOptionIcon.pet,
+                      price: 2),
+                  RideOptionEntity(
+                      id: "2",
+                      name: "Large pet",
+                      icon: RideOptionIcon.pet,
+                      price: 4),
+                  RideOptionEntity(
+                      id: "3",
+                      name: "Bags or luggage",
+                      icon: RideOptionIcon.luggage,
+                      price: 5),
+                  RideOptionEntity(
+                      id: "4",
+                      name: "A quiet ride",
+                      icon: RideOptionIcon.custom1,
+                      price: null),
                   RideOptionEntity(
                       id: "5",
                       name: "Disabled passenger",

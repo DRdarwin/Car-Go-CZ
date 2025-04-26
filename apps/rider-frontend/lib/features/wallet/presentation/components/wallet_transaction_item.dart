@@ -34,7 +34,9 @@ class WalletTransactionItem extends StatelessWidget {
               ),
               child: Icon(
                 transaction.icon,
-                color: transaction.deductTransactionType == null ? ColorPalette.tertiary60 : ColorPalette.primary30,
+                color: transaction.deductTransactionType == null
+                    ? ColorPalette.tertiary60
+                    : ColorPalette.primary30,
               ),
             ),
             const SizedBox(width: 16),

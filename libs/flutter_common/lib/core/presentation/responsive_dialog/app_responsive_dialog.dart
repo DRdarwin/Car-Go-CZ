@@ -109,12 +109,14 @@ class AppResponsiveDialog extends StatelessWidget {
 
   Widget buildContent(BuildContext context) {
     return Column(
-      mainAxisSize: type == DialogType.fullScreen ? MainAxisSize.max : MainAxisSize.min,
+      mainAxisSize:
+          type == DialogType.fullScreen ? MainAxisSize.max : MainAxisSize.min,
       children: [
         Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            if (type == DialogType.fullScreen && (smallTitle != null || onBackPressed != null)) ...[
+            if (type == DialogType.fullScreen &&
+                (smallTitle != null || onBackPressed != null)) ...[
               smallHeader(context)
             ],
             if (header != null) ...[
@@ -148,12 +150,17 @@ class AppResponsiveDialog extends StatelessWidget {
                     child: child,
                   ),
                 ),
-                if (primaryButton != null || secondaryButton != null || teritaryButton != null) stackedActionButtons,
+                if (primaryButton != null ||
+                    secondaryButton != null ||
+                    teritaryButton != null)
+                  stackedActionButtons,
               ],
             ),
           ),
         ],
-        if (type == DialogType.bottomSheet || type == DialogType.dialog || type == DialogType.overlay)
+        if (type == DialogType.bottomSheet ||
+            type == DialogType.dialog ||
+            type == DialogType.overlay)
           Column(
             children: [
               Padding(
@@ -179,7 +186,8 @@ class AppResponsiveDialog extends StatelessWidget {
                   ),
                 )
               ],
-              if (type == DialogType.bottomSheet && (secondaryButton != null || primaryButton != null)) ...[
+              if (type == DialogType.bottomSheet &&
+                  (secondaryButton != null || primaryButton != null)) ...[
                 stackedActionButtons
               ]
             ],

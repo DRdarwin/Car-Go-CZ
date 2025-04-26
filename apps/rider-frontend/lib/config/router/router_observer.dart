@@ -22,7 +22,8 @@ class RouterObserver extends AutoRouterObserver {
   void didPush(Route route, Route<dynamic>? previousRoute) {
     super.didPush(route, previousRoute);
     final routeName = route.settings.name;
-    if (routeName != null && routeMap.keys.where((e) => e.startsWith(routeName)).isNotEmpty) {
+    if (routeName != null &&
+        routeMap.keys.where((e) => e.startsWith(routeName)).isNotEmpty) {
       final route = routeMap[routeName];
       locator<RouteCubit>().routeTo(route!);
     }
@@ -32,7 +33,8 @@ class RouterObserver extends AutoRouterObserver {
   void didPop(Route route, Route? previousRoute) {
     super.didPop(route, previousRoute);
     final routeName = previousRoute?.settings.name;
-    if (routeName != null && routeMap.keys.where((e) => e.startsWith(routeName)).isNotEmpty) {
+    if (routeName != null &&
+        routeMap.keys.where((e) => e.startsWith(routeName)).isNotEmpty) {
       final route = routeMap[routeName];
       locator<RouteCubit>().routeTo(route!);
     }

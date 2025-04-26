@@ -14,5 +14,6 @@ class RegistrationRemoteData with _$RegistrationRemoteData {
     required List<VehicleColorEntity> vehicleColors,
   }) = _RegistrationRemoteData;
 
-  factory RegistrationRemoteData.fromJson(Map<String, dynamic> json) => _$RegistrationRemoteDataFromJson(json);
+  factory RegistrationRemoteData.fromJson(Map<String, dynamic> json) =>
+      _$RegistrationRemoteDataFromJson(json);
 }

@@ -34,8 +34,9 @@ class PayoutMethodsRepositoryImpl implements PayoutMethodsRepository {
 
   @override
   Future<Either<Failure, void>> deletePayoutMethod(String id) async {
-    final result = await graphQLDatasource
-        .mutate(Options$Mutation$deletePayoutAccount(variables: Variables$Mutation$deletePayoutAccount(id: id)));
+    final result = await graphQLDatasource.mutate(
+        Options$Mutation$deletePayoutAccount(
+            variables: Variables$Mutation$deletePayoutAccount(id: id)));
     return result;
   }
 
@@ -56,15 +57,18 @@ class PayoutMethodsRepositoryImpl implements PayoutMethodsRepository {
   }
 
   @override
-  Future<Either<Failure, List<PayoutMethodEntity>>> getAvailablePayoutMethods() async {
-    final payoutMethods = await graphQLDatasource.query(Options$Query$SupportedPayoutMethods());
+  Future<Either<Failure, List<PayoutMethodEntity>>>
+      getAvailablePayoutMethods() async {
+    final payoutMethods =
+        await graphQLDatasource.query(Options$Query$SupportedPayoutMethods());
     return payoutMethods.map(
       (r) => r.toEntities,
     );
   }
 
   @override
-  Future<Either<Failure, PayoutAccountEntity>> addPayoutMethod(PayoutAccountInput input) async {
+  Future<Either<Failure, PayoutAccountEntity>> addPayoutMethod(
+      PayoutAccountInput input) async {
     final result = await graphQLDatasource.mutate(
       Options$Mutation$createPayoutAccount(
         variables: Variables$Mutation$createPayoutAccount(
@@ -76,7 +80,8 @@ class PayoutMethodsRepositoryImpl implements PayoutMethodsRepository {
   }
 
   @override
-  Future<Either<Failure, String>> getLinkUrlForPayoutMethod(PayoutMethodEntity method) async {
+  Future<Either<Failure, String>> getLinkUrlForPayoutMethod(
+      PayoutMethodEntity method) async {
     final result = await graphQLDatasource.query(
       Options$Query$getPayoutAccountLinkUrl(
         fetchPolicy: FetchPolicy.noCache,

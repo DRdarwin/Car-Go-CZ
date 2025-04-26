@@ -61,7 +61,8 @@ class _AnnouncementsScreenState extends State<AnnouncementsScreen> {
                         duration: AnimationDuration.pageStateTransitionMobile,
                         child: state.map(
                           initial: (_) => const SizedBox.shrink(),
-                          loading: (_) => Assets.lottie.loading.lottie(width: double.infinity, height: double.infinity),
+                          loading: (_) => Assets.lottie.loading.lottie(
+                              width: double.infinity, height: double.infinity),
                           loaded: (loaded) => ListView.separated(
                             padding: EdgeInsets.zero,
                             itemBuilder: (context, index) {

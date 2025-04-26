@@ -21,7 +21,8 @@ class WalletActivities extends StatelessWidget {
               duration: AnimationDuration.pageStateTransitionMobile,
               child: state.map(
                   initial: (_) => const SizedBox(),
-                  loading: (_) => Assets.lottie.loading.lottie(height: 300, width: double.infinity),
+                  loading: (_) => Assets.lottie.loading
+                      .lottie(height: 300, width: double.infinity),
                   loaded: (loaded) {
                     if (loaded.data.transactions.isEmpty) {
                       return Column(
@@ -47,7 +48,8 @@ class WalletActivities extends StatelessWidget {
                             child: Column(
                               children: loaded.data.transactions
                                   .map((e) => Padding(
-                                        padding: const EdgeInsets.only(bottom: 16),
+                                        padding:
+                                            const EdgeInsets.only(bottom: 16),
                                         child: WalletTransactionItem(
                                           transaction: e,
                                         ),

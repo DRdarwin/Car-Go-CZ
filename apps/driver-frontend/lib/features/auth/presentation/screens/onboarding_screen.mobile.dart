@@ -40,7 +40,8 @@ class OnboardingScreen extends StatelessWidget {
                         duration: const Duration(milliseconds: 300),
                         child: BlocBuilder<OnboardingCubit, int>(
                           builder: (context, state) =>
-                              OnboardingFormBuilder(onboardingItemIndex: state).buildHeader(context),
+                              OnboardingFormBuilder(onboardingItemIndex: state)
+                                  .buildHeader(context),
                         ),
                       ),
                     ),
@@ -59,7 +60,8 @@ class OnboardingScreen extends StatelessWidget {
                     duration: const Duration(milliseconds: 300),
                     child: BlocBuilder<OnboardingCubit, int>(
                       builder: (context, state) {
-                        return OnboardingFormBuilder(onboardingItemIndex: state).buildFooter(context);
+                        return OnboardingFormBuilder(onboardingItemIndex: state)
+                            .buildFooter(context);
                       },
                     ),
                   ),

@@ -75,7 +75,8 @@ class HomeBloc extends HydratedBloc<HomeEvent, HomeState> {
             break;
 
           case _OnLocationUpdated(:final location, :final lastLocationUpdate):
-            final orders = await _repository.updateDriverLocation(location: location);
+            final orders =
+                await _repository.updateDriverLocation(location: location);
             orders.fold(
               (l) => null,
               (r) => emit(
@@ -94,7 +95,8 @@ class HomeBloc extends HydratedBloc<HomeEvent, HomeState> {
             break;
 
           case _OnAcceptOrder(:final request):
-            final order = await _repository.acceptOrderRequest(requestId: request.id);
+            final order =
+                await _repository.acceptOrderRequest(requestId: request.id);
             await order.fold(
               (l) async {
                 emit(
@@ -102,7 +104,9 @@ class HomeBloc extends HydratedBloc<HomeEvent, HomeState> {
                     driverStatus: state.driverStatus.maybeMap(
                       orElse: () => throw Exception('Invalid state'),
                       online: (online) => online.copyWith(
-                        orderRequests: online.orderRequests.where((r) => r.id != request.id).toList(),
+                        orderRequests: online.orderRequests
+                            .where((r) => r.id != request.id)
+                            .toList(),
                       ),
                     ),
                   ),
@@ -144,7 +148,10 @@ class HomeBloc extends HydratedBloc<HomeEvent, HomeState> {
 
             break;
 
-          case _OnArrivedToDestination(:final order, :final destinationArrivedTo):
+          case _OnArrivedToDestination(
+              :final order,
+              :final destinationArrivedTo
+            ):
             final newOrder = await _repository.arrivedToDestination(
               order: order,
               destinationArrivedTo: destinationArrivedTo,
@@ -158,7 +165,8 @@ class HomeBloc extends HydratedBloc<HomeEvent, HomeState> {
               state.copyWith(
                 driverStatus: state.driverStatus.maybeMap(
                   orElse: () => throw Exception('Invalid state'),
-                  onTrip: (onTrip) => onTrip.copyWith(page: const OnTripPage.chat()),
+                  onTrip: (onTrip) =>
+                      onTrip.copyWith(page: const OnTripPage.chat()),
                 ),
               ),
             );
@@ -168,7 +176,8 @@ class HomeBloc extends HydratedBloc<HomeEvent, HomeState> {
             if (rating == null) {
               onStarted();
             } else {
-              await _repository.submitReview(orderId: orderId, rating: rating, review: review);
+              await _repository.submitReview(
+                  orderId: orderId, rating: rating, review: review);
               onStarted();
             }
             break;
@@ -179,7 +188,8 @@ class HomeBloc extends HydratedBloc<HomeEvent, HomeState> {
               state.copyWith(
                 driverStatus: state.driverStatus.maybeMap(
                   orElse: () => const HomeStateDriverStatus.initial(),
-                  onTrip: (onTrip) => onTrip.copyWith(page: const OnTripPage.rate()),
+                  onTrip: (onTrip) =>
+                      onTrip.copyWith(page: const OnTripPage.rate()),
                 ),
               ),
             );
@@ -218,7 +228,10 @@ class HomeBloc extends HydratedBloc<HomeEvent, HomeState> {
                   onTrip: (inProgress) {
                     return inProgress.copyWith(
                       order: inProgress.order.copyWith(
-                        chatMessages: [...inProgress.order.chatMessages, message],
+                        chatMessages: [
+                          ...inProgress.order.chatMessages,
+                          message
+                        ],
                       ),
                     );
                   },
@@ -229,7 +242,8 @@ class HomeBloc extends HydratedBloc<HomeEvent, HomeState> {
           case _OnHideChat():
             await state.driverStatus.maybeMap(
               onTrip: (inProgress) async {
-                final result = await _repository.updateLastSeenMessagesAt(orderId: inProgress.order.id);
+                final result = await _repository.updateLastSeenMessagesAt(
+                    orderId: inProgress.order.id);
                 result.fold(
                   (l) async => throw Exception(l.errorMessage),
                   (r) async => emit(
@@ -262,16 +276,20 @@ class HomeBloc extends HydratedBloc<HomeEvent, HomeState> {
         location: driverLocation,
       ));
 
-  void onStatusChanged(DriverStatus status) => add(HomeEvent.onStatusChanged(status: status));
+  void onStatusChanged(DriverStatus status) =>
+      add(HomeEvent.onStatusChanged(status: status));
 
-  void onLocationUpdated({required DriverLocation location, bool? forceUpdate}) => add(
+  void onLocationUpdated(
+          {required DriverLocation location, bool? forceUpdate}) =>
+      add(
         HomeEvent.onLocationUpdated(
           location: location,
           lastLocationUpdate: forceUpdate == true ? DateTime.now() : null,
         ),
       );
 
-  void onAcceptOrder(OrderRequestEntity request) => add(HomeEvent.onAcceptOrder(request: request));
+  void onAcceptOrder(OrderRequestEntity request) =>
+      add(HomeEvent.onAcceptOrder(request: request));
 
   // void onRadiusChanged(int radius) => add(HomeEvent.onRadiusChanged(radius: radius));
 
@@ -378,7 +396,8 @@ class HomeBloc extends HydratedBloc<HomeEvent, HomeState> {
     );
   }
 
-  Future<void> _startOrderUpdateSubscription(OrderEntity orderEntity, Emitter emit) async {
+  Future<void> _startOrderUpdateSubscription(
+      OrderEntity orderEntity, Emitter emit) async {
     order = _repository.startOrderUpdatedSubscription(
       orderEntity: orderEntity,
     );

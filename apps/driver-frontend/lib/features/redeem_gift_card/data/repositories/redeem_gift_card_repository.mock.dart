@@ -9,7 +9,8 @@ import 'package:injectable/injectable.dart';
 @LazySingleton(as: RedeemGiftCardRepository)
 class RedeemGiftCardRepositoryMock implements RedeemGiftCardRepository {
   @override
-  Future<Either<Failure, (double, String)>> redeemGiftCard({required String code}) async {
+  Future<Either<Failure, (double, String)>> redeemGiftCard(
+      {required String code}) async {
     return const Right((100, "USD"));
   }
 }

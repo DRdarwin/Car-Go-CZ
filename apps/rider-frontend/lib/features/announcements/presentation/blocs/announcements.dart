@@ -13,7 +13,8 @@ part 'announcements.freezed.dart';
 class AnnouncementsBloc extends Cubit<AnnouncementsState> {
   final AnnouncementsRepository _repository;
 
-  AnnouncementsBloc(this._repository) : super(const AnnouncementsState.initial());
+  AnnouncementsBloc(this._repository)
+      : super(const AnnouncementsState.initial());
 
   void load() async {
     emit(const AnnouncementsState.loading());

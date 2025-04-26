@@ -6,7 +6,8 @@ class LoginEvent with _$LoginEvent {
     required String mobileNumber,
     required String countryCode,
   }) = _OnNumberVerificationRequested;
-  const factory LoginEvent.onVerificationSkipped() = _OnSkipVerificationRequested;
+  const factory LoginEvent.onVerificationSkipped() =
+      _OnSkipVerificationRequested;
 
   const factory LoginEvent.onBackButtonPressed() = _OnBackButtonPressed;
 

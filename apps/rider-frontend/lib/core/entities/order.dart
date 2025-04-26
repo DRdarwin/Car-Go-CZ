@@ -39,7 +39,8 @@ class OrderEntity with _$OrderEntity {
     required bool cashPaymentAllowed,
   }) = _OrderEntity;
 
-  factory OrderEntity.fromJson(Map<String, dynamic> json) => _$OrderEntityFromJson(json);
+  factory OrderEntity.fromJson(Map<String, dynamic> json) =>
+      _$OrderEntityFromJson(json);
 
   const OrderEntity._();
 

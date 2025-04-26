@@ -64,7 +64,8 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
               LayoutId(
                 id: MobileLayoutDelegate.navbarId,
                 child: TopNavBar(
-                  onMenuButtonPressed: () => scaffoldKey.currentState?.openDrawer(),
+                  onMenuButtonPressed: () =>
+                      scaffoldKey.currentState?.openDrawer(),
                 ),
               ),
               LayoutId(
@@ -88,9 +89,11 @@ class _HomeScreenMobileState extends State<HomeScreenMobile> {
                         },
                         offline: (offline) => OnlineOfflineSheet(state: state),
                         onTrip: (onTrip) => onTrip.page.map(
-                          overview: (overview) => ActiveOrderSheet(state: onTrip),
+                          overview: (overview) =>
+                              ActiveOrderSheet(state: onTrip),
                           chat: (chat) => ChatSheet(order: onTrip.order),
-                          payment: (payment) => OrderSummary(order: onTrip.order),
+                          payment: (payment) =>
+                              OrderSummary(order: onTrip.order),
                           rate: (rate) => RateRiderSheet(order: onTrip.order),
                         ),
                       ),

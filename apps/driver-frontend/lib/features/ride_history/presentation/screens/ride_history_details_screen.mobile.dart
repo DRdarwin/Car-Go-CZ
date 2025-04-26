@@ -41,15 +41,18 @@ class RideHistoryDetailsScreenMobile extends StatelessWidget {
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(20),
                         child: BlocBuilder<SettingsCubit, SettingsState>(
-                          buildWhen: (previous, current) => previous.mapProvider != current.mapProvider,
+                          buildWhen: (previous, current) =>
+                              previous.mapProvider != current.mapProvider,
                           builder: (context, settingsState) {
                             return AppGenericMap(
                               mode: MapViewMode.static,
-                              initialLocation: entity.waypoints.first.toGenericMapPlace,
+                              initialLocation:
+                                  entity.waypoints.first.toGenericMapPlace,
                               polylines: [
                                 entity.rideDirections.toPolyLineLayer,
                               ],
-                              padding: settingsState.mapProvider == MapProviderEnum.googleMaps
+                              padding: settingsState.mapProvider ==
+                                      MapProviderEnum.googleMaps
                                   ? EdgeInsets.zero
                                   : const EdgeInsets.symmetric(
                                       vertical: 80,

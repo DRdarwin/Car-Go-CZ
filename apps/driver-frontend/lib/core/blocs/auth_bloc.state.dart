@@ -9,12 +9,14 @@ class AuthState with _$AuthState {
 
   const factory AuthState.unauthenticated() = _Unauthenticated;
 
-  factory AuthState.fromJson(Map<String, dynamic> json) => _$AuthStateFromJson(json);
+  factory AuthState.fromJson(Map<String, dynamic> json) =>
+      _$AuthStateFromJson(json);
 
   const AuthState._();
 
   bool get isAuthenticated => this is _Authenticated;
-  String? get jwtToken => isAuthenticated ? (this as _Authenticated).jwtToken : null;
+  String? get jwtToken =>
+      isAuthenticated ? (this as _Authenticated).jwtToken : null;
 
   Option<Either<String, String>> get avatar {
     return map(authenticated: (authenticated) {

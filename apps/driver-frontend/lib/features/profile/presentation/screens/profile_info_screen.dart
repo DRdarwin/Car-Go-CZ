@@ -61,7 +61,8 @@ class ProfileInfoScreen extends StatelessWidget {
                               Expanded(
                                 child: Text(
                                   context.translate.fullName,
-                                  style: context.bodyMedium?.copyWith(color: ColorPalette.neutralVariant50),
+                                  style: context.bodyMedium?.copyWith(
+                                      color: ColorPalette.neutralVariant50),
                                 ),
                               ),
                               Text(
@@ -83,7 +84,8 @@ class ProfileInfoScreen extends StatelessWidget {
                               Expanded(
                                 child: Text(
                                   context.translate.mobileNumber,
-                                  style: context.bodyMedium?.copyWith(color: ColorPalette.neutralVariant50),
+                                  style: context.bodyMedium?.copyWith(
+                                      color: ColorPalette.neutralVariant50),
                                 ),
                               ),
                               Text(
@@ -105,7 +107,8 @@ class ProfileInfoScreen extends StatelessWidget {
                               Expanded(
                                 child: Text(
                                   context.translate.email,
-                                  style: context.bodyMedium?.copyWith(color: ColorPalette.neutralVariant50),
+                                  style: context.bodyMedium?.copyWith(
+                                      color: ColorPalette.neutralVariant50),
                                 ),
                               ),
                               Text(
@@ -127,11 +130,13 @@ class ProfileInfoScreen extends StatelessWidget {
                               Expanded(
                                 child: Text(
                                   context.translate.gender,
-                                  style: context.bodyMedium?.copyWith(color: ColorPalette.neutralVariant50),
+                                  style: context.bodyMedium?.copyWith(
+                                      color: ColorPalette.neutralVariant50),
                                 ),
                               ),
                               Text(
-                                authenticated.profile.gender?.title(context) ?? context.translate.unknown,
+                                authenticated.profile.gender?.title(context) ??
+                                    context.translate.unknown,
                                 style: context.labelLarge,
                               ),
                             ],

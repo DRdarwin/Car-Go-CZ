@@ -1,0 +1,1912 @@
+{
+  "apps/admin-api": {
+    "root": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.dependsOn": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.commands": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.executor": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.outputs": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.options": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.configurations": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.options.target": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.options.isolatedConfig": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.options.compiler": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.options.deleteOutputPath": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.options.outputPath": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.options.main": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.options.tsConfig": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.options.assets": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.options.tsPlugins": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.options.generatePackageJson": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.configurations.production": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.configurations.production.optimization": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.configurations.production.extractLicenses": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.configurations.production.inspect": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.compile.configurations.production.fileReplacements": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.inspect": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.port": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.outputs": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "apps/admin-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci.ci": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci.codeCoverage": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
+  "apps/admin-panel": {
+    "root": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "prefix": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.defaultConfiguration": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.baseHref": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.index": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.polyfills": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.aot": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.styles": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.scripts": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.budgets": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.fileReplacements": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.outputHashing": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.buildOptimizer": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.optimization": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.vendorChunk": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.extractLicenses": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.sourceMap": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.development.namedChunks": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.hmr": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.configurations.production.buildTarget": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.extract-i18n": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.extract-i18n.executor": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.extract-i18n.options": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.extract-i18n.options.command": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.extract-i18n.options.cwd": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.outputs": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "apps/admin-panel/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci.ci": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci.codeCoverage": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
+  "apps/driver-api": {
+    "root": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.isolatedConfig": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsPlugins": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.generatePackageJson": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.target": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.compiler": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.optimization": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.extractLicenses": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.inspect": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.fileReplacements": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.inspect": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.port": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.outputs": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "apps/driver-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci.ci": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci.codeCoverage": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
+  "apps/driver-frontend": {
+    "root": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.analyze": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.analyze.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.analyze.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.analyze.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.analyze.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.clean": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.clean.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.clean.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.clean.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.clean.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.format": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.format.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.format.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.format.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.format.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.doctor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.doctor.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.doctor.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.doctor.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.doctor.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.assemble": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.assemble.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.assemble.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.assemble.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.assemble.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.attach": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.attach.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.attach.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.attach.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.attach.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.drive": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.drive.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.drive.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.drive.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.drive.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.gen-l10n": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.gen-l10n.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.gen-l10n.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.gen-l10n.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.gen-l10n.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.install": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.install.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.install.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.install.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.install.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.run": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.run.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.run.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.run.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.run.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-aar": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-aar.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-aar.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-aar.outputs": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-aar.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-aar.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-apk": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-apk.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-apk.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-apk.outputs": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-apk.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-apk.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-appbundle": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-appbundle.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-appbundle.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-appbundle.outputs": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-appbundle.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-appbundle.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-bundle": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-bundle.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-bundle.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-bundle.outputs": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-bundle.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-bundle.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios.outputs": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios-framework": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios-framework.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios-framework.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios-framework.outputs": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios-framework.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios-framework.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ipa": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ipa.executor": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ipa.options": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ipa.outputs": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ipa.options.command": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ipa.options.cwd": [
+      "apps/driver-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
+  "apps/rider-api": {
+    "root": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.executor": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.outputs": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.outputPath": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.isolatedConfig": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.main": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsConfig": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.assets": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.tsPlugins": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.generatePackageJson": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.target": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.options.compiler": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.optimization": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.extractLicenses": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.inspect": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.configurations.production.fileReplacements": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.executor": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.buildTarget": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.inspect": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.serve.options.port": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.outputs": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "apps/rider-api/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.build.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci.ci": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci.codeCoverage": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
+  "apps/rider-frontend": {
+    "root": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.analyze": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.analyze.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.analyze.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.analyze.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.analyze.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.clean": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.clean.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.clean.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.clean.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.clean.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.format": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.format.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.format.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.format.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.format.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.doctor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.doctor.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.doctor.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.doctor.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.doctor.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.assemble": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.assemble.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.assemble.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.assemble.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.assemble.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.attach": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.attach.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.attach.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.attach.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.attach.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.drive": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.drive.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.drive.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.drive.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.drive.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.gen-l10n": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.gen-l10n.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.gen-l10n.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.gen-l10n.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.gen-l10n.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.install": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.install.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.install.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.install.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.install.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.run": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.run.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.run.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.run.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.run.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-aar": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-aar.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-aar.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-aar.outputs": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-aar.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-aar.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-apk": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-apk.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-apk.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-apk.outputs": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-apk.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-apk.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-appbundle": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-appbundle.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-appbundle.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-appbundle.outputs": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-appbundle.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-appbundle.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-bundle": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-bundle.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-bundle.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-bundle.outputs": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-bundle.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-bundle.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios.outputs": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios-framework": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios-framework.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios-framework.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios-framework.outputs": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios-framework.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ios-framework.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ipa": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ipa.executor": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ipa.options": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ipa.outputs": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ipa.options.command": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.build-ipa.options.cwd": [
+      "apps/rider-frontend/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  },
+  "libs/database": {
+    "root": [
+      "libs/database/project.json",
+      "nx/core/project-json"
+    ],
+    "name": [
+      "libs/database/project.json",
+      "nx/core/project-json"
+    ],
+    "$schema": [
+      "libs/database/project.json",
+      "nx/core/project-json"
+    ],
+    "sourceRoot": [
+      "libs/database/project.json",
+      "nx/core/project-json"
+    ],
+    "projectType": [
+      "libs/database/project.json",
+      "nx/core/project-json"
+    ],
+    "tags": [
+      "libs/database/project.json",
+      "nx/core/project-json"
+    ],
+    "targets": [
+      "libs/database/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint": [
+      "libs/database/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.executor": [
+      "libs/database/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.outputs": [
+      "libs/database/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test": [
+      "libs/database/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.executor": [
+      "libs/database/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.outputs": [
+      "libs/database/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options": [
+      "libs/database/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.test.options.jestConfig": [
+      "libs/database/project.json",
+      "nx/core/project-json"
+    ],
+    "targets.lint.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.lint.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.inputs": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.cache": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.options.passWithNoTests": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci.ci": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.configurations.ci.codeCoverage": [
+      "nx.json",
+      "nx/target-defaults"
+    ],
+    "targets.test.parallelism": [
+      "nx.json",
+      "nx/target-defaults"
+    ]
+  }
+}

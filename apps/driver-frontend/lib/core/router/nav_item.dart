@@ -134,7 +134,8 @@ extension NavItemX on NavItem {
               height: 100,
             ),
           ),
-          applicationVersion: "${platformInfo.version} (Build ${platformInfo.buildNumber})",
+          applicationVersion:
+              "${platformInfo.version} (Build ${platformInfo.buildNumber})",
           applicationName: Env.appName,
           // ignore: use_build_context_synchronously
           applicationLegalese: context.translate.copyright_notice(

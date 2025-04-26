@@ -19,8 +19,10 @@ class ScheduledRidesRepositoryImpl implements ScheduledRidesRepository {
 
   @override
   Future<Either<Failure, List<OrderCompactEntity>>> getUpcomingRides() async {
-    final result = await graphQLDatasource.query(Options$Query$ScheduledRides());
-    return result.map((r) => r.orders.edges.map((e) => e.node.toCompactEntity).toList());
+    final result =
+        await graphQLDatasource.query(Options$Query$ScheduledRides());
+    return result
+        .map((r) => r.orders.edges.map((e) => e.node.toCompactEntity).toList());
   }
 
   @override

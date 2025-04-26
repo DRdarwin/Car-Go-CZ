@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:rider_flutter/core/extensions/extensions.dart';
 
-enum WalletDeductTransactionType { orderFee, parkingFee, cancellationFee, withdraw, correction }
+enum WalletDeductTransactionType {
+  orderFee,
+  parkingFee,
+  cancellationFee,
+  withdraw,
+  correction
+}
 
 extension WalletDeductTransactionTypeX on WalletDeductTransactionType {
   IconData get icon {

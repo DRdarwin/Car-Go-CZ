@@ -20,7 +20,9 @@ class AppCardSheet extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 10),
       decoration: context.responsive(
         BoxDecoration(
-          borderRadius: isFullScreen ? null : const BorderRadius.vertical(top: Radius.circular(30)),
+          borderRadius: isFullScreen
+              ? null
+              : const BorderRadius.vertical(top: Radius.circular(30)),
           color: ColorPalette.neutralVariant99,
           boxShadow: isFullScreen
               ? null

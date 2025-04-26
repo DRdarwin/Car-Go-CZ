@@ -55,13 +55,16 @@ class _EnterPasswordFormState extends State<EnterPasswordForm> {
                         onChanged: (value) => setState(() => password = value),
                         obscureText: !showPassword,
                         decoration: InputDecoration(
-                          errorText: state.loginPage.state.mapOrNull(error: (value) => value.errorMessage),
+                          errorText: state.loginPage.state
+                              .mapOrNull(error: (value) => value.errorMessage),
                           hintText: context.translate.enterPassword,
                           suffixIcon: CupertinoButton(
-                            onPressed: () => setState(() => showPassword = !showPassword),
+                            onPressed: () =>
+                                setState(() => showPassword = !showPassword),
                             child: Icon(
                               Ionicons.eye,
-                              color: context.theme.inputDecorationTheme.suffixIconColor,
+                              color: context
+                                  .theme.inputDecorationTheme.suffixIconColor,
                             ),
                           ),
                         ),
@@ -73,7 +76,8 @@ class _EnterPasswordFormState extends State<EnterPasswordForm> {
             ),
             AppPrimaryButton(
               isDisabled: password.isEmpty || enterPassword.state.isLoading,
-              onPressed: () => locator<LoginBloc>().onPasswordSubmitted(password),
+              onPressed: () =>
+                  locator<LoginBloc>().onPasswordSubmitted(password),
               child: Text(context.translate.actionContinue),
             ),
             AppTextButton(

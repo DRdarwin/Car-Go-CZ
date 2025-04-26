@@ -2,7 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:driver_flutter/core/extensions/extensions.dart';
 
-enum WalletRechargeTransactionType { orderFee, bankTransfer, inAppPayment, gift, unknown }
+enum WalletRechargeTransactionType {
+  orderFee,
+  bankTransfer,
+  inAppPayment,
+  gift,
+  unknown
+}
 
 extension WalletRechargeTransactionTypeX on WalletRechargeTransactionType {
   IconData get icon {

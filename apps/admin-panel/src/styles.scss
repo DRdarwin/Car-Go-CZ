@@ -1,6 +1,24 @@
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+/* You can add global styles to this file, and also import other style files */
+
+// Import the base Ant Design theme structure (using the provided theme.less file)
+// IMPORTANT: Ensure your angular.json build configuration correctly handles .less imports if needed,
+// or adjust the import path/method accordingly. Standard SCSS might need configuration for Less.
+// If direct Less import causes issues, import the compiled CSS version of Ant Design instead.
+// @import 'src/themes/theme.less'; // Option 1: Import the provided Less file (may require build config)
+@import "~ng-zorro-antd/ng-zorro-antd.less"; // Option 2: Import ng-zorro default less directly
+
+// Define Cargo Corporate Colors
+$cargo-primary-blue: #005BBB;
+$cargo-accent-gold: #FFD500;
+
+@import '~@angular/cdk/overlay-prebuilt.css';
+@import '~leaflet/dist/leaflet.css'; // Keep Leaflet styles
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+//html, body { height: 100%; }
+//body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .ant-form-item {
   @apply mb-2;
@@ -8,6 +26,42 @@
 
 nz-table {
   @apply overflow-hidden;
+}
+
+// --- Cargo Theme Overrides ---
+
+// Override Ant Design primary color usages
+// Buttons
+.ant-btn-primary {
+  background-color: $cargo-primary-blue !important;
+  border-color: $cargo-primary-blue !important;
+  color: white !important;
+
+  &:hover,
+  &:focus {
+    background-color: lighten($cargo-primary-blue, 10%) !important;
+    border-color: lighten($cargo-primary-blue, 10%) !important;
+  }
+}
+
+// Links
+a {
+  color: $cargo-primary-blue !important;
+
+  &:hover {
+    color: lighten($cargo-primary-blue, 10%) !important;
+  }
+}
+
+// Menu Active Items (Example for sidebar menu)
+.ant-menu-inline .ant-menu-item::after {
+  border-right: 3px solid $cargo-primary-blue !important;
+}
+
+.ant-menu-sub.ant-menu-inline>.ant-menu-item-selected,
+.ant-menu-item-selected {
+  background-color: fade-out($cargo-primary-blue, 0.9) !important; // Light blue background
+  color: $cargo-primary-blue !important;
 }
 
 // Start Search Box
@@ -37,9 +91,11 @@ nz-table {
 .ant-statistic-content-suffix {
   font-size: 16px;
 }
+
 .ant-statistic-content-prefix .anticon {
   vertical-align: 0.07em !important;
 }
+
 // End Search Box
 
 * {
@@ -48,17 +104,17 @@ nz-table {
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
-  @apply bg-primary-500;
-}
+// button,
+// [type='button'],
+// [type='reset'],
+// [type='submit'] {
+//   @apply bg-primary-500; // Remove explicit override as .ant-btn-primary covers it
+// }
 
 .table-first-line {
   @apply text-sm text-neutral-700 dark:text-neutral-100 group-hover:text-neutral-900 dark:group-hover:text-neutral-400;
 }
 
 .table-second-line {
-  @apply text-sm text-neutral-400  group-hover:text-neutral-900 dark:group-hover:text-neutral-400;
+  @apply text-sm text-neutral-400 group-hover:text-neutral-900 dark:group-hover:text-neutral-400;
 }

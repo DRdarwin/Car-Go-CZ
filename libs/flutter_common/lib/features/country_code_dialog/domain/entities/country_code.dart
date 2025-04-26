@@ -23,14 +23,17 @@ class CountryCode with _$CountryCode {
 
   const CountryCode._();
 
-  factory CountryCode.fromJson(Map<String, dynamic> json) => _$CountryCodeFromJson(json);
+  factory CountryCode.fromJson(Map<String, dynamic> json) =>
+      _$CountryCodeFromJson(json);
 
   static CountryCode parseByIso(String iso) {
-    final result = countryCodes.firstWhere((element) => element['iso2CC'].toString().toLowerCase() == iso.toLowerCase());
+    final result = countryCodes.firstWhere((element) =>
+        element['iso2CC'].toString().toLowerCase() == iso.toLowerCase());
     return CountryCode.fromJson(result);
   }
 
-  static List<CountryCode> getAll() => countryCodes.map((e) => CountryCode.fromJson(e)).toList();
+  static List<CountryCode> getAll() =>
+      countryCodes.map((e) => CountryCode.fromJson(e)).toList();
 
   String get image {
     return 'assets/countries/${iso2CC.toLowerCase()}.svg.png';

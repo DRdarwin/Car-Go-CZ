@@ -18,9 +18,12 @@ class RateOrderRepositoryImpl implements RateOrderRepository {
   );
 
   @override
-  Future<Either<Failure, List<ReviewParameterEntity>>> getReviewParameters() async {
-    final result = await graphQLDatasource.query(Options$Query$ReviewParameters());
-    return result.map((r) => r.feedbackParameters.map((e) => e.toEntity).toList());
+  Future<Either<Failure, List<ReviewParameterEntity>>>
+      getReviewParameters() async {
+    final result =
+        await graphQLDatasource.query(Options$Query$ReviewParameters());
+    return result
+        .map((r) => r.feedbackParameters.map((e) => e.toEntity).toList());
   }
 
   @override

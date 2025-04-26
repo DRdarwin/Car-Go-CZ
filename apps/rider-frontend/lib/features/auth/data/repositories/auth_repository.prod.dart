@@ -40,7 +40,8 @@ class LoginRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, VerifyOtpResponse>> verifyOtp(String hash, String otp) async {
+  Future<Either<Failure, VerifyOtpResponse>> verifyOtp(
+      String hash, String otp) async {
     final result = await graphqlDatasource.mutate(
       Options$Mutation$VerifyOtp(
         fetchPolicy: FetchPolicy.noCache,
@@ -54,7 +55,8 @@ class LoginRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, VerifyOtpResponse>> verifyPassword(String mobileNumber, String password) async {
+  Future<Either<Failure, VerifyOtpResponse>> verifyPassword(
+      String mobileNumber, String password) async {
     final result = await graphqlDatasource.mutate(
       Options$Mutation$VerifyPassword(
         fetchPolicy: FetchPolicy.noCache,
@@ -68,7 +70,8 @@ class LoginRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, VerifyNumberResponse>> resendOtp(String mobileNumber) async {
+  Future<Either<Failure, VerifyNumberResponse>> resendOtp(
+      String mobileNumber) async {
     final result = await graphqlDatasource.mutate(
       Options$Mutation$ResendOtp(
         fetchPolicy: FetchPolicy.noCache,
@@ -82,7 +85,8 @@ class LoginRepositoryImpl implements AuthRepository {
   }
 
   @override
-  Future<Either<Failure, VerifyOtpResponse>> setPassword(String password) async {
+  Future<Either<Failure, VerifyOtpResponse>> setPassword(
+      String password) async {
     final result = await graphqlDatasource.mutate(
       Options$Mutation$SetPassword(
         fetchPolicy: FetchPolicy.noCache,

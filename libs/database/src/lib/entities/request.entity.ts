@@ -1,3 +1,4 @@
+// libs/database/src/lib/entities/request.entity.ts
 import {
   Column,
   CreateDateColumn,
@@ -33,6 +34,7 @@ import { OrderCancelReasonEntity } from './order-cancel-reason.entity';
 import { PaymentMode } from './enums/payment-mode.enum';
 import { SavedPaymentMethodEntity } from './saved-payment-method.entity';
 import { RiderReviewEntity } from './rider-review.entity';
+import { VehicleType } from './enums/vehicle-type.enum'; // NEW: Import VehicleType enum
 
 @Entity('request')
 export class RequestEntity {
@@ -298,4 +300,18 @@ export class RequestEntity {
 
   @OneToOne(() => RiderReviewEntity, (review) => review.request)
   driverReviewForRider?: RiderReviewEntity;
+
+  // NEW: Add vehicleType field
+  @Column('enum', {
+    enum: VehicleType,
+    nullable: true, // Або false, якщо тип транспорту завжди має бути вказаний при створенні
+  })
+  vehicleType?: VehicleType;
+
+  // NEW: Add loadersCount field
+  @Column('int', {
+    default: 0, // За замовчуванням вантажники не потрібні
+    comment: 'Number of loaders requested (0, 1, 2, etc.)'
+  })
+  loadersCount!: number;
 }

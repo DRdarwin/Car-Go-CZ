@@ -33,7 +33,9 @@ class AppStepSlider extends StatelessWidget {
                     height: 4,
                     margin: const EdgeInsets.symmetric(horizontal: 2),
                     decoration: BoxDecoration(
-                      color: index == currentStep ? context.colorScheme.primary : context.colorScheme.primaryContainer,
+                      color: index == currentStep
+                          ? context.colorScheme.primary
+                          : context.colorScheme.primaryContainer,
                       borderRadius: BorderRadius.circular(2),
                     ),
                     duration: const Duration(milliseconds: 300),

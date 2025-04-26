@@ -53,7 +53,8 @@ class _ScheduledRidesScreenState extends State<ScheduledRidesScreen> {
               ),
               const SizedBox(height: 24),
               Expanded(
-                child: BlocBuilder<ScheduledRidesBloc, ScheduledRidesState>(builder: (context, state) {
+                child: BlocBuilder<ScheduledRidesBloc, ScheduledRidesState>(
+                    builder: (context, state) {
                   return AnimatedSwitcher(
                     duration: AnimationDuration.pageStateTransitionDesktop,
                     child: state.map(

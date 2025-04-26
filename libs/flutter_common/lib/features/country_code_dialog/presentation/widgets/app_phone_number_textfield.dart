@@ -43,7 +43,8 @@ class AppPhoneNumberTextField extends StatelessWidget {
                   decoration: BoxDecoration(
                     color: context.theme.inputDecorationTheme.fillColor,
                     border: Border.all(
-                      color: context.theme.inputDecorationTheme.enabledBorder!.borderSide.color,
+                      color: context.theme.inputDecorationTheme.enabledBorder!
+                          .borderSide.color,
                       width: 1,
                     ),
                     borderRadius: BorderRadius.circular(12),

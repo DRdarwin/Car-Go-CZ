@@ -28,14 +28,17 @@ class VehicleDetails extends StatelessWidget {
                 children: [
                   Text(
                     "In order to change these information later you have to contact support",
-                    style: context.bodyMedium?.copyWith(color: context.theme.colorScheme.onSurfaceVariant),
+                    style: context.bodyMedium?.copyWith(
+                        color: context.theme.colorScheme.onSurfaceVariant),
                   ),
                   const SizedBox(
                     height: 16,
                   ),
                   TextFormField(
                     initialValue: state.profileFullEntity?.vehiclePlateNumber,
-                    validator: (value) => value?.isEmpty == true ? context.translate.fieldIsRequired : null,
+                    validator: (value) => value?.isEmpty == true
+                        ? context.translate.fieldIsRequired
+                        : null,
                     onSaved: loginBloc.onPlateNumberChanged,
                     decoration: InputDecoration(
                       hintText: context.translate.vehiclePlateNumber,
@@ -46,10 +49,14 @@ class VehicleDetails extends StatelessWidget {
                   ),
                   TextFormField(
                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                    initialValue: state.profileFullEntity?.vehicleProductionYear?.toString(),
-                    validator: (value) => value?.isEmpty == true ? context.translate.fieldIsRequired : null,
+                    initialValue: state.profileFullEntity?.vehicleProductionYear
+                        ?.toString(),
+                    validator: (value) => value?.isEmpty == true
+                        ? context.translate.fieldIsRequired
+                        : null,
                     onSaved: (value) => (value?.isNotEmpty ?? false)
-                        ? loginBloc.onVehicleProductionYearChanged(int.parse(value!))
+                        ? loginBloc
+                            .onVehicleProductionYearChanged(int.parse(value!))
                         : null,
                     decoration: InputDecoration(
                       hintText: context.translate.vehicleProductionYear,
@@ -72,7 +79,8 @@ class VehicleDetails extends StatelessWidget {
                         )
                         .toList(),
                     onChanged: (_) {},
-                    onSaved: (newValue) => loginBloc.onVehicleModelIdChanged(newValue),
+                    onSaved: (newValue) =>
+                        loginBloc.onVehicleModelIdChanged(newValue),
                     decoration: InputDecoration(
                       hintText: context.translate.vehicleModelAndMake,
                     ),
@@ -94,7 +102,8 @@ class VehicleDetails extends StatelessWidget {
                         )
                         .toList(),
                     onChanged: (_) {},
-                    onSaved: (newValue) => loginBloc.onVehicleColorIdChanged(newValue),
+                    onSaved: (newValue) =>
+                        loginBloc.onVehicleColorIdChanged(newValue),
                     decoration: InputDecoration(
                       hintText: context.translate.vehicleColor,
                     ),

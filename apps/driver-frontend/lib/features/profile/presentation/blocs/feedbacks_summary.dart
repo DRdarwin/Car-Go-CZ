@@ -11,7 +11,8 @@ part 'feedbacks_summary.freezed.dart';
 @lazySingleton
 class FeedbacksSummaryCubit extends Cubit<FeedbacksSummaryState> {
   final ProfileRepository _repository;
-  FeedbacksSummaryCubit(this._repository) : super(const FeedbacksSummaryState.initial());
+  FeedbacksSummaryCubit(this._repository)
+      : super(const FeedbacksSummaryState.initial());
 
   void load() async {
     emit(const FeedbacksSummaryState.loading());
@@ -19,7 +20,8 @@ class FeedbacksSummaryCubit extends Cubit<FeedbacksSummaryState> {
     final result = await _repository.getFeedbacksSummary();
 
     result.fold(
-      (failure) => emit(FeedbacksSummaryState.error(errorMessage: failure.toString())),
+      (failure) =>
+          emit(FeedbacksSummaryState.error(errorMessage: failure.toString())),
       (summary) {
         if (summary.averageRating == null) {
           emit(const FeedbacksSummaryState.empty());

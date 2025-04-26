@@ -15,7 +15,8 @@ class AppCountryCodeListDialog extends StatefulWidget {
   });
 
   @override
-  State<AppCountryCodeListDialog> createState() => _AppCountryCodeListDialogState();
+  State<AppCountryCodeListDialog> createState() =>
+      _AppCountryCodeListDialogState();
 }
 
 class _AppCountryCodeListDialogState extends State<AppCountryCodeListDialog> {

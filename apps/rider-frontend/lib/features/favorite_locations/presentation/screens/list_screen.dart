@@ -17,10 +17,12 @@ class FavoriteLocationsListScreen extends StatefulWidget {
   const FavoriteLocationsListScreen({super.key});
 
   @override
-  State<FavoriteLocationsListScreen> createState() => _FavoriteLocationsListScreenState();
+  State<FavoriteLocationsListScreen> createState() =>
+      _FavoriteLocationsListScreenState();
 }
 
-class _FavoriteLocationsListScreenState extends State<FavoriteLocationsListScreen> {
+class _FavoriteLocationsListScreenState
+    extends State<FavoriteLocationsListScreen> {
   @override
   void initState() {
     locator<FavoriteLocationsCubit>().onStarted();
@@ -46,7 +48,8 @@ class _FavoriteLocationsListScreenState extends State<FavoriteLocationsListScree
             ),
             const SizedBox(height: 32),
             Expanded(
-              child: BlocConsumer<FavoriteLocationsCubit, FavoriteLocationsState>(
+              child:
+                  BlocConsumer<FavoriteLocationsCubit, FavoriteLocationsState>(
                 listener: (context, state) {
                   state.mapOrNull(
                     loaded: (loaded) {
@@ -66,7 +69,8 @@ class _FavoriteLocationsListScreenState extends State<FavoriteLocationsListScree
                     duration: AnimationDuration.pageStateTransitionMobile,
                     child: state.map(
                       initial: (_) => const SizedBox(),
-                      loading: (_) => Assets.lottie.loading.lottie(width: double.infinity, height: 300),
+                      loading: (_) => Assets.lottie.loading
+                          .lottie(width: double.infinity, height: 300),
                       error: (error) => Text(error.message),
                       loaded: (loaded) => Column(
                         children: [
@@ -83,7 +87,9 @@ class _FavoriteLocationsListScreenState extends State<FavoriteLocationsListScree
                                         type: e.$1,
                                         showArrow: true,
                                         onPressed: () async {
-                                          PageRouteInfo route = AddFavoriteLocationRoute(defaultAddressType: e.$1);
+                                          PageRouteInfo route =
+                                              AddFavoriteLocationRoute(
+                                                  defaultAddressType: e.$1);
                                           await context.router.push(
                                             e.$2 == null
                                                 ? route
@@ -91,7 +97,8 @@ class _FavoriteLocationsListScreenState extends State<FavoriteLocationsListScree
                                                     entity: e.$2!,
                                                   ),
                                           );
-                                          locator<FavoriteLocationsCubit>().onStarted();
+                                          locator<FavoriteLocationsCubit>()
+                                              .onStarted();
                                         },
                                       ),
                                       const Divider(
@@ -108,7 +115,8 @@ class _FavoriteLocationsListScreenState extends State<FavoriteLocationsListScree
                                         defaultAddressType: null,
                                       ),
                                     );
-                                    locator<FavoriteLocationsCubit>().onStarted();
+                                    locator<FavoriteLocationsCubit>()
+                                        .onStarted();
                                   },
                                 )
                               ],

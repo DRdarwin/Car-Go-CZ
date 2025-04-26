@@ -14,7 +14,8 @@ class DriverLocation with _$DriverLocation {
     required int? rotation,
   }) = _DriverLocation;
 
-  factory DriverLocation.fromJson(Map<String, dynamic> json) => _$DriverLocationFromJson(json);
+  factory DriverLocation.fromJson(Map<String, dynamic> json) =>
+      _$DriverLocationFromJson(json);
 
   const DriverLocation._();
 

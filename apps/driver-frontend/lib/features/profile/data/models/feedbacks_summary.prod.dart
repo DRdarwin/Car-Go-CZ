@@ -9,7 +9,8 @@ extension FeedbacksSummaryGql on Query$FeedbacksSummary {
         averageRating: feedbacksSummary.averageRating,
         goodPoints: feedbacksSummary.goodPoints,
         badPoints: feedbacksSummary.badPoints,
-        goodReviews: feedbacksSummary.goodReviews.map((e) => e.toEntity).toList());
+        goodReviews:
+            feedbacksSummary.goodReviews.map((e) => e.toEntity).toList());
   }
 }
 

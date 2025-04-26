@@ -10,5 +10,6 @@ class VehicleModelEntity with _$VehicleModelEntity {
     required String name,
   }) = _VehicleModelEntity;
 
-  factory VehicleModelEntity.fromJson(Map<String, dynamic> json) => _$VehicleModelEntityFromJson(json);
+  factory VehicleModelEntity.fromJson(Map<String, dynamic> json) =>
+      _$VehicleModelEntityFromJson(json);
 }

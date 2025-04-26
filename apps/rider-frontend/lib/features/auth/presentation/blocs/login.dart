@@ -23,7 +23,9 @@ class LoginBloc extends Cubit<LoginState> {
       state.copyWith(
         loginPage: response.hasPassword == false
             ? const LoginPage.setPassword()
-            : (response.hasName == false ? const LoginPage.enterName() : const LoginPage.success()),
+            : (response.hasName == false
+                ? const LoginPage.enterName()
+                : const LoginPage.success()),
         jwtToken: response.jwtToken,
         profile: response.profile,
       ),

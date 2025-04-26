@@ -16,7 +16,8 @@ class SelectProfileImageDialog extends StatefulWidget {
   const SelectProfileImageDialog({super.key});
 
   @override
-  State<SelectProfileImageDialog> createState() => _SelectProfileImageDialogState();
+  State<SelectProfileImageDialog> createState() =>
+      _SelectProfileImageDialogState();
 }
 
 class _SelectProfileImageDialogState extends State<SelectProfileImageDialog> {
@@ -29,9 +30,11 @@ class _SelectProfileImageDialogState extends State<SelectProfileImageDialog> {
     avatar = locator<AuthBloc>().state.map(
           authenticated: (authenticated) {
             if (authenticated.profile.profileImage != null) {
-              return dartz.Some(dartz.Right(authenticated.profile.profileImage!));
+              return dartz.Some(
+                  dartz.Right(authenticated.profile.profileImage!));
             } else if (authenticated.profile.presetProfileImage != null) {
-              return dartz.Some(dartz.Left(authenticated.profile.presetProfileImage!));
+              return dartz.Some(
+                  dartz.Left(authenticated.profile.presetProfileImage!));
             } else {
               return dartz.none();
             }
@@ -102,7 +105,8 @@ class _SelectProfileImageDialogState extends State<SelectProfileImageDialog> {
                   },
                   uploadButtonText: context.translate.uploadImage,
                   fileUploader: (path) {
-                    return locator<UploadDatasource>().uploadProfilePicture(path);
+                    return locator<UploadDatasource>()
+                        .uploadProfilePicture(path);
                   },
                 ),
                 const SizedBox(
@@ -123,8 +127,10 @@ class _SelectProfileImageDialogState extends State<SelectProfileImageDialog> {
                         for (var i = 1; i <= 30; i++)
                           PresetAvatarItem(
                             index: i,
-                            onPressed: (value) => state.didChange(dartz.left(value)),
-                            selectedIndex: state.value?.fold((l) => l, (r) => null),
+                            onPressed: (value) =>
+                                state.didChange(dartz.left(value)),
+                            selectedIndex:
+                                state.value?.fold((l) => l, (r) => null),
                           )
                       ],
                     ),

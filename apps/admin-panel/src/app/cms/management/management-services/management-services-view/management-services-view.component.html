@@ -34,7 +34,25 @@
               </nz-input-number>
             </nz-form-control>
           </nz-form-item>
-          <nz-form-item>
+
+           <nz-form-item>
+             <nz-form-label>Vehicle Type (Placeholder)</nz-form-label>
+             <nz-form-control>
+               <nz-select formControlName="vehicleType_placeholder" placeholder="Select Vehicle Type">
+                  <nz-option nzLabel="Pickup" nzValue="pickup"></nz-option>
+                  <nz-option nzLabel="Van" nzValue="van"></nz-option>
+                  <nz-option nzLabel="Truck" nzValue="truck"></nz-option>
+                  <nz-option nzLabel="Covered Truck" nzValue="covered-truck"></nz-option>
+                </nz-select>
+             </nz-form-control>
+           </nz-form-item>
+           <nz-form-item>
+              <nz-form-label>Loaders Count Cost (Placeholder)</nz-form-label>
+              <nz-form-control>
+                <nz-input-number formControlName="loadersCost_placeholder" placeholder="Cost per loader" [nzMin]="0" [nzFormatter]="formatterPrice"></nz-input-number>
+              </nz-form-control>
+            </nz-form-item>
+           <nz-form-item>
             <nz-form-label nzFor="baseFare" nzRequired>Base Fare</nz-form-label>
             <nz-form-control>
               <nz-input-number formControlName="baseFare" id="baseFare" nzRequired [nzFormatter]="formatterPrice">

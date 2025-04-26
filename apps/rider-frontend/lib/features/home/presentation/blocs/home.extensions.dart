@@ -34,7 +34,8 @@ extension HomeStateX on HomeState {
           }
           final arrivedToWaypointIndex = value.order.arrivedAtWaypointIndex;
           if (arrivedToWaypointIndex != null && arrivedToWaypointIndex >= 0) {
-            markers.add(value.order.waypoints[arrivedToWaypointIndex + 1].markerDropoff());
+            markers.add(value.order.waypoints[arrivedToWaypointIndex + 1]
+                .markerDropoff());
           } else {
             markers.add(value.order.waypoints.first.markerPickup());
           }

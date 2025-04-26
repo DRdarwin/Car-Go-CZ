@@ -12,5 +12,6 @@ class AnnouncementEntity with _$AnnouncementEntity {
     required String? url,
   }) = _AnnouncementEntity;
 
-  factory AnnouncementEntity.fromJson(Map<String, dynamic> json) => _$AnnouncementEntityFromJson(json);
+  factory AnnouncementEntity.fromJson(Map<String, dynamic> json) =>
+      _$AnnouncementEntityFromJson(json);
 }

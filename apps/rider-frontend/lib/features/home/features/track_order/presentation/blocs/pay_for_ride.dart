@@ -15,7 +15,8 @@ class PayForRideCubit extends Cubit<PayForRideState> {
   final TrackOrderRepository _repository;
   final WalletRepository _walletRepository;
 
-  PayForRideCubit(this._repository, this._walletRepository) : super(const PayForRideInitial());
+  PayForRideCubit(this._repository, this._walletRepository)
+      : super(const PayForRideInitial());
 
   void load({
     required PaymentMethodUnion? selectedPaymentMethod,
@@ -28,7 +29,9 @@ class PayForRideCubit extends Cubit<PayForRideState> {
       (paymentMethods) => emit(
         PayForRideState.loaded(
           selectedPaymentMethod: selectedPaymentMethod ??
-              (walletCreditSufficient ? const PaymentMethodUnion.wallet() : const PaymentMethodUnion.cash()),
+              (walletCreditSufficient
+                  ? const PaymentMethodUnion.wallet()
+                  : const PaymentMethodUnion.cash()),
           paymentMethods: [
             if (walletCreditSufficient) const PaymentMethodUnion.wallet(),
             ...paymentMethods,

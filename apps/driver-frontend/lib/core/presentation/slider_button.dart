@@ -25,7 +25,8 @@ class SliderButton extends StatefulWidget {
   State<SliderButton> createState() => _SliderButtonState();
 }
 
-class _SliderButtonState extends State<SliderButton> with SingleTickerProviderStateMixin {
+class _SliderButtonState extends State<SliderButton>
+    with SingleTickerProviderStateMixin {
   double _sliderRelativePosition = 0.0; // values 0 -> 1
   double _startedDraggingAtX = 0.0;
   late final AnimationController _animationController;
@@ -41,7 +42,8 @@ class _SliderButtonState extends State<SliderButton> with SingleTickerProviderSt
       vsync: this,
       duration: widget.animationDuration,
     );
-    _sliderAnimation = CurveTween(curve: Curves.easeInQuad).animate(_animationController);
+    _sliderAnimation =
+        CurveTween(curve: Curves.easeInQuad).animate(_animationController);
 
     _animationController.addListener(() {
       setState(() {
@@ -66,7 +68,9 @@ class _SliderButtonState extends State<SliderButton> with SingleTickerProviderSt
       padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(12),
-        color: widget.enabled ? ColorPalette.primary40 : Theme.of(context).disabledColor,
+        color: widget.enabled
+            ? ColorPalette.primary40
+            : Theme.of(context).disabledColor,
       ),
       child: LayoutBuilder(
         builder: (_, BoxConstraints constraints) {
@@ -75,7 +79,9 @@ class _SliderButtonState extends State<SliderButton> with SingleTickerProviderSt
           final sliderPosX = sliderMaxX * _sliderRelativePosition;
           return Stack(
             children: [
-              _buildBackground(width: constraints.maxWidth, backgroundSplitX: sliderPosX + sliderRadius),
+              _buildBackground(
+                  width: constraints.maxWidth,
+                  backgroundSplitX: sliderPosX + sliderRadius),
               _buildText(),
               _buildSlider(sliderMaxX: sliderMaxX, sliderPositionX: sliderPosX),
             ],
@@ -85,7 +91,8 @@ class _SliderButtonState extends State<SliderButton> with SingleTickerProviderSt
     );
   }
 
-  Widget _buildBackground({required double width, required double backgroundSplitX}) {
+  Widget _buildBackground(
+      {required double width, required double backgroundSplitX}) {
     return Row(
       children: [
         SizedBox(
@@ -115,7 +122,8 @@ class _SliderButtonState extends State<SliderButton> with SingleTickerProviderSt
     );
   }
 
-  Widget _buildSlider({required double sliderMaxX, required double sliderPositionX}) {
+  Widget _buildSlider(
+      {required double sliderMaxX, required double sliderPositionX}) {
     return Positioned(
       left: sliderPositionX,
       child: GestureDetector(
@@ -130,7 +138,8 @@ class _SliderButtonState extends State<SliderButton> with SingleTickerProviderSt
           if (!widget.enabled) {
             return;
           }
-          final newSliderPositionX = _startedDraggingAtX + update.localPosition.dx;
+          final newSliderPositionX =
+              _startedDraggingAtX + update.localPosition.dx;
           final newSliderRelativePosition = newSliderPositionX / sliderMaxX;
           setState(() {
             _sliderRelativePosition = max(0, min(1, newSliderRelativePosition));

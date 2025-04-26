@@ -1,7 +1,14 @@
-import { InputType } from '@nestjs/graphql';
+// admin-api/src/app/service/dto/service-category.input.ts
+import { Field, InputType } from '@nestjs/graphql'; // Додано Field
 
 @InputType()
 export class ServiceCategoryInput {
+  @Field()
   name!: string;
-  enabled?: boolean;
+
+  @Field({ nullable: true, description: 'Детальний опис категорії' })
+  description?: string; // Додано опціональний опис
+
+  @Field({ defaultValue: true, description: 'Чи активна категорія' }) // За замовчуванням активна
+  enabled: boolean;
 }

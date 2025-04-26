@@ -9,7 +9,8 @@ import 'package:injectable/injectable.dart';
 @LazySingleton(as: RateOrderRepository)
 class RateOrderRepositoryMock implements RateOrderRepository {
   @override
-  Future<Either<Failure, List<ReviewParameterEntity>>> getReviewParameters() async {
+  Future<Either<Failure, List<ReviewParameterEntity>>>
+      getReviewParameters() async {
     return const Right(
       [
         ReviewParameterEntity(id: "1", name: "Safe", isGood: true),

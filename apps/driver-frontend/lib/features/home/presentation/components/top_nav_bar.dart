@@ -111,14 +111,18 @@ class TopNavBar extends StatelessWidget {
                         onChanged: (_) async {
                           final homeBloc = locator<HomeBloc>();
 
-                          final locationDatsource = locator<LocationDatasource>();
-                          final locationPermissionGranted = await locationDatsource.getLocationPermissionStatus();
+                          final locationDatsource =
+                              locator<LocationDatasource>();
+                          final locationPermissionGranted =
+                              await locationDatsource
+                                  .getLocationPermissionStatus();
                           switch (locationPermissionGranted) {
                             case LocationPermission.denied:
                               final permissionResult = await showDialog(
                                 context: context,
                                 useSafeArea: false,
-                                builder: (context) => const LocationPermissionRequestDialog(),
+                                builder: (context) =>
+                                    const LocationPermissionRequestDialog(),
                               );
                               if (permissionResult == false) {
                                 return;
@@ -127,7 +131,8 @@ class TopNavBar extends StatelessWidget {
                               showDialog(
                                 context: context,
                                 useSafeArea: false,
-                                builder: (context) => const LocationPermissionDeniedForeverDialog(),
+                                builder: (context) =>
+                                    const LocationPermissionDeniedForeverDialog(),
                               );
                               return;
                             case LocationPermission.whileInUse:
@@ -140,11 +145,14 @@ class TopNavBar extends StatelessWidget {
                             case LocationPermission.always:
                               break;
                           }
-                          final locationServiceEnabled = await locationDatsource.isLocationServiceEnabled();
+                          final locationServiceEnabled = await locationDatsource
+                              .isLocationServiceEnabled();
                           if (locationServiceEnabled) {
-                            homeBloc.onStatusChanged(const DriverStatus.online());
+                            homeBloc
+                                .onStatusChanged(const DriverStatus.online());
                           } else {
-                            final serviceEnabled = await locationDatsource.requestLocationService();
+                            final serviceEnabled = await locationDatsource
+                                .requestLocationService();
                             if (!serviceEnabled) {
                               return;
                             }

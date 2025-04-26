@@ -17,8 +17,7 @@ import {
 import { RouterHelperService } from '@ridy/admin-panel/src/app/@services/router-helper.service';
 import { environment } from '@ridy/admin-panel/src/environments/environment';
 import {
-  NzDatePickerComponent,
-  NzRangePickerComponent,
+  NzDatePickerComponent
 } from 'ng-zorro-antd/date-picker';
 import { NzInputNumberComponent } from 'ng-zorro-antd/input-number';
 import { NzMessageService } from 'ng-zorro-antd/message';
@@ -65,6 +64,9 @@ export class ManagementServicesViewComponent implements OnInit {
     dateRangeMultipliers: [[]],
     regions: [[]],
     options: [[]],
+    // Placeholder form controls
+    vehicleType_placeholder: [null],
+    loadersCost_placeholder: [null],
   });
   root = environment.root;
   loadingUpload = false;
@@ -93,20 +95,24 @@ export class ManagementServicesViewComponent implements OnInit {
   @ViewChild('dateRangeMultiplyInput', { static: false })
   dateRangeMultiplyInput!: NzInputNumberComponent;
 
-  Weekdays = Object.values(Weekday).map((key) => ({
-    label: this.translate.instant(`weekday.${key.toLowerCase()}`),
-    value: key,
-  }));
+  get Weekdays() {
+    return Object.values(Weekday).map((key) => ({
+      label: this.translate.instant(`weekday.${key.toLowerCase()}`),
+      value: key,
+    }));
+  }
 
-  WeekdayNames = {
-    [Weekday.Monday]: this.translate.instant('weekday.monday'),
-    [Weekday.Tuesday]: this.translate.instant('weekday.tuesday'),
-    [Weekday.Wednesday]: this.translate.instant('weekday.wednesday'),
-    [Weekday.Thursday]: this.translate.instant('weekday.thursday'),
-    [Weekday.Friday]: this.translate.instant('weekday.friday'),
-    [Weekday.Saturday]: this.translate.instant('weekday.saturday'),
-    [Weekday.Sunday]: this.translate.instant('weekday.sunday'),
-  };
+  get WeekdayNames() {
+    return {
+      [Weekday.Monday]: this.translate.instant('weekday.monday'),
+      [Weekday.Tuesday]: this.translate.instant('weekday.tuesday'),
+      [Weekday.Wednesday]: this.translate.instant('weekday.wednesday'),
+      [Weekday.Thursday]: this.translate.instant('weekday.thursday'),
+      [Weekday.Friday]: this.translate.instant('weekday.friday'),
+      [Weekday.Saturday]: this.translate.instant('weekday.saturday'),
+      [Weekday.Sunday]: this.translate.instant('weekday.sunday'),
+    };
+  }
 
   formatterPercent = (value: number) => `${value} %`;
   parserPercent = (value: string) => value.replace(' %', '');
@@ -146,7 +152,7 @@ export class ManagementServicesViewComponent implements OnInit {
     private msg: NzMessageService,
     private routerHelper: RouterHelperService,
     private translate: TranslateService
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.query = this.route.data.pipe(map((data) => data.service));
@@ -170,7 +176,8 @@ export class ManagementServicesViewComponent implements OnInit {
   }
 
   async onSubmit() {
-    const { id, regions, options, ...input } = this.form.value;
+    // Exclude placeholder fields from submission until backend ready
+    const { id, regions, options, vehicleType_placeholder, loadersCost_placeholder, ...input } = this.form.value;
     console.log(input);
     if (regions.length < 1) {
       this.msg.error(

@@ -11,11 +11,14 @@ class SettingsState with _$SettingsState {
         locale: 'en',
       );
 
-  factory SettingsState.fromJson(Map<String, dynamic> json) => _$SettingsStateFromJson(json);
+  factory SettingsState.fromJson(Map<String, dynamic> json) =>
+      _$SettingsStateFromJson(json);
 
   const SettingsState._();
 
-  MapProviderEnum get mapProviderEnum => mapProvider ?? Constants.defaultMapProvider;
+  MapProviderEnum get mapProviderEnum =>
+      mapProvider ?? Constants.defaultMapProvider;
 
-  MapProvider get provider => (mapProvider ?? Constants.defaultMapProvider).providerObject;
+  MapProvider get provider =>
+      (mapProvider ?? Constants.defaultMapProvider).providerObject;
 }

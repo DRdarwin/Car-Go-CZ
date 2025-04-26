@@ -144,12 +144,14 @@ class RideHistoryDetailsSheet extends StatelessWidget {
               icon: const Icon(Ionicons.map, color: ColorPalette.neutral70),
             ),
             SmallChip(
-              text: context.translate.durationInMinutes(entity.durationBest ~/ 60),
+              text: context.translate
+                  .durationInMinutes(entity.durationBest ~/ 60),
               icon: const Icon(Ionicons.time, color: ColorPalette.neutral70),
             ),
             SmallChip(
               text: entity.paymentMethodUnion.name(context),
-              icon: entity.paymentMethodUnion.icon(color: ColorPalette.neutral70),
+              icon:
+                  entity.paymentMethodUnion.icon(color: ColorPalette.neutral70),
             ),
           ],
         ),
@@ -161,7 +163,9 @@ class RideHistoryDetailsSheet extends StatelessWidget {
           startedAt: entity.startedAt,
           finishedAt: entity.endedAt,
         ),
-        if (entity.rideOptions.isNotEmpty || entity.waitTime > 0 || entity.isTwoWayTrip) ...[
+        if (entity.rideOptions.isNotEmpty ||
+            entity.waitTime > 0 ||
+            entity.isTwoWayTrip) ...[
           const Divider(
             height: 24,
           ),
@@ -180,8 +184,10 @@ class RideHistoryDetailsSheet extends StatelessWidget {
                     (e) => SquareIconChip(icon: e.icon.icon),
                   )
                       .followedBy([
-                    if (entity.waitTime > 0) const SquareIconChip(icon: Ionicons.time),
-                    if (entity.isTwoWayTrip) const SquareIconChip(icon: Ionicons.repeat),
+                    if (entity.waitTime > 0)
+                      const SquareIconChip(icon: Ionicons.time),
+                    if (entity.isTwoWayTrip)
+                      const SquareIconChip(icon: Ionicons.repeat),
                   ]).toList(),
                 ),
               )

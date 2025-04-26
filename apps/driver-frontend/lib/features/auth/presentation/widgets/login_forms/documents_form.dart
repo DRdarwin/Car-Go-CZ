@@ -38,11 +38,15 @@ class DocumentsForm extends StatelessWidget {
                     height: 16,
                   ),
                   UploadImageField(
-                    validator: (p0) => p0 == null ? "Please upload your profile picture" : null,
+                    validator: (p0) => p0 == null
+                        ? "Please upload your profile picture"
+                        : null,
                     initialValue: state.profileFullEntity?.profilePicture,
-                    onSaved: (value) => locator<LoginBloc>().onProfilePhotoChanged(value),
+                    onSaved: (value) =>
+                        locator<LoginBloc>().onProfilePhotoChanged(value),
                     uploadButtonText: context.translate.uploadImage,
-                    fileUploader: locator<UploadDatasource>().uploadProfilePicture,
+                    fileUploader:
+                        locator<UploadDatasource>().uploadProfilePicture,
                   ),
                   const SizedBox(
                     height: 28,
@@ -65,7 +69,8 @@ class DocumentsForm extends StatelessWidget {
                     alignment: Alignment.centerLeft,
                     child: FormField<List<MediaEntity>>(
                       initialValue: state.profileFullEntity?.documents ?? [],
-                      onSaved: (newValue) => locator<LoginBloc>().setDocuments(newValue ?? []),
+                      onSaved: (newValue) =>
+                          locator<LoginBloc>().setDocuments(newValue ?? []),
                       builder: (fieldState) => Wrap(
                         spacing: 16,
                         runSpacing: 16,
@@ -81,21 +86,25 @@ class DocumentsForm extends StatelessWidget {
                                       fieldState.didChange(fieldState.value);
                                     }
                                   },
-                                  uploadButtonText: context.translate.uploadImage,
-                                  fileUploader: locator<UploadDatasource>().uploadDocument,
+                                  uploadButtonText:
+                                      context.translate.uploadImage,
+                                  fileUploader: locator<UploadDatasource>()
+                                      .uploadDocument,
                                 ),
                               ) ??
                               [],
                           UploadImageField(
                             onChanged: (newValue) {
                               if (newValue != null) {
-                                fieldState.didChange(fieldState.value?.followedBy([newValue]).toList());
+                                fieldState.didChange(fieldState.value
+                                    ?.followedBy([newValue]).toList());
                               }
                             },
                             uploadButtonText: context.translate.uploadImage,
                             shape: BoxShape.rectangle,
                             borderRadius: 16,
-                            fileUploader: locator<UploadDatasource>().uploadDocument,
+                            fileUploader:
+                                locator<UploadDatasource>().uploadDocument,
                           )
                         ],
                       ),
@@ -114,7 +123,8 @@ class DocumentsForm extends StatelessWidget {
                 formKey.currentState?.save();
                 loginBloc.onConfirmDocumentsPressed();
               } else {
-                context.showSnackBar(message: "Please upload all required documents");
+                context.showSnackBar(
+                    message: "Please upload all required documents");
               }
             },
             child: Text(

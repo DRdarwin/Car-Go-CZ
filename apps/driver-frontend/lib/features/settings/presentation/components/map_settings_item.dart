@@ -46,7 +46,8 @@ class MapSettingItem extends StatelessWidget {
             padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 8),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              image: DecorationImage(image: image.provider(), fit: BoxFit.cover),
+              image:
+                  DecorationImage(image: image.provider(), fit: BoxFit.cover),
             ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.end,
@@ -69,14 +70,17 @@ class MapSettingItem extends StatelessWidget {
                             children: [
                               const SquareIconChip(icon: Ionicons.map),
                               const SizedBox(width: 12),
-                              Expanded(child: Text(title, style: context.labelLarge)),
+                              Expanded(
+                                  child:
+                                      Text(title, style: context.labelLarge)),
                               RoundedCheckbox(isSelected: isSelected)
                             ],
                           ),
                         ),
                         Container(
                           margin: const EdgeInsets.all(12),
-                          padding: const EdgeInsets.only(top: 12, left: 12, right: 12),
+                          padding: const EdgeInsets.only(
+                              top: 12, left: 12, right: 12),
                           decoration: BoxDecoration(
                             color: ColorPalette.neutralVariant99,
                             borderRadius: BorderRadius.circular(12),

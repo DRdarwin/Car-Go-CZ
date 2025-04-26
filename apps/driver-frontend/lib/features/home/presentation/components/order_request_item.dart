@@ -87,7 +87,8 @@ class OrderRequestItem extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  (request.fee - request.providerShare).formatCurrency(request.currency),
+                  (request.fee - request.providerShare)
+                      .formatCurrency(request.currency),
                   style: context.titleLarge?.copyWith(
                     color: ColorPalette.neutral99,
                   ),
@@ -96,7 +97,9 @@ class OrderRequestItem extends StatelessWidget {
             ),
           ),
           Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(12), color: ColorPalette.neutralVariant99),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12),
+                color: ColorPalette.neutralVariant99),
             child: Padding(
               padding: const EdgeInsets.all(12),
               child: Column(
@@ -107,11 +110,14 @@ class OrderRequestItem extends StatelessWidget {
                     children: [
                       SmallChip(
                         text: request.distance.toFormattedDistance(context),
-                        icon: const Icon(Ionicons.map, color: ColorPalette.neutral70),
+                        icon: const Icon(Ionicons.map,
+                            color: ColorPalette.neutral70),
                       ),
                       SmallChip(
-                        text: context.translate.durationInMinutes(request.duration ~/ 60),
-                        icon: const Icon(Ionicons.time, color: ColorPalette.neutral70),
+                        text: context.translate
+                            .durationInMinutes(request.duration ~/ 60),
+                        icon: const Icon(Ionicons.time,
+                            color: ColorPalette.neutral70),
                       )
                     ],
                   ),

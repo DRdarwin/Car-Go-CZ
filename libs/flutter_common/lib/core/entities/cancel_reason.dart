@@ -10,5 +10,6 @@ class CancelReasonEntity with _$CancelReasonEntity {
     required String name,
   }) = _CancelReasonEntity;
 
-  factory CancelReasonEntity.fromJson(Map<String, dynamic> json) => _$CancelReasonEntityFromJson(json);
+  factory CancelReasonEntity.fromJson(Map<String, dynamic> json) =>
+      _$CancelReasonEntityFromJson(json);
 }

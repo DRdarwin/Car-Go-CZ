@@ -28,7 +28,8 @@ class _MapSettingsScreenState extends State<MapSettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    pageController ??= PageController(viewportFraction: context.responsive(0.8, xl: 0.3));
+    pageController ??=
+        PageController(viewportFraction: context.responsive(0.8, xl: 0.3));
     return Container(
       color: context.theme.scaffoldBackgroundColor,
       padding: EdgeInsets.symmetric(
@@ -55,7 +56,8 @@ class _MapSettingsScreenState extends State<MapSettingsScreen> {
               height: 24,
             ),
             BlocBuilder<SettingsCubit, SettingsState>(
-              buildWhen: (previous, current) => previous.mapProvider != current.mapProvider,
+              buildWhen: (previous, current) =>
+                  previous.mapProvider != current.mapProvider,
               builder: (context, state) {
                 return Expanded(
                   child: PageView(
@@ -71,13 +73,18 @@ class _MapSettingsScreenState extends State<MapSettingsScreen> {
                         isSelected: state.mapProvider == MapProviderEnum.mapBox,
                         image: Assets.images.mapboxPreview,
                         title: "MapBox",
-                        benefits: const ["Attractive design", "Good performance"],
+                        benefits: const [
+                          "Attractive design",
+                          "Good performance"
+                        ],
                         shortComings: const ["Expensive"],
-                        onPressed: () => locator<SettingsCubit>().changeMapProvider(MapProviderEnum.mapBox),
+                        onPressed: () => locator<SettingsCubit>()
+                            .changeMapProvider(MapProviderEnum.mapBox),
                       ),
                       MapSettingItem(
                         isActive: activeId == 1,
-                        isSelected: state.mapProvider == MapProviderEnum.openStreetMaps,
+                        isSelected:
+                            state.mapProvider == MapProviderEnum.openStreetMaps,
                         image: Assets.images.openstreetPreview,
                         title: "OpenStreetMap",
                         benefits: const [
@@ -87,11 +94,13 @@ class _MapSettingsScreenState extends State<MapSettingsScreen> {
                         shortComings: const [
                           "Less Attractive UI",
                         ],
-                        onPressed: () => locator<SettingsCubit>().changeMapProvider(MapProviderEnum.openStreetMaps),
+                        onPressed: () => locator<SettingsCubit>()
+                            .changeMapProvider(MapProviderEnum.openStreetMaps),
                       ),
                       MapSettingItem(
                         isActive: activeId == 2,
-                        isSelected: state.mapProvider == MapProviderEnum.googleMaps,
+                        isSelected:
+                            state.mapProvider == MapProviderEnum.googleMaps,
                         image: Assets.images.googlemapPreview,
                         title: "Google Maps",
                         benefits: const [
@@ -102,9 +111,13 @@ class _MapSettingsScreenState extends State<MapSettingsScreen> {
                           "No support for web and desktop",
                           "Some known bugs and performance issues",
                         ],
-                        onPressed: (kIsWeb || Platform.isMacOS || Platform.isWindows || Platform.isLinux)
+                        onPressed: (kIsWeb ||
+                                Platform.isMacOS ||
+                                Platform.isWindows ||
+                                Platform.isLinux)
                             ? null
-                            : () => locator<SettingsCubit>().changeMapProvider(MapProviderEnum.googleMaps),
+                            : () => locator<SettingsCubit>()
+                                .changeMapProvider(MapProviderEnum.googleMaps),
                       ),
                     ],
                   ),

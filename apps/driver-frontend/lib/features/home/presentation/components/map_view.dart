@@ -26,13 +26,15 @@ class _HomeMapViewState extends State<HomeMapView> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SettingsCubit, SettingsState>(
-      buildWhen: (previous, current) => previous.mapProvider != current.mapProvider,
+      buildWhen: (previous, current) =>
+          previous.mapProvider != current.mapProvider,
       builder: (context, settingsState) {
         return BlocConsumer<HomeBloc, HomeState>(
           listener: (context, state) {
             if (state.markers.length > 1) {
               final markersDistances = state.markers
-                  .map((e) => e.position.distanceWith(state.markers.first.position))
+                  .map((e) =>
+                      e.position.distanceWith(state.markers.first.position))
                   .reduce((value, element) => value + element);
               if (markersDistances > 10) {
                 controller?.fitBounds(
@@ -46,7 +48,8 @@ class _HomeMapViewState extends State<HomeMapView> {
                 online: (value) {
                   final radius = locator<AuthBloc>().state.maybeMap(
                         orElse: () => null,
-                        authenticated: (authenticated) => authenticated.profile.searchRadius,
+                        authenticated: (authenticated) =>
+                            authenticated.profile.searchRadius,
                       );
                   fitMapToCenterAndRadius(
                     state.markers.first.position,
@@ -66,7 +69,8 @@ class _HomeMapViewState extends State<HomeMapView> {
                 authenticated: (authenticatedPrevious) => current.maybeMap(
                   orElse: () => false,
                   authenticated: (authenticated) =>
-                      authenticatedPrevious.profile.searchRadius != authenticated.profile.searchRadius,
+                      authenticatedPrevious.profile.searchRadius !=
+                      authenticated.profile.searchRadius,
                 ),
               ),
               listener: (context, stateAuth) {
@@ -74,10 +78,12 @@ class _HomeMapViewState extends State<HomeMapView> {
                   online: (value) {
                     final radius = stateAuth.maybeMap(
                       orElse: () => null,
-                      authenticated: (authenticated) => authenticated.profile.searchRadius,
+                      authenticated: (authenticated) =>
+                          authenticated.profile.searchRadius,
                     );
 
-                    if (state.markers.isNotEmpty && value.orderRequests.isEmpty) {
+                    if (state.markers.isNotEmpty &&
+                        value.orderRequests.isEmpty) {
                       fitMapToCenterAndRadius(
                         state.markers.first.position,
                         radius ?? 10000,
@@ -86,7 +92,8 @@ class _HomeMapViewState extends State<HomeMapView> {
                   },
                   orElse: () {
                     if (state.markers.isNotEmpty) {
-                      controller?.moveCamera(state.markers.first.position, null);
+                      controller?.moveCamera(
+                          state.markers.first.position, null);
                     }
                   },
                 );
@@ -102,10 +109,12 @@ class _HomeMapViewState extends State<HomeMapView> {
               builder: (context, stateAuth) {
                 final radius = stateAuth.maybeMap(
                   orElse: () => null,
-                  authenticated: (authenticated) => authenticated.profile.searchRadius,
+                  authenticated: (authenticated) =>
+                      authenticated.profile.searchRadius,
                 );
                 return AppGenericMap(
-                  padding: state.mapPadding(settingsState.mapProviderEnum, context),
+                  padding:
+                      state.mapPadding(settingsState.mapProviderEnum, context),
                   onControllerReady: (p0) => controller = p0,
                   circleMarkers: state.circleMarkers(radius),
                   polylines: state.polylines,

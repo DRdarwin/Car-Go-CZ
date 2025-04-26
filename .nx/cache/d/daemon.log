@@ -1,0 +1,74 @@
+[NX Daemon Server] - 2025-04-26T18:09:26.176Z - Started listening on: \\.\pipe\nx\C:\Users\Ian\AppData\Local\Temp\fe5286ad9f2723eae28a\d.sock
+[NX Daemon Server] - 2025-04-26T18:09:26.181Z - [WATCHER]: Subscribed to changes within: F:\Car-Go-CZ-1 (native)
+[NX Daemon Server] - 2025-04-26T18:09:26.184Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-04-26T18:09:26.186Z - Closed a connection. Number of open connections: 0
+[NX Daemon Server] - 2025-04-26T18:09:26.187Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-04-26T18:09:26.189Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2025-04-26T18:09:26.317Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2025-04-26T18:09:26.318Z - [REQUEST]: 
+[NX Daemon Server] - 2025-04-26T18:09:26.318Z - [REQUEST]: 
+Unable to create nodes for apps/driver-frontend/pubspec.yaml using plugin @nxrocks/nx-flutter. 
+
+	 Inner Error: TypeError: getProjectTypeAndTargets is not a function
+    at F:\Car-Go-CZ-1\node_modules\@nxrocks\nx-flutter\node_modules\@nxrocks\common\src\lib\workspace\project-graph.js:118:27
+    at buildProjectsConfigurationsFromProjectPathsAndPlugins (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\project-configuration-utils.js:125:29)
+    at createProjectConfigurations (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\retrieve-workspace-files.js:89:156)
+    at _retrieveProjectConfigurations (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\retrieve-workspace-files.js:61:12)
+    at retrieveProjectConfigurations (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\retrieve-workspace-files.js:46:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async processFilesAndCreateAndSerializeProjectGraph (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\project-graph-incremental-recomputation.js:140:28)
+    at async getCachedSerializedProjectGraphPromise (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\project-graph-incremental-recomputation.js:43:16)
+    at async handleRequestProjectGraph (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\handle-request-project-graph.js:12:24)
+    at async handleResult (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\server.js:110:16)
+    at async handleMessage (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\server.js:81:9)
+    at async F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\server.js:45:9
+[NX Daemon Server] - 2025-04-26T18:09:26.840Z - [REQUEST]: Responding to the client with an error. Error when preparing serialized project graph. Unable to create nodes for apps/driver-frontend/pubspec.yaml using plugin @nxrocks/nx-flutter. 
+
+	 Inner Error: TypeError: getProjectTypeAndTargets is not a function
+    at F:\Car-Go-CZ-1\node_modules\@nxrocks\nx-flutter\node_modules\@nxrocks\common\src\lib\workspace\project-graph.js:118:27
+    at buildProjectsConfigurationsFromProjectPathsAndPlugins (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\project-configuration-utils.js:125:29)
+    at createProjectConfigurations (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\retrieve-workspace-files.js:89:156)
+    at _retrieveProjectConfigurations (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\retrieve-workspace-files.js:61:12)
+    at retrieveProjectConfigurations (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\retrieve-workspace-files.js:46:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async processFilesAndCreateAndSerializeProjectGraph (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\project-graph-incremental-recomputation.js:140:28)
+    at async getCachedSerializedProjectGraphPromise (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\project-graph-incremental-recomputation.js:43:16)
+    at async handleRequestProjectGraph (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\handle-request-project-graph.js:12:24)
+    at async handleResult (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\server.js:110:16)
+    at async handleMessage (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\server.js:81:9)
+    at async F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\server.js:45:9
+CreateNodesError: Unable to create nodes for apps/driver-frontend/pubspec.yaml using plugin @nxrocks/nx-flutter. 
+
+	 Inner Error: TypeError: getProjectTypeAndTargets is not a function
+    at F:\Car-Go-CZ-1\node_modules\@nxrocks\nx-flutter\node_modules\@nxrocks\common\src\lib\workspace\project-graph.js:118:27
+    at buildProjectsConfigurationsFromProjectPathsAndPlugins (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\project-configuration-utils.js:125:29)
+    at createProjectConfigurations (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\retrieve-workspace-files.js:89:156)
+    at _retrieveProjectConfigurations (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\retrieve-workspace-files.js:61:12)
+    at retrieveProjectConfigurations (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\retrieve-workspace-files.js:46:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async processFilesAndCreateAndSerializeProjectGraph (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\project-graph-incremental-recomputation.js:140:28)
+    at async getCachedSerializedProjectGraphPromise (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\project-graph-incremental-recomputation.js:43:16)
+    at async handleRequestProjectGraph (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\handle-request-project-graph.js:12:24)
+    at async handleResult (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\server.js:110:16)
+    at async handleMessage (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\server.js:81:9)
+    at async F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\server.js:45:9
+    at buildProjectsConfigurationsFromProjectPathsAndPlugins (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\project-configuration-utils.js:152:27)
+    at createProjectConfigurations (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\retrieve-workspace-files.js:89:156)
+    ... 8 lines matching cause stack trace ...
+    at async F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\server.js:45:9 {
+  [cause]: TypeError: getProjectTypeAndTargets is not a function
+      at F:\Car-Go-CZ-1\node_modules\@nxrocks\nx-flutter\node_modules\@nxrocks\common\src\lib\workspace\project-graph.js:118:27
+      at buildProjectsConfigurationsFromProjectPathsAndPlugins (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\project-configuration-utils.js:125:29)
+      at createProjectConfigurations (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\retrieve-workspace-files.js:89:156)
+      at _retrieveProjectConfigurations (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\retrieve-workspace-files.js:61:12)
+      at retrieveProjectConfigurations (F:\Car-Go-CZ-1\node_modules\nx\src\project-graph\utils\retrieve-workspace-files.js:46:12)
+      at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+      at async processFilesAndCreateAndSerializeProjectGraph (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\project-graph-incremental-recomputation.js:140:28)
+      at async getCachedSerializedProjectGraphPromise (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\project-graph-incremental-recomputation.js:43:16)
+      at async handleRequestProjectGraph (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\handle-request-project-graph.js:12:24)
+      at async handleResult (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\server.js:110:16)
+      at async handleMessage (F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\server.js:81:9)
+      at async F:\Car-Go-CZ-1\node_modules\nx\src\daemon\server\server.js:45:9
+}
+[NX Daemon Server] - 2025-04-26T18:09:26.840Z - Time taken for 'hash changed files from watcher' 127.74379999999996ms
+[NX Daemon Server] - 2025-04-26T18:09:26.841Z - Done responding to the client null

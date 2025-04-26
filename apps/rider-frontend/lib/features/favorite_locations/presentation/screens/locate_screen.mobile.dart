@@ -30,10 +30,12 @@ class LocateFavoriteLocationScreenMobile extends StatefulWidget {
   });
 
   @override
-  State<LocateFavoriteLocationScreenMobile> createState() => _LocateFavoriteLocationScreenMobileState();
+  State<LocateFavoriteLocationScreenMobile> createState() =>
+      _LocateFavoriteLocationScreenMobileState();
 }
 
-class _LocateFavoriteLocationScreenMobileState extends State<LocateFavoriteLocationScreenMobile> {
+class _LocateFavoriteLocationScreenMobileState
+    extends State<LocateFavoriteLocationScreenMobile> {
   PlaceEntity? selectedPlace;
   MapViewController? mapController;
 
@@ -54,19 +56,23 @@ class _LocateFavoriteLocationScreenMobileState extends State<LocateFavoriteLocat
               title: context.translate.dragToSelect,
               address: selectedPlace?.address ?? "",
             ).centerMarker,
-            initialLocation:
-                (widget.initialLocation ?? locator<LocationCubit>().state.place ?? Constants.defaultLocation)
-                    .toGenericMapPlace,
+            initialLocation: (widget.initialLocation ??
+                    locator<LocationCubit>().state.place ??
+                    Constants.defaultLocation)
+                .toGenericMapPlace,
             addressResolver: (provider, latlng) async {
               final settingsState = locator<SettingsCubit>().state;
 
-              final result = await locator<GeoDatasource>().getAddressForLocation(
+              final result =
+                  await locator<GeoDatasource>().getAddressForLocation(
                 latLng: latlng,
                 language: settingsState.locale,
                 mapProvider: settingsState.mapProviderEnum,
               );
               return result.fold(
-                (l) => PlaceEntity(coordinates: latlng.toLatLngEntity, address: "").toGenericMapPlace,
+                (l) =>
+                    PlaceEntity(coordinates: latlng.toLatLngEntity, address: "")
+                        .toGenericMapPlace,
                 (r) => r.toGenericMapPlace,
               );
             },
@@ -88,7 +94,8 @@ class _LocateFavoriteLocationScreenMobileState extends State<LocateFavoriteLocat
               return AppCardSheet(
                 isFullScreen: !isInitial,
                 child: Padding(
-                  padding: const EdgeInsets.all(16).copyWith(top: isInitial ? 0 : 32),
+                  padding: const EdgeInsets.all(16)
+                      .copyWith(top: isInitial ? 0 : 32),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -160,7 +167,8 @@ class _LocateFavoriteLocationScreenMobileState extends State<LocateFavoriteLocat
           id: LocateLocationLayoutDelegate.myLocationButtonId,
           child: MyLocationButton(
             onPressed: () => mapController?.moveCamera(
-              locator<LocationCubit>().state.place?.latLng2 ?? Constants.defaultLocation.toGenericMapPlace.latLng,
+              locator<LocationCubit>().state.place?.latLng2 ??
+                  Constants.defaultLocation.toGenericMapPlace.latLng,
               16,
             ),
           ),

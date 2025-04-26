@@ -16,7 +16,13 @@ enum OrderStatus {
   expired
 }
 
-enum OrderStatusViewMode { looking, waitingForPayment, inProgress, review, finished }
+enum OrderStatusViewMode {
+  looking,
+  waitingForPayment,
+  inProgress,
+  review,
+  finished
+}
 
 extension OrderStatusX on OrderStatus {
   OrderStatusViewMode get viewMode {
@@ -26,8 +32,13 @@ extension OrderStatusX on OrderStatus {
       OrderStatus.noCloseFound ||
       OrderStatus.found =>
         OrderStatusViewMode.looking,
-      OrderStatus.waitingForPostPay || OrderStatus.waitingForPrePay => OrderStatusViewMode.waitingForPayment,
-      OrderStatus.driverAccepted || OrderStatus.started || OrderStatus.arrived => OrderStatusViewMode.inProgress,
+      OrderStatus.waitingForPostPay ||
+      OrderStatus.waitingForPrePay =>
+        OrderStatusViewMode.waitingForPayment,
+      OrderStatus.driverAccepted ||
+      OrderStatus.started ||
+      OrderStatus.arrived =>
+        OrderStatusViewMode.inProgress,
       OrderStatus.waitingForReview => OrderStatusViewMode.review,
       OrderStatus.booked ||
       OrderStatus.driverCanceled ||

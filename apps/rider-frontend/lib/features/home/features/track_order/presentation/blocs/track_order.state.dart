@@ -13,7 +13,8 @@ class TrackOrderState with _$TrackOrderState {
 
   const factory TrackOrderState.done() = _Done;
 
-  factory TrackOrderState.fromJson(Map<String, dynamic> json) => _$TrackOrderStateFromJson(json);
+  factory TrackOrderState.fromJson(Map<String, dynamic> json) =>
+      _$TrackOrderStateFromJson(json);
 
   const TrackOrderState._();
 

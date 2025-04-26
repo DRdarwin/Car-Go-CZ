@@ -40,13 +40,19 @@ class PaymentMethodSelectField extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    order.paymentMode == PaymentMode.cash ? context.translate.cash : context.translate.online,
+                    order.paymentMode == PaymentMode.cash
+                        ? context.translate.cash
+                        : context.translate.online,
                     style: context.labelMedium,
                   ),
                   Text(
-                    order.paymentMode.isPaid ? context.translate.rideFeePaid : context.translate.rideFeeUnpaid,
+                    order.paymentMode.isPaid
+                        ? context.translate.rideFeePaid
+                        : context.translate.rideFeeUnpaid,
                     style: context.bodySmall?.copyWith(
-                      color: order.paymentMode.isPaid ? ColorPalette.tertiary40 : ColorPalette.error40,
+                      color: order.paymentMode.isPaid
+                          ? ColorPalette.tertiary40
+                          : ColorPalette.error40,
                     ),
                   ),
                 ],
@@ -54,7 +60,8 @@ class PaymentMethodSelectField extends StatelessWidget {
             ),
             Text(
               order.total.formatCurrency(order.currency),
-              style: context.labelMedium?.copyWith(color: ColorPalette.primary50),
+              style:
+                  context.labelMedium?.copyWith(color: ColorPalette.primary50),
             )
           ],
         ),

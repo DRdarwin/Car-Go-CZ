@@ -188,7 +188,8 @@ class TrackOrderRepositoryMock implements TrackOrderRepository {
   }
 
   @override
-  Future<Either<Failure, void>> updateLastSeenMessages({required String orderId}) async {
+  Future<Either<Failure, void>> updateLastSeenMessages(
+      {required String orderId}) async {
     return const Right(null);
   }
 }

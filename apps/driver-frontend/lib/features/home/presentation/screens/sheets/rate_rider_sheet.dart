@@ -54,7 +54,8 @@ class _RateYourRideSheetState extends State<RateRiderSheet> {
                   padding: const EdgeInsets.all(16),
                   child: AppCloseButton(
                     onPressed: () => locator<HomeBloc>().add(
-                      HomeEvent.reviewSubmitted(orderId: widget.order.id, rating: null, review: null),
+                      HomeEvent.reviewSubmitted(
+                          orderId: widget.order.id, rating: null, review: null),
                     ),
                   ),
                 ),
@@ -126,7 +127,10 @@ class _RateYourRideSheetState extends State<RateRiderSheet> {
                 onPressed: () {
                   if (rating != null) {
                     locator<HomeBloc>().add(
-                      HomeEvent.reviewSubmitted(orderId: widget.order.id, rating: rating, review: null),
+                      HomeEvent.reviewSubmitted(
+                          orderId: widget.order.id,
+                          rating: rating,
+                          review: null),
                     );
                   }
                 },

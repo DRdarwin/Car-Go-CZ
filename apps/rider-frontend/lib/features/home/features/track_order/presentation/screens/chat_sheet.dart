@@ -67,7 +67,8 @@ class _ChatSheetState extends State<ChatSheet> {
                   AppIconButton(
                     icon: Ionicons.call,
                     onPressed: () {
-                      launchUrlString("tel://+${widget.order.driver?.mobileNumber}");
+                      launchUrlString(
+                          "tel://+${widget.order.driver?.mobileNumber}");
                     },
                   ),
                 ],
@@ -112,14 +113,18 @@ class _ChatSheetState extends State<ChatSheet> {
                     onPressed: message == null
                         ? null
                         : () async {
-                            final messageResult = await locator<TrackOrderRepository>().sendMessage(
+                            final messageResult =
+                                await locator<TrackOrderRepository>()
+                                    .sendMessage(
                               orderId: widget.order.id,
                               message: message!,
                             );
                             messageResult.fold(
-                              (l) => context.showSnackBar(message: l.errorMessage),
+                              (l) =>
+                                  context.showSnackBar(message: l.errorMessage),
                               (r) {
-                                locator<TrackOrderBloc>().add(TrackOrderEvent.messageSent(message: r));
+                                locator<TrackOrderBloc>().add(
+                                    TrackOrderEvent.messageSent(message: r));
                                 textEditingController.clear();
                                 setState(() => message = null);
                               },
