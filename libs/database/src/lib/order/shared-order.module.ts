@@ -29,9 +29,9 @@ import { RegionModule } from './region/region.module';
 import { ServiceService } from './service.service';
 import { SharedDriverService } from './shared-driver.service';
 import { SharedFleetService } from './shared-fleet.service';
-import { SharedOrderService } from './shared-order.service';
+import { SharedOrderService } from './shared-driver.service.ts';
 import { SharedProviderService } from './shared-provider.service';
-import { SharedRiderService } from './shared-rider.service';
+import { SharedRiderService } from './shared-order.service';
 
 @Module({
   imports: [

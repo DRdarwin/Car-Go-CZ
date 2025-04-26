@@ -1,4 +1,3 @@
-// tsconfig.base.json
 {
   "compileOnSave": false,
   "compilerOptions": {
@@ -24,52 +23,39 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      // --- Існуючі шляхи ---
       "@ridy/admin-panel/*": [
         "apps/admin-panel/*"
       ],
       "@ridy/coupon": [
-        "libs/database/src/lib/coupon/index.ts" // Перевірте чи існує цей index.ts
+        "libs/database/src/lib/coupon/index.ts"
       ],
       "@ridy/database": [
-        "libs/database/src/index.ts" // Основний шлях до бібліотеки бази даних
+        "libs/database/src/index.ts"
       ],
-      // --- Оновлений шлях для database/* (вказує на всю lib) ---
       "@ridy/database/*": [
         "libs/database/src/lib/*"
       ],
-      // --- НОВИЙ шлях для common ---
-      "@ridy/common": [
-        "libs/common/src/index.ts"
-      ],
       "@ridy/common/*": [
-        "libs/common/src/*" // Або libs/common/src/lib/*, якщо є папка lib
+        "libs/common/src/*"
       ],
-      // --- Кінець НОВОГО шляху для common ---
       "@ridy/geo/*": [
         "libs/database/src/lib/geo/*"
       ],
-      // --- Оновлений шлях для order (припускаючи стандартну структуру) ---
-      "@ridy/order": [
-        "libs/order/src/index.ts" // Ймовірний правильний шлях
-      ],
-      "@ridy/order/*": [
-        "libs/order/src/lib/*" // Ймовірний правильний шлях
-      ],
-      // --- Кінець Оновленого шляху для order ---
       "@ridy/payment": [
-        "libs/database/src/lib/payment/index.ts" // Перевірте чи існує цей index.ts
+        "libs/database/src/lib/payment/index.ts"
       ],
       "@ridy/redis/*": [
         "libs/database/src/lib/redis/*"
       ],
       "@ridy/sms/*": [
         "libs/database/src/lib/sms/*"
+      ],
+      "@ridy/order": [
+        "libs/order/src/index.ts"
+      ],
+      "@ridy/order/*": [
+        "libs/order/src/*"
       ]
-      // --- Додайте сюди шляхи для інших ваших бібліотек, якщо вони є ---
-      // Наприклад:
-      // "@ridy/config": ["libs/config/src/index.ts"],
-      // "@ridy/config/*": ["libs/config/src/lib/*"],
     }
   },
   "exclude": [
