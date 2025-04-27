@@ -95,6 +95,7 @@ class STr extends S {
   String durationInMinutes(num minutes) {
     final intl.NumberFormat minutesNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String minutesString = minutesNumberFormat.format(minutes);
 
@@ -112,6 +113,7 @@ class STr extends S {
   String durationInHours(num hours) {
     final intl.NumberFormat hoursNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String hoursString = hoursNumberFormat.format(hours);
 
@@ -135,6 +137,7 @@ class STr extends S {
   String distanceInMeters(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -145,6 +148,7 @@ class STr extends S {
   String distanceInKilometers(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -155,6 +159,7 @@ class STr extends S {
   String distanceInFeets(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -165,6 +170,7 @@ class STr extends S {
   String distanceInMiles(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -172,15 +178,13 @@ class STr extends S {
   }
 
   @override
-  String get welcomeSubtitle =>
-      'Konforunuz için tasarlanan taksi hizmeti, favori sürücülerinizle yolculuk yapın ve yolculuk tercihlerinizi seçin';
+  String get welcomeSubtitle => 'Konforunuz için tasarlanan taksi hizmeti, favori sürücülerinizle yolculuk yapın ve yolculuk tercihlerinizi seçin';
 
   @override
   String get onboardingRewardTitle => 'Ödüllendirmek!';
 
   @override
-  String get onboardingRewardSubtitle =>
-      'Bir arkadaşınıza tavsiyede bulunarak, gezileri tamamlayarak ve çok daha fazlasını yaparak ekstra bonuslar kazanın...';
+  String get onboardingRewardSubtitle => 'Bir arkadaşınıza tavsiyede bulunarak, gezileri tamamlayarak ve çok daha fazlasını yaparak ekstra bonuslar kazanın...';
 
   @override
   String get selectLanguage => 'Dil Seçin';
@@ -267,12 +271,10 @@ class STr extends S {
   String get reserveRide => 'Rezervasyon yolculuğu';
 
   @override
-  String get reserveRideMessage =>
-      'Yolculuğunuzun rezerve edilmesini istediğiniz tam tarih ve saati seçin';
+  String get reserveRideMessage => 'Yolculuğunuzun rezerve edilmesini istediğiniz tam tarih ve saati seçin';
 
   @override
-  String get reserveRideMessageSuccess =>
-      'Yolculuğunuz başarıyla rezerve edildi. Rezerve edilmiş sürüşlerinizi \'Planlı sürüşler\' bölümünde görüntüleyebilirsiniz.';
+  String get reserveRideMessageSuccess => 'Yolculuğunuz başarıyla rezerve edildi. Rezerve edilmiş sürüşlerinizi \'Planlı sürüşler\' bölümünde görüntüleyebilirsiniz.';
 
   @override
   String get cancelReservation => 'Rezervasyon iptali';
@@ -281,8 +283,7 @@ class STr extends S {
   String get confirmResrve => 'Onaylamak ';
 
   @override
-  String get enterCouponDescription =>
-      'Fiyatlara uygulanacak kupon kodunuzu girin';
+  String get enterCouponDescription => 'Fiyatlara uygulanacak kupon kodunuzu girin';
 
   @override
   String get enterCoupon => 'Kuponu girin';
@@ -328,8 +329,7 @@ class STr extends S {
   String get shareTripInformation => 'Yolculuk bilgilerini paylaşın';
 
   @override
-  String get shareTripInformationDescription =>
-      'Seyahat bilgilerinizi bir arkadaşınızla paylaşabilirsiniz';
+  String get shareTripInformationDescription => 'Seyahat bilgilerinizi bir arkadaşınızla paylaşabilirsiniz';
 
   @override
   String get sos => 's.o.s.';
@@ -341,8 +341,7 @@ class STr extends S {
   String get reportAnIssue => 'Bir sorunu bildirin';
 
   @override
-  String get reportAnIssueMidTripDescription =>
-      'Seyahat sırasında bir güvenlik sorununu paylaşın';
+  String get reportAnIssueMidTripDescription => 'Seyahat sırasında bir güvenlik sorununu paylaşın';
 
   @override
   String get rideOptions => 'Sürüş seçenekleri';
@@ -459,8 +458,7 @@ class STr extends S {
   String get favoriteLocations => 'Favori yerler';
 
   @override
-  String get favoriteLocationsSubtitle =>
-      'Daha kolay erişim için favori konumlarınızı kaydedin';
+  String get favoriteLocationsSubtitle => 'Daha kolay erişim için favori konumlarınızı kaydedin';
 
   @override
   String get createAFavoriteLocation => 'Favori bir konum oluşturun';
@@ -475,8 +473,7 @@ class STr extends S {
   String get whereIsYourNewFavoriteLocation => 'Yeni favori mekanınız neresi?';
 
   @override
-  String get locateFavoriteLocationDescription =>
-      'Tam konumu sabitlemek için aşağıdaki arama kutusunu veya haritayı kullanın';
+  String get locateFavoriteLocationDescription => 'Tam konumu sabitlemek için aşağıdaki arama kutusunu veya haritayı kullanın';
 
   @override
   String get searchLocation => 'Konum ara';
@@ -515,8 +512,7 @@ class STr extends S {
   String get redeemGiftCard => 'Hediye Kartını Kullan';
 
   @override
-  String get redeemGiftCardDescription =>
-      'Kullanmak için hediye kartı kodunuzu girin.';
+  String get redeemGiftCardDescription => 'Kullanmak için hediye kartı kodunuzu girin.';
 
   @override
   String get redeemSuccessTitle => 'Hediye Kartı Kullanıldı!';
@@ -566,8 +562,7 @@ class STr extends S {
   String get selectCards => 'Kartları seçin';
 
   @override
-  String get selectCardsDescription =>
-      'Faturalarda ödeme yöntemleri listesinde görünmesini istediğiniz kart numaralarını seçebilirsiniz.';
+  String get selectCardsDescription => 'Faturalarda ödeme yöntemleri listesinde görünmesini istediğiniz kart numaralarını seçebilirsiniz.';
 
   @override
   String get delete => 'Silmek';
@@ -585,8 +580,7 @@ class STr extends S {
   String get addPaymentMethod => 'Ödeme yöntemi ekle';
 
   @override
-  String get addPaymentMethodDescription =>
-      'Hesabınıza yeni bir ödeme yöntemi ekleyin';
+  String get addPaymentMethodDescription => 'Hesabınıza yeni bir ödeme yöntemi ekleyin';
 
   @override
   String get saveCard => 'Kartı kaydet';
@@ -601,8 +595,7 @@ class STr extends S {
   String get preferences => 'Tercihler:';
 
   @override
-  String get onboardingDescription =>
-      'Hesabınızı kaydetmenize ve konforlu yolculukların keyfini çıkarmanıza birkaç dakika kaldı';
+  String get onboardingDescription => 'Hesabınızı kaydetmenize ve konforlu yolculukların keyfini çıkarmanıza birkaç dakika kaldı';
 
   @override
   String get signInSignUp => 'Giriş yap Kayıt Ol';
@@ -614,8 +607,7 @@ class STr extends S {
   String get enterPassword => 'Parolanı Gir';
 
   @override
-  String get enterPasswordDescription =>
-      'Devam etmek için lütfen şifrenizi girin';
+  String get enterPasswordDescription => 'Devam etmek için lütfen şifrenizi girin';
 
   @override
   String get setPassword => 'Şifreyi belirle';
@@ -624,8 +616,7 @@ class STr extends S {
   String get password => 'Şifre';
 
   @override
-  String get passwordRuleDescription =>
-      'Aşağıdakilerden en az ikisini ekleyin:';
+  String get passwordRuleDescription => 'Aşağıdakilerden en az ikisini ekleyin:';
 
   @override
   String get passwordRuleLength => '9 ila 64 karakter arasında';
@@ -664,8 +655,7 @@ class STr extends S {
   String get skipForNow => 'Şimdilik geç';
 
   @override
-  String get sendOtpDescription =>
-      'Telefon numaranıza doğrulama kodu gönderildi';
+  String get sendOtpDescription => 'Telefon numaranıza doğrulama kodu gönderildi';
 
   @override
   String get resendOtp => 'Yeniden gönderme kodu';
@@ -734,8 +724,7 @@ class STr extends S {
   String get rideCancellation => 'Yolculuk İptali';
 
   @override
-  String get cancelRideMessage =>
-      'Yolculuğunuzu iptal etmek istediğinizden emin misiniz?';
+  String get cancelRideMessage => 'Yolculuğunuzu iptal etmek istediğinizden emin misiniz?';
 
   @override
   String get cancelRideSuccess => 'Yolculuk başarıyla iptal edildi';
@@ -812,8 +801,7 @@ class STr extends S {
   String get selectProfileImage => 'Profil Resmini Seçin';
 
   @override
-  String get chooseAvatarDescription =>
-      'Veya aşağıdaki listeden bir avatar seçin:';
+  String get chooseAvatarDescription => 'Veya aşağıdaki listeden bir avatar seçin:';
 
   @override
   String get fullName => 'Ad Soyad';
@@ -843,15 +831,13 @@ class STr extends S {
   String get monthly => 'Aylık';
 
   @override
-  String get noRecordsFoundEarnings =>
-      'Bu filtreler için yolculuk kaydı bulunamadı';
+  String get noRecordsFoundEarnings => 'Bu filtreler için yolculuk kaydı bulunamadı';
 
   @override
   String get feedbacksSummaryEmptyStateHeading => 'Henüz geri bildirim yok';
 
   @override
-  String get feedbacksSummaryEmptyStateTitle =>
-      'Henüz gösterilecek yeterli geri bildiriminiz yok.';
+  String get feedbacksSummaryEmptyStateTitle => 'Henüz gösterilecek yeterli geri bildiriminiz yok.';
 
   @override
   String get feedbacksSummary => 'Geri Bildirim Özeti';
@@ -860,15 +846,13 @@ class STr extends S {
   String get feedbacksGoodTitle => 'Mükemmel İş!';
 
   @override
-  String get feedbacksGoodSubtitle =>
-      'Şu ana kadar derecelendirmeleriniz iyi görünüyor';
+  String get feedbacksGoodSubtitle => 'Şu ana kadar derecelendirmeleriniz iyi görünüyor';
 
   @override
   String get feedbacksBadTitle => 'Ortalama';
 
   @override
-  String get feedbacksBadSubtitle =>
-      'Bazı iyileştirmelerden yararlanabilirsiniz';
+  String get feedbacksBadSubtitle => 'Bazı iyileştirmelerden yararlanabilirsiniz';
 
   @override
   String get feedbacksGoodPointsTitle => 'Hakkınızda bazı iyi noktalar:';
@@ -886,8 +870,7 @@ class STr extends S {
   String get notice => 'Fark etme:';
 
   @override
-  String get payoutNoticeTitle =>
-      'Yönetici tarafından haftada iki kez otomatik olarak ödeme alacaksınız.';
+  String get payoutNoticeTitle => 'Yönetici tarafından haftada iki kez otomatik olarak ödeme alacaksınız.';
 
   @override
   String get addPayoutMethod => 'Ödeme Yöntemi Ekle';
@@ -989,8 +972,7 @@ class STr extends S {
   String get deleteAccount => 'Hesabı sil';
 
   @override
-  String get deleteAccountNotice =>
-      'Hesabınızı silmek istediğinizden emin misiniz? 30 gün sonra hesabınız kalıcı olarak silinecektir. Bu süre zarfında tekrar oturum açarak hesabınızı geri yükleyebilirsiniz.';
+  String get deleteAccountNotice => 'Hesabınızı silmek istediğinizden emin misiniz? 30 gün sonra hesabınız kalıcı olarak silinecektir. Bu süre zarfında tekrar oturum açarak hesabınızı geri yükleyebilirsiniz.';
 
   @override
   String get confirmAndDeleteAccount => 'Onaylamak ';
@@ -1004,14 +986,12 @@ class STr extends S {
   }
 
   @override
-  String share_trip_text_driver(
-      Object firstName, Object lastName, Object mobileNumber) {
+  String share_trip_text_driver(Object firstName, Object lastName, Object mobileNumber) {
     return ' Sürücü adım $firstName $lastName, cep telefonu numaram $mobileNumber.';
   }
 
   @override
-  String share_trip_text_rider(
-      Object firstName, Object lastName, Object mobileNumber) {
+  String share_trip_text_rider(Object firstName, Object lastName, Object mobileNumber) {
     return ' Yanımda olan yolcunun adı $firstName $lastName, cep telefonu numarası $mobileNumber.';
   }
 
@@ -1026,8 +1006,7 @@ class STr extends S {
   }
 
   @override
-  String get sendSOSMessage =>
-      'ÖNEMLİ: Lütfen bu özelliği yalnızca acil durumlarda kullanın. Sizin adınıza yetkililerle iletişime geçeceğiz.';
+  String get sendSOSMessage => 'ÖNEMLİ: Lütfen bu özelliği yalnızca acil durumlarda kullanın. Sizin adınıza yetkililerle iletişime geçeceğiz.';
 
   @override
   String get confirmAndSendSOS => 'Onaylamak ';
@@ -1039,8 +1018,7 @@ class STr extends S {
   String get topUpSuccess => 'Cüzdana başarıyla yükleme yapıldı';
 
   @override
-  String get cancelNotAllowed =>
-      'Halihazırda başlamış bir yolculuğun iptal edilmesi mümkün değildir.';
+  String get cancelNotAllowed => 'Halihazırda başlamış bir yolculuğun iptal edilmesi mümkün değildir.';
 
   @override
   String get error => 'Hata';
@@ -1061,8 +1039,7 @@ class STr extends S {
   String get reportSubmitted => 'Rapor Gönderildi';
 
   @override
-  String get reportSubmittedDescription =>
-      'Raporunuz başarıyla gönderildi, inceleyip gerekli işlemleri yapacağız.';
+  String get reportSubmittedDescription => 'Raporunuz başarıyla gönderildi, inceleyip gerekli işlemleri yapacağız.';
 
   @override
   String get cardNumber => 'Kart numarası';
@@ -1080,12 +1057,10 @@ class STr extends S {
   String get noFavoriteDrivers => 'Favori sürücü yok';
 
   @override
-  String get noFavoriteDriversDescription =>
-      'Tercih ettiğiniz sürücüleri yolculuk sonrasında puanlarken favori olarak işaretleyebilirsiniz.';
+  String get noFavoriteDriversDescription => 'Tercih ettiğiniz sürücüleri yolculuk sonrasında puanlarken favori olarak işaretleyebilirsiniz.';
 
   @override
-  String get pickupLocationNotFound =>
-      'GPS\'i alım noktası olarak kullanarak mevcut konumunuzu belirleyemedik. Lütfen alım noktanızı manuel olarak girin.';
+  String get pickupLocationNotFound => 'GPS\'i alım noktası olarak kullanarak mevcut konumunuzu belirleyemedik. Lütfen alım noktanızı manuel olarak girin.';
 
   @override
   String get dragToSelect => 'Seçmek için sürükleyin';
@@ -1100,8 +1075,7 @@ class STr extends S {
   String get locationPermission => 'Konum izni';
 
   @override
-  String get locationPermissionDeniedForeverMessage =>
-      'Konum izni, etrafınızdaki emirleri almak ve ayrıca sürücünün konumunuzu takip edebilmesi için bir gerekliliktir. Bu izin olmadan sipariş alamazsınız ve mevcut konumunuz konusunda dikkatliyiz. Bu izni telefon ayarlarınızdan değiştirebilirsiniz.';
+  String get locationPermissionDeniedForeverMessage => 'Konum izni, etrafınızdaki emirleri almak ve ayrıca sürücünün konumunuzu takip edebilmesi için bir gerekliliktir. Bu izin olmadan sipariş alamazsınız ve mevcut konumunuz konusunda dikkatliyiz. Bu izni telefon ayarlarınızdan değiştirebilirsiniz.';
 
   @override
   String get allow => 'İzin vermek';
@@ -1116,8 +1090,7 @@ class STr extends S {
   String get payInCash => 'Nakit ödeme';
 
   @override
-  String get payInCashDescription =>
-      'Lütfen sürücüye nakit ödeme işlemine devam edin. Sürücü ödemeyi aldıktan sonra onaylayacaktır.';
+  String get payInCashDescription => 'Lütfen sürücüye nakit ödeme işlemine devam edin. Sürücü ödemeyi aldıktan sonra onaylayacaktır.';
 
   @override
   String get addToFavoriteDrivers => 'Favori sürücülere ekle';
@@ -1135,22 +1108,19 @@ class STr extends S {
   String get noticePickingUpRiderIn => 'Sürücüyü içeri almak:';
 
   @override
-  String get noticeRiderNotified =>
-      'Sürücü bilgilendirildi, Sürücüyü alın ve sürüşe başlayın';
+  String get noticeRiderNotified => 'Sürücü bilgilendirildi, Sürücüyü alın ve sürüşe başlayın';
 
   @override
   String get adminPanelOnboardingOneTitle => 'Welcome to better suite';
 
   @override
-  String get adminPanelOnboardingOneSubtitle =>
-      'Unleash the Power of Your Q-Commerce';
+  String get adminPanelOnboardingOneSubtitle => 'Unleash the Power of Your Q-Commerce';
 
   @override
   String get adminPanelOnboardingTwoTitle => 'Streamline your operations';
 
   @override
-  String get adminPanelOnboardingTwoSubtitle =>
-      'Take Control with Our Centralized Super Panel';
+  String get adminPanelOnboardingTwoSubtitle => 'Take Control with Our Centralized Super Panel';
 
   @override
   String get rider => 'Rider';

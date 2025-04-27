@@ -95,6 +95,7 @@ class SAr extends S {
   String durationInMinutes(num minutes) {
     final intl.NumberFormat minutesNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String minutesString = minutesNumberFormat.format(minutes);
 
@@ -112,6 +113,7 @@ class SAr extends S {
   String durationInHours(num hours) {
     final intl.NumberFormat hoursNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String hoursString = hoursNumberFormat.format(hours);
 
@@ -135,6 +137,7 @@ class SAr extends S {
   String distanceInMeters(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -145,6 +148,7 @@ class SAr extends S {
   String distanceInKilometers(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -155,6 +159,7 @@ class SAr extends S {
   String distanceInFeets(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -165,6 +170,7 @@ class SAr extends S {
   String distanceInMiles(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -172,15 +178,13 @@ class SAr extends S {
   }
 
   @override
-  String get welcomeSubtitle =>
-      'خدمة سيارات الأجرة مصممة لراحتك. قم برحلات مع سائقيك المفضلين وحدد تفضيلات ركوبك';
+  String get welcomeSubtitle => 'خدمة سيارات الأجرة مصممة لراحتك. قم برحلات مع سائقيك المفضلين وحدد تفضيلات ركوبك';
 
   @override
   String get onboardingRewardTitle => 'احصل على مكافأة!';
 
   @override
-  String get onboardingRewardSubtitle =>
-      'احصل على مكافآت إضافية عند الإحالة على صديق، واستكمال الرحلات، والعديد من المزايا الأخرى...';
+  String get onboardingRewardSubtitle => 'احصل على مكافآت إضافية عند الإحالة على صديق، واستكمال الرحلات، والعديد من المزايا الأخرى...';
 
   @override
   String get selectLanguage => 'اختر اللغة';
@@ -267,12 +271,10 @@ class SAr extends S {
   String get reserveRide => 'حجز الرحلة';
 
   @override
-  String get reserveRideMessage =>
-      'حدد التاريخ والوقت الدقيق الذي ترغب في حجز رحلتك فيه';
+  String get reserveRideMessage => 'حدد التاريخ والوقت الدقيق الذي ترغب في حجز رحلتك فيه';
 
   @override
-  String get reserveRideMessageSuccess =>
-      'تم حجز رحلتك بنجاح. يمكنك عرض الرحلات المحجوزة في قسم \'الرحلات المجدولة\'.';
+  String get reserveRideMessageSuccess => 'تم حجز رحلتك بنجاح. يمكنك عرض الرحلات المحجوزة في قسم \'الرحلات المجدولة\'.';
 
   @override
   String get cancelReservation => 'إلغاء الحجز';
@@ -327,8 +329,7 @@ class SAr extends S {
   String get shareTripInformation => 'مشاركة معلومات الرحلة';
 
   @override
-  String get shareTripInformationDescription =>
-      'يمكنك مشاركة معلومات رحلتك مع صديق';
+  String get shareTripInformationDescription => 'يمكنك مشاركة معلومات رحلتك مع صديق';
 
   @override
   String get sos => 'SOS';
@@ -340,8 +341,7 @@ class SAr extends S {
   String get reportAnIssue => 'الإبلاغ عن مشكلة';
 
   @override
-  String get reportAnIssueMidTripDescription =>
-      'مشاركة مشكلة أمان أثناء الرحلة';
+  String get reportAnIssueMidTripDescription => 'مشاركة مشكلة أمان أثناء الرحلة';
 
   @override
   String get rideOptions => 'خيارات الرحلة';
@@ -458,8 +458,7 @@ class SAr extends S {
   String get favoriteLocations => 'المواقع المفضلة';
 
   @override
-  String get favoriteLocationsSubtitle =>
-      'احفظ مواقعك المفضلة لسهولة الوصول إليها';
+  String get favoriteLocationsSubtitle => 'احفظ مواقعك المفضلة لسهولة الوصول إليها';
 
   @override
   String get createAFavoriteLocation => 'إنشاء موقع مفضل';
@@ -474,8 +473,7 @@ class SAr extends S {
   String get whereIsYourNewFavoriteLocation => 'أين موقع موقعك المفضل الجديد؟';
 
   @override
-  String get locateFavoriteLocationDescription =>
-      'استخدم إما صندوق البحث أدناه أو الخريطة لتثبيت الموقع بدقة';
+  String get locateFavoriteLocationDescription => 'استخدم إما صندوق البحث أدناه أو الخريطة لتثبيت الموقع بدقة';
 
   @override
   String get searchLocation => 'بحث الموقع';
@@ -514,8 +512,7 @@ class SAr extends S {
   String get redeemGiftCard => 'استبدال بطاقة الهدية';
 
   @override
-  String get redeemGiftCardDescription =>
-      'أدخل رمز بطاقة الهدية الخاصة بك لاستبدالها.';
+  String get redeemGiftCardDescription => 'أدخل رمز بطاقة الهدية الخاصة بك لاستبدالها.';
 
   @override
   String get redeemSuccessTitle => 'تم استبدال بطاقة الهدية!';
@@ -565,8 +562,7 @@ class SAr extends S {
   String get selectCards => 'حدد البطاقات';
 
   @override
-  String get selectCardsDescription =>
-      'يمكنك تحديد أرقام البطاقات التي ترغب في عرضها في قائمة وسائل الدفع في الفواتير.';
+  String get selectCardsDescription => 'يمكنك تحديد أرقام البطاقات التي ترغب في عرضها في قائمة وسائل الدفع في الفواتير.';
 
   @override
   String get delete => 'حذف';
@@ -599,8 +595,7 @@ class SAr extends S {
   String get preferences => 'التفضيلات:';
 
   @override
-  String get onboardingDescription =>
-      'لحظات قليلة وتكون على بعد خطوة واحدة من تسجيل حسابك والاستمتاع برحلات مريحة';
+  String get onboardingDescription => 'لحظات قليلة وتكون على بعد خطوة واحدة من تسجيل حسابك والاستمتاع برحلات مريحة';
 
   @override
   String get signInSignUp => 'تسجيل الدخول / التسجيل';
@@ -612,8 +607,7 @@ class SAr extends S {
   String get enterPassword => 'أدخل كلمة المرور';
 
   @override
-  String get enterPasswordDescription =>
-      'الرجاء إدخال كلمة المرور الخاصة بك للمتابعة';
+  String get enterPasswordDescription => 'الرجاء إدخال كلمة المرور الخاصة بك للمتابعة';
 
   @override
   String get setPassword => 'تعيين كلمة المرور';
@@ -622,8 +616,7 @@ class SAr extends S {
   String get password => 'كلمة المرور';
 
   @override
-  String get passwordRuleDescription =>
-      'تتضمن على الأقل اثنين من العناصر التالية:';
+  String get passwordRuleDescription => 'تتضمن على الأقل اثنين من العناصر التالية:';
 
   @override
   String get passwordRuleLength => 'بين 9 و 64 حرفًا';
@@ -838,15 +831,13 @@ class SAr extends S {
   String get monthly => 'شهريًا';
 
   @override
-  String get noRecordsFoundEarnings =>
-      'لم يتم العثور على سجل رحلات لهذه الفلاتر';
+  String get noRecordsFoundEarnings => 'لم يتم العثور على سجل رحلات لهذه الفلاتر';
 
   @override
   String get feedbacksSummaryEmptyStateHeading => 'No feedbacks yet';
 
   @override
-  String get feedbacksSummaryEmptyStateTitle =>
-      'ليس لديك ما يكفي من التقييمات حتى الآن.';
+  String get feedbacksSummaryEmptyStateTitle => 'ليس لديك ما يكفي من التقييمات حتى الآن.';
 
   @override
   String get feedbacksSummary => 'ملخص التقييمات';
@@ -879,8 +870,7 @@ class SAr extends S {
   String get notice => 'ملاحظة:';
 
   @override
-  String get payoutNoticeTitle =>
-      'سيتم دفع مبلغ الأرباح تلقائيًا من قبل المسؤول مرتين في الأسبوع.';
+  String get payoutNoticeTitle => 'سيتم دفع مبلغ الأرباح تلقائيًا من قبل المسؤول مرتين في الأسبوع.';
 
   @override
   String get addPayoutMethod => 'إضافة طريقة دفع';
@@ -976,15 +966,13 @@ class SAr extends S {
   String get driverShouldAriveInNotice => 'Driver is estimated to arrive in';
 
   @override
-  String get driverShouldHaveArrivedNotice =>
-      'يجب أن يصل السائق في أي لحظة الآن';
+  String get driverShouldHaveArrivedNotice => 'يجب أن يصل السائق في أي لحظة الآن';
 
   @override
   String get deleteAccount => 'حذف الحساب';
 
   @override
-  String get deleteAccountNotice =>
-      'هل أنت متأكد من رغبتك في حذف حسابك؟ بعد 30 يومًا ، سيتم حذف حسابك بشكل دائم. خلال هذا الوقت ، يمكنك استعادة حسابك من خلال تسجيل الدخول مرة أخرى.';
+  String get deleteAccountNotice => 'هل أنت متأكد من رغبتك في حذف حسابك؟ بعد 30 يومًا ، سيتم حذف حسابك بشكل دائم. خلال هذا الوقت ، يمكنك استعادة حسابك من خلال تسجيل الدخول مرة أخرى.';
 
   @override
   String get confirmAndDeleteAccount => 'تأكيد وحذف الحساب';
@@ -998,14 +986,12 @@ class SAr extends S {
   }
 
   @override
-  String share_trip_text_driver(
-      Object firstName, Object lastName, Object mobileNumber) {
+  String share_trip_text_driver(Object firstName, Object lastName, Object mobileNumber) {
     return 'اسم السائق الخاص بي هو $firstName $lastName، ورقم الهاتف المحمول هو +$mobileNumber.';
   }
 
   @override
-  String share_trip_text_rider(
-      Object firstName, Object lastName, Object mobileNumber) {
+  String share_trip_text_rider(Object firstName, Object lastName, Object mobileNumber) {
     return 'اسم الراكب معي هو $firstName $lastName، ورقم الهاتف المحمول هو +$mobileNumber.';
   }
 
@@ -1020,8 +1006,7 @@ class SAr extends S {
   }
 
   @override
-  String get sendSOSMessage =>
-      'هام: يرجى استخدام هذه الميزة فقط في حالات الطوارئ. سنتصل بالسلطات نيابةً عنك.';
+  String get sendSOSMessage => 'هام: يرجى استخدام هذه الميزة فقط في حالات الطوارئ. سنتصل بالسلطات نيابةً عنك.';
 
   @override
   String get confirmAndSendSOS => 'تأكيد وإرسال إشارة الطوارئ';
@@ -1054,8 +1039,7 @@ class SAr extends S {
   String get reportSubmitted => 'تم تقديم التقرير';
 
   @override
-  String get reportSubmittedDescription =>
-      'تم تقديم تقريرك بنجاح، سنراجعه ونتخذ الإجراءات اللازمة.';
+  String get reportSubmittedDescription => 'تم تقديم تقريرك بنجاح، سنراجعه ونتخذ الإجراءات اللازمة.';
 
   @override
   String get cardNumber => 'رقم البطاقة';
@@ -1073,12 +1057,10 @@ class SAr extends S {
   String get noFavoriteDrivers => 'لا يوجد سائقين مفضلين';
 
   @override
-  String get noFavoriteDriversDescription =>
-      'يمكنك تحديد السائقين المفضلين لديك عند تقييمهم بعد الرحلة.';
+  String get noFavoriteDriversDescription => 'يمكنك تحديد السائقين المفضلين لديك عند تقييمهم بعد الرحلة.';
 
   @override
-  String get pickupLocationNotFound =>
-      'تعذر علينا تحديد موقعك الحالي باستخدام تحديد المواقع. يرجى إدخال نقطة الالتقاط يدوياً.';
+  String get pickupLocationNotFound => 'تعذر علينا تحديد موقعك الحالي باستخدام تحديد المواقع. يرجى إدخال نقطة الالتقاط يدوياً.';
 
   @override
   String get dragToSelect => 'اسحب لتحديد';
@@ -1093,8 +1075,7 @@ class SAr extends S {
   String get locationPermission => 'إذن الموقع';
 
   @override
-  String get locationPermissionDeniedForeverMessage =>
-      'إذن الموقع هو متطلب ضروري لاستلام الطلبات من حولك وأيضًا لتتبع الموقع من قبل الراكب. لا يمكنك استلام الطلبات بدون هذا الإذن وعلينا أن نكون على علم بموقعك الحالي. يمكنك تغيير هذا الإذن في إعدادات الهاتف الخاصة بك.';
+  String get locationPermissionDeniedForeverMessage => 'إذن الموقع هو متطلب ضروري لاستلام الطلبات من حولك وأيضًا لتتبع الموقع من قبل الراكب. لا يمكنك استلام الطلبات بدون هذا الإذن وعلينا أن نكون على علم بموقعك الحالي. يمكنك تغيير هذا الإذن في إعدادات الهاتف الخاصة بك.';
 
   @override
   String get allow => 'السماح';
@@ -1109,8 +1090,7 @@ class SAr extends S {
   String get payInCash => 'الدفع نقدًا';
 
   @override
-  String get payInCashDescription =>
-      'يرجى متابعة الدفع نقدًا للسائق. سيقوم السائق بتأكيد الدفع عند استلامه.';
+  String get payInCashDescription => 'يرجى متابعة الدفع نقدًا للسائق. سيقوم السائق بتأكيد الدفع عند استلامه.';
 
   @override
   String get addToFavoriteDrivers => 'إضافة إلى السائقين المفضلين';
@@ -1128,22 +1108,19 @@ class SAr extends S {
   String get noticePickingUpRiderIn => 'Picking up the rider in:';
 
   @override
-  String get noticeRiderNotified =>
-      'Rider has been notified, Pickup the rider and start the ride';
+  String get noticeRiderNotified => 'Rider has been notified, Pickup the rider and start the ride';
 
   @override
   String get adminPanelOnboardingOneTitle => 'Welcome to better suite';
 
   @override
-  String get adminPanelOnboardingOneSubtitle =>
-      'Unleash the Power of Your Q-Commerce';
+  String get adminPanelOnboardingOneSubtitle => 'Unleash the Power of Your Q-Commerce';
 
   @override
   String get adminPanelOnboardingTwoTitle => 'Streamline your operations';
 
   @override
-  String get adminPanelOnboardingTwoSubtitle =>
-      'Take Control with Our Centralized Super Panel';
+  String get adminPanelOnboardingTwoSubtitle => 'Take Control with Our Centralized Super Panel';
 
   @override
   String get rider => 'Rider';

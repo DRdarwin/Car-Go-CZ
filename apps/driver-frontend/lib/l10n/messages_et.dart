@@ -95,6 +95,7 @@ class SEt extends S {
   String durationInMinutes(num minutes) {
     final intl.NumberFormat minutesNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String minutesString = minutesNumberFormat.format(minutes);
 
@@ -112,6 +113,7 @@ class SEt extends S {
   String durationInHours(num hours) {
     final intl.NumberFormat hoursNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String hoursString = hoursNumberFormat.format(hours);
 
@@ -135,6 +137,7 @@ class SEt extends S {
   String distanceInMeters(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -145,6 +148,7 @@ class SEt extends S {
   String distanceInKilometers(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -155,6 +159,7 @@ class SEt extends S {
   String distanceInFeets(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -165,6 +170,7 @@ class SEt extends S {
   String distanceInMiles(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -172,15 +178,13 @@ class SEt extends S {
   }
 
   @override
-  String get welcomeSubtitle =>
-      'Teie mugavuse tagamiseks loodud taksoteenusel on reisid teie lemmikjuhtidega ja saate valida oma sõidueelistused';
+  String get welcomeSubtitle => 'Teie mugavuse tagamiseks loodud taksoteenusel on reisid teie lemmikjuhtidega ja saate valida oma sõidueelistused';
 
   @override
   String get onboardingRewardTitle => 'Saa preemiat!';
 
   @override
-  String get onboardingRewardSubtitle =>
-      'Saate lisaboonuseid sõbra suunamise, reiside lõpetamise ja palju muu eest...';
+  String get onboardingRewardSubtitle => 'Saate lisaboonuseid sõbra suunamise, reiside lõpetamise ja palju muu eest...';
 
   @override
   String get selectLanguage => 'Vali keel';
@@ -267,12 +271,10 @@ class SEt extends S {
   String get reserveRide => 'Reservsõit';
 
   @override
-  String get reserveRideMessage =>
-      'Valige täpne kuupäev ja kellaaeg, millal soovite oma sõidu broneerida';
+  String get reserveRideMessage => 'Valige täpne kuupäev ja kellaaeg, millal soovite oma sõidu broneerida';
 
   @override
-  String get reserveRideMessageSuccess =>
-      'Teie sõit on edukalt reserveeritud. Broneeritud sõite saate vaadata jaotises \"Praanilised sõidud\".';
+  String get reserveRideMessageSuccess => 'Teie sõit on edukalt reserveeritud. Broneeritud sõite saate vaadata jaotises \"Praanilised sõidud\".';
 
   @override
   String get cancelReservation => 'Tühista broneering';
@@ -281,8 +283,7 @@ class SEt extends S {
   String get confirmResrve => 'Kinnita ';
 
   @override
-  String get enterCouponDescription =>
-      'Sisestage oma kupongikood, mida hinnale rakendada';
+  String get enterCouponDescription => 'Sisestage oma kupongikood, mida hinnale rakendada';
 
   @override
   String get enterCoupon => 'Sisesta kupong';
@@ -328,8 +329,7 @@ class SEt extends S {
   String get shareTripInformation => 'Jaga reisiteavet';
 
   @override
-  String get shareTripInformationDescription =>
-      'Saate oma reisiteavet sõbraga jagada';
+  String get shareTripInformationDescription => 'Saate oma reisiteavet sõbraga jagada';
 
   @override
   String get sos => 'SOS';
@@ -458,8 +458,7 @@ class SEt extends S {
   String get favoriteLocations => 'Lemmikkohad';
 
   @override
-  String get favoriteLocationsSubtitle =>
-      'Lihtsamaks juurdepääsuks salvestage oma lemmikkohad';
+  String get favoriteLocationsSubtitle => 'Lihtsamaks juurdepääsuks salvestage oma lemmikkohad';
 
   @override
   String get createAFavoriteLocation => 'Looge lemmikkoht';
@@ -474,8 +473,7 @@ class SEt extends S {
   String get whereIsYourNewFavoriteLocation => 'Kus on teie uus lemmikkoht?';
 
   @override
-  String get locateFavoriteLocationDescription =>
-      'Täpse asukoha kinnitamiseks kasutage allolevat otsingukasti või kaarti';
+  String get locateFavoriteLocationDescription => 'Täpse asukoha kinnitamiseks kasutage allolevat otsingukasti või kaarti';
 
   @override
   String get searchLocation => 'Otsi asukohta';
@@ -514,8 +512,7 @@ class SEt extends S {
   String get redeemGiftCard => 'Lunasta kinkekaart';
 
   @override
-  String get redeemGiftCardDescription =>
-      'Sisestage oma kinkekaardi kood selle lunastamiseks.';
+  String get redeemGiftCardDescription => 'Sisestage oma kinkekaardi kood selle lunastamiseks.';
 
   @override
   String get redeemSuccessTitle => 'Kinkekaart lunastatud!';
@@ -565,8 +562,7 @@ class SEt extends S {
   String get selectCards => 'Valige kaardid';
 
   @override
-  String get selectCardsDescription =>
-      'Saate valida, milliseid kaardinumbreid soovite arvetel makseviiside loendis kuvada.';
+  String get selectCardsDescription => 'Saate valida, milliseid kaardinumbreid soovite arvetel makseviiside loendis kuvada.';
 
   @override
   String get delete => 'Kustuta';
@@ -599,8 +595,7 @@ class SEt extends S {
   String get preferences => 'Eelistused:';
 
   @override
-  String get onboardingDescription =>
-      'Mõne hetke kaugusel on konto registreerimine ja mugavate sõitude nautimine';
+  String get onboardingDescription => 'Mõne hetke kaugusel on konto registreerimine ja mugavate sõitude nautimine';
 
   @override
   String get signInSignUp => 'Logi sisse / registreeru';
@@ -660,8 +655,7 @@ class SEt extends S {
   String get skipForNow => 'Jäta praegu vahele';
 
   @override
-  String get sendOtpDescription =>
-      'Teie telefoninumbrile on saadetud kinnituskood';
+  String get sendOtpDescription => 'Teie telefoninumbrile on saadetud kinnituskood';
 
   @override
   String get resendOtp => 'Saada kood uuesti';
@@ -730,8 +724,7 @@ class SEt extends S {
   String get rideCancellation => 'Sõidu tühistamine';
 
   @override
-  String get cancelRideMessage =>
-      'Kas olete kindel, et soovite oma sõidu tühistada?';
+  String get cancelRideMessage => 'Kas olete kindel, et soovite oma sõidu tühistada?';
 
   @override
   String get cancelRideSuccess => 'Sõit on edukalt tühistatud';
@@ -808,8 +801,7 @@ class SEt extends S {
   String get selectProfileImage => 'Valige Profiilipilt';
 
   @override
-  String get chooseAvatarDescription =>
-      'Või valige allolevast loendist avatar:';
+  String get chooseAvatarDescription => 'Või valige allolevast loendist avatar:';
 
   @override
   String get fullName => 'Täisnimi';
@@ -839,15 +831,13 @@ class SEt extends S {
   String get monthly => 'Igakuine';
 
   @override
-  String get noRecordsFoundEarnings =>
-      'Nende filtrite jaoks ei leitud ühtegi reisikirjet';
+  String get noRecordsFoundEarnings => 'Nende filtrite jaoks ei leitud ühtegi reisikirjet';
 
   @override
   String get feedbacksSummaryEmptyStateHeading => 'Tagasisidet veel pole';
 
   @override
-  String get feedbacksSummaryEmptyStateTitle =>
-      'Teil pole veel kuvamiseks piisavalt tagasisidet.';
+  String get feedbacksSummaryEmptyStateTitle => 'Teil pole veel kuvamiseks piisavalt tagasisidet.';
 
   @override
   String get feedbacksSummary => 'Tagasiside kokkuvõte';
@@ -880,8 +870,7 @@ class SEt extends S {
   String get notice => 'Märkus:';
 
   @override
-  String get payoutNoticeTitle =>
-      'Administraator maksab teile automaatselt kaks korda nädalas.';
+  String get payoutNoticeTitle => 'Administraator maksab teile automaatselt kaks korda nädalas.';
 
   @override
   String get addPayoutMethod => 'Lisa väljamaksemeetod';
@@ -974,19 +963,16 @@ class SEt extends S {
   String get driverArrivedNotice => 'Juht ootab teid';
 
   @override
-  String get driverShouldAriveInNotice =>
-      'Autojuht saabub hinnanguliselt kohale';
+  String get driverShouldAriveInNotice => 'Autojuht saabub hinnanguliselt kohale';
 
   @override
-  String get driverShouldHaveArrivedNotice =>
-      'Juht peaks iga hetk kohale jõudma';
+  String get driverShouldHaveArrivedNotice => 'Juht peaks iga hetk kohale jõudma';
 
   @override
   String get deleteAccount => 'Kustuta konto';
 
   @override
-  String get deleteAccountNotice =>
-      'Kas olete kindel, et soovite oma konto kustutada? 30 päeva pärast kustutatakse teie konto jäädavalt. Selle aja jooksul saate oma konto taastada, logides uuesti sisse.';
+  String get deleteAccountNotice => 'Kas olete kindel, et soovite oma konto kustutada? 30 päeva pärast kustutatakse teie konto jäädavalt. Selle aja jooksul saate oma konto taastada, logides uuesti sisse.';
 
   @override
   String get confirmAndDeleteAccount => 'Kinnita ';
@@ -1000,14 +986,12 @@ class SEt extends S {
   }
 
   @override
-  String share_trip_text_driver(
-      Object firstName, Object lastName, Object mobileNumber) {
+  String share_trip_text_driver(Object firstName, Object lastName, Object mobileNumber) {
     return ' Minu juhi nimi on $firstName $lastName, mobiilinumber on $mobileNumber.';
   }
 
   @override
-  String share_trip_text_rider(
-      Object firstName, Object lastName, Object mobileNumber) {
+  String share_trip_text_rider(Object firstName, Object lastName, Object mobileNumber) {
     return ' Minuga sõitja nimi on $firstName $lastName, mobiilinumber $mobileNumber.';
   }
 
@@ -1022,8 +1006,7 @@ class SEt extends S {
   }
 
   @override
-  String get sendSOSMessage =>
-      'TÄHTIS: Kasutage seda funktsiooni ainult hädaolukorras. Me võtame teie nimel ühendust ametiasutustega.';
+  String get sendSOSMessage => 'TÄHTIS: Kasutage seda funktsiooni ainult hädaolukorras. Me võtame teie nimel ühendust ametiasutustega.';
 
   @override
   String get confirmAndSendSOS => 'Kinnita ';
@@ -1035,8 +1018,7 @@ class SEt extends S {
   String get topUpSuccess => 'Rahakoti täiendamine õnnestus';
 
   @override
-  String get cancelNotAllowed =>
-      'Juba alanud sõidu tühistamine ei ole võimalik.';
+  String get cancelNotAllowed => 'Juba alanud sõidu tühistamine ei ole võimalik.';
 
   @override
   String get error => 'Viga';
@@ -1057,8 +1039,7 @@ class SEt extends S {
   String get reportSubmitted => 'Aruanne on esitatud';
 
   @override
-  String get reportSubmittedDescription =>
-      'Teie aruanne on edukalt edastatud, vaatame selle üle ja teeme vajalikud toimingud.';
+  String get reportSubmittedDescription => 'Teie aruanne on edukalt edastatud, vaatame selle üle ja teeme vajalikud toimingud.';
 
   @override
   String get cardNumber => 'Kaardi number';
@@ -1076,12 +1057,10 @@ class SEt extends S {
   String get noFavoriteDrivers => 'Lemmikautojuhte pole';
 
   @override
-  String get noFavoriteDriversDescription =>
-      'Saate oma eelistatud autojuhid märkida lemmikuteks, kui hindate neid pärast reisi.';
+  String get noFavoriteDriversDescription => 'Saate oma eelistatud autojuhid märkida lemmikuteks, kui hindate neid pärast reisi.';
 
   @override
-  String get pickupLocationNotFound =>
-      'Meil ei õnnestunud GPS-i vastuvõtupunktina kasutada teie praegust asukohta. Sisestage oma kättesaamise koht käsitsi.';
+  String get pickupLocationNotFound => 'Meil ei õnnestunud GPS-i vastuvõtupunktina kasutada teie praegust asukohta. Sisestage oma kättesaamise koht käsitsi.';
 
   @override
   String get dragToSelect => 'Lohistage valimiseks';
@@ -1096,8 +1075,7 @@ class SEt extends S {
   String get locationPermission => 'Asukoha luba';
 
   @override
-  String get locationPermissionDeniedForeverMessage =>
-      'Asukohaluba on nõutav teie ümber olevate tellimuste vastuvõtmiseks ja ka selleks, et sõitja saaks teie asukohta jälgida. Te ei saa ilma selle loata tellimusi vastu võtta ja me oleme teie praeguse asukoha suhtes ettevaatlikud. Saate seda luba muuta oma telefoni seadetes.';
+  String get locationPermissionDeniedForeverMessage => 'Asukohaluba on nõutav teie ümber olevate tellimuste vastuvõtmiseks ja ka selleks, et sõitja saaks teie asukohta jälgida. Te ei saa ilma selle loata tellimusi vastu võtta ja me oleme teie praeguse asukoha suhtes ettevaatlikud. Saate seda luba muuta oma telefoni seadetes.';
 
   @override
   String get allow => 'Lubama';
@@ -1112,8 +1090,7 @@ class SEt extends S {
   String get payInCash => 'Sularahamakse';
 
   @override
-  String get payInCashDescription =>
-      'Jätkake juhile sularahamaksega. Juht kinnitab makse pärast laekumist.';
+  String get payInCashDescription => 'Jätkake juhile sularahamaksega. Juht kinnitab makse pärast laekumist.';
 
   @override
   String get addToFavoriteDrivers => 'Lisa lemmikdraiverite hulka';
@@ -1131,22 +1108,19 @@ class SEt extends S {
   String get noticePickingUpRiderIn => 'Ratturi pealevõtmine:';
 
   @override
-  String get noticeRiderNotified =>
-      'Ratturit on teavitatud, võtke rattur üles ja alustage sõitu';
+  String get noticeRiderNotified => 'Ratturit on teavitatud, võtke rattur üles ja alustage sõitu';
 
   @override
   String get adminPanelOnboardingOneTitle => 'Welcome to better suite';
 
   @override
-  String get adminPanelOnboardingOneSubtitle =>
-      'Unleash the Power of Your Q-Commerce';
+  String get adminPanelOnboardingOneSubtitle => 'Unleash the Power of Your Q-Commerce';
 
   @override
   String get adminPanelOnboardingTwoTitle => 'Streamline your operations';
 
   @override
-  String get adminPanelOnboardingTwoSubtitle =>
-      'Take Control with Our Centralized Super Panel';
+  String get adminPanelOnboardingTwoSubtitle => 'Take Control with Our Centralized Super Panel';
 
   @override
   String get rider => 'Rider';

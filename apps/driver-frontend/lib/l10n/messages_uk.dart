@@ -95,6 +95,7 @@ class SUk extends S {
   String durationInMinutes(num minutes) {
     final intl.NumberFormat minutesNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String minutesString = minutesNumberFormat.format(minutes);
 
@@ -112,6 +113,7 @@ class SUk extends S {
   String durationInHours(num hours) {
     final intl.NumberFormat hoursNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String hoursString = hoursNumberFormat.format(hours);
 
@@ -135,6 +137,7 @@ class SUk extends S {
   String distanceInMeters(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -145,6 +148,7 @@ class SUk extends S {
   String distanceInKilometers(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -155,6 +159,7 @@ class SUk extends S {
   String distanceInFeets(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -165,6 +170,7 @@ class SUk extends S {
   String distanceInMiles(num distance) {
     final intl.NumberFormat distanceNumberFormat = intl.NumberFormat.compact(
       locale: localeName,
+      
     );
     final String distanceString = distanceNumberFormat.format(distance);
 
@@ -172,15 +178,13 @@ class SUk extends S {
   }
 
   @override
-  String get welcomeSubtitle =>
-      'Служба таксі, розроблена для вашого комфорту, має Поїздки з вашими улюбленими водіями та оберіть свої переваги поїздки';
+  String get welcomeSubtitle => 'Служба таксі, розроблена для вашого комфорту, має Поїздки з вашими улюбленими водіями та оберіть свої переваги поїздки';
 
   @override
   String get onboardingRewardTitle => 'Отримайте винагороду!';
 
   @override
-  String get onboardingRewardSubtitle =>
-      'Отримуйте додаткові бонуси за рекомендацію друга, завершення подорожей і багато іншого...';
+  String get onboardingRewardSubtitle => 'Отримуйте додаткові бонуси за рекомендацію друга, завершення подорожей і багато іншого...';
 
   @override
   String get selectLanguage => 'Оберіть мову';
@@ -267,12 +271,10 @@ class SUk extends S {
   String get reserveRide => 'Резервна поїздка';
 
   @override
-  String get reserveRideMessage =>
-      'Виберіть точну дату й час, на які ви бажаєте забронювати поїздку';
+  String get reserveRideMessage => 'Виберіть точну дату й час, на які ви бажаєте забронювати поїздку';
 
   @override
-  String get reserveRideMessageSuccess =>
-      'Вашу поїздку успішно зарезервовано. Ви можете переглянути заброньовані поїздки в розділі «Заплановані поїздки».';
+  String get reserveRideMessageSuccess => 'Вашу поїздку успішно зарезервовано. Ви можете переглянути заброньовані поїздки в розділі «Заплановані поїздки».';
 
   @override
   String get cancelReservation => 'Скасувати бронювання';
@@ -281,8 +283,7 @@ class SUk extends S {
   String get confirmResrve => 'Підтвердити ';
 
   @override
-  String get enterCouponDescription =>
-      'Введіть код купона, який буде застосовано до цін';
+  String get enterCouponDescription => 'Введіть код купона, який буде застосовано до цін';
 
   @override
   String get enterCoupon => 'Введіть купон';
@@ -291,8 +292,7 @@ class SUk extends S {
   String get couponApplied => 'Купон застосовано';
 
   @override
-  String get couponAppliedDescription =>
-      'Купон застосовано до вартості вашої поїздки';
+  String get couponAppliedDescription => 'Купон застосовано до вартості вашої поїздки';
 
   @override
   String get done => 'Готово!';
@@ -329,8 +329,7 @@ class SUk extends S {
   String get shareTripInformation => 'Поділіться інформацією про поїздку';
 
   @override
-  String get shareTripInformationDescription =>
-      'Ви можете поділитися інформацією про свою поїздку з друзями';
+  String get shareTripInformationDescription => 'Ви можете поділитися інформацією про свою поїздку з друзями';
 
   @override
   String get sos => 'SOS';
@@ -342,8 +341,7 @@ class SUk extends S {
   String get reportAnIssue => 'Повідомити про проблему';
 
   @override
-  String get reportAnIssueMidTripDescription =>
-      'Поділіться проблемою безпеки під час подорожі';
+  String get reportAnIssueMidTripDescription => 'Поділіться проблемою безпеки під час подорожі';
 
   @override
   String get rideOptions => 'Варіанти їзди';
@@ -460,8 +458,7 @@ class SUk extends S {
   String get favoriteLocations => 'Улюблені локації';
 
   @override
-  String get favoriteLocationsSubtitle =>
-      'Збережіть свої улюблені місця для зручнішого доступу';
+  String get favoriteLocationsSubtitle => 'Збережіть свої улюблені місця для зручнішого доступу';
 
   @override
   String get createAFavoriteLocation => 'Створіть улюблене місце';
@@ -476,8 +473,7 @@ class SUk extends S {
   String get whereIsYourNewFavoriteLocation => 'Де ваше нове улюблене місце?';
 
   @override
-  String get locateFavoriteLocationDescription =>
-      'Скористайтеся вікном пошуку нижче або картою, щоб закріпити точне місцезнаходження';
+  String get locateFavoriteLocationDescription => 'Скористайтеся вікном пошуку нижче або картою, щоб закріпити точне місцезнаходження';
 
   @override
   String get searchLocation => 'Місце пошуку';
@@ -504,8 +500,7 @@ class SUk extends S {
   String get activities => 'Діяльності';
 
   @override
-  String get pleaseEnterGiftCardCode =>
-      'Будь ласка, введіть код подарункової картки';
+  String get pleaseEnterGiftCardCode => 'Будь ласка, введіть код подарункової картки';
 
   @override
   String get redeem => 'Викупити';
@@ -517,8 +512,7 @@ class SUk extends S {
   String get redeemGiftCard => 'Активувати подарункову картку';
 
   @override
-  String get redeemGiftCardDescription =>
-      'Введіть код подарункової картки, щоб активувати її.';
+  String get redeemGiftCardDescription => 'Введіть код подарункової картки, щоб активувати її.';
 
   @override
   String get redeemSuccessTitle => 'Подарункову картку активовано!';
@@ -568,8 +562,7 @@ class SUk extends S {
   String get selectCards => 'Виберіть картки';
 
   @override
-  String get selectCardsDescription =>
-      'Ви можете вибрати номери карток, які відображатимуться у списку способів оплати на рахунках.';
+  String get selectCardsDescription => 'Ви можете вибрати номери карток, які відображатимуться у списку способів оплати на рахунках.';
 
   @override
   String get delete => 'Видалити';
@@ -587,8 +580,7 @@ class SUk extends S {
   String get addPaymentMethod => 'Додати спосіб оплати';
 
   @override
-  String get addPaymentMethodDescription =>
-      'Додайте новий спосіб оплати до свого облікового запису';
+  String get addPaymentMethodDescription => 'Додайте новий спосіб оплати до свого облікового запису';
 
   @override
   String get saveCard => 'Зберегти картку';
@@ -603,8 +595,7 @@ class SUk extends S {
   String get preferences => 'Налаштування:';
 
   @override
-  String get onboardingDescription =>
-      'За кілька хвилин від реєстрації облікового запису та насолоди комфортними поїздками';
+  String get onboardingDescription => 'За кілька хвилин від реєстрації облікового запису та насолоди комфортними поїздками';
 
   @override
   String get signInSignUp => 'Увійти/ Зареєструватися';
@@ -664,8 +655,7 @@ class SUk extends S {
   String get skipForNow => 'Пропустити поки що';
 
   @override
-  String get sendOtpDescription =>
-      'На ваш номер телефону надіслано код підтвердження';
+  String get sendOtpDescription => 'На ваш номер телефону надіслано код підтвердження';
 
   @override
   String get resendOtp => 'Надіслати код повторно';
@@ -734,8 +724,7 @@ class SUk extends S {
   String get rideCancellation => 'Скасування поїздки';
 
   @override
-  String get cancelRideMessage =>
-      'Ви впевнені, що хочете скасувати свою поїздку?';
+  String get cancelRideMessage => 'Ви впевнені, що хочете скасувати свою поїздку?';
 
   @override
   String get cancelRideSuccess => 'Поїздку успішно скасовано';
@@ -842,15 +831,13 @@ class SUk extends S {
   String get monthly => 'Щомісяця';
 
   @override
-  String get noRecordsFoundEarnings =>
-      'Для цих фільтрів не знайдено жодного запису про поїздку';
+  String get noRecordsFoundEarnings => 'Для цих фільтрів не знайдено жодного запису про поїздку';
 
   @override
   String get feedbacksSummaryEmptyStateHeading => 'Ще немає відгуків';
 
   @override
-  String get feedbacksSummaryEmptyStateTitle =>
-      'У вас ще недостатньо відгуків для показу.';
+  String get feedbacksSummaryEmptyStateTitle => 'У вас ще недостатньо відгуків для показу.';
 
   @override
   String get feedbacksSummary => 'Резюме відгуків';
@@ -865,8 +852,7 @@ class SUk extends S {
   String get feedbacksBadTitle => 'Середній';
 
   @override
-  String get feedbacksBadSubtitle =>
-      'Ви можете використовувати деякі покращення';
+  String get feedbacksBadSubtitle => 'Ви можете використовувати деякі покращення';
 
   @override
   String get feedbacksGoodPointsTitle => 'Кілька хороших моментів про вас:';
@@ -884,8 +870,7 @@ class SUk extends S {
   String get notice => 'Примітка:';
 
   @override
-  String get payoutNoticeTitle =>
-      'Ви автоматично отримуватимете гроші від адміністратора двічі на тиждень.';
+  String get payoutNoticeTitle => 'Ви автоматично отримуватимете гроші від адміністратора двічі на тиждень.';
 
   @override
   String get addPayoutMethod => 'Додати спосіб виплати';
@@ -981,15 +966,13 @@ class SUk extends S {
   String get driverShouldAriveInNotice => 'Очікується, що водій прибуде';
 
   @override
-  String get driverShouldHaveArrivedNotice =>
-      'Водій має прибути найближчим часом';
+  String get driverShouldHaveArrivedNotice => 'Водій має прибути найближчим часом';
 
   @override
   String get deleteAccount => 'Видалити аккаунт';
 
   @override
-  String get deleteAccountNotice =>
-      'Ви впевнені, що хочете видалити свій обліковий запис? Через 30 днів ваш обліковий запис буде остаточно видалено. Протягом цього часу ви можете відновити обліковий запис, увійшовши знову.';
+  String get deleteAccountNotice => 'Ви впевнені, що хочете видалити свій обліковий запис? Через 30 днів ваш обліковий запис буде остаточно видалено. Протягом цього часу ви можете відновити обліковий запис, увійшовши знову.';
 
   @override
   String get confirmAndDeleteAccount => 'Підтвердити ';
@@ -1003,14 +986,12 @@ class SUk extends S {
   }
 
   @override
-  String share_trip_text_driver(
-      Object firstName, Object lastName, Object mobileNumber) {
+  String share_trip_text_driver(Object firstName, Object lastName, Object mobileNumber) {
     return ' Мого водія звуть $firstName $lastName, номер мобільного телефону $mobileNumber.';
   }
 
   @override
-  String share_trip_text_rider(
-      Object firstName, Object lastName, Object mobileNumber) {
+  String share_trip_text_rider(Object firstName, Object lastName, Object mobileNumber) {
     return ' Моє ім\'я гонщика $firstName $lastName, номер мобільного $mobileNumber.';
   }
 
@@ -1025,8 +1006,7 @@ class SUk extends S {
   }
 
   @override
-  String get sendSOSMessage =>
-      'ВАЖЛИВО: використовуйте цю функцію лише в екстрених випадках. Ми зв\'яжемося з владою від вашого імені.';
+  String get sendSOSMessage => 'ВАЖЛИВО: використовуйте цю функцію лише в екстрених випадках. Ми зв\'яжемося з владою від вашого імені.';
 
   @override
   String get confirmAndSendSOS => 'Підтвердити ';
@@ -1059,8 +1039,7 @@ class SUk extends S {
   String get reportSubmitted => 'Звіт надіслано';
 
   @override
-  String get reportSubmittedDescription =>
-      'Ваш звіт успішно надіслано, ми його розглянемо та вживемо необхідних заходів.';
+  String get reportSubmittedDescription => 'Ваш звіт успішно надіслано, ми його розглянемо та вживемо необхідних заходів.';
 
   @override
   String get cardNumber => 'Номер картки';
@@ -1078,12 +1057,10 @@ class SUk extends S {
   String get noFavoriteDrivers => 'Немає улюблених драйверів';
 
   @override
-  String get noFavoriteDriversDescription =>
-      'Ви можете позначити улюблених водіїв, оцінюючи їх після поїздки.';
+  String get noFavoriteDriversDescription => 'Ви можете позначити улюблених водіїв, оцінюючи їх після поїздки.';
 
   @override
-  String get pickupLocationNotFound =>
-      'Нам не вдалося визначити ваше поточне місцезнаходження за допомогою GPS як точки посадки. Введіть пункт отримання вручну.';
+  String get pickupLocationNotFound => 'Нам не вдалося визначити ваше поточне місцезнаходження за допомогою GPS як точки посадки. Введіть пункт отримання вручну.';
 
   @override
   String get dragToSelect => 'Перетягніть, щоб вибрати';
@@ -1098,8 +1075,7 @@ class SUk extends S {
   String get locationPermission => 'Дозвіл на місцезнаходження';
 
   @override
-  String get locationPermissionDeniedForeverMessage =>
-      'Дозвіл на місцезнаходження необхідний для отримання замовлень поблизу вас, а також для відстеження вашого місцезнаходження. Ви не можете отримувати замовлення без цього дозволу, і ми повинні стежити за вашим поточним місцезнаходженням. Ви можете змінити цей дозвіл у налаштуваннях телефону.';
+  String get locationPermissionDeniedForeverMessage => 'Дозвіл на місцезнаходження необхідний для отримання замовлень поблизу вас, а також для відстеження вашого місцезнаходження. Ви не можете отримувати замовлення без цього дозволу, і ми повинні стежити за вашим поточним місцезнаходженням. Ви можете змінити цей дозвіл у налаштуваннях телефону.';
 
   @override
   String get allow => 'Дозволити';
@@ -1108,51 +1084,43 @@ class SUk extends S {
   String get driverOnlineTitle => 'Пошук поїздки';
 
   @override
-  String get driverOfflineTitle =>
-      'Підключіться до мережі, щоб почати отримувати запити';
+  String get driverOfflineTitle => 'Підключіться до мережі, щоб почати отримувати запити';
 
   @override
   String get payInCash => 'Готівковий платіж';
 
   @override
-  String get payInCashDescription =>
-      'Будь ласка, продовжте оплату готівкою водієві. Водій підтвердить оплату після отримання.';
+  String get payInCashDescription => 'Будь ласка, продовжте оплату готівкою водієві. Водій підтвердить оплату після отримання.';
 
   @override
   String get addToFavoriteDrivers => 'Додайте до улюблених водіїв';
 
   @override
-  String get slideToConfirmArrival =>
-      'Проведіть пальцем, щоб підтвердити прибуття';
+  String get slideToConfirmArrival => 'Проведіть пальцем, щоб підтвердити прибуття';
 
   @override
-  String get slideToConfirmPickup =>
-      'Проведіть пальцем, щоб підтвердити отримання';
+  String get slideToConfirmPickup => 'Проведіть пальцем, щоб підтвердити отримання';
 
   @override
-  String get slideToConfirmDropoff =>
-      'Проведіть пальцем, щоб підтвердити висадку';
+  String get slideToConfirmDropoff => 'Проведіть пальцем, щоб підтвердити висадку';
 
   @override
   String get noticePickingUpRiderIn => 'Збір райдера через:';
 
   @override
-  String get noticeRiderNotified =>
-      'Гонщик отримав сповіщення, візьміть водія та розпочніть поїздку';
+  String get noticeRiderNotified => 'Гонщик отримав сповіщення, візьміть водія та розпочніть поїздку';
 
   @override
   String get adminPanelOnboardingOneTitle => 'Welcome to better suite';
 
   @override
-  String get adminPanelOnboardingOneSubtitle =>
-      'Unleash the Power of Your Q-Commerce';
+  String get adminPanelOnboardingOneSubtitle => 'Unleash the Power of Your Q-Commerce';
 
   @override
   String get adminPanelOnboardingTwoTitle => 'Streamline your operations';
 
   @override
-  String get adminPanelOnboardingTwoSubtitle =>
-      'Take Control with Our Centralized Super Panel';
+  String get adminPanelOnboardingTwoSubtitle => 'Take Control with Our Centralized Super Panel';
 
   @override
   String get rider => 'Rider';
