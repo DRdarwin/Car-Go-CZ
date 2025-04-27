@@ -1,4 +1,3 @@
-// libs/database/src/lib/entities/driver.entity.ts
 import {
   Column,
   CreateDateColumn,
@@ -13,9 +12,8 @@ import {
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
-// REMOVED: Imports for CarColorEntity, CarModelEntity
-// import { CarColorEntity } from './car-color.entity';
-// import { CarModelEntity } from './car-model.entity';
+import { CarColorEntity } from './car-color.entity';
+import { CarModelEntity } from './car-model.entity';
 import { DriverTransactionEntity } from './driver-transaction.entity';
 import { DriverWalletEntity } from './driver-wallet.entity';
 import { DriverStatus } from './enums/driver-status.enum';
@@ -31,7 +29,6 @@ import { SavedPaymentMethodEntity } from './saved-payment-method.entity';
 import { RiderReviewEntity } from './rider-review.entity';
 import { RiderEntity } from './rider-entity';
 import { PayoutAccountEntity } from './payout-account.entity';
-import { VehicleEntity } from './vehicle.entity'; // NEW: Import VehicleEntity
 
 @Entity('driver')
 export class DriverEntity {
@@ -71,30 +68,35 @@ export class DriverEntity {
   })
   password?: string;
 
-  // REMOVED: Old car relations and fields
-  // @ManyToOne(() => CarModelEntity, (car) => car.drivers, { ... })
-  // car?: CarModelEntity;
-  // @Column({ nullable: true })
-  // carId?: number;
-  // @Column('varchar', { ... })
-  // carColorLegacy?: string;
-  // @ManyToOne(() => CarColorEntity, (carColor) => carColor.drivers)
-  // carColor?: CarColorEntity;
-  // @Column({ nullable: true })
-  // carColorId?: number;
-  // @Column('int', { ... })
-  // carProductionYear?: number;
-  // @Column({ ... })
-  // carPlate?: string;
+  @ManyToOne(() => CarModelEntity, (car) => car.drivers, {
+    onDelete: 'SET NULL',
+  })
+  car?: CarModelEntity;
 
-  // NEW: Relation to the driver's vehicle
-  @OneToOne(() => VehicleEntity, vehicle => vehicle.driver, { cascade: true, eager: true, nullable: true }) // Eager load vehicle info? Optional. nullable:true means driver might not have a vehicle assigned yet.
-  @JoinColumn() // Driver entity holds the foreign key (vehicleId)
-  vehicle?: VehicleEntity;
+  @Column({ nullable: true })
+  carId?: number;
 
-  @Column({ nullable: true }) // Foreign key column
-  vehicleId?: number;
+  @Column('varchar', {
+    nullable: true,
+    name: 'carColor',
+  })
+  carColorLegacy?: string;
 
+  @ManyToOne(() => CarColorEntity, (carColor) => carColor.drivers)
+  carColor?: CarColorEntity;
+
+  @Column({ nullable: true })
+  carColorId?: number;
+
+  @Column('int', {
+    nullable: true,
+  })
+  carProductionYear?: number;
+
+  @Column({
+    nullable: true,
+  })
+  carPlate?: string;
 
   @Column('int', { nullable: true })
   searchDistance?: number;
@@ -186,7 +188,21 @@ export class DriverEntity {
   @OneToMany(() => PayoutAccountEntity, (payoutAccount) => payoutAccount.driver)
   payoutAccounts!: PayoutAccountEntity[];
 
-  // ... (rest of the fields remain the same) ...
+  // @Column('varchar', {
+  //     nullable: true
+  // })
+  // referralCode?: string;
+
+  // @ManyToOne(() => DriverEntity, driver => driver.referees)
+  // referrer?: DriverEntity;
+
+  // @Column({
+  //     nullable: true
+  // })
+  // referrerId?: number;
+
+  // @OneToMany(() => DriverEntity, driver => driver.referrer)
+  // referees!: DriverEntity[];
 
   @OneToMany(() => FeedbackEntity, (feedback) => feedback.driver)
   feedbacks!: FeedbackEntity[];

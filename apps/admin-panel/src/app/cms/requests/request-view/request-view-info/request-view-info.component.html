@@ -9,12 +9,14 @@
         </nz-descriptions-item>
         <nz-descriptions-item nzTitle="{{ 'profile.registeredOn' | translate }}">{{ rider.registrationTimestamp | date:
           "short" }}</nz-descriptions-item>
-        <nz-descriptions-item nzTitle="{{ 'profile.status' | translate }}" [nzSpan]="3"> <nz-badge [nzStatus]="tagColor.rider(rider.status)"
+        <nz-descriptions-item nzTitle="{{ 'profile.status' | translate }}" [nzSpan]="2">
+          <nz-badge [nzStatus]="tagColor.rider(rider.status)"
             nzText="{{ 'enum.rider.status.' + rider.status.toLowerCase() | translate }}"></nz-badge>
         </nz-descriptions-item>
-         <nz-descriptions-item nzTitle="Vehicle Type" [nzSpan]="1">{{ 'N/A' }}</nz-descriptions-item>
-         <nz-descriptions-item nzTitle="Loaders Count" [nzSpan]="2">{{ 'N/A' }}</nz-descriptions-item>
-         </nz-descriptions>
+        <nz-descriptions-item nzTitle="{{ 'profile.actions' | translate }}"><button nz-button nzType="text"
+            [routerLink]="'/../riders/view/' + rider.id"><i nz-icon
+              nzType="folder-open"></i></button></nz-descriptions-item>
+      </nz-descriptions>
     </div>
     <a target="_blank" [href]="getMapAddress(order.points)"><img class="w-full h-auto hover:ring-2 hover:cursor-pointer"
         [src]="getMapAddress(order.points)"></a>
@@ -44,5 +46,15 @@
           }}</nz-descriptions-item>
       </nz-descriptions>
     </div>
-    </div>
+    <!-- <nz-timeline class="mt-2">
+  <nz-timeline-item>{{ 'requests.requestTime' | translate }}: {{ order.createdOn | date: "short" }}
+  </nz-timeline-item>
+  <nz-timeline-item>{{ 'requests.expectedTime' | translate }}: {{ order.t | date: "short" }}</nz-timeline-item>
+  <nz-timeline-item>{{ 'requests.startTime' | translate }}: {{ order.startTimestamp | date: "short" }}</nz-timeline-item>
+  <nz-timeline-item>{{ 'requests.finishTime' | translate }}: {{ order.finishTimestamp | date: "short" }}
+  </nz-timeline-item>
+</nz-timeline> -->
+  </div>
+
+
 </div>

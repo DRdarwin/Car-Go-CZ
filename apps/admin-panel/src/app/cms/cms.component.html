@@ -49,7 +49,10 @@
           <li nz-menu-item nzMatchRouter nzMatchRouterExact="false">
             <a routerLink="/marketing/gift-card">Gift Cards</a>
           </li>
-          </ul>
+          <!-- <li nz-menu-item nzMatchRouter nzMatchRouterExact="false">
+            <a routerLink="/marketing/rewards">{{'menu.marketing.rewards' | translate}}</a>
+          </li> -->
+        </ul>
       </li>
       <li nz-submenu [nzTitle]="'menu.accounting.header' | translate" nzIcon="bank">
         <ul>
@@ -63,15 +66,20 @@
             <a routerLink="/financials/driver">{{'menu.accounting.drivers' | translate}}</a>
           </li>
           <li nz-menu-item nzMatchRouter nzMatchRouterExact="false">
-            <a routerLink="/financials/customer">{{'menu.accounting.riders' | translate}}</a> </li>
+            <a routerLink="/financials/rider">{{'menu.accounting.riders' | translate}}</a>
+          </li>
         </ul>
       </li>
       <li nz-menu-item nzMatchRouter nzMatchRouterExact="false">
         <a routerLink="/riders" [queryParams]="{sort:'id|DESC'}"><i nz-icon nzType="user"></i><span
-            *ngIf="!isCollapsed">{{'menu.riders' | translate}}</span></a> </li>
+            *ngIf="!isCollapsed">{{'menu.riders' |
+            translate}}</span></a>
+      </li>
       <li nz-menu-item nzMatchRouter nzMatchRouterExact="false">
         <a routerLink="/requests" [queryParams]="{sort:'id|DESC'}"><i nz-icon nzType="container"></i><span
-            *ngIf="!isCollapsed">{{'menu.requests' | translate}}</span></a> </li>
+            *ngIf="!isCollapsed">{{'menu.requests' |
+            translate}}</span></a>
+      </li>
       <li nz-menu-item nzMatchRouter>
         <a routerLink="/sos" [queryParams]="{sort:'id|DESC'}"><i nz-icon nzType="alert"></i><span
             *ngIf="!isCollapsed">{{'menu.sos' | translate}}</span></a>
@@ -98,12 +106,14 @@
             <a routerLink="/management/zone-prices">{{'menu.management.zonePrices' | translate}}</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/management/order-cancel-reasons">{{'menu.management.orderCancelReasons' | translate}}</a> </li>
+            <a routerLink="/management/order-cancel-reasons">{{'menu.management.orderCancelReasons' | translate}}</a>
+          </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/management/review-parameters">{{'menu.management.reviewParameters' | translate}}</a>
           </li>
           <li nz-menu-item nzMatchRouter>
-            <a routerLink="/management/cars">{{'menu.management.cars' | translate}}</a> </li>
+            <a routerLink="/management/cars">{{'menu.management.cars' | translate}}</a>
+          </li>
           <li nz-menu-item nzMatchRouter>
             <a routerLink="/management/user-roles">{{'menu.management.userRoles' | translate}}</a>
           </li>

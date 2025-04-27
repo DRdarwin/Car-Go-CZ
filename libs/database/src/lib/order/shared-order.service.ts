@@ -1,4 +1,3 @@
-// libs/order/shared-order.service.ts
 import { InjectPubSub } from '@ptc-org/nestjs-query-graphql';
 import { Injectable, Logger } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -40,11 +39,10 @@ import { ServiceService } from './service.service';
 import { SharedDriverService } from './shared-driver.service';
 import { SharedFleetService } from './shared-fleet.service';
 import { SharedProviderService } from './shared-provider.service';
-import { SharedRiderService } from './shared-order.service';
+import { SharedRiderService } from './shared-rider.service';
 import { firstValueFrom } from 'rxjs';
 import { ForbiddenError } from '@nestjs/apollo';
 import { PaymentMode } from '../entities/enums/payment-mode.enum';
-import { VehicleType } from '../entities/enums/vehicle-type.enum'; // NEW: Import VehicleType
 
 @Injectable()
 export class SharedOrderService {
@@ -63,7 +61,7 @@ export class SharedOrderService {
     @InjectRepository(PaymentEntity)
     private paymentRepository: Repository<PaymentEntity>,
     private googleServices: GoogleServicesService,
-    private servicesService: ServiceService, // ServiceService is used here
+    private servicesService: ServiceService,
     private riderService: SharedRiderService,
     private driverRedisService: DriverRedisService,
     private orderRedisService: OrderRedisService,
@@ -76,7 +74,7 @@ export class SharedOrderService {
     private driverNotificationService: DriverNotificationService,
     private riderNotificationService: RiderNotificationService,
     private httpService: HttpService,
-  ) { }
+  ) {}
 
   async getZonePricingsForPoints(
     from: Point,
@@ -93,11 +91,8 @@ export class SharedOrderService {
     return pricings;
   }
 
-  // NEW: Assume input DTO now includes vehicleType and loadersCount
   async calculateFare(input: {
     points: Point[];
-    vehicleType: VehicleType; // NEW: Added vehicleType
-    loadersCount: number; // NEW: Added loadersCount
     twoWay?: boolean;
     coupon?: CouponEntity;
     riderId: number;
@@ -127,10 +122,9 @@ export class SharedOrderService {
       input.points.push(input.points[0]);
     }
     const metrics =
-      servicesInRegion.findIndex((x) => x.perHundredMeters > 0) > -1 // TODO: Check if perHundredMeters exists for the selected vehicleType
+      servicesInRegion.findIndex((x) => x.perHundredMeters > 0) > -1
         ? await this.googleServices.getSumDistanceAndDuration(input.points)
         : { distance: 0, duration: 0, directions: [] };
-
     const cats = await this.serviceCategoryRepository.find({
       relations: ['services', 'services.media', 'services.options'],
     });
@@ -145,7 +139,6 @@ export class SharedOrderService {
     const feeMultiplier =
       (await this.sharedFleetService.getFleetById(fleetIdsInPoint[0]))
         ?.feeMultiplier ?? 1;
-
     const _cats = cats
       .map((cat) => {
         const { services, ..._cat } = cat;
@@ -154,7 +147,7 @@ export class SharedOrderService {
           .filter(
             (x) => servicesInRegion.filter((y) => y.id == x.id).length > 0,
           )
-          .map(async (service) => { // Changed to async map due to async calculateCost
+          .map((service) => {
             let cost;
             const zonePricesWithService = zonePricings.filter(
               (zone) =>
@@ -162,7 +155,6 @@ export class SharedOrderService {
                 null,
             );
             if (zonePricesWithService.length > 0) {
-              // TODO: Zone pricing might also need vehicleType differentiation
               cost = zonePricesWithService[0].cost;
               const eta = new Date();
               for (const _multiplier of zonePricesWithService[0]
@@ -178,76 +170,54 @@ export class SharedOrderService {
                   cost *= _multiplier.multiply;
                 }
               }
-              // NEW: Add loader cost to zone pricing? Business decision needed.
-              // const costPerLoader = 50; // Placeholder
-              // cost += input.loadersCount * costPerLoader;
             } else {
-              // NEW: Pass vehicleType and loadersCount to calculateCost
-              cost = await this.servicesService.calculateCost(
+              cost = this.servicesService.calculateCost(
                 service,
                 metrics.distance,
                 metrics.duration,
                 new Date(),
-                input.vehicleType, // Pass vehicleType
-                input.loadersCount, // Pass loadersCount
                 feeMultiplier,
                 isResident,
               );
             }
-            // TODO: Check if waitFee should be calculated differently based on vehicleType/loaders
             const waitFee = service.perMinuteWait * (input.waitTime ?? 0);
-            const finalCost = cost + waitFee; // Includes base cost + loaders + wait
-
             if (input.coupon == null) {
               return {
                 ...service,
-                cost: finalCost,
+                cost: cost + waitFee,
               };
             } else {
               const costAfterCoupon =
                 this.commonCouponService.applyCouponOnPrice(
                   input.coupon,
-                  finalCost,
+                  cost + waitFee,
                 );
               return {
                 ...service,
-                cost: finalCost,
+                cost: cost + waitFee,
                 costAfterCoupon,
               };
             }
           });
         return {
           ..._cat,
-          // Await all promises from the async map
-          services: Promise.all(_services),
+          services: _services,
         };
       })
-      .filter(async (x) => (await x.services).length > 0); // Filter based on resolved services
-
-    // Resolve the categories and services promises
-    const resolvedCats = await Promise.all(
-      _cats.map(async (cat) => ({
-        ...cat,
-        services: await cat.services,
-      })),
-    );
-
-    Logger.log(`_services: ${JSON.stringify(resolvedCats)}`, 'calculateFare');
+      .filter((x) => x.services.length > 0);
+    Logger.log(`_services: ${JSON.stringify(_cats)}`, 'calculateFare');
     Logger.log(`metrics: ${JSON.stringify(metrics)}`, 'calculateFare');
 
     return {
       ...metrics,
       currency: regions[0].currency,
-      services: resolvedCats,
+      services: _cats,
     };
   }
 
-  // NEW: Assume input DTO now includes vehicleType and loadersCount
   async createOrder(input: {
     riderId?: number;
     serviceId: number;
-    vehicleType: VehicleType; // NEW: Added vehicleType
-    loadersCount: number; // NEW: Added loadersCount
     intervalMinutes: number;
     points: Point[];
     addresses: string[];
@@ -273,14 +243,13 @@ export class SharedOrderService {
     }
     const closeDrivers = await this.driverRedisService.getClose(
       input.points[0],
-      service.searchRadius, // TODO: searchRadius might depend on vehicleType?
+      service.searchRadius,
     );
     Logger.log(`closeDrivers: ${JSON.stringify(closeDrivers)}`, 'createOrder');
     const driverIds = closeDrivers.map((x: DriverLocationWithId) => x.driverId);
     const fleetIdsInPoint = await this.sharedFleetService.getFleetIdsInPoint(
       input.points[0],
     );
-    // TODO: Filter drivers based on their ability to handle the required vehicleType
     const driversWithService =
       await this.driverService.getOnlineDriversWithServiceId(
         driverIds,
@@ -291,7 +260,6 @@ export class SharedOrderService {
       `driversWithService: ${JSON.stringify(driversWithService)}`,
       'createOrder',
     );
-
     let optionFee = 0;
     let options: ServiceOptionEntity[] = [];
     if (input.optionIds != null) {
@@ -307,17 +275,15 @@ export class SharedOrderService {
         paidOptions.length == 0
           ? 0
           : paidOptions
-            .map((option) => option.additionalFee ?? 0)
-            .reduce(
-              (previous: number, current: number) => (current += previous),
-            );
+              .map((option) => option.additionalFee ?? 0)
+              .reduce(
+                (previous: number, current: number) => (current += previous),
+              );
     }
     const metrics =
-      // TODO: Check if perHundredMeters exists for the selected vehicleType
       service.perHundredMeters > 0
         ? await this.googleServices.getSumDistanceAndDuration(input.points)
         : { distance: 0, duration: 0, directions: [] };
-
     const eta = new Date(
       new Date().getTime() + (input.intervalMinutes | 0) * 60 * 1000,
     );
@@ -330,18 +296,25 @@ export class SharedOrderService {
       fleetIdsInPoint.length == 0
         ? 1
         : (await this.sharedFleetService.getFleetById(fleetIdsInPoint[0]))
-          ?.feeMultiplier ?? 1;
-
-    let cost;
+            ?.feeMultiplier ?? 1;
+    let cost =
+      this.servicesService.calculateCost(
+        service,
+        metrics.distance,
+        metrics.duration,
+        eta,
+        feeMultiplier,
+        isResident,
+      ) +
+      optionFee +
+      service.perMinuteWait * input.waitMinutes;
     const zonePricing = zonePricings.filter((price) => {
       return (
         price.services.filter((service) => service.id == input.serviceId)
           .length > 0
       );
     });
-
     if (zonePricing.length > 0) {
-      // TODO: Zone pricing might also need vehicleType differentiation
       cost = zonePricing[0].cost;
       const eta = new Date();
       for (const _multiplier of zonePricings[0].timeMultipliers) {
@@ -356,31 +329,10 @@ export class SharedOrderService {
           cost *= _multiplier.multiply;
         }
       }
-      // NEW: Add loader cost to zone pricing? Business decision needed.
-      // const costPerLoader = 50; // Placeholder
-      // cost += input.loadersCount * costPerLoader;
-    } else {
-      // NEW: Pass vehicleType and loadersCount to calculateCost
-      cost = await this.servicesService.calculateCost(
-        service,
-        metrics.distance,
-        metrics.duration,
-        eta,
-        input.vehicleType, // Pass vehicleType
-        input.loadersCount, // Pass loadersCount
-        feeMultiplier,
-        isResident,
-      );
     }
-
-    // TODO: Check if waitCost calculation depends on vehicleType/loaders
-    const waitCost = service.perMinuteWait * input.waitMinutes;
-    const finalCost = cost + optionFee + waitCost; // Base (+loaders) + options + wait
-
     const regions = await this.regionService.getRegionWithPoint(
       input.points[0],
     );
-    // TODO: Check if maximumDestinationDistance depends on vehicleType
     if (
       service.maximumDestinationDistance != 0 &&
       metrics.distance > service.maximumDestinationDistance
@@ -389,26 +341,28 @@ export class SharedOrderService {
     }
     let shouldPrePay = false;
     const paidAmount = 0;
-    // TODO: Check if prepay logic depends on vehicleType/loaders
     if (service.prepayPercent > 0 && input.riderId != null) {
       const balance = await this.riderService.getRiderCreditInCurrency(
         input.riderId,
         regions[0].currency,
       );
-      const amountNeedsToBePrePaid = (finalCost * service.prepayPercent) / 100;
+      const amountNeedsToBePrePaid = (cost * service.prepayPercent) / 100;
       if (balance < amountNeedsToBePrePaid) {
         shouldPrePay = true;
+      } else {
+        // await this.riderService.rechargeWallet({
+        //     amount: -amountNeedsToBePrePaid,
+        //     currency: regions[0].currency,
+        //     action: TransactionAction.Deduct,
+        //     deductType: RiderDeductTransactionType.OrderFee,
+        //     status: TransactionStatus.Done,
+        //     riderId: input.riderId
+        // });
+        // paidAmount = amountNeedsToBePrePaid;
       }
     }
-    // TODO: Check if providerShare logic depends on vehicleType/loaders
-    const providerShare =
-      service.providerShareFlat + (service.providerSharePercent * finalCost) / 100;
-
-
-    const orderObject: Partial<RequestEntity> = { // Use Partial<RequestEntity> for create
+    const orderObject: RequestEntity = this.orderRepository.create({
       serviceId: input.serviceId,
-      vehicleType: input.vehicleType, // NEW: Save vehicleType
-      loadersCount: input.loadersCount, // NEW: Save loadersCount
       currency: regions[0].currency,
       riderId: input.riderId,
       points: input.points,
@@ -428,24 +382,24 @@ export class SharedOrderService {
       status: shouldPrePay
         ? OrderStatus.WaitingForPrePay
         : input.intervalMinutes > 30
-          ? OrderStatus.Booked
-          : driversWithService.length < 1
-            ? OrderStatus.NoCloseFound // TODO: Check driver availability for vehicle type
-            : OrderStatus.Requested,
+        ? OrderStatus.Booked
+        : driversWithService.length < 1
+        ? OrderStatus.NoCloseFound
+        : OrderStatus.Requested,
       paidAmount: paidAmount,
-      costBest: finalCost, // Use the final calculated cost
-      costAfterCoupon: finalCost, // Initial value, coupon applied later
+      costBest: cost,
+      costAfterCoupon: cost,
       expectedTimestamp: eta,
       operatorId: input.operatorId,
       waitMinutes: input.waitMinutes,
-      waitCost: waitCost,
+      waitCost: service.perMinuteWait * input.waitMinutes,
       rideOptionsCost: optionFee,
       fleetId: input.fleetId,
-      providerShare: providerShare,
+      providerShare:
+        service.providerShareFlat + (service.providerSharePercent * cost) / 100,
       options: options,
-    };
-
-    let order = await this.orderRepository.save(orderObject as RequestEntity); // Cast to RequestEntity
+    });
+    let order = await this.orderRepository.save(orderObject);
     if (input.couponCode != null && input.couponCode != '' && rider != null) {
       order = await this.commonCouponService.applyCoupon(
         input.couponCode,
@@ -466,8 +420,6 @@ export class SharedOrderService {
           : RequestActivityType.RequestedByOperator;
     }
     this.activityRepository.insert({ requestId: order.id, type: activityType });
-
-    // TODO: Add vehicleType/loadersCount to order data stored in Redis?
     await this.orderRedisService.add(
       { ...order, fleetIds: fleetIdsInPoint },
       input.intervalMinutes | 0,
@@ -478,7 +430,6 @@ export class SharedOrderService {
       `driversWithService: ${JSON.stringify(driversWithService)}`,
       'createOrder',
     );
-    // TODO: Check driver availability for vehicle type before notifying
     if ((input.intervalMinutes ?? 0) < 30 && !shouldPrePay) {
       this.orderRedisService.driverNotified(order.id, driversWithService);
       this.pubSub.publish('orderCreated', {
@@ -491,8 +442,6 @@ export class SharedOrderService {
   }
 
   async processPrePay(orderId: number, authorizedAmount: number = 0) {
-    // ... (rest of the method - might need adjustments if prepay logic changed)
-    // Need to re-fetch order to ensure latest data after potential updates
     const order: RequestEntity = await this.orderRepository.findOneOrFail({
       where: { id: orderId },
       relations: ['service', 'driver', 'driver.fleet', 'rider'],
@@ -505,15 +454,16 @@ export class SharedOrderService {
     Logger.log(`authorizedAmount: ${authorizedAmount}`, 'processPrePay');
     Logger.log(`serviceFee: ${order.costAfterCoupon}`, 'processPrePay');
     Logger.log(
-      `Minmum required authorizedAmount: ${order.costAfterCoupon * (order.service.prepayPercent / 100.0)
+      `Minmum required authorizedAmount: ${
+        order.costAfterCoupon * (order.service.prepayPercent / 100.0)
       }`,
       'processPrePay',
     );
-    // Use >= 0 instead of > 1 for check
     if (
       riderCredit +
-      authorizedAmount <
-      order.costAfterCoupon * (order.service.prepayPercent / 100.0)
+        authorizedAmount -
+        order.costAfterCoupon * (order.service.prepayPercent / 100.0) >
+      1
     ) {
       throw new ForbiddenError('Credit is not enough');
     }
@@ -529,7 +479,6 @@ export class SharedOrderService {
     const fleetIdsInPoint = await this.sharedFleetService.getFleetIdsInPoint(
       order.points[0],
     );
-    // TODO: Filter drivers based on vehicleType capability
     const driversWithService =
       await this.driverService.getOnlineDriversWithServiceId(
         closeDriverIds,
@@ -538,11 +487,10 @@ export class SharedOrderService {
       );
     this.orderRedisService.driverNotified(order.id, driversWithService);
     this.pubSub.publish('orderCreated', {
-      orderCreated: order, // Send the fetched order object
+      orderCreated: order,
       driverIds: driversWithService.map((driver) => driver.id),
     });
     this.driverNotificationService.requests(driversWithService);
-    // Refetch order after update to return latest status
     return this.orderRepository.findOneOrFail({
       where: { id: orderId },
       relations: ['service', 'driver', 'driver.fleet', 'rider'],
@@ -550,7 +498,6 @@ export class SharedOrderService {
   }
 
   async finish(orderId: number, cashAmount = 0.0) {
-    // ... (rest of the method - might need minor adjustments based on final cost calculation)
     const order: RequestEntity = await this.orderRepository.findOneOrFail({
       where: { id: orderId },
       relations: ['service', 'driver', 'driver.fleet', 'rider'],
@@ -567,15 +514,15 @@ export class SharedOrderService {
       order.riderId,
       order.currency,
     );
-    // TODO: Re-evaluate commission calculation based on vehicleType/loaders if needed
     const providerPercent =
       order.rider.isResident === false
         ? order.service.providerSharePercent * order.service.touristMultiplier
         : order.service.providerSharePercent;
-    const commission = order.providerShare; // Use the pre-calculated providerShare
+    const commission =
+      (providerPercent * order.costAfterCoupon) / 100 +
+      order.service.providerShareFlat;
     let unPaidAmount =
-      order.costAfterCoupon - order.paidAmount + order.tipAmount; // Use costAfterCoupon
-
+      order.costAfterCoupon - order.paidAmount + order.tipAmount;
     if (riderCredit + cashAmount < unPaidAmount) {
       const payment = await this.paymentRepository.find({
         where: {
@@ -588,52 +535,39 @@ export class SharedOrderService {
       });
       const status = OrderStatus.WaitingForPostPay;
       if (payment.length > 0) {
-        const amountToCapture = Math.max(0, unPaidAmount - riderCredit); // Capture only the needed amount >= 0
-        if (amountToCapture > 0) {
-          try {
-            const captureResult = await firstValueFrom(
-              this.httpService.get<{ status: 'OK' | 'FAILED' }>(
-                `${process.env.GATEWAY_SERVER_URL}/capture?id=${payment[0].transactionNumber
-                }&amount=${amountToCapture}`,
-              ),
-            );
-            if (captureResult.data.status == 'OK') {
-              // Re-fetch credit after potential successful capture
-              riderCredit = await this.riderService.getRiderCreditInCurrency(
-                order.riderId,
-                order.currency,
-              );
-              // Recalculate unpaid amount
-              unPaidAmount =
-                order.costAfterCoupon - order.paidAmount + order.tipAmount;
-              if (riderCredit + cashAmount < unPaidAmount) {
-                // Still not enough after capture attempt
-                await this.orderRepository.update(order.id, { status });
-                return; // Exit function
-              }
-              // If enough now, proceed with finishing logic below
-            } else {
-              // Capture failed
-              await this.orderRepository.update(order.id, { status });
-              return; // Exit function
-            }
-          } catch (error) {
-            Logger.error(`Payment capture failed for order ${orderId}`, error);
-            await this.orderRepository.update(order.id, { status });
-            return; // Exit function
+        const captureResult = await firstValueFrom(
+          this.httpService.get<{ status: 'OK' | 'FAILED' }>(
+            `${process.env.GATEWAY_SERVER_URL}/capture?id=${
+              payment[0].transactionNumber
+            }&amount=${unPaidAmount - riderCredit}`,
+          ),
+        );
+        if (captureResult.data.status == 'OK') {
+          riderCredit = await this.riderService.getRiderCreditInCurrency(
+            order.riderId,
+            order.currency,
+          );
+          unPaidAmount =
+            order.costAfterCoupon - order.paidAmount + order.tipAmount;
+          if (riderCredit + cashAmount < unPaidAmount) {
+            await this.orderRepository.update(order.id, {
+              status,
+            });
+            return;
           }
         } else {
-          // Amount to capture is 0 or less, proceed normally
+          await this.orderRepository.update(order.id, {
+            status,
+          });
+          return;
         }
       } else {
-        // No authorized payment found
-        await this.orderRepository.update(order.id, { status });
-        return; // Exit function
+        await this.orderRepository.update(order.id, {
+          status,
+        });
+        return;
       }
     }
-
-    // Sufficient funds available (Wallet + Cash + Captured Amount)
-
     await this.driverService.rechargeWallet({
       status: TransactionStatus.Done,
       driverId: order.driverId!,
@@ -643,7 +577,6 @@ export class SharedOrderService {
       amount: -1 * commission,
       requestId: order.id,
     });
-
     let fleetShare = 0;
     if (order.driver?.fleetId != null) {
       fleetShare =
@@ -667,11 +600,7 @@ export class SharedOrderService {
       currency: order.currency,
       amount: commission - fleetShare,
     });
-
-    // Calculate amount to charge driver wallet (fee + tip - cash received)
-    const amountToChargeDriver = order.costAfterCoupon + order.tipAmount - cashAmount;
-
-    if (amountToChargeDriver > 0) {
+    if (order.costAfterCoupon - cashAmount > 0) {
       await this.driverService.rechargeWallet({
         status: TransactionStatus.Done,
         driverId: order.driverId!,
@@ -679,28 +608,22 @@ export class SharedOrderService {
         requestId: order.id,
         action: TransactionAction.Recharge,
         rechargeType: DriverRechargeTransactionType.OrderFee,
-        amount: amountToChargeDriver, // Driver gets the fee & tip
+        amount: order.costAfterCoupon - cashAmount + order.tipAmount,
       });
     }
-
-    // Calculate amount to deduct from rider wallet (remaining fee + tip after cash)
-    const amountToDeductRider = Math.max(0, unPaidAmount - cashAmount);
-
-    if (amountToDeductRider > 0 && riderCredit > 0) {
-      const deductAmount = Math.min(riderCredit, amountToDeductRider); // Deduct only available credit or needed amount
+    if (riderCredit > 0 && cashAmount < unPaidAmount) {
       await this.riderService.rechargeWallet({
         status: TransactionStatus.Done,
         action: TransactionAction.Deduct,
         deductType: RiderDeductTransactionType.OrderFee,
         currency: order.currency,
         requestId: order.id,
-        amount: -1 * deductAmount, // Deduct the calculated amount
+        amount: -1 * (unPaidAmount - cashAmount),
         riderId: order.riderId,
       });
     }
-
     await this.orderRepository.update(order.id, {
-      paidAmount: order.costAfterCoupon + order.tipAmount, // Update paid amount fully
+      paidAmount: order.costAfterCoupon,
       status: OrderStatus.WaitingForReview,
       finishTimestamp: new Date(),
     });
@@ -715,47 +638,37 @@ export class SharedOrderService {
   }
 
   async assignOrderToDriver(orderId: number, driverId: number) {
-    // ... (rest of the method - check if driver vehicle matches order vehicleType)
     const [travel, driverLocation] = await Promise.all([
       this.orderRepository.findOneOrFail({
         where: { id: orderId },
-        // NEW: Eager load vehicleType if needed for checks
-        relations: ['driver', 'driver.car', 'driver.carColor', 'service', 'rider'],
+        relations: ['driver', 'driver.car', 'driver.carColor', 'service'],
       }),
       this.driverRedisService.getDriverCoordinate(driverId),
     ]);
-
-    // NEW: Add check if driver's vehicle type matches the order's required vehicleType
-    // const driver = await this.driverService.findById(driverId); // Fetch driver details including vehicle
-    // if(driver.vehicle.type !== travel.vehicleType) { // Pseudo-code
-    //   throw new ForbiddenError('Driver vehicle type mismatch');
-    // }
-
-
     this.activityRepository.insert({
       requestId: orderId,
       type: RequestActivityType.DriverAccepted,
     });
-    // Simplified check: if already accepted or finished, throw error
-    if (travel.driverId != null || [OrderStatus.Finished, OrderStatus.WaitingForReview, OrderStatus.WaitingForPostPay].includes(travel.status)) {
-      throw new ForbiddenError('Order is already assigned or finished.');
+    //  const allowedStatuses = [OrderStatus.Found, OrderStatus.NoCloseFound, OrderStatus.Requested, OrderStatus.Booked];
+    // if (travel == null || !allowedStatuses.includes(travel.status)) {
+    if (travel == null) {
+      throw new ForbiddenError('Already Taken');
     }
-
-    // Cancel previous driver if any (though logic above should prevent this state)
-    // if (travel.driverId != null && travel.driverId !== driverId) {
-    //    this.driverNotificationService.canceled(travel.driver!);
-    //    await this.driverService.updateDriverStatus(
-    //      travel.driverId,
-    //      DriverStatus.Online,
-    //    );
-    // }
-
+    if (travel.driverId != null) {
+      this.driverNotificationService.canceled(travel.driver!);
+      await this.driverService.updateDriverStatus(
+        travel.driverId,
+        DriverStatus.Online,
+      );
+      travel.status = OrderStatus.RiderCanceled;
+      this.pubSub.publish('orderUpdated', { orderUpdated: travel });
+    }
     const metrics =
       driverLocation != null
         ? await this.googleServices.getSumDistanceAndDuration([
-          travel.points[0],
-          driverLocation,
-        ])
+            travel.points[0],
+            driverLocation,
+          ])
         : { distance: 0, duration: 0 };
     const dt = new Date();
     const etaPickup = dt.setSeconds(dt.getSeconds() + metrics.duration);
@@ -766,7 +679,6 @@ export class SharedOrderService {
       etaPickup: new Date(etaPickup),
       driverId,
     });
-    // Fetch the updated order again to ensure all relations are loaded for notifications/publish
     const result = await this.orderRepository.findOneOrFail({
       where: { id: orderId },
       relations: [
@@ -775,26 +687,19 @@ export class SharedOrderService {
         'driver.carColor',
         'service',
         'rider',
-        // Eager load vehicleType if needed for notifications
-        // 'vehicleType'
       ],
     });
     this.pubSub.publish('orderUpdated', { orderUpdated: result });
-    this.pubSub.publish('orderRemoved', { orderRemoved: result });
+    this.pubSub.publish('orderRemoved', { orderRemoved: result }); // This one has a filter to let know all except the one accepted.
     this.riderNotificationService.bookingAssigned(
       result.rider,
       result.expectedTimestamp.toISOString(),
-      // NEW: Potentially add vehicle info to notification
-      // result.driver?.car?.name,
-      // result.driver?.plateNumber
     );
     this.driverNotificationService.assigned(
       result.driver!,
       result.expectedTimestamp.toTimeString(),
       result.addresses[0],
       result.addresses[result.addresses.length - 1],
-      // NEW: Potentially add loadersCount to notification
-      // result.loadersCount
     );
     return result;
   }

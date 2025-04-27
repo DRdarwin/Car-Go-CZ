@@ -1,8 +1,6 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
     "rootDir": ".",
     "sourceMap": true,
     "declaration": false,
@@ -33,13 +31,15 @@
         "libs/database/src/index.ts"
       ],
       "@ridy/database/*": [
-        "libs/database/src/lib/*"
-      ],
-      "@ridy/common/*": [
-        "libs/common/src/*"
+        "libs/database/src/lib/entities/*"
       ],
       "@ridy/geo/*": [
         "libs/database/src/lib/geo/*"
+      ],
+      "@ridy/order/*": [
+        "libs/database/src/lib/order/*",
+        "libs/database/src/lib/order/region/*",
+        "libs/database/src/lib/order/google-services/*"
       ],
       "@ridy/payment": [
         "libs/database/src/lib/payment/index.ts"
@@ -49,12 +49,6 @@
       ],
       "@ridy/sms/*": [
         "libs/database/src/lib/sms/*"
-      ],
-      "@ridy/order": [
-        "libs/order/src/index.ts"
-      ],
-      "@ridy/order/*": [
-        "libs/order/src/*"
       ]
     }
   },

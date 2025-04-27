@@ -20,7 +20,8 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let data of table.data" (click)="selectRider(data.id)" class="group cursor-pointer"> <td>
+    <tr *ngFor="let data of table.data" (click)="selectRider(data.id)" class="group cursor-pointer">
+      <td>
         <div nz-typography>
           {{ data.firstName }} {{ data.lastName }}
         </div>

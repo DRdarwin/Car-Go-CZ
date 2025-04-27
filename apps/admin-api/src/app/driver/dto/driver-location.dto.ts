@@ -1,6 +1,7 @@
 import { ObjectType } from "@nestjs/graphql";
 import { Point } from "@ridy/database";
-import { DriverStatus, Gender } from '@ridy/database';
+import { DriverStatus } from "@ridy/database/enums/driver-status.enum";
+import { Gender } from "@ridy/database/enums/gender.enum";
 
 @ObjectType()
 export class OnlineDriver {

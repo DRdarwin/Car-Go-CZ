@@ -1,9 +1,10 @@
-import { Inject, Logger, UseGuards, UnauthorizedException } from '@nestjs/common';
+import { Inject, Logger, UseGuards } from '@nestjs/common';
 import { Args, CONTEXT, ID, Mutation, Query, Resolver } from '@nestjs/graphql';
 import { CommonCouponService } from '@ridy/coupon';
-import { Point, RequestEntity } from '@ridy/database';
-import { SharedOrderService } from '@ridy/order';
-import { DriverRedisService } from '@ridy/redis';
+import { Point } from '@ridy/database';
+import { RequestEntity } from '@ridy/database/request.entity';
+import { SharedOrderService } from '@ridy/order/shared-order.service';
+import { DriverRedisService } from '@ridy/redis/driver-redis.service';
 import { UserContextOptional } from '../auth/authenticated-user';
 import { GqlAuthGuard } from '../auth/jwt-gql-auth.guard';
 import { GqlOptionalAuthGuard } from '../auth/jwt-optional-gql-auth.guard';
@@ -23,14 +24,14 @@ export class OrderResolver {
     private riderOrderService: RiderOrderService,
     private driverRedisService: DriverRedisService,
     private commonCouponService: CommonCouponService,
-  ) { }
+  ) {}
 
-  @Query(() => OrderDTO, { nullable: true })
+  @Query(() => OrderDTO, {
+    nullable: true,
+  })
   @UseGuards(GqlAuthGuard)
-  async currentOrder(): Promise<OrderDTO | null> {
-    const user = this.context.req.user;
-    if (!user) throw new UnauthorizedException();
-    return this.riderOrderService.getCurrentOrder(user.id, [
+  async currentOrder(): Promise<OrderDTO> {
+    return this.riderOrderService.getCurrentOrder(this.context.req.user.id, [
       'driver',
       'driver.carColor',
       'driver.car',
@@ -38,19 +39,18 @@ export class OrderResolver {
     ]);
   }
 
-  @Query(() => CurrentOrder, { nullable: true })
+  @Query(() => CurrentOrder)
   @UseGuards(GqlAuthGuard)
-  async currentOrderWithLocation(): Promise<CurrentOrder | null> {
-    const user = this.context.req.user;
-    if (!user) throw new UnauthorizedException();
-    const order = await this.riderOrderService.getCurrentOrder(user.id, [
-      'driver',
-      'driver.carColor',
-      'driver.car',
-    ]);
-    let driverLocation: Point | undefined;
-    if (order?.driver) {
-      driverLocation = await this.driverRedisService.getDriverCoordinate(order.driver.id);
+  async currentOrderWithLocation(): Promise<CurrentOrder> {
+    const order = await this.riderOrderService.getCurrentOrder(
+      this.context.req.user.id,
+      ['driver', 'driver.carColor', 'driver.car'],
+    );
+    let driverLocation;
+    if (order?.driver != null) {
+      driverLocation = this.driverRedisService.getDriverCoordinate(
+        order.driver.id,
+      );
     }
     return { order, driverLocation };
   }
@@ -58,19 +58,17 @@ export class OrderResolver {
   @Mutation(() => CalculateFareDTO)
   @UseGuards(GqlAuthGuard)
   async calculateFare(
-    @Args('input', { type: () => CalculateFareInput }) input: CalculateFareInput,
+    @Args('input', { type: () => CalculateFareInput })
+    input: CalculateFareInput,
   ): Promise<CalculateFareDTO> {
-    const user = this.context.req.user;
-    if (!user) throw new UnauthorizedException();
-    const coupon = input.couponCode
-      ? await this.commonCouponService.checkCoupon(input.couponCode, user.id)
-      : undefined;
+    const coupon = await this.commonCouponService.checkCoupon(
+      input.couponCode,
+      this.context.req.user?.id,
+    );
     return this.orderService.calculateFare({
       points: input.points,
-      vehicleType: input.vehicleType,
-      loadersCount: input.loadersCount,
-      coupon,
-      riderId: user.id,
+      coupon: coupon,
+      riderId: this.context.req.user?.id,
       twoWay: input.twoWay,
       waitTime: input.waitTime,
       selectedOptionIds: input.selectedOptionIds,
@@ -80,21 +78,22 @@ export class OrderResolver {
   @Query(() => CalculateFareDTO)
   @UseGuards(GqlAuthGuard)
   async getFares(
-    @Args('input', { type: () => CalculateFareInput }) input: CalculateFareInput,
+    @Args('input', { type: () => CalculateFareInput })
+    input: CalculateFareInput,
   ): Promise<CalculateFareDTO> {
-    const user = this.context.req.user;
-    if (!user) throw new UnauthorizedException();
-    Logger.log(`Getting fares for userId:${user.id}`);
-    const coupon =
-      input.couponCode && input.couponCode.length > 0
-        ? await this.commonCouponService.checkCoupon(input.couponCode, user.id)
-        : undefined;
+    Logger.log(`Creating order for userId:${this.context.req.user?.id}`);
+    let coupon;
+    if (
+      input.couponCode != null &&
+      this.context.req.user?.id != null &&
+      input.couponCode.length > 0
+    ) {
+      coupon = await this.commonCouponService.checkCoupon(input.couponCode);
+    }
     return this.orderService.calculateFare({
       points: input.points,
-      vehicleType: input.vehicleType,
-      loadersCount: input.loadersCount,
-      coupon,
-      riderId: user.id,
+      coupon: coupon,
+      riderId: this.context.req.user?.id,
       twoWay: input.twoWay,
       waitTime: input.waitTime,
       selectedOptionIds: input.selectedOptionIds,
@@ -104,18 +103,22 @@ export class OrderResolver {
   @Query(() => CalculateFareDTO)
   @UseGuards(GqlOptionalAuthGuard)
   async getFare(
-    @Args('input', { type: () => CalculateFareInput }) input: CalculateFareInput,
+    @Args('input', { type: () => CalculateFareInput })
+    input: CalculateFareInput,
   ): Promise<CalculateFareDTO> {
-    const user = this.context.req.user;
-    Logger.log(`Getting fare for userId:${user?.id}`);
-    const coupon =
-      user && input.couponCode && input.couponCode.length > 0
-        ? await this.commonCouponService.checkCoupon(input.couponCode, user.id)
-        : undefined;
+    Logger.log(`Creating order for userId:${this.context.req.user?.id}`);
+    let coupon;
+    if (
+      input.couponCode != null &&
+      this.context.req.user?.id != null &&
+      input.couponCode.length > 0
+    ) {
+      coupon = await this.commonCouponService.checkCoupon(input.couponCode);
+    }
     return this.orderService.calculateFare({
       ...input,
       coupon,
-      riderId: user?.id,
+      riderId: this.context.req.user?.id,
     });
   }
 
@@ -124,11 +127,9 @@ export class OrderResolver {
   async createOrder(
     @Args('input', { type: () => CreateOrderInput }) input: CreateOrderInput,
   ): Promise<OrderDTO> {
-    const user = this.context.req.user;
-    if (!user) throw new UnauthorizedException();
     return this.orderService.createOrder({
       ...input,
-      riderId: user.id,
+      riderId: this.context.req.user.id,
       optionIds: input.optionIds,
       waitMinutes: input.waitTime,
       twoWay: input.twoWay,
@@ -139,31 +140,34 @@ export class OrderResolver {
   @UseGuards(GqlAuthGuard)
   async cancelOrder(
     @Args('orderId', { type: () => ID, nullable: true }) orderId?: number,
-    @Args('cancelReasonId', { type: () => ID, nullable: true }) cancelReasonId?: number,
-    @Args('cancelReasonNote', { type: () => String, nullable: true }) cancelReasonNote?: string,
+    @Args('cancelReasonId', { type: () => ID, nullable: true })
+    cancelReasonId?: number,
+    @Args('cancelReasonNote', { type: () => String, nullable: true })
+    cancelReasonNote?: string,
   ): Promise<OrderDTO> {
-    const user = this.context.req.user;
-    if (!user) throw new UnauthorizedException();
-    if (orderId) {
+    if (orderId != null) {
       return this.riderOrderService.cancelOrder({
-        orderId,
+        orderId: orderId,
+        reasonId: cancelReasonId,
+        reason: cancelReasonNote,
+      });
+    } else {
+      return this.riderOrderService.cancelRiderLastOrder({
+        riderId: this.context.req.user.id,
         reasonId: cancelReasonId,
         reason: cancelReasonNote,
       });
     }
-    return this.riderOrderService.cancelRiderLastOrder({
-      riderId: user.id,
-      reasonId: cancelReasonId,
-      reason: cancelReasonNote,
-    });
   }
 
   @Mutation(() => OrderDTO)
   @UseGuards(GqlAuthGuard)
   async cancelBooking(
     @Args('id', { type: () => ID }) id: number,
-    @Args('cancelReasonId', { type: () => ID, nullable: true }) cancelReasonId?: number,
-    @Args('cancelReasonNote', { type: () => String, nullable: true }) cancelReasonNote?: string,
+    @Args('cancelReasonId', { type: () => ID!, nullable: true })
+    cancelReasonId?: number,
+    @Args('cancelReasonNote', { type: () => String, nullable: true })
+    cancelReasonNote?: string,
   ): Promise<OrderDTO> {
     return this.riderOrderService.cancelOrder({
       orderId: id,
@@ -172,43 +176,49 @@ export class OrderResolver {
     });
   }
 
-  @Query(() => Point, { nullable: true })
+  @Query(() => Point, {
+    nullable: true,
+  })
   @UseGuards(GqlAuthGuard)
-  async getCurrentOrderDriverLocation(): Promise<Point | null> {
-    const user = this.context.req.user;
-    if (!user) throw new UnauthorizedException();
-    const order = await this.riderOrderService.getCurrentOrder(user.id);
-    if (order?.driverId) {
+  async getCurrentOrderDriverLocation(): Promise<Point> {
+    const order = await this.riderOrderService.getCurrentOrder(
+      this.context.req.user.id,
+    );
+    if (order?.driverId != null) {
       Logger.log(`driver id: ${order.driverId}`);
-      const coordinate = await this.driverRedisService.getDriverCoordinate(order.driverId);
+      const coordinate = await this.driverRedisService.getDriverCoordinate(
+        order.driverId,
+      );
       Logger.log(JSON.stringify(coordinate));
       return coordinate;
+    } else {
+      return null;
     }
-    return null;
   }
 
-  @Query(() => [Point])
-  @UseGuards(GqlOptionalAuthGuard)
+  @Query(() => [Point], {})
   async getDriversLocation(
     @Args('center', { type: () => Point, nullable: true }) center?: Point,
   ): Promise<Point[]> {
-    if (!center) return [];
+    if (center == null) return [];
     return this.driverRedisService.getCloseWithoutIds(center, 1000);
   }
 
-  @Mutation(() => RequestEntity)
+  @Mutation(() => OrderDTO)
   @UseGuards(GqlAuthGuard)
   async submitReview(
-    @Args('review', { type: () => SubmitFeedbackInput }) review: SubmitFeedbackInput,
+    @Args('review', { type: () => SubmitFeedbackInput })
+    review: SubmitFeedbackInput,
   ): Promise<RequestEntity> {
-    const user = this.context.req.user!;
-    return this.riderOrderService.submitReview(user.id, review);
+    return this.riderOrderService.submitReview(
+      this.context.req.user.id,
+      review,
+    );
   }
 
-  @Mutation(() => RequestEntity)
+  @Mutation(() => OrderDTO)
   @UseGuards(GqlAuthGuard)
   async skipReview(): Promise<RequestEntity> {
-    const user = this.context.req.user!;
-    return this.riderOrderService.skipReview(user.id);
+    return this.riderOrderService.skipReview(this.context.req.user.id);
   }
 }

@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "ng build",
+    "startTime": "2025-04-27T02:36:39.388Z",
+    "endTime": "2025-04-27T02:36:59.246Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "admin-api:compile",
+      "target": "compile",
+      "projectName": "admin-api",
+      "hash": "7082625168502544083",
+      "startTime": "2025-04-27T02:36:39.471Z",
+      "endTime": "2025-04-27T02:36:59.240Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 1
+    }
+  ]
+}

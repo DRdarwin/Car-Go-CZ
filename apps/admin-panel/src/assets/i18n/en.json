@@ -1,234 +1,212 @@
 {
 	"enum": {
-		"Gender": {
-			"Male": "Male",
-			"Female": "Female",
-			"Unknown": "Unknown"
+		"request": {
+			"Requested": "Requested",
+			"NotFound": "Not Found",
+			"NoCloseFound": "Close Not Found",
+			"Found": "Found",
+			"DriverAccepted": "Driver Accepted",
+			"Arrived": "Arrived",
+			"WaitingForPrefy": "Waiting For Pre-Payment",
+			"DriverCanceled": "Driver Canceled",
+			"RiderCanceled": "Rider Canceled",
+			"Started": "Started",
+			"WaitingForPostPay": "Waiting For Post-Payment",
+			"WaitingForReview": "Waiting For Review",
+			"Finished": "Finished",
+			"Booked": "Booked",
+			"Expired": "Expired"
 		},
-		"RiderDocumentType": {
-			"Passport": "Passport",
-			"ID": "ID",
-			"DriverLicense": "Driver License",
-			"Insurance": "Insurance",
-			"Other": "Other"
+		"transactionType": {
+			"OrderFee": "Order Fee",
+			"Cash": "Cash",
+			"BankTransfer": "Bank Transfer",
+			"Gift": "Gift",
+			"Commission": "Commission",
+			"Correction": "Correction",
+			"InAppPayment": "In App Payment",
+			"Withdraw": "Withdraw"
 		},
-		"DriverDocumentType": {
-			"NationalID": "National ID",
-			"Passport": "Passport",
-			"DriverLicense": "Driver License",
-			"PoliceClearance": "Police Clearance",
-			"VehicleRegistrationCertificate": "Vehicle Registration Certificate",
-			"VehicleProductionCertificate": "Vehicle Production Certificate",
-			"Other": "Other"
+		"transactionStatus": {
+			"Processing": "Processing",
+			"Done": "Done",
+			"Canceled": "Canceled",
+			"Rejected": "Rejected"
 		},
-		"PaymentGatewayType": {
-			"Stripe": "Stripe",
-			"BrainTree": "Braintree",
-			"Flutterwave": "Flutterwave",
-			"Paystack": "Paystack",
-			"Paytm": "Paytm",
-			"Razorpay": "Razorpay",
-			"PayU": "PayU",
-			"Instamojo": "Instamojo",
-			"MIPS": "MIPS",
-			"Custom": "Custom",
-			"MercadoPago": "Mercado Pago",
-			"MyFatoorah": "MyFatoorah",
-			"WayForPay": "WayForPay"
+		"gender": {
+			"male": "Male",
+			"female": "Female",
+			"genderless": "Genderless"
 		},
-		"ServicePaymentMethod": {
-			"CashCredit": "Cash / Credit",
-			"OnlyCredit": "Only Credit",
-			"OnlyCash": "Only Cash"
+		"complaintStatus": {
+			"submitted": "Submitted",
+			"underInvestigation": "Under Investigation",
+			"resolved": "Resolved"
+		},
+		"sosStatus": {
+			"submitted": "Submitted",
+			"underReview": "Under Review",
+			"falseAlarm": "False Alarm",
+			"resolved": "Resolved"
+		},
+		"driver": {
+			"status": {
+				"pendingApproval": "Pending Approval",
+				"approved": "Approved",
+				"blocked": "Blocked",
+				"softReject": "Soft Reject",
+				"hardReject": "Hard Reject",
+				"offline": "Offline",
+				"waitingDocuments": "Pending Submission",
+				"inService": "In Service",
+				"online": "Online"
+			}
+		},
+		"rider": {
+			"status": {
+				"blocked": "Blocked",
+				"enabled": "Enabled"
+			}
+		},
+		"sosActivityAction": {
+			"submitted": "Submitted",
+			"seen": "Seen",
+			"contactDriver": "Contacted the driver",
+			"contactAuthorities": "Contacted authorities",
+			"markedAsResolved": "Marked as Resolved",
+			"markedAsFalseAlarm": "Marked as False alarm"
 		}
 	},
 	"branding": {
 		"menu": {
-			"header": "CarGo"
+			"header": "Ridy"
 		},
 		"footer": {
 			"address": "http://ridy.io/",
-			"copyright": "Copyright © 2023 Ridy.",
+			"prefix": "© 2018-2023",
+			"title": "Ridy.io",
 			"suffix": "All Rights reserved."
 		},
 		"page": {
-			"title": "CarGo Admin Panel"
+			"title": "Ridy Admin Panel"
 		}
 	},
 	"menu": {
-		"dashboard": {
-			"subheader": "Welcome",
-			"header": "Dashboard"
+		"home": {
+			"overview": "Overview",
+			"dispatcher": "Dispatcher",
+			"header": "Home"
 		},
-		"requests": "Delivery Requests",
-		"drivers": "Drivers",
-		"riders": "Customers",
-		"coupons": "Coupons",
-		"announcements": "Announcements",
-		"financials": {
-			"header": "Financials",
-			"riderWallets": "Customer Wallets",
-			"driverWallets": "Driver Wallets",
-			"fleetWallets": "Fleet Wallets",
-			"adminTransactions": "Admin Transactions",
-			"paymentGateways": "Payment Gateways"
+		"driver": {
+			"pendingVerification": "Pending Verification",
+			"all": "View All",
+			"header": "Drivers"
 		},
-		"support": {
-			"header": "Support"
+		"payouts": "Payouts",
+		"payoutMethods": "Payout Methods",
+		"marketing": {
+			"coupons": "Coupons",
+			"announcements": "Announcements",
+			"header": "Marketing",
+			"rewards": "Rewards & Referrals"
 		},
+		"accounting": {
+			"admin": "Admin",
+			"fleets": "Fleets",
+			"drivers": "Drivers",
+			"riders": "Riders",
+			"header": "Accounting"
+		},
+		"riders": "Riders",
+		"requests": "Requests",
+		"sos": "SOS",
 		"complaints": "Complaints",
-		"infrastructure": {
-			"header": "Infrastructure"
-		},
-		"regions": "Regions",
-		"services": "Services",
-		"fleets": "Fleets",
 		"management": {
-			"header": "Management",
 			"regions": "Regions",
 			"services": "Services",
 			"serviceOptions": "Service Options",
 			"fleets": "Fleets",
 			"zonePrices": "Zone Prices",
-			"orderCancelReasons": "Delivery Cancellation Reasons",
+			"orderCancelReasons": "Cancel Reasons",
 			"reviewParameters": "Review Parameters",
 			"cars": "Cars",
 			"userRoles": "User Roles",
-			"users": "Users"
-		},
-		"payouts": "Payouts",
-		"giftCards": {
-			"header": "Gift Cards"
-		},
-		"rewards": {
-			"header": "Rewards"
-		},
-		"sos": "SOS"
-	},
-	"dashboard": {
-		"daily": {
-			"title": "Daily Orders",
-			"suffix": "Orders"
-		},
-		"monthly": {
-			"title": "Monthly Orders",
-			"suffix": "Orders"
-		},
-		"total": {
-			"title": "Total Orders",
-			"suffix": "Orders"
-		},
-		"availableDrivers": {
-			"title": "Available Drivers",
-			"suffix": "Drivers"
+			"users": "Users",
+			"paymentGateways": "Payment Gateways",
+			"settings": "Settings",
+			"header": "Management"
 		},
 		"drivers": {
-			"title": "Drivers",
-			"suffix": "Drivers"
+			"header": "Drivers",
+			"subtitle": "List of all drivers registered."
+		}
+	},
+	"overview": {
+		"switch": {
+			"language": "Switch Language",
+			"darkMode": "Toggle light/dark mode"
 		},
-		"riders": {
-			"title": "Riders",
-			"suffix": "Riders"
+		"notification": {
+			"title": "Notification Center"
 		},
-		"overview": {
-			"header": "Overview",
-			"orders": "Orders",
-			"drivers": "Drivers",
-			"reviews": "Reviews",
-			"riders": "Riders",
-			"fleets": "Fleets"
-		},
-		"tripDistribution": {
-			"header": "Trip Distribution"
-		},
-		"recentTrips": {
-			"header": "Recent Trips",
-			"orderId": "Order ID",
-			"rider": "Rider",
-			"driver": "Driver",
-			"cost": "Cost",
-			"createdAt": "Created At"
-		},
-		"topDrivers": {
-			"header": "Top Drivers",
-			"name": "Name",
-			"total": "Total",
-			"completed": "Completed"
-		},
-		"unreviewedComplaints": {
-			"title": "Unreviewed Complaints",
+		"logout": "Logout",
+		"driversOnline": "Online Drivers",
+		"autoZoom": "Auto Zoom",
+		"viewDriver": "View Driver",
+		"complaints": {
+			"title": "Complaints",
 			"suffix": "Unreviewed"
 		},
 		"activeOrders": {
-			"title": "Active Deliveries",
-			"suffix": "Deliveries"
+			"title": "Active Orders",
+			"suffix": "Orders"
 		},
 		"pendingDrivers": {
 			"title": "Pending Drivers",
 			"suffix": "Unverified"
 		},
 		"bookedOrders": {
-			"title": "Booked Deliveries",
+			"title": "Booked Orders",
 			"suffix": "Booked"
 		},
 		"chart": {
-			"requestsTitle": "Deliveries",
+			"requestsTitle": "Orders",
 			"revenue": "Revenue",
 			"newDriverRegisters": "New driver registrations",
 			"newRiderRegisters": "New rider registrations"
 		}
 	},
-	"profile": {
-		"editProfile": "Edit Profile",
-		"logout": "Logout",
-		"changePassword": "Change Password"
-	},
-	"titles": {
-		"regions": "Regions",
-		"drivers": "Drivers",
-		"riders": "Customers",
-		"operators": "Operators",
-		"users": "Users",
-		"carsManagement": "Cars Management",
-		"zonePrices": "Zone Prices",
-		"fleets": "Fleets",
-		"paymentGateways": "Payment Gateways",
-		"services": "Services"
-	},
-	"request": {
-		"statuses": {
-			"requested": "Requested",
-			"notFound": "Not Found",
-			"noCloseFound": "No Close Driver Found",
-			"found": "Found",
-			"driverAccepted": "Driver Accepted",
-			"arrived": "Arrived",
-			"waitingForPrePay": "Waiting for Pre Pay",
-			"started": "Started",
-			"canceled": "Canceled",
-			"waitingForPostPay": "Waiting for Post Pay",
-			"waitingForReview": "Waiting for review",
-			"finished": "Finished",
-			"booked": "Booked",
-			"Expired": "Expired"
+	"notification": {
+		"distressSignals": {
+			"suffix": "Pending Distress signals"
 		},
-		"expectedTimestamp": "Expected Time",
-		"starttimestamp": "Start Time",
+		"complaints": {
+			"suffix": "Complaints unreviewed"
+		},
+		"pendingDrivers": {
+			"suffix": "Drivers unverified"
+		}
+	},
+	"requests": {
+		"expectedTime": "Expected Time",
+		"startTime": "Start Time",
 		"finishTime": "Finish Time",
 		"costAfterCoupon": "Cost After Coupon",
 		"estimatedCost": "Estimated Cost",
-		"header": "Delivery Request #",
+		"header": "Request #",
 		"requestTIme": "Request Time",
 		"service": "Service",
 		"distance": "Distance",
 		"duration": "Duration",
-		"addresses": "Addresses",
-		"rider": "Rider",
-		"driver": "Driver",
+		"chats": "Chats",
+		"complaints": "Complaints",
+		"assign": "Assign Driver (Alpha)"
+	},
+	"profile": {
 		"status": "Status",
 		"locations": "Locations",
 		"view": "View",
-		"requestInfo": "Delivery Request Info",
+		"requestInfo": "Request Info",
 		"name": "Name",
 		"mobileNumber": "Mobile Number",
 		"registeredOn": "Registered On",
@@ -236,92 +214,99 @@
 		"riderInfo": "Rider Info",
 		"details": "Details",
 		"title": "Title",
-		"amount": "Amount",
-		"dueAt": "Due At",
-		"description": "Description",
-		"sentAt": "Sent At",
-		"subject": "Subject",
-		"isOpened": "Is Opened?",
 		"content": "Content",
-		"sent": "Sent",
-		"opened": "Opened",
-		"complaint": "Complaint",
-		"recordedAt": "Recorded At",
-		"activityType": "Activity Type",
-		"message": "Message",
-		"action": "Action",
-		"assignDriver": "Assign Driver",
-		"date": "Date",
-		"assign": "Assign"
-	},
-	"financials": {
-		"deductType": {
-			"commission": "Commission",
-			"withdraw": "Withdraw",
-			"correction": "Correction"
-		},
-		"rechargeType": {
-			"orderFee": "Order Fee",
-			"bankTransfer": "Bank Transfer",
-			"gift": "Gift",
-			"correction": "Correction"
-		},
-		"paymentAction": {
-			"recharge": "Recharge",
-			"deduct": "Deduct"
-		},
-		"gatewayTitle": "Gateway",
+		"firstName": "First Name",
+		"lastName": "Last Name",
+		"gender": "Gender",
+		"email": "E-Mail",
+		"fleet": "Fleet",
+		"carModel": "Car Model",
+		"carColor": "Car Color",
+		"carProductionYear": "Car Production Year",
+		"carPlateNumber": "Car Plate Number",
+		"accountNumber": "Account Number",
+		"bankName": "Bank Name",
+		"bankRoutingNumber": "Bank Routing Number",
+		"bankSwift": "Bank Swift",
+		"address": "Address",
+		"services": "Services",
+		"avatarImage": "Avatar Image",
+		"upload": "Upload",
+		"save": "Save",
+		"dateTime": "Date & Time",
+		"rating": "Rating",
+		"review": "Review",
+		"actions": "Actions",
 		"transactionType": "Transaction Type",
-		"currency": "Currency",
 		"amount": "Amount",
 		"documentNumber": "Document Number",
-		"accountNumber": "Account Number",
-		"status": "Status",
+		"submit": "Submit",
+		"insertTransaction": "Insert Transaction",
+		"cost": "Cost",
+		"goToList": "Go To List",
+		"add": "Add",
+		"search": "Search",
+		"reset": "Reset",
+		"export": "Export",
+		"total": "Total",
+		"currency": "Currency",
+		"next": "Next",
+		"select": "Select",
+		"delete": "Delete",
+		"phoneNumber": "Phone Number",
+		"userName": "User Name",
+		"commissionPercentage": "Commission Percentage",
+		"commissionFlat": "Commission Flat",
+		"bankAccountInfo": "Bank Account Info",
+		"warning": "Warning",
+		"clearMap": "Clear Map",
+		"financialRecords": "Financial Records",
+		"userType": "User type",
+		"disabled": "Disabled",
+		"visibilityStatus": "Visibility Status",
+		"saveChanges": "Save changes",
+		"enabled": "Enabled",
+		"deleteNotice": "Are you sure you want to delete this data? This action is irreversible",
+		"dangerArea": "Dangerous Area",
+		"code": "Code",
+		"beneficiary": "Beneficiary",
+		"availabilityTime": "Availability Time",
+		"appType": "App Type",
+		"creditGift": "Credit Gift",
+		"tripFeePercentGift": "Trip Fee Percent Gift",
+		"creditCurrency": "Credit Currency",
+		"conditionTripCountsLessThan": "Trip counts less than",
+		"conditionUserNumberFirstDigits": "Beneficiary mobile numbers first digits (list, comma separated)",
+		"description": "Description",
 		"createdAt": "Created At",
-		"paidAt": "Paid At",
-		"admin": "Admin",
+		"totalAmount": "Total amount",
 		"driver": "Driver",
-		"rider": "Customer",
-		"wallet": "Wallet",
-		"giftCard": "Gift Card",
-		"action": "Action",
+		"transactionNumber": "Transaction Number",
 		"subject": "Subject",
 		"type": "Type",
 		"paymentGateway": "Payment Gateway",
+		"rider": "Rider",
+		"admin": "Admin",
 		"coupon": "Coupon",
 		"activities": "Activities Timeline",
-		"details": "Details",
-		"userName": "Username",
-		"operator": "Operator",
-		"payment": "Payment",
-		"orderNumber": "Order Number",
-		"ride": "Ride",
-		"bankName": "Bank Name",
-		"bankSwift": "Bank Swift",
-		"bankRoutingNumber": "Bank Routing Number"
+		"location": "Location",
+		"submittedBy": "Submitted By"
+	},
+	"complaint": {
+		"inscriptionTime": "Inscription Time",
+		"content": "Content"
 	},
 	"driver": {
-		"status": "Status",
-		"firstName": "First Name",
-		"lastName": "Last Name",
-		"carPlate": "Car Plate",
-		"carColor": "Car Color",
-		"car": "Car",
-		"mobileNumber": "Mobile Number",
-		"email": "Email",
-		"certificateNumber": "Certificate Number",
-		"bankName": "Bank Name",
-		"accountNumber": "Account Number",
-		"address": "Address",
-		"gender": "Gender",
-		"birthTimestamp": "Birth Date",
-		"lastSeenAt": "Last Seen At",
-		"rating": "Rating",
-		"details": "Details",
-		"orders": "Deliveries",
-		"financials": "Credit Records",
-		"reviews": "Reviews",
-		"documents": "Documents"
+		"profile": {
+			"changeStatus": "Update Status",
+			"lastSeenAt": "Last Seen At",
+			"rating": "Rating",
+			"details": "Details",
+			"orders": "Orders",
+			"financials": "Credit Records",
+			"reviews": "Reviews",
+			"documents": "Documents"
+		}
 	},
 	"table": {
 		"viewRequest": "View Request",
@@ -331,36 +316,25 @@
 		"max": "Max",
 		"viewDriver": "View Driver",
 		"viewFleet": "View Fleet",
-		"viewRider": "View Customer",
+		"viewRider": "View Rider",
 		"viewComplaint": "View Complaint"
 	},
 	"drivers": {
-		"status": {
-			"online": "Online",
-			"offline": "Offline",
-			"inService": "In Service",
-			"blocked": "Blocked",
-			"pendingApproval": "Pending Approval",
-			"waitingDocuments": "Waiting Documents",
-			"softReject": "Soft Reject",
-			"hardReject": "Hard Reject"
-		}
+		"notFoundMessage": "Driver Not Found!"
 	},
 	"dispatcher": {
 		"removeLastPoint": "Remove Last Point",
 		"rider": {
-			"title": "Customer",
-			"description": "Select customer to assign delivery request"
+			"title": "Rider",
+			"description": "Select rider to assign request"
 		},
 		"location": {
 			"title": "Location",
-			"description": "Select pickup/dropoff points",
-			"pickupTitle": "Pickup location",
-			"dropoffTitle": "Drop Off location"
+			"description": "Pickup & Drop-off location(s)"
 		},
 		"service": {
 			"title": "Service",
-			"description": "Select desired service"
+			"description": "Service to be requested"
 		},
 		"looking": {
 			"title": "Looking",
@@ -368,146 +342,126 @@
 		},
 		"determiningLocation": "Determining Location, Please wait..."
 	},
+	"chart": {
+		"emptyState": "Nothing to see here."
+	},
 	"message": {
-		"cancelSuccess": "Order Has been canceled.",
-		"createSuccess": "Created Successfully.",
-		"updateSuccess": "Updated Successfully.",
-		"deleteSuccess": "Deleted Successfully.",
-		"enableSuccess": "Enabled Successfully.",
-		"disableSuccess": "Disabled Successfully.",
-		"assignSuccess": "Assigned Successfully.",
-		"notFound": "Record not found!",
-		"logoutConfirmation": {
-			"content": "Are you sure you want to logout?",
-			"okText": "Logout",
-			"title": "Logout"
+		"areYouSure": "Are you sure?",
+		"deleteDriverConfirmation": {
+			"title": "Are you sure you want to delete the driver?",
+			"content": "Deleting driver information will hide the driver from the list of drivers and the profile won't be accessible anymore."
 		},
+		"deleteDriverCofirmAlert": "Driver has been deleted",
+		"driverAssignedSuccessfully": "Driver is assigned successfully",
 		"deleteConfirmation": {
-			"content": "Are you sure about deleting this record?",
-			"okText": "Delete",
 			"title": "Are you sure you want to delete?"
 		},
 		"deleteRiderConfirmation": {
-			"content": "Deleting customer information will hide the customer from the list of customers and the profile won't be accessible anymore."
+			"content": "Deleting rider information will hide the rider from the list of riders and the profile won't be accessible anymore."
 		},
-		"deleteRiderCofirmAlert": "Customer Has been deleted."
+		"deleteRiderCofirmAlert": "Rider Has been deleted."
 	},
 	"error": {
 		"nameInvalid": "Name is not valid",
-		"emailInvalid": "Email is not valid",
-		"mobileInvalid": "Mobile Number is invalid",
-		"minimumLength": "Minimum length is {{length}}",
-		"maximumLength": "Maximum length is {{length}}",
-		"required": "This field is required",
-		"internal": "Internal server error",
-		"unknown": "Unknown error",
-		"onlyDigits": "Only digits allowed"
+		"titleInvalid": "Title is not valid",
+		"PERMISSION_NOT_GRANTED": "Permission not granted"
+	},
+	"fleet": {
+		"exclusitivityAreaTitle": "Exclusitivity Area",
+		"exclusitivityAreaWarning": "Exercise caution when utilizing this feature. Once you designate an exclusivity area to a fleet, all ride requests originating within that region will be directed solely to drivers belonging to that specific fleet. Drivers who are not affiliated with the fleet will not receive these requests."
 	},
 	"cancelReasons": {
 		"title": "Cancel Reasons",
-		"subtitle": "Reasons for cancellation that users will encounter and can choose from when canceling a delivery."
+		"subtitle": "Reasons for cancellation that users will encounter and can choose from when canceling a ride."
 	},
 	"cancelReason": {
 		"title": "Cancel Reason",
-		"subtitle": "Reason for cancellation that users will encounter and can choose from when canceling a delivery"
+		"subtitle": "Reason for cancellation that users will encounter and can choose from when canceling a ride"
 	},
 	"reviewParameters": {
 		"title": "Review Parameters",
-		"subtitle": "Define parameters that riders will use to review drivers and their services."
-	},
-	"reviewParameter": {
-		"title": "Review Parameter",
-		"subtitle": "Define parameters that riders will use to review drivers and their services"
-	},
-	"regions": {
-		"title": "Regions",
-		"subtitle": "Define operating regions. Riders can only order services defined within their region"
-	},
-	"region": {
-		"title": "Region",
-		"subtitle": "Define an operating region. Riders can only order services defined within their region"
-	},
-	"management": {
-		"settings": {
-			"title": "Settings",
-			"subtitle": "Configure various backend parameters"
-		}
-	},
-	"service": {
-		"form": {
-			"basicInfo": "Basic Info",
-			"media": "Media",
-			"pricing": "Pricing",
-			"paymentMethod": "Payment Method",
-			"distanceFee": "Distance Fee",
-			"baseFare": "Base Fare",
-			"perMinute": "Per Minute",
-			"perHundredMeters": "Per 100 Meters",
-			"range": "Range",
-			"fee": "Fee",
-			"cancelationFee": "Cancelation Fee"
-		}
+		"subtitle": "The parameters available for riders to assess their service quality on the rating page after the completion of the trip."
 	},
 	"services": {
-		"title": "Services",
-		"subtitle": "Define services available for riders to order"
+		"editCategory": "Edit Category",
+		"newCategory": "New Category",
+		"newService": "New Service"
 	},
-	"serviceOption": {
-		"type": {
-			"Checkbox": "Checkbox",
-			"Number": "Number",
-			"Dropdown": "Dropdown",
-			"TwoStep": "Two Step"
+	"service": {
+		"createFirstNotice": "Create your first service category to be displayed in client applications",
+		"Regions": "Regions",
+		"timeMultiplierTable": {
+			"startTime": "Start Time",
+			"endTime": "End Time",
+			"multiplyBy": "Multiply By"
+		},
+		"insertRule": "Insert Rule",
+		"distanceMultiplierTable": {
+			"distanceFrom": "Distance From",
+			"distanceTo": "Distance To"
+		},
+		"weekdayMultiplierTable": {
+			"weekday": "Weekday"
+		},
+		"dateRangeMultiplierTable": {
+			"dateRange": "Date Range"
 		}
 	},
-	"fleets": {
-		"title": "Fleets",
-		"subtitle": "Define fleets to categorize drivers and centralize payouts"
+	"settings": {
+		"generalSettings": "General Settings"
 	},
-	"fleet": {
-		"title": "Fleet",
-		"subtitle": "Define a fleet to categorize drivers and centralize payouts",
-		"commission": "Commission"
+	"users": {
+		"tab": {
+			"details": "Details"
+		},
+		"noRole": "No Role assigned"
+	},
+	"zonePrice": {
+		"pickupAreas": "Pickup area(s)",
+		"destinationAres": "Destination area(s)"
 	},
 	"zonePrices": {
 		"title": "Zone prices",
-		"subtitle": "Define specific regions that override the default price and have an specific price for customer's delivery"
+		"subtitle": "Define specific regions that override the default price and have an specific price for customer's ride"
 	},
 	"coupons": {
 		"availabilityTime": "Availability Time",
-		"description": "Create coupons to be used by customers to get discounts on their deliveries",
+		"description": "Create coupons to be used by riders to get discounts on their rides",
 		"expirationTime": "Expiration Time"
 	},
 	"riders": {
-		"notFoundMessage": "Customer Not Found!",
+		"notFoundMessage": "Rider Not Found!",
 		"tab": {
 			"details": "Details",
 			"creditrecords": "Credit Records",
-			"orders": "Deliveries",
+			"orders": "Orders",
 			"addresses": "Addresses"
 		}
 	},
 	"weekday": {
-		"Sunday": "Sunday",
-		"Monday": "Monday",
-		"Tuesday": "Tuesday",
-		"Wednesday": "Wednesday",
-		"Thursday": "Thursday",
-		"Friday": "Friday",
-		"Saturday": "Saturday"
+		"monday": "Monday",
+		"tuesday": "Tuesday",
+		"wednesday": "Wednesday",
+		"thursday": "Thursday",
+		"friday": "Friday",
+		"saturday": "Saturday",
+		"sunday": "Sunday"
 	},
-	"months": {
-		"jan": "Jan",
-		"feb": "Feb",
-		"mar": "Mar",
-		"apr": "Apr",
-		"may": "May",
-		"jun": "Jun",
-		"jul": "Jul",
-		"aug": "Aug",
-		"sep": "Sep",
-		"oct": "Oct",
-		"nov": "Nov",
-		"dec": "Dec"
-	}
+	"requestActivityType": {
+		"arrivedToDestination": "Arrived To Destination",
+		"arrivedToPickupPoint": "Arrived To Pickup Point",
+		"bookedByOperator": "Book By Operator",
+		"bookedByRider": "Bookd By Rider",
+		"canceledByDriver": "Canceled By Driver",
+		"canceledByOperator": "Canceled By Operator",
+		"canceledByRider": "Canceled By Rider",
+		"driverAccepted": "Driver Accepted",
+		"expired": "Expired",
+		"paid": "Paid",
+		"requestedByOperator": "Requested By Operator",
+		"requestedByRider": "Requested By Rider",
+		"reviewed": "Reviewed & Rated",
+		"started": "Started"
+	},
+	"done": "Done"
 }

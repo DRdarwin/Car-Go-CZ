@@ -1,4 +1,3 @@
-// libs/database/src/lib/entities/service.entity.ts
 import {
   Column,
   DeleteDateColumn,
@@ -30,7 +29,6 @@ import { WeekdayMultiplierTransformer } from '../transformers/weekday-multiplier
 import { WeekdayMultiplier } from '../interfaces/weekday-multiplier.dto';
 import { DateRangeMultiplierTransformer } from '../transformers/date-range-multiplier.transformer';
 import { DateRangeMultiplier } from '../interfaces/date-range-multiplier.dto';
-import { VehicleTariffs } from '../interfaces/vehicle-type.enum'; // NEW: Import tariff interface
 
 @Entity('service')
 export class ServiceEntity {
@@ -52,33 +50,47 @@ export class ServiceEntity {
   description?: string;
 
   @Column('smallint', { nullable: true })
-  personCapacity?: number; // REMOVED: Typically not applicable for cargo? Or maybe keep for specific types? Keeping for now.
-
-  // REMOVED: Old single tariff fields
-  // @Column('float', { ... })
-  // baseFare!: number;
-  // @Column('float', { ... })
-  // perHundredMeters!: number;
-  // @Column('float', { ... })
-  // perMinuteDrive!: number;
-  // @Column('float', { ... })
-  // minimumFee!: number;
-
-  // NEW: Field to store tariffs per vehicle type
-  @Column('jsonb', { nullable: true })
-  vehicleTariffs?: VehicleTariffs; // Stores { "pickup": { "baseFare": 10, ... }, "van": { ... } }
+  personCapacity?: number;
 
   @Column('float', {
     default: '0.00',
     precision: 12,
     scale: 2,
   })
-  perMinuteWait!: number; // Keep wait time as it might be general
+  baseFare!: number;
+
+  @Column('float', {
+    default: '0.00',
+    precision: 12,
+    scale: 2,
+  })
+  perHundredMeters!: number;
+
+  @Column('float', {
+    default: '0.00',
+    precision: 12,
+    scale: 2,
+  })
+  perMinuteDrive!: number;
+
+  @Column('float', {
+    default: '0.00',
+    precision: 12,
+    scale: 2,
+  })
+  perMinuteWait!: number;
+
+  @Column('float', {
+    default: '0.00',
+    precision: 10,
+    scale: 2,
+  })
+  minimumFee!: number;
 
   @Column('int', {
     default: 10000,
   })
-  searchRadius!: number; // TODO: Might need adjustment per vehicle type later
+  searchRadius!: number;
 
   @Column({
     type: 'enum',
@@ -104,10 +116,10 @@ export class ServiceEntity {
   availableTimeTo!: string;
 
   @Column('int', { default: 0, name: 'maxDestinationDistance' })
-  maximumDestinationDistance!: number; // TODO: Might need adjustment per vehicle type later
+  maximumDestinationDistance!: number;
 
   @Column('tinyint', { default: 0 })
-  prepayPercent!: number; // TODO: Might need adjustment per vehicle type later
+  prepayPercent!: number;
 
   @Column({ default: false })
   twoWayAvailable!: boolean;
@@ -117,24 +129,24 @@ export class ServiceEntity {
     precision: 10,
     scale: 2,
   })
-  cancellationTotalFee!: number; // TODO: Might need adjustment per vehicle type later
+  cancellationTotalFee!: number;
 
   @Column('float', {
     default: '0.00',
     precision: 10,
     scale: 2,
   })
-  cancellationDriverShare!: number; // TODO: Might need adjustment per vehicle type later
+  cancellationDriverShare!: number;
 
   @Column('tinyint', { default: 0 })
-  providerSharePercent!: number; // TODO: Might need adjustment per vehicle type later
+  providerSharePercent!: number;
 
   @Column('float', {
     default: '0.00',
     precision: 10,
     scale: 2,
   })
-  providerShareFlat!: number; // TODO: Might need adjustment per vehicle type later
+  providerShareFlat!: number;
 
   @Column('float', {
     nullable: true,
@@ -145,7 +157,7 @@ export class ServiceEntity {
 
   @OneToOne(() => MediaEntity, (media) => media.service)
   @JoinColumn()
-  media!: MediaEntity; // TODO: Change icon based on vehicleType? Frontend logic.
+  media!: MediaEntity;
 
   @Column()
   mediaId!: number;
@@ -154,31 +166,31 @@ export class ServiceEntity {
     nullable: true,
     transformer: new TimeMultiplierTransformer(),
   })
-  timeMultipliers!: TimeMultiplier[]; // TODO: Might need adjustment per vehicle type later
+  timeMultipliers!: TimeMultiplier[];
 
   @Column('simple-array', {
     nullable: true,
     transformer: new DistanceMultiplierTransformer(),
   })
-  distanceMultipliers!: DistanceMultiplier[]; // TODO: Might need adjustment per vehicle type later
+  distanceMultipliers!: DistanceMultiplier[];
 
   @Column('simple-array', {
     nullable: true,
     transformer: new DateRangeMultiplierTransformer(),
   })
-  dateRangeMultipliers!: DateRangeMultiplier[]; // TODO: Might need adjustment per vehicle type later
+  dateRangeMultipliers!: DateRangeMultiplier[];
 
   @Column('simple-array', {
     nullable: true,
     transformer: new WeekdayMultiplierTransformer(),
   })
-  weekdayMultipliers!: WeekdayMultiplier[]; // TODO: Might need adjustment per vehicle type later
+  weekdayMultipliers!: WeekdayMultiplier[];
 
   @DeleteDateColumn()
   deletedAt?: Date;
 
   @Column('float', { default: 1.0 })
-  touristMultiplier!: number; // TODO: Might need adjustment per vehicle type later
+  touristMultiplier!: number;
 
   @ManyToMany(() => DriverEntity, (driver) => driver.enabledServices)
   drivers!: DriverEntity[];
@@ -195,11 +207,11 @@ export class ServiceEntity {
 
   @ManyToMany(
     () => ServiceOptionEntity,
-    (serviceOption) => serviceOption.services,
+    (serviceOption) => serviceOption.services
   )
   @JoinTable()
   options!: ServiceOptionEntity[];
 
-  @ManyToMany(() => ZonePriceEntity, (zonePrice) => zonePrice.fleets) // TODO: Check relation name 'fleets'
+  @ManyToMany(() => ZonePriceEntity, (zonePrice) => zonePrice.fleets)
   zonePrices!: ZonePriceEntity;
 }
